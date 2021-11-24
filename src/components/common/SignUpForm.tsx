@@ -15,7 +15,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 
-const SignInForm = () => {
+const SignUpForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
@@ -35,7 +35,7 @@ const SignInForm = () => {
           pb={6}
         >
           <Typography variant="h5" fontWeight="bold">
-            Sign In
+            Sign Up
           </Typography>
 
           <Box maxWidth="70%">
@@ -103,10 +103,10 @@ const SignInForm = () => {
             Sign In
           </SignInButton>
           <Typography variant="body2">
-            {`Don't have an account? `}
-            <Link href="/onboarding/signup" passHref>
+            {`Already have an account? `}
+            <Link href="/onboarding/signin" passHref>
               <Typography fontWeight="bold" component="a">
-                Sign Up
+                Sign In
               </Typography>
             </Link>
           </Typography>
@@ -116,7 +116,7 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default SignUpForm;
 
 const ContinueWithButton = styled(Button)({
   marginBottom: 16,
