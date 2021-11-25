@@ -1,6 +1,6 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import React from "react";
-import placeholder from "public/placeholder.png";
+import OnboardingImage from "public/OnboardingImage.svg";
 import Image from "next/image";
 
 type Props = {
@@ -28,9 +28,9 @@ const LogoBrandingSection: React.FC<Props> = ({ description }) => {
         flexGrow={1}
       >
         <Image
-          src={placeholder.src}
-          height={placeholder.height}
-          width={placeholder.width}
+          src={OnboardingImage.src}
+          height={OnboardingImage.height}
+          width={OnboardingImage.width}
           alt="placeholder"
         />
       </Box>

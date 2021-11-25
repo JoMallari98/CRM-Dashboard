@@ -14,6 +14,7 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
+import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -23,96 +24,80 @@ const SignInForm = () => {
     </IconButton>
   );
   return (
-    <Box height="100%" display="flex" flexDirection="column">
-      <Paper sx={{ borderRadius: 4, m: 2, flexGrow: 1 }} elevation={0}>
-        <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="space-evenly"
-          height="100%"
-          pt={10}
-          pb={6}
+    <OnBoardingFormContainer>
+      <Typography variant="h5" fontWeight="bold">
+        Sign In
+      </Typography>
+
+      <Box maxWidth="70%">
+        <FormControl fullWidth sx={{ my: 2 }}>
+          <TextField variant="outlined" label="E-mail" size="small" />
+        </FormControl>
+        <FormControl fullWidth sx={{ my: 2 }}>
+          <TextField
+            variant="outlined"
+            label="Password"
+            size="small"
+            InputProps={{
+              endAdornment: PasswordButton,
+            }}
+          />
+          <Link href="/forgot-password" passHref>
+            <Typography
+              ml={2}
+              mt={1}
+              component="a"
+              fontWeight="bold"
+              variant="body2"
+              color="textSecondary"
+            >
+              Forgot Password?
+            </Typography>
+          </Link>
+        </FormControl>
+      </Box>
+      <Typography variant="body2"> or </Typography>
+      <Box
+        width="70%"
+        display="flex"
+        flexDirection="column"
+        alignItems="stretch"
+      >
+        <ContinueWithButton
+          variant="contained"
+          color="secondary"
+          startIcon={<LinkedInIcon />}
         >
-          <Typography variant="h5" fontWeight="bold">
-            Sign In
-          </Typography>
+          Continue with LinkedIn
+        </ContinueWithButton>
+        <ContinueWithButton
+          variant="contained"
+          color="secondary"
+          startIcon={<FacebookIcon />}
+        >
+          Continue with Facebook
+        </ContinueWithButton>
+        <ContinueWithButton
+          variant="contained"
+          color="secondary"
+          startIcon={<GoogleIcon />}
+        >
+          Continue with Google
+        </ContinueWithButton>
+      </Box>
 
-          <Box maxWidth="70%">
-            <FormControl fullWidth sx={{ my: 2 }}>
-              <TextField variant="outlined" label="E-mail" size="small" />
-            </FormControl>
-            <FormControl fullWidth sx={{ my: 2 }}>
-              <TextField
-                variant="outlined"
-                label="Password"
-                size="small"
-                InputProps={{
-                  endAdornment: PasswordButton,
-                }}
-              />
-              <Link href="/forgot-password" passHref>
-                <Typography
-                  ml={2}
-                  mt={1}
-                  component="a"
-                  fontWeight="bold"
-                  variant="body2"
-                  color="textSecondary"
-                >
-                  Forgot Password?
-                </Typography>
-              </Link>
-            </FormControl>
-          </Box>
-          <Typography variant="body2"> or </Typography>
-          <Box
-            width="70%"
-            display="flex"
-            flexDirection="column"
-            alignItems="stretch"
-          >
-            <ContinueWithButton
-              variant="contained"
-              color="secondary"
-              startIcon={<LinkedInIcon />}
-            >
-              Continue with LinkedIn
-            </ContinueWithButton>
-            <ContinueWithButton
-              variant="contained"
-              color="secondary"
-              startIcon={<FacebookIcon />}
-            >
-              Continue with Facebook
-            </ContinueWithButton>
-            <ContinueWithButton
-              variant="contained"
-              color="secondary"
-              startIcon={<GoogleIcon />}
-            >
-              Continue with Google
-            </ContinueWithButton>
-          </Box>
-
-          <SignInButton
-            variant="contained"
-            color="primary"
-            sx={{ px: 8, py: 1 }}
-          >
-            Sign In
-          </SignInButton>
-          <Typography variant="body2">
-            {`Don't have an account? `}
-            <Link href="/onboarding/signup" passHref>
-              <Typography fontWeight="bold" component="a">
-                Sign Up
-              </Typography>
-            </Link>
+      <SignInButton variant="contained" color="primary" sx={{ px: 8, py: 1 }}>
+        Sign In
+      </SignInButton>
+      <Typography variant="body2">
+        {`Don't have an account? `}
+        <Link href="/onboarding/signup" passHref>
+          <Typography fontWeight="bold" component="a">
+            Sign Up
           </Typography>
-        </Box>
-      </Paper>
-    </Box>
+        </Link>
+      </Typography>
+    </OnBoardingFormContainer>
   );
 };
 
