@@ -63,6 +63,7 @@ const VerificationForm = () => {
             fontWeight="bold"
             onClick={handleClick}
             underline="hover"
+            color="#000"
             href="#"
           >
             {`Resend code`}
@@ -75,7 +76,7 @@ const VerificationForm = () => {
           color="primary"
           onClick={handleSubmit}
         >
-          Continue
+          Confirm
         </ContinueButton>
       </FormSection>
       <Snackbar

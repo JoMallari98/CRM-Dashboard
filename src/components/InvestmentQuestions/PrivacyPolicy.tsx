@@ -22,14 +22,15 @@ const PrivacyPolicy = () => {
     <Box mb={10} pt={10}>
       <Question
         prevText="No, I Disagree"
-        nextText="Yes, I Agree, Create my Profile"
+        nextText="Yes, I Agree"
         isEndQuestion={true}
+        isStartQuestion={true}
         onNext={onAgree}
         sx={{ p: 2 }}
       >
         <Box display="flex" flexDirection="column">
-          <Typography variant="h6" fontSize={18} mb={2} align="center">
-            Privacy Policy
+          <Typography variant="h6" fontSize={22} mb={2} align="center">
+            Electronic Delivery Agreement
           </Typography>
           <Container maxWidth="sm">
             <Typography mb={2}>

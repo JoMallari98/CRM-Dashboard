@@ -60,7 +60,7 @@ const InvestmentStyle = () => {
       <Question>
         <Box display="flex" flexDirection="column">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
-            How would you describe your investment style??
+            How would you describe your investment style?
           </Typography>
           <Box
             display="flex"
@@ -85,7 +85,7 @@ const InvestmentStyle = () => {
       </Question>
 
       <Typography align="center" variant="body2" color="textSecondary" mt={11}>
-        Question {currentQuestion + 1} out of 3
+        Question {currentQuestion + 1} of 3
       </Typography>
     </Box>
   );

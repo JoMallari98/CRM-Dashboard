@@ -58,7 +58,11 @@ const InvestmentExperience = () => {
           to complete your profile
         </Typography>
       </Box>
-      <Question onPrev={navigateToSignUp} prevText={"Back to Sign Up"}>
+      <Question
+        onPrev={navigateToSignUp}
+        prevText={"Back to Sign Up"}
+        isStartQuestion={true}
+      >
         <Box display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             How would you rate your investment experience?
@@ -92,7 +96,7 @@ const InvestmentExperience = () => {
         mt={11}
         mb={5}
       >
-        Question {currentQuestion + 1} out of 3
+        Question {currentQuestion + 1} of 3
       </Typography>
       {}
     </Box>

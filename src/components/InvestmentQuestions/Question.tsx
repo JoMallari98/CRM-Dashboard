@@ -18,6 +18,7 @@ type Props = {
   onPrev?(): void;
   onNext?(): void;
   isEndQuestion?: boolean;
+  isStartQuestion?: boolean;
   sx?: SxProps;
 };
 
@@ -30,6 +31,7 @@ const Question: React.FC<Props> = (props) => {
     onPrev = goPrevQuestion,
     onNext = goNextQuestion,
     isEndQuestion = false,
+    isStartQuestion = false,
     sx = null,
   } = props;
 
@@ -45,8 +47,8 @@ const Question: React.FC<Props> = (props) => {
       >
         <Hidden mdDown>
           <PrevButton
-            variant="text"
-            color="primary"
+            variant={isStartQuestion ? "text" : "contained"}
+            color="secondary"
             onClick={onPrev}
             startIcon={<ArrowBackIos />}
           >
@@ -62,7 +64,7 @@ const Question: React.FC<Props> = (props) => {
         <Hidden mdDown>
           <NextButton
             variant={isEndQuestion ? "text" : "contained"}
-            color="primary"
+            color="secondary"
             endIcon={<ArrowForwardIos />}
             onClick={onNext}
           >
@@ -83,7 +85,7 @@ const Question: React.FC<Props> = (props) => {
 
           <Button
             variant={isEndQuestion ? "text" : "contained"}
-            color="primary"
+            color="secondary"
             endIcon={<ArrowForwardIos />}
             onClick={onNext}
           >
@@ -115,9 +117,11 @@ const NavigationButton = styled(Button)({
 const PrevButton = styled(NavigationButton)({
   borderTopRightRadius: 16,
   borderBottomRightRadius: 16,
+  color: "#4D4D4D",
 });
 
 const NextButton = styled(NavigationButton)({
   borderBottomLeftRadius: 16,
   borderTopLeftRadius: 16,
+  color: "#4D4D4D",
 });

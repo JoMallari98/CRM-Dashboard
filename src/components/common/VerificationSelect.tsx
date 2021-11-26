@@ -43,6 +43,9 @@ const VerificationSelect = () => {
         <Typography variant="body2" align="center">
           For your protection we need to confirm your identity
         </Typography>
+        <Typography variant="body2" align="center">
+          Choose one of the following methods.
+        </Typography>
         <Box mt={18.5}>
           <SendButton variant="text" onClick={handleEmail}>
             Send me a code by e-mail
@@ -62,6 +65,7 @@ const VerificationSelect = () => {
 export default VerificationSelect;
 
 const SendButton = styled(Button)({
+  color: "#000",
   background: "#fff",
   width: "100%",
   height: 101,

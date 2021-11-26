@@ -81,7 +81,7 @@ const InvestmentGoal = () => {
       </Question>
 
       <Typography align="center" variant="body2" color="textSecondary" mt={11}>
-        Question {currentQuestion + 1} out of 3
+        Question {currentQuestion + 1} of 3
       </Typography>
     </Box>
   );

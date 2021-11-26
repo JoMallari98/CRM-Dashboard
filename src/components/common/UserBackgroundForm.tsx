@@ -54,7 +54,11 @@ const UserBackgroundForm = () => {
             >
               Yes, this is me
             </ConfirmationButton>
-            <ConfirmationButton variant="outlined" onClick={handleReject}>
+            <ConfirmationButton
+              variant="contained"
+              color="secondary"
+              onClick={handleReject}
+            >
               No this is not me
             </ConfirmationButton>
           </FormSection>
@@ -64,7 +68,7 @@ const UserBackgroundForm = () => {
         <React.Fragment>
           <FormSection alignItems="stretch" maxWidth={400} mb={8}>
             <Typography variant="h5" mb={6} fontWeight="bold">
-              Oh, we are so sorry!
+              Oh, sorry!
             </Typography>
             <Typography variant="body2" align="center">
               Something went wrong, we appologize and will check our
@@ -80,7 +84,11 @@ const UserBackgroundForm = () => {
             >
               Continue the registration
             </ConfirmationButton>
-            <ConfirmationButton variant="outlined" onClick={goBackToMainPage}>
+            <ConfirmationButton
+              variant="contained"
+              color="secondary"
+              onClick={goBackToMainPage}
+            >
               Go Back on Main Page
             </ConfirmationButton>
           </FormSection>
