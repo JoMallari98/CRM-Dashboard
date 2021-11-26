@@ -28,7 +28,7 @@ const SignUpForm = () => {
         Sign Up
       </Typography>
 
-      <Box maxWidth="70%">
+      <StyledBox>
         <FormControl fullWidth sx={{ my: 2 }}>
           <TextField variant="outlined" label="E-mail" size="small" />
         </FormControl>
@@ -54,14 +54,12 @@ const SignUpForm = () => {
             </Typography>
           </Link>
         </FormControl>
-      </Box>
-      <Typography variant="body2"> or </Typography>
-      <Box
-        width="70%"
-        display="flex"
-        flexDirection="column"
-        alignItems="stretch"
-      >
+      </StyledBox>
+      <Typography variant="body2" my={2}>
+        {" "}
+        or{" "}
+      </Typography>
+      <StyledBox display="flex" flexDirection="column" alignItems="stretch">
         <ContinueWithButton
           variant="contained"
           color="secondary"
@@ -83,9 +81,13 @@ const SignUpForm = () => {
         >
           Continue with Google
         </ContinueWithButton>
-      </Box>
+      </StyledBox>
 
-      <SignInButton variant="contained" color="primary" sx={{ px: 8, py: 1 }}>
+      <SignInButton
+        variant="contained"
+        color="primary"
+        sx={{ px: 8, py: 1, my: 2 }}
+      >
         Sign Up
       </SignInButton>
       <Typography variant="body2">
@@ -102,17 +104,27 @@ const SignUpForm = () => {
 
 export default SignUpForm;
 
-const ContinueWithButton = styled(Button)({
+const ContinueWithButton = styled(Button)(({ theme }) => ({
   marginBottom: 16,
   borderRadius: 8,
-  paddingTop: 8,
-  paddingBottom: 8,
+
   justifyContent: "flex-start",
-  paddingLeft: 80,
+  [theme.breakpoints.up("sm")]: {
+    paddingLeft: 80,
+    paddingTop: 8,
+    paddingBottom: 8,
+  },
   textTransform: "capitalize",
   boxShadow: "unset",
-});
+}));
 
 const SignInButton = styled(Button)({
   textTransform: "capitalize",
 });
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  width: "90%",
+  [theme.breakpoints.up("sm")]: {
+    width: "70%",
+  },
+}));

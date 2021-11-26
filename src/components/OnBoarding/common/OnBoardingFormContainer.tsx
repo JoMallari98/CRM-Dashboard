@@ -7,7 +7,7 @@ const OnBoardingFormContainer: React.FC<BoxProps> = ({
 }) => {
   return (
     <Box height="100%" display="flex" flexDirection="column">
-      <Paper sx={{ borderRadius: 4, m: 2, flexGrow: 1 }} elevation={0}>
+      <StyledPaper elevation={0}>
         <Box
           display="flex"
           flexDirection="column"
@@ -20,9 +20,18 @@ const OnBoardingFormContainer: React.FC<BoxProps> = ({
         >
           {children}
         </Box>
-      </Paper>
+      </StyledPaper>
     </Box>
   );
 };
 
 export default OnBoardingFormContainer;
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  borderRadius: 16,
+  flexGrow: 1,
+  margin: "16px",
+  [theme.breakpoints.down("sm")]: {
+    margin: 0,
+  },
+}));

@@ -7,6 +7,8 @@ import {
   FormControl,
   Button,
   IconButton,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React, { useState } from "react";
@@ -15,9 +17,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
+import { FormSection } from "../OnBoarding/common/FormSection";
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
       {showPassword ? <Visibility /> : <VisibilityOff />}
@@ -29,7 +34,7 @@ const SignInForm = () => {
         Sign In
       </Typography>
 
-      <Box maxWidth="70%">
+      <StyledBox>
         <FormControl fullWidth sx={{ my: 2 }}>
           <TextField variant="outlined" label="E-mail" size="small" />
         </FormControl>
@@ -55,14 +60,12 @@ const SignInForm = () => {
             </Typography>
           </Link>
         </FormControl>
-      </Box>
-      <Typography variant="body2"> or </Typography>
-      <Box
-        width="70%"
-        display="flex"
-        flexDirection="column"
-        alignItems="stretch"
-      >
+      </StyledBox>
+      <Typography variant="body2" sx={{ my: 3 }}>
+        {" "}
+        or{" "}
+      </Typography>
+      <StyledBox display="flex" flexDirection="column" alignItems="stretch">
         <ContinueWithButton
           variant="contained"
           color="secondary"
@@ -84,9 +87,13 @@ const SignInForm = () => {
         >
           Continue with Google
         </ContinueWithButton>
-      </Box>
+      </StyledBox>
 
-      <SignInButton variant="contained" color="primary" sx={{ px: 8, py: 1 }}>
+      <SignInButton
+        variant="contained"
+        color="primary"
+        sx={{ px: 8, py: 1, my: 2 }}
+      >
         Sign In
       </SignInButton>
       <Typography variant="body2">
@@ -103,17 +110,26 @@ const SignInForm = () => {
 
 export default SignInForm;
 
-const ContinueWithButton = styled(Button)({
+const ContinueWithButton = styled(Button)(({ theme }) => ({
   marginBottom: 16,
   borderRadius: 8,
   paddingTop: 8,
   paddingBottom: 8,
   justifyContent: "flex-start",
-  paddingLeft: 80,
+  [theme.breakpoints.up("sm")]: {
+    paddingLeft: 80,
+  },
   textTransform: "capitalize",
   boxShadow: "unset",
-});
+}));
 
 const SignInButton = styled(Button)({
   textTransform: "capitalize",
 });
+
+const StyledBox = styled(Box)(({ theme }) => ({
+  width: "90%",
+  [theme.breakpoints.up("sm")]: {
+    width: "70%",
+  },
+}));
