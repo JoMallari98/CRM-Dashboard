@@ -6,6 +6,7 @@ import { useOnboarding } from "src/context/userOnBoardingContext";
 import CustomNumberInput from "../OnBoarding/common/CustomNumberInput";
 import { FormSection } from "../OnBoarding/common/FormSection";
 import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
+import SixDigitVerification from "../OnBoarding/common/SixDigitVerification";
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();
@@ -51,12 +52,7 @@ const VerificationForm = () => {
           Enter your verification code
         </Typography>
         <Box mt={18.5} mb={7} display="flex" justifyContent="center">
-          <CustomNumberInput />
-          <CustomNumberInput />
-          <CustomNumberInput />
-          <CustomNumberInput />
-          <CustomNumberInput />
-          <CustomNumberInput />
+          <SixDigitVerification />
         </Box>
 
         <Typography variant="body2" component="span">
