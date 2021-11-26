@@ -1,5 +1,5 @@
-import { ArrowBack } from "@mui/icons-material";
-import { Button, IconButton, Typography } from "@mui/material";
+import { ArrowBack, Close } from "@mui/icons-material";
+import { Button, IconButton, Link, Snackbar, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
@@ -9,10 +9,25 @@ import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContaine
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();
-
+  const [open, setOpen] = React.useState(false);
   const handleSubmit = () => {
     goNextStep();
   };
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleClose = (
+    event: React.SyntheticEvent | React.MouseEvent,
+    reason?: string
+  ) => {
+    if (reason === "clickaway") {
+      return;
+    }
+
+    setOpen(false);
+  };
+
   return (
     <OnBoardingFormContainer
       pt={0}
@@ -44,11 +59,18 @@ const VerificationForm = () => {
           <CustomNumberInput />
         </Box>
 
-        <Typography variant="body2">
-          Did not recieve a code?
-          <Typography component="a" variant="body2" fontWeight="bold">
-            {` Resend code`}
-          </Typography>
+        <Typography variant="body2" component="span">
+          Did not recieve a code?{" "}
+          <Link
+            component="a"
+            variant="body2"
+            fontWeight="bold"
+            onClick={handleClick}
+            underline="hover"
+            href="#"
+          >
+            {`Resend code`}
+          </Link>
         </Typography>
       </FormSection>
       <FormSection>
@@ -60,6 +82,23 @@ const VerificationForm = () => {
           Continue
         </ContinueButton>
       </FormSection>
+      <Snackbar
+        open={open}
+        autoHideDuration={2000}
+        onClose={handleClose}
+        message="Another code has been sent"
+        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
+        action={
+          <IconButton
+            size="small"
+            aria-label="close"
+            color="inherit"
+            onClick={handleClose}
+          >
+            <Close fontSize="small" />
+          </IconButton>
+        }
+      />
     </OnBoardingFormContainer>
   );
 };
