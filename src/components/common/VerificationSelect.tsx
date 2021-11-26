@@ -66,7 +66,8 @@ const SendButton = styled(Button)({
   width: "100%",
   height: 101,
   fontSize: 18,
-  paddingLeft: 16,
-  paddingRight: 16,
+  paddingLeft: 64,
+  paddingRight: 64,
   textTransform: "none",
+  borderRadius: 8,
 });
