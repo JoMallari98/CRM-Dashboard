@@ -1,5 +1,6 @@
 import { ArrowBack } from "@mui/icons-material";
 import { Box, Button, IconButton, styled, Typography } from "@mui/material";
+import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 import { FormSection } from "../OnBoarding/common/FormSection";
@@ -7,18 +8,16 @@ import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContaine
 import UserInfoCard from "./UserInfoCard";
 
 const UserBackgroundForm = () => {
-  const { goPrevStep, goNextStep, goToStep } = useOnboarding();
+  const { goPrevStep, goToStep } = useOnboarding();
+  const router = useRouter();
   const [rejected, setRejected] = useState(false);
-  const handleConfirm = () => {
-    goNextStep();
-  };
 
   const handleReject = () => {
     setRejected(true);
   };
 
   const continueRegistration = () => {
-    goNextStep();
+    router.push("/onboarding/questions");
   };
 
   const goBackToMainPage = () => {
@@ -51,7 +50,7 @@ const UserBackgroundForm = () => {
               variant="contained"
               color="primary"
               sx={{ mb: 2 }}
-              onClick={handleConfirm}
+              onClick={continueRegistration}
             >
               Yes, this is me
             </ConfirmationButton>
