@@ -40,7 +40,7 @@ const UserBackgroundForm = () => {
             <Typography variant="h5" mb={6} fontWeight="bold">
               Your background
             </Typography>
-            <Typography variant="body2" mb={10}>
+            <Typography variant="body2" mb={10} align="center">
               It seems you maybe a registered person
             </Typography>
             <UserInfoCard />
@@ -66,7 +66,7 @@ const UserBackgroundForm = () => {
             <Typography variant="h5" mb={6} fontWeight="bold">
               Oh, we are so sorry!
             </Typography>
-            <Typography variant="body2">
+            <Typography variant="body2" align="center">
               Something went wrong, we appologize and will check our
               information. You can continue registration, while we are fixing it
             </Typography>

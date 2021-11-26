@@ -1,29 +1,19 @@
-import { InputBase, Paper } from "@mui/material";
+import { InputBase, Paper, styled } from "@mui/material";
 import React from "react";
 
 const CustomNumberInput = () => {
   return (
-    <Paper
+    <StyledPaper
       elevation={0}
       sx={{
-        px: 1.75,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        fontWeight: "bold",
-        width: 56,
-        height: 64,
         borderRadius: 2,
         mx: 0.5,
         backgroundColor: "background.default",
-
-        MozAppearance: "textfield",
       }}
     >
-      <InputBase
+      <StyledInput
         sx={{
           flex: 1,
-          fontSize: 40,
           height: 48,
           width: 20,
           fontWeight: "bold",
@@ -47,8 +37,29 @@ const CustomNumberInput = () => {
         }}
         type="number"
       />
-    </Paper>
+    </StyledPaper>
   );
 };
 
 export default CustomNumberInput;
+
+const StyledPaper = styled(Paper)(({ theme }) => ({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  fontWeight: "bold",
+  width: 56,
+  height: 64,
+
+  [theme.breakpoints.down("sm")]: {
+    width: 40,
+    height: 48,
+  },
+}));
+
+const StyledInput = styled(InputBase)(({ theme }) => ({
+  fontSize: 40,
+  [theme.breakpoints.down("sm")]: {
+    fontSize: 24,
+  },
+}));

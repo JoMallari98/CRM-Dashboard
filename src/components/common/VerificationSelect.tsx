@@ -40,7 +40,7 @@ const VerificationSelect = () => {
         <Typography variant="h5" mb={6} fontWeight="bold">
           Verification
         </Typography>
-        <Typography variant="body2">
+        <Typography variant="body2" align="center">
           For your protection we need to confirm your identity
         </Typography>
         <Box mt={18.5}>

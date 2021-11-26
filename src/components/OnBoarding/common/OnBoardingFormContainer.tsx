@@ -6,7 +6,13 @@ const OnBoardingFormContainer: React.FC<BoxProps> = ({
   ...props
 }) => {
   return (
-    <Box height="100%" display="flex" flexDirection="column">
+    <Box
+      height="100%"
+      width="100%"
+      display="flex"
+      flexDirection="column"
+      alignItems="stretch"
+    >
       <StyledPaper elevation={0}>
         <Box
           display="flex"
@@ -31,6 +37,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: 16,
   flexGrow: 1,
   margin: "16px",
+  width: "100%",
   [theme.breakpoints.down("sm")]: {
     margin: 0,
   },

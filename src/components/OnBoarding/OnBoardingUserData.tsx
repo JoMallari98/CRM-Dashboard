@@ -1,5 +1,4 @@
-import { Grid, Slide } from "@mui/material";
-import { styled } from "@mui/system";
+import { Grid, useTheme, styled, useMediaQuery } from "@mui/material";
 import React from "react";
 import {
   OnboardingSteps,
@@ -15,6 +14,8 @@ import VerificationSelect from "../common/VerificationSelect";
 
 const OnBoardingUserData = () => {
   const { currentStep } = useOnboarding();
+  const theme = useTheme();
+  const mdDown = useMediaQuery(theme.breakpoints.down("md"));
   const getCurrentStep = () => {
     const step = currentStep as OnboardingSteps;
     console.log(step);
@@ -36,7 +37,12 @@ const OnBoardingUserData = () => {
   const CurrentStep = getCurrentStep();
   return (
     <Wrapper>
-      <Grid container alignItems="stretch" flexGrow={1}>
+      <Grid
+        container
+        alignItems="stretch"
+        flexGrow={1}
+        direction={mdDown ? "column" : "row"}
+      >
         <Grid item md={6}>
           <LogoBrandingSection />
         </Grid>

@@ -54,7 +54,7 @@ const UserDataForm = () => {
       </FormSection>
 
       <FormSection alignItems="stretch" mb={19} maxWidth={400}>
-        <Typography variant="h6" fontSize={18} mb={2}>
+        <Typography variant="h6" fontSize={18} mb={2} align="center">
           Please complete your personal profile
         </Typography>
         <Typography variant="body2">All fields are required</Typography>

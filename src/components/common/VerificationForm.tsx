@@ -14,7 +14,12 @@ const VerificationForm = () => {
     goNextStep();
   };
   return (
-    <OnBoardingFormContainer pt={0} justifyContent="flex-start">
+    <OnBoardingFormContainer
+      pt={0}
+      justifyContent="flex-start"
+      justifySelf="stretch"
+      width="100%"
+    >
       <FormSection mt={6} mb={13}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           <IconButton onClick={goPrevStep}>
@@ -23,11 +28,13 @@ const VerificationForm = () => {
         </Box>
       </FormSection>
 
-      <FormSection alignItems="stretch" maxWidth={400} mb={16.5}>
+      <FormSection alignItems="stretch" mb={16.5}>
         <Typography variant="h5" mb={6} fontWeight="bold">
           Verification
         </Typography>
-        <Typography variant="body2">Enter your verification code</Typography>
+        <Typography variant="body2" align="center" width="100%">
+          Enter your verification code
+        </Typography>
         <Box mt={18.5} mb={7} display="flex" justifyContent="center">
           <CustomNumberInput />
           <CustomNumberInput />
