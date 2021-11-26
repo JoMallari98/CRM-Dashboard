@@ -71,7 +71,7 @@ const UserDataForm = () => {
             <CustomTextField label="E-mail" type="email" />
           </FormControl>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="First Name" type="number" />
+            <CustomTextField label="Mobile Number" type="tel" />
           </FormControl>
         </Box>
       </FormSection>
