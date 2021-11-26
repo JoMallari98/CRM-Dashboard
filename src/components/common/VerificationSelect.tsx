@@ -44,9 +44,12 @@ const VerificationSelect = () => {
           For your protection we need to confirm your identity
         </Typography>
         <Box mt={18.5}>
-          <SendButton variant="text" sx={{ mb: 3 }} onClick={handleEmail}>
+          <SendButton variant="text" onClick={handleEmail}>
             Send me a code by e-mail
           </SendButton>
+          <Typography variant="body2" my={1} align="center">
+            or
+          </Typography>
           <SendButton variant="text" onClick={handleSms}>
             Send me a code by SMS
           </SendButton>
@@ -63,5 +66,7 @@ const SendButton = styled(Button)({
   width: "100%",
   height: 101,
   fontSize: 18,
+  paddingLeft: 16,
+  paddingRight: 16,
   textTransform: "none",
 });

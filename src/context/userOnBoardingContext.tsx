@@ -23,6 +23,7 @@ export enum OnboardingSteps {
   VerificationSelect,
   VerificationCode,
   UserBackground,
+  IncorrectBackground,
 }
 
 export const OnBoardingContextProvider: React.FC = ({ children }) => {

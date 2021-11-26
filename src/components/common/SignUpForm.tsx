@@ -86,7 +86,7 @@ const SignUpForm = () => {
       </Box>
 
       <SignInButton variant="contained" color="primary" sx={{ px: 8, py: 1 }}>
-        Sign In
+        Sign Up
       </SignInButton>
       <Typography variant="body2">
         {`Already have an account? `}

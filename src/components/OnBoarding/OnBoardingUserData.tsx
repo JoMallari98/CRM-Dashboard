@@ -8,6 +8,7 @@ import {
 import LogoBrandingSection from "../common/LogoBrandingSection";
 import SignUpForm from "../common/SignUpForm";
 import TypeOfUserForm from "../common/TypeOfUserForm";
+import UserBackgroundForm from "../common/UserBackgroundForm";
 import UserDataForm from "../common/UserDataForm";
 import VerificationForm from "../common/VerificationForm";
 import VerificationSelect from "../common/VerificationSelect";
@@ -26,6 +27,8 @@ const OnBoardingUserData = () => {
         return VerificationSelect;
       case OnboardingSteps.VerificationCode:
         return VerificationForm;
+      case OnboardingSteps.UserBackground:
+        return UserBackgroundForm;
       default:
         return SignUpForm;
     }
