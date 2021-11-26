@@ -1,7 +1,14 @@
 import { InputBase, Paper, styled } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 const CustomNumberInput = () => {
+  const [val, setVal] = useState<number>();
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const newVal = Number(e.target.value);
+    if (newVal > 9) return;
+    setVal(newVal);
+  };
   return (
     <StyledPaper
       elevation={0}
@@ -12,6 +19,8 @@ const CustomNumberInput = () => {
       }}
     >
       <StyledInput
+        value={val}
+        onChange={handleChange}
         sx={{
           flex: 1,
           height: 48,
