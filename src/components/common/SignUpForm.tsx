@@ -14,14 +14,20 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
+import { useRouter } from "next/router";
 
 const SignUpForm = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
       {showPassword ? <Visibility /> : <VisibilityOff />}
     </IconButton>
   );
+
+  const handleSubmit = () => {
+    router.push("/onboarding/user-data");
+  };
   return (
     <OnBoardingFormContainer>
       <Typography variant="h5" fontWeight="bold">
@@ -87,6 +93,7 @@ const SignUpForm = () => {
         variant="contained"
         color="primary"
         sx={{ px: 8, py: 1, my: 2 }}
+        onClick={handleSubmit}
       >
         Sign Up
       </SignInButton>
@@ -107,12 +114,18 @@ export default SignUpForm;
 const ContinueWithButton = styled(Button)(({ theme }) => ({
   marginBottom: 16,
   borderRadius: 8,
-
+  paddingTop: 8,
+  paddingBottom: 8,
   justifyContent: "flex-start",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("xs")]: {
+    paddingLeft: 40,
+  },
+  [theme.breakpoints.up("md")]: {
     paddingLeft: 80,
-    paddingTop: 8,
-    paddingBottom: 8,
+  },
+
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: 150,
   },
   textTransform: "capitalize",
   boxShadow: "unset",

@@ -116,8 +116,14 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   paddingTop: 8,
   paddingBottom: 8,
   justifyContent: "flex-start",
-  [theme.breakpoints.up("sm")]: {
+  [theme.breakpoints.up("xs")]: {
+    paddingLeft: 40,
+  },
+  [theme.breakpoints.up("md")]: {
     paddingLeft: 80,
+  },
+  [theme.breakpoints.up("lg")]: {
+    paddingLeft: 150,
   },
   textTransform: "capitalize",
   boxShadow: "unset",
