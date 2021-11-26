@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Question from "./Question";
 import SelectionButton from "./SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
@@ -7,6 +7,8 @@ import { useOnboarding } from "src/context/userOnBoardingContext";
 const InvestmentStyle = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
   const possibleAnswers = [
     {
       value: 1,
@@ -62,8 +64,8 @@ const InvestmentStyle = () => {
           </Typography>
           <Box
             display="flex"
-            justifyContent="space-around"
-            alignItems="flex-start"
+            flexDirection={smDown ? "column" : "row"}
+            alignItems={smDown ? "center" : "flex-start"}
           >
             {possibleAnswers.map((answer) => {
               return (

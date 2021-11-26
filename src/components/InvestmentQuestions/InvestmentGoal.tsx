@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Question from "./Question";
 import SelectionButton from "./SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
@@ -7,6 +7,8 @@ import { useOnboarding } from "src/context/userOnBoardingContext";
 const InvestmentGoal = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
   const possibleAnswers = [
     {
       value: 1,
@@ -50,7 +52,7 @@ const InvestmentGoal = () => {
           to complete your profile
         </Typography>
       </Box>
-      <Question>
+      <Question nextText="Create a profile" isEndQuestion={true}>
         <Box display="flex" flexDirection="column">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             What is most important to you when you invest?
@@ -58,8 +60,8 @@ const InvestmentGoal = () => {
           <Box
             display="flex"
             justifyContent="space-around"
-            sx={{ flexDirection: { md: "column", lg: "row" } }}
-            alignItems="flex-start"
+            flexDirection={smDown ? "column" : "row"}
+            alignItems={smDown ? "center" : "flex-start"}
           >
             {possibleAnswers.map((answer) => {
               return (

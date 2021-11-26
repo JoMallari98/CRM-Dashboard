@@ -1,37 +1,44 @@
 import React, { useState } from "react";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Question from "./Question";
 import SelectionButton from "./SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
+import { useRouter } from "next/router";
+
+const possibleAnswers = [
+  {
+    value: 1,
+    text: "None",
+    icon: "☹️",
+  },
+  {
+    value: 2,
+    text: "Limited",
+    icon: "😐",
+  },
+  {
+    value: 3,
+    text: "Good",
+    icon: "😃",
+  },
+  {
+    value: 4,
+    text: "Extensive",
+    icon: "😎",
+  },
+];
 
 const InvestmentExperience = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
-  const possibleAnswers = [
-    {
-      value: 1,
-      text: "None",
-      icon: "☹️",
-    },
-    {
-      value: 2,
-      text: "Limited",
-      icon: "😐",
-    },
-    {
-      value: 3,
-      text: "Good",
-      icon: "😃",
-    },
-    {
-      value: 4,
-      text: "Extensive",
-      icon: "😎",
-    },
-  ];
-
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const router = useRouter();
   const handleAnswer = (value: any) => {
     setCurrentAnswer(value);
+  };
+  const navigateToSignUp = () => {
+    router.replace("/onboarding/signup");
   };
   return (
     <Box>
@@ -41,6 +48,7 @@ const InvestmentExperience = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
+        justifyContent="center"
       >
         <Typography variant="h5" fontWeight="bold" align="center">
           Almost done!
@@ -50,12 +58,16 @@ const InvestmentExperience = () => {
           to complete your profile
         </Typography>
       </Box>
-      <Question>
-        <Box display="flex" flexDirection="column">
+      <Question onPrev={navigateToSignUp} prevText={"Back to Sign Up"}>
+        <Box display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             How would you rate your investment experience?
           </Typography>
-          <Box display="flex" justifyContent="space-around">
+          <Box
+            display="flex"
+            flexDirection={smDown ? "column" : "row"}
+            justifyContent="space-around"
+          >
             {possibleAnswers.map((answer) => {
               return (
                 <SelectionButton
@@ -73,9 +85,16 @@ const InvestmentExperience = () => {
         </Box>
       </Question>
 
-      <Typography align="center" variant="body2" color="textSecondary" mt={11}>
+      <Typography
+        align="center"
+        variant="body2"
+        color="textSecondary"
+        mt={11}
+        mb={5}
+      >
         Question {currentQuestion + 1} out of 3
       </Typography>
+      {}
     </Box>
   );
 };

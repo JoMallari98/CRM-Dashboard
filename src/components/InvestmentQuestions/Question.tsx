@@ -1,68 +1,97 @@
 import React from "react";
-import { Box, Button, Hidden, Paper, styled } from "@mui/material";
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import { useRouter } from "next/router";
 import {
-  InvestorQuestions,
-  useOnboarding,
-} from "src/context/userOnBoardingContext";
+  Box,
+  Button,
+  Hidden,
+  Paper,
+  styled,
+  useMediaQuery,
+  useTheme,
+} from "@mui/material";
+import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
+import { useOnboarding } from "src/context/userOnBoardingContext";
+import { SxProps } from "@mui/system";
 
-const Question: React.FC = ({ children }) => {
-  const router = useRouter();
-  const { currentQuestion, goNextQuestion, goPrevQuestion } = useOnboarding();
+type Props = {
+  prevText?: string;
+  nextText?: string;
+  onPrev?(): void;
+  onNext?(): void;
+  isEndQuestion?: boolean;
+  sx?: SxProps;
+};
 
-  const navigateToSignUp = () => {
-    router.replace("/onboarding/signup");
-  };
+const Question: React.FC<Props> = (props) => {
+  const { goNextQuestion, goPrevQuestion } = useOnboarding();
+  const {
+    children,
+    prevText = "Previous question",
+    nextText = "Next question",
+    onPrev = goPrevQuestion,
+    onNext = goNextQuestion,
+    isEndQuestion = false,
+    sx = null,
+  } = props;
 
-  const isFirstQuestion = currentQuestion === 0;
-  const isLastQuestion = currentQuestion === InvestorQuestions.InvestmentGoal;
+  const theme = useTheme();
+  const mdDown = useMediaQuery(theme.breakpoints.down("md"));
+
   return (
-    <Box display="flex" justifyContent="space-between" alignItems="stretch">
-      <Hidden mdDown>
-        {isFirstQuestion ? (
+    <>
+      <Box
+        display="flex"
+        justifyContent={mdDown ? "stretch" : "space-between"}
+        alignItems="center"
+      >
+        <Hidden mdDown>
           <PrevButton
             variant="text"
             color="primary"
-            onClick={navigateToSignUp}
+            onClick={onPrev}
             startIcon={<ArrowBackIos />}
           >
-            Back to Sign Up
+            {prevText}
           </PrevButton>
-        ) : (
-          <PrevButton
+        </Hidden>
+        <QuestionContainer
+          elevation={0}
+          sx={{ width: mdDown ? "100%" : null, ...sx }}
+        >
+          {children}
+        </QuestionContainer>
+        <Hidden mdDown>
+          <NextButton
+            variant={isEndQuestion ? "text" : "contained"}
+            color="primary"
+            endIcon={<ArrowForwardIos />}
+            onClick={onNext}
+          >
+            {nextText}
+          </NextButton>
+        </Hidden>
+      </Box>
+      {mdDown && (
+        <Box display="flex" justifyContent="space-between" mt={2}>
+          <Button
             variant="text"
             color="primary"
-            onClick={goPrevQuestion}
+            onClick={onPrev}
             startIcon={<ArrowBackIos />}
           >
-            Previous question
-          </PrevButton>
-        )}
-      </Hidden>
-      <QuestionContainer elevation={0}>{children}</QuestionContainer>
-      <Hidden mdDown>
-        {isLastQuestion ? (
-          <NextButton
-            variant="text"
+            {prevText}
+          </Button>
+
+          <Button
+            variant={isEndQuestion ? "text" : "contained"}
             color="primary"
             endIcon={<ArrowForwardIos />}
-            onClick={goNextQuestion}
+            onClick={onNext}
           >
-            Create a profile
-          </NextButton>
-        ) : (
-          <NextButton
-            variant="contained"
-            color="primary"
-            endIcon={<ArrowForwardIos />}
-            onClick={goNextQuestion}
-          >
-            Next question
-          </NextButton>
-        )}
-      </Hidden>
-    </Box>
+            {nextText}
+          </Button>
+        </Box>
+      )}
+    </>
   );
 };
 
@@ -71,11 +100,16 @@ export default Question;
 const QuestionContainer = styled(Paper)({
   padding: 64,
   borderRadius: 16,
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
 });
 
 const NavigationButton = styled(Button)({
   padding: 50,
   textTransform: "none",
+  height: 240,
+  maxWidth: 260,
 });
 
 const PrevButton = styled(NavigationButton)({
