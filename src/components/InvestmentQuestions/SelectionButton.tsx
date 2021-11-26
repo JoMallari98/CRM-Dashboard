@@ -24,7 +24,8 @@ const SelectionButton: React.FC<Props> = ({
       sx={{
         backgroundColor,
         color,
-        p: 2,
+        p: 1,
+        m: 1,
         ":hover": {
           backgroundColor: "primary.light",
           color: "primary.contrastText",
