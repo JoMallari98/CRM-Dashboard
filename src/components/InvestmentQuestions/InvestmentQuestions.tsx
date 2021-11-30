@@ -6,6 +6,7 @@ import {
   InvestorQuestions,
   useOnboarding,
 } from "src/context/userOnBoardingContext";
+import DeclinedElectronicDelivery from "./DeclinedElectronicDelivery";
 import InvestmentExperience from "./InvestmentExperience";
 import InvestmentGoal from "./InvestmentGoal";
 import InvestmentStyle from "./InvestmentStyle";
@@ -22,8 +23,10 @@ const InvestmentQuestions = () => {
         return InvestmentStyle;
       case InvestorQuestions.InvestmentGoal:
         return InvestmentGoal;
-      case InvestorQuestions.PrivacyPolicy:
+      case InvestorQuestions.ElectronicDeliveryConfirmation:
         return PrivacyPolicy;
+      case InvestorQuestions.DeclinedElectronicDelivery:
+        return DeclinedElectronicDelivery;
       default:
         return null;
     }

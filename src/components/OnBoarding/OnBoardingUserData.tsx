@@ -4,6 +4,8 @@ import {
   OnboardingSteps,
   useOnboarding,
 } from "src/context/userOnBoardingContext";
+import FailedRegistration from "../common/FailedRegistration";
+import IdentityConfirmationForm from "../common/IdentityConfirmationForm";
 import LogoBrandingSection from "../common/LogoBrandingSection";
 import SignUpForm from "../common/SignUpForm";
 import TypeOfUserForm from "../common/TypeOfUserForm";
@@ -30,6 +32,10 @@ const OnBoardingUserData = () => {
         return VerificationForm;
       case OnboardingSteps.UserBackground:
         return UserBackgroundForm;
+      case OnboardingSteps.IdentityConfirmation:
+        return IdentityConfirmationForm;
+      case OnboardingSteps.FailedRegistration:
+        return FailedRegistration;
       default:
         return SignUpForm;
     }

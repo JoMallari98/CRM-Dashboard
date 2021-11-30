@@ -5,9 +5,10 @@ type OnBoardingContextState = {
   currentQuestion: number;
   goNextStep(): void;
   goPrevStep(): void;
-  goToStep(step: number): void;
+  goToStep(step: OnboardingSteps): void;
   goNextQuestion(): void;
   goPrevQuestion(): void;
+  goToQuestion(number: InvestorQuestions): void;
 };
 
 const defaultState = {
@@ -18,6 +19,7 @@ const defaultState = {
   goToStep: (step: number) => {},
   goNextQuestion: () => {},
   goPrevQuestion: () => {},
+  goToQuestion: (number: InvestorQuestions) => {},
 };
 
 const OnBoardingContext =
@@ -29,14 +31,16 @@ export enum OnboardingSteps {
   VerificationSelect,
   VerificationCode,
   UserBackground,
-  IncorrectBackground,
+  IdentityConfirmation,
+  FailedRegistration,
 }
 
 export enum InvestorQuestions {
   InvestmentExperience,
   InvestmentStyle,
   InvestmentGoal,
-  PrivacyPolicy,
+  ElectronicDeliveryConfirmation,
+  DeclinedElectronicDelivery,
 }
 
 export const OnBoardingContextProvider: React.FC = ({ children }) => {
@@ -48,6 +52,8 @@ export const OnBoardingContextProvider: React.FC = ({ children }) => {
 
   const goNextQuestion = () => setCurrentQuestion(currentQuestion + 1);
   const goPrevQuestion = () => setCurrentQuestion(currentQuestion - 1);
+  const goToQuestion = (question: InvestorQuestions) =>
+    setCurrentQuestion(question);
   return (
     <OnBoardingContext.Provider
       value={{
@@ -58,6 +64,7 @@ export const OnBoardingContextProvider: React.FC = ({ children }) => {
         goToStep,
         goNextQuestion,
         goPrevQuestion,
+        goToQuestion,
       }}
     >
       {children}
