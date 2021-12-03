@@ -3,7 +3,7 @@ import React from "react";
 import LogoBrandingSection from "../common/LogoBrandingSection";
 import SignUpForm from "../common/SignUpForm";
 
-const OnBoardingStep3 = () => {
+const SignUpScreen = () => {
   return (
     <Wrapper>
       <Grid container alignItems="stretch" flexGrow={1}>
@@ -18,7 +18,7 @@ const OnBoardingStep3 = () => {
   );
 };
 
-export default OnBoardingStep3;
+export default SignUpScreen;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",

@@ -6,8 +6,8 @@ import {
   OnboardingSteps,
   useOnboarding,
 } from "src/context/userOnBoardingContext";
-import { FormSection } from "../OnBoarding/common/FormSection";
-import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
+import { FormSection } from "../Investor/common/FormSection";
+import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
 import UserInfoCard from "./UserInfoCard";
 
 const UserBackgroundForm = () => {

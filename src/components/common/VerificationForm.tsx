@@ -3,10 +3,10 @@ import { Button, IconButton, Link, Snackbar, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import CustomNumberInput from "../OnBoarding/common/CustomNumberInput";
-import { FormSection } from "../OnBoarding/common/FormSection";
-import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
-import SixDigitVerification from "../OnBoarding/common/SixDigitVerification";
+import CustomNumberInput from "../Investor/common/CustomNumberInput";
+import { FormSection } from "../Investor/common/FormSection";
+import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
+import SixDigitVerification from "../Investor/common/SixDigitVerification";
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();

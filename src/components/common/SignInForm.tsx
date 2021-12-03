@@ -16,8 +16,8 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
-import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
-import { FormSection } from "../OnBoarding/common/FormSection";
+import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
+import { FormSection } from "../Investor/common/FormSection";
 
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);

@@ -12,9 +12,9 @@ import {
 import { Box } from "@mui/system";
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import CustomTextField from "../OnBoarding/common/CustomTextField";
-import { FormSection } from "../OnBoarding/common/FormSection";
-import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
+import CustomTextField from "../Investor/common/CustomTextField";
+import { FormSection } from "../Investor/common/FormSection";
+import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
 
 const UserDataForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();

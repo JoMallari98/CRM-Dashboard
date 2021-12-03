@@ -1,24 +1,25 @@
-import { Grid, styled } from "@mui/material";
+import { Grid } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import React from "react";
 import LogoBrandingSection from "../common/LogoBrandingSection";
-import SignInForm from "../common/SignInForm";
+import OnBoardingIntro from "../common/OnBoardingIntro";
 
-const OnBoardingStep2 = () => {
+const WelcomeScreen = () => {
   return (
     <Wrapper>
       <Grid container alignItems="stretch" flexGrow={1}>
         <Grid item md={6}>
-          <LogoBrandingSection description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <LogoBrandingSection />
         </Grid>
         <Grid item md={6}>
-          <SignInForm />
+          <OnBoardingIntro />
         </Grid>
       </Grid>
     </Wrapper>
   );
 };
 
-export default OnBoardingStep2;
+export default WelcomeScreen;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",

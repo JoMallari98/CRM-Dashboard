@@ -1,16 +1,17 @@
 import { Container } from "@mui/material";
 import React from "react";
-import OnBoardingUserData from "src/components/OnBoarding/OnBoardingUserData";
+import InvestmentQuestions from "src/components/Investor/InvestmentQuestions/InvestmentQuestions";
+
 import { OnBoardingContextProvider } from "src/context/userOnBoardingContext";
 
-const UserData = () => {
+const QuestionsPage = () => {
   return (
     <OnBoardingContextProvider>
       <Container maxWidth="lg">
-        <OnBoardingUserData />
+        <InvestmentQuestions />
       </Container>
     </OnBoardingContextProvider>
   );
 };
 
-export default UserData;
+export default QuestionsPage;

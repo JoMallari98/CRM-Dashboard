@@ -3,8 +3,8 @@ import { Box, Button, IconButton, styled, Typography } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import { FormSection } from "../OnBoarding/common/FormSection";
-import OnBoardingFormContainer from "../OnBoarding/common/OnBoardingFormContainer";
+import { FormSection } from "../Investor/common/FormSection";
+import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
 import UserInfoCard from "./UserInfoCard";
 
 const FailedRegistration = () => {

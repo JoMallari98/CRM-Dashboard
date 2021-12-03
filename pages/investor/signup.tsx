@@ -1,11 +1,11 @@
 import { Container } from "@mui/material";
 import React from "react";
-import OnBoardingStep3 from "src/components/OnBoarding/OnBoardingStep3";
+import SignUpScreen from "src/components/Investor/SignUpScreen";
 
 const SignUpPage = () => {
   return (
     <Container maxWidth="lg">
-      <OnBoardingStep3 />
+      <SignUpScreen />
     </Container>
   );
 };
