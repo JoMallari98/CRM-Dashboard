@@ -1,20 +1,10 @@
 import { ArrowBack } from "@mui/icons-material";
-import {
-  Button,
-  FormControl,
-  IconButton,
-  LinearProgress,
-  linearProgressClasses,
-  styled,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Button, IconButton, styled, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import CustomTextField from "../Investor/common/CustomTextField";
-import { FormSection } from "../Investor/common/FormSection";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
+import { FormSection } from "src/components/common/FormSection";
+import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
 
 const VerificationSelect = () => {
   const { goPrevStep, goNextStep } = useOnboarding();

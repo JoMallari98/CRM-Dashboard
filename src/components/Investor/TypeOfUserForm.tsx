@@ -7,9 +7,9 @@ import {
 } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
-import { FormSection } from "../Investor/common/FormSection";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
-import UserTypeButton from "../Investor/common/UserTypeButton";
+import { FormSection } from "src/components/common/FormSection";
+import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
+import UserTypeButton from "src/components/common/UserTypeButton";
 import { useRouter } from "next/router";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 

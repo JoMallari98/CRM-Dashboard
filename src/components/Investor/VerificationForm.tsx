@@ -3,10 +3,9 @@ import { Button, IconButton, Link, Snackbar, Typography } from "@mui/material";
 import { Box, styled } from "@mui/system";
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import CustomNumberInput from "../Investor/common/CustomNumberInput";
-import { FormSection } from "../Investor/common/FormSection";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
-import SixDigitVerification from "../Investor/common/SixDigitVerification";
+import { FormSection } from "src/components/common/FormSection";
+import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
+import SixDigitVerification from "src/components/common/SixDigitVerification";
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();

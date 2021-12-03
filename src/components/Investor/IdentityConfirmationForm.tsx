@@ -10,9 +10,9 @@ import {
 import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import CustomTextField from "../Investor/common/CustomTextField";
-import { FormSection } from "../Investor/common/FormSection";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
+import CustomTextField from "src/components/common/CustomTextField";
+import { FormSection } from "src/components/common/FormSection";
+import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
 
 const IdentityConfirmationForm = () => {
   const { goPrevStep, goToStep } = useOnboarding();
