@@ -6,7 +6,7 @@ import {
 } from "src/context/userOnBoardingContext";
 import FailedRegistration from "./FailedRegistration";
 import IdentityConfirmationForm from "./IdentityConfirmationForm";
-import LogoBrandingSection from "../common/LogoBrandingSection";
+import LogoBrandingSection from "src/components/common/LogoBrandingSection";
 import SignUpForm from "./SignUpForm";
 import TypeOfUserForm from "./TypeOfUserForm";
 import UserBackgroundForm from "./UserBackgroundForm";

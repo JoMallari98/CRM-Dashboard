@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
-import Question from "./Question";
-import SelectionButton from "./SelectionButton";
+import Question from "../common/Question";
+import SelectionButton from "../common/SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 
 const InvestmentGoal = () => {

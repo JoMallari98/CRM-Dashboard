@@ -13,7 +13,7 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
+import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
 import { useRouter } from "next/router";
 
 const SignUpForm = () => {

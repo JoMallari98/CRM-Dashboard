@@ -6,9 +6,9 @@ import {
   OnboardingSteps,
   useOnboarding,
 } from "src/context/userOnBoardingContext";
-import { FormSection } from "../Investor/common/FormSection";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
-import UserInfoCard from "./UserInfoCard";
+import { FormSection } from "src/components/common/FormSection";
+import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
+import UserInfoCard from "./common/UserInfoCard";
 
 const UserBackgroundForm = () => {
   const { goPrevStep, goToStep } = useOnboarding();

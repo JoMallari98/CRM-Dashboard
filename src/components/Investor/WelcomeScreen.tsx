@@ -1,7 +1,7 @@
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
-import LogoBrandingSection from "../common/LogoBrandingSection";
+import LogoBrandingSection from "src/components/common/LogoBrandingSection";
 import OnBoardingIntro from "src/components/common/OnBoardingIntro";
 
 const WelcomeScreen = () => {
