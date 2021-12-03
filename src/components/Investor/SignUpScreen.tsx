@@ -1,7 +1,7 @@
 import { Grid, styled } from "@mui/material";
 import React from "react";
 import LogoBrandingSection from "../common/LogoBrandingSection";
-import SignUpForm from "../common/SignUpForm";
+import SignUpForm from "./SignUpForm";
 
 const SignUpScreen = () => {
   return (

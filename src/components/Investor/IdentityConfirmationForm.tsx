@@ -20,7 +20,7 @@ const IdentityConfirmationForm = () => {
 
   const continueRegistration = () => {
     // if incorrect. go to failed registration
-    router.push("/onboarding/questions");
+    router.push("/investor/questions");
   };
 
   return (

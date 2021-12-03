@@ -1,7 +1,7 @@
 import { Grid, styled } from "@mui/material";
 import React from "react";
 import LogoBrandingSection from "../common/LogoBrandingSection";
-import SignInForm from "../common/SignInForm";
+import SignInForm from "./SignInForm";
 
 const SignInScreen = () => {
   return (

@@ -1,11 +1,14 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
+  Paper,
   Box,
   Typography,
   TextField,
   FormControl,
   Button,
   IconButton,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React, { useState } from "react";
@@ -13,25 +16,22 @@ import Link from "next/link";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
-import OnBoardingFormContainer from "../Investor/common/OnBoardingFormContainer";
-import { useRouter } from "next/router";
+import OnBoardingFormContainer from "./common/OnBoardingFormContainer";
+import { FormSection } from "./common/FormSection";
 
-const SignUpForm = () => {
-  const router = useRouter();
+const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const theme = useTheme();
+  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
       {showPassword ? <Visibility /> : <VisibilityOff />}
     </IconButton>
   );
-
-  const handleSubmit = () => {
-    router.push("/onboarding/user-data");
-  };
   return (
     <OnBoardingFormContainer>
       <Typography variant="h5" fontWeight="bold">
-        Sign Up
+        Sign In
       </Typography>
 
       <StyledBox>
@@ -61,7 +61,7 @@ const SignUpForm = () => {
           </Link>
         </FormControl>
       </StyledBox>
-      <Typography variant="body2" my={2}>
+      <Typography variant="body2" sx={{ my: 3 }}>
         {" "}
         or{" "}
       </Typography>
@@ -93,15 +93,14 @@ const SignUpForm = () => {
         variant="contained"
         color="primary"
         sx={{ px: 8, py: 1, my: 2 }}
-        onClick={handleSubmit}
       >
-        Sign Up
+        Sign In
       </SignInButton>
       <Typography variant="body2">
-        {`Already have an account? `}
-        <Link href="/onboarding/signin" passHref>
+        {`Don't have an account? `}
+        <Link href="/investor/signup" passHref>
           <Typography fontWeight="bold" component="a">
-            Sign In
+            Sign Up
           </Typography>
         </Link>
       </Typography>
@@ -109,7 +108,7 @@ const SignUpForm = () => {
   );
 };
 
-export default SignUpForm;
+export default SignInForm;
 
 const ContinueWithButton = styled(Button)(({ theme }) => ({
   marginBottom: 16,
@@ -123,7 +122,6 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   [theme.breakpoints.up("md")]: {
     paddingLeft: 80,
   },
-
   [theme.breakpoints.up("lg")]: {
     paddingLeft: 150,
   },

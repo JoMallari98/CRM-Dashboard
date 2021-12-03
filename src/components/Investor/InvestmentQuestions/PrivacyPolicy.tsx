@@ -31,7 +31,7 @@ const PrivacyPolicy = () => {
   };
 
   const handleGoBackSignup = () => {
-    router.push("/onboarding/signup");
+    router.push("/investor/signup");
   };
   return (
     <Box mb={10} pt={10}>

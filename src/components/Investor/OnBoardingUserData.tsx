@@ -4,15 +4,15 @@ import {
   OnboardingSteps,
   useOnboarding,
 } from "src/context/userOnBoardingContext";
-import FailedRegistration from "../common/FailedRegistration";
-import IdentityConfirmationForm from "../common/IdentityConfirmationForm";
+import FailedRegistration from "./FailedRegistration";
+import IdentityConfirmationForm from "./IdentityConfirmationForm";
 import LogoBrandingSection from "../common/LogoBrandingSection";
-import SignUpForm from "../common/SignUpForm";
-import TypeOfUserForm from "../common/TypeOfUserForm";
-import UserBackgroundForm from "../common/UserBackgroundForm";
-import UserDataForm from "../common/UserDataForm";
-import VerificationForm from "../common/VerificationForm";
-import VerificationSelect from "../common/VerificationSelect";
+import SignUpForm from "./SignUpForm";
+import TypeOfUserForm from "./TypeOfUserForm";
+import UserBackgroundForm from "./UserBackgroundForm";
+import UserDataForm from "./UserDataForm";
+import VerificationForm from "./VerificationForm";
+import VerificationSelect from "./VerificationSelect";
 
 const OnBoardingUserData = () => {
   const { currentStep } = useOnboarding();
