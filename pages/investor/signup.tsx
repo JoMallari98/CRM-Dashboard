@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import SignUpScreen from "src/components/Investor/SignUpScreen";
+import SignUpScreen from "src/components/investor/SignUpScreen";
 
 const SignUpPage = () => {
   return (
