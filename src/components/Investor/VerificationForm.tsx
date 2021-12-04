@@ -55,7 +55,7 @@ const VerificationForm = () => {
         </Box>
 
         <Typography variant="body2" component="span">
-          Did not recieve a code?{" "}
+          Did not receive a code?{" "}
           <Link
             component="a"
             variant="body2"
