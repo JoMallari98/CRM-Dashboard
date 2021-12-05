@@ -26,7 +26,6 @@ const OnBoardingContext =
   React.createContext<OnBoardingContextState>(defaultState);
 
 export enum OnboardingSteps {
-  UserTypeForm,
   UserDataForm,
   VerificationSelect,
   VerificationCode,

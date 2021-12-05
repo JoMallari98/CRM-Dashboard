@@ -4,7 +4,7 @@ import React from "react";
 
 import WelcomeScreen from "src/components/investor/WelcomeScreen";
 
-const OnBoardingPage = () => {
+const WelcomePage = () => {
   return (
     <Container maxWidth="lg">
       <WelcomeScreen />
@@ -12,7 +12,7 @@ const OnBoardingPage = () => {
   );
 };
 
-export default OnBoardingPage;
+export default WelcomePage;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",

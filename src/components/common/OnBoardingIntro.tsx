@@ -2,6 +2,7 @@ import { Box, Button, Typography } from "@mui/material";
 import React from "react";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 import Link from "next/link";
+
 const OnBoardingIntro = () => {
   return (
     <Box
@@ -18,7 +19,7 @@ const OnBoardingIntro = () => {
         <Typography variant="h5" maxWidth="70%" mb={2}>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         </Typography>
-        <Link href="/investor/signin" passHref>
+        <Link href="/signin" passHref>
           <Button
             variant="contained"
             color="secondary"

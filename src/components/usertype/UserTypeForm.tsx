@@ -11,10 +11,9 @@ import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
 import UserTypeButton from "src/components/common/UserTypeButton";
 import { useRouter } from "next/router";
-import { useOnboarding } from "src/context/userOnBoardingContext";
 
-const TypeOfUserForm = () => {
-  const { goPrevStep, goNextStep } = useOnboarding();
+const UserTypeForm = () => {
+  const router = useRouter();
   const typeOfUsers = [
     "I am an investor",
     "I’m an investment advisor",
@@ -23,15 +22,20 @@ const TypeOfUserForm = () => {
     "I work for a financial institution, but I am neither an advisor nor a broker",
   ];
 
-  const handleClick = () => {
+  const goToSignUp = () => {
     // TODO: Maybe call API
-    goNextStep();
+    router.replace("/signup");
   };
+
+  const handleClick = () => {
+    // check user type
+  };
+
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={15.25}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goPrevStep}>
+          <IconButton onClick={goToSignUp}>
             <ArrowBack fontSize="small" />
           </IconButton>
 
@@ -47,7 +51,7 @@ const TypeOfUserForm = () => {
         <Box width="100%">
           <LinearProgress
             variant="determinate"
-            value={20}
+            value={10}
             sx={{
               height: 8,
               borderRadius: 5,
@@ -75,4 +79,4 @@ const TypeOfUserForm = () => {
   );
 };
 
-export default TypeOfUserForm;
+export default UserTypeForm;

@@ -16,7 +16,7 @@ const DeclinedElectronicDelivery = () => {
   const router = useRouter();
 
   const onDisagree = () => {
-    router.push("/investor/signup");
+    router.push("/signup");
   };
 
   const onAgree = () => {

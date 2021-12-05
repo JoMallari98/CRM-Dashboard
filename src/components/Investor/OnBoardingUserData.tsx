@@ -7,8 +7,7 @@ import {
 import FailedRegistration from "./FailedRegistration";
 import IdentityConfirmationForm from "./IdentityConfirmationForm";
 import LogoBrandingSection from "src/components/common/LogoBrandingSection";
-import SignUpForm from "./SignUpForm";
-import TypeOfUserForm from "./TypeOfUserForm";
+import UserTypeForm from "../usertype/UserTypeForm";
 import UserBackgroundForm from "./UserBackgroundForm";
 import UserDataForm from "./UserDataForm";
 import VerificationForm from "./VerificationForm";
@@ -20,10 +19,7 @@ const OnBoardingUserData = () => {
   const mdDown = useMediaQuery(theme.breakpoints.down("md"));
   const getCurrentStep = () => {
     const step = currentStep as OnboardingSteps;
-    console.log(step);
     switch (step) {
-      case OnboardingSteps.UserTypeForm:
-        return TypeOfUserForm;
       case OnboardingSteps.UserDataForm:
         return UserDataForm;
       case OnboardingSteps.VerificationSelect:
@@ -37,7 +33,7 @@ const OnBoardingUserData = () => {
       case OnboardingSteps.FailedRegistration:
         return FailedRegistration;
       default:
-        return SignUpForm;
+        return UserTypeForm;
     }
   };
   const CurrentStep = getCurrentStep();

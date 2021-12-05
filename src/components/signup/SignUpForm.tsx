@@ -26,7 +26,7 @@ const SignUpForm = () => {
   );
 
   const handleSubmit = () => {
-    router.push("/investor/user-data");
+    router.push("/user-type");
   };
   return (
     <OnBoardingFormContainer>
@@ -99,7 +99,7 @@ const SignUpForm = () => {
       </SignInButton>
       <Typography variant="body2">
         {`Already have an account? `}
-        <Link href="/investor/signin" passHref>
+        <Link href="/signin" passHref>
           <Typography fontWeight="bold" component="a">
             Sign In
           </Typography>

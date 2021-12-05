@@ -97,7 +97,7 @@ const SignInForm = () => {
       </SignInButton>
       <Typography variant="body2">
         {`Don't have an account? `}
-        <Link href="/investor/signup" passHref>
+        <Link href="/signup" passHref>
           <Typography fontWeight="bold" component="a">
             Sign Up
           </Typography>
