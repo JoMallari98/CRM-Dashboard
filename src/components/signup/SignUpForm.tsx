@@ -41,6 +41,7 @@ const SignUpForm = () => {
         <FormControl fullWidth sx={{ my: 2 }}>
           <TextField
             variant="outlined"
+            type={showPassword ? "text" : "password"}
             label="Password"
             size="small"
             InputProps={{
