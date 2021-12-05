@@ -10,6 +10,10 @@ const theme = createTheme({
       main: "#C4C4C4",
       contrastText: "#111111",
     },
+    white: {
+      main: "#FFFFFF",
+      contrastText: "#111111",
+    },
     background: {
       paper: "#EAEAEA",
       default: "#FFFFFF",
@@ -34,6 +38,16 @@ const theme = createTheme({
       "Arial",
       "sans-serif",
     ].join(","),
+  },
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          textTransform: "none",
+          borderRadius: 8,
+        },
+      },
+    },
   },
 });
 
