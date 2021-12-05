@@ -20,7 +20,6 @@ const TypeOfUserForm = () => {
     "I’m an investment advisor",
     "I work with an advisor",
     "I’m a registered broker",
-    "I’m a registered broker",
     "I work for a financial institution, but I am neither an advisor nor a broker",
   ];
 
