@@ -11,6 +11,7 @@ import {
   Stack,
 } from "@mui/material";
 import { Box } from "@mui/system";
+import { useRouter } from "next/router";
 import React from "react";
 import CustomTextField from "src/components/common/CustomTextField";
 import { FormSection } from "src/components/common/FormSection";
@@ -19,16 +20,18 @@ import { useRepOnboarding } from "src/context/repOnBoardingContext";
 
 const UserDataForm = () => {
   const { goPrevStep, goNextStep } = useRepOnboarding();
-
+  const router = useRouter();
   const handleSubmit = () => {
     //call api before going next screen
     goNextStep();
   };
+
+  const onPrevStep = () => router.back();
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={13}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goPrevStep}>
+          <IconButton onClick={onPrevStep}>
             <ArrowBack fontSize="small" />
           </IconButton>
           <Typography
@@ -87,7 +90,7 @@ const UserDataForm = () => {
           <ContinueButton
             variant="contained"
             color="secondary"
-            onClick={goPrevStep}
+            onClick={onPrevStep}
             startIcon={<ArrowBack />}
           >
             Previous Step

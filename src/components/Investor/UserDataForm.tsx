@@ -15,18 +15,20 @@ import { useOnboarding } from "src/context/userOnBoardingContext";
 import CustomTextField from "src/components/common/CustomTextField";
 import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
+import { useRouter } from "next/router";
 
 const UserDataForm = () => {
-  const { goPrevStep, goNextStep } = useOnboarding();
-
+  const { goNextStep } = useOnboarding();
+  const router = useRouter();
   const handleSubmit = () => {
     goNextStep();
   };
+  const onPrevStep = () => router.back();
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={15.25}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goPrevStep}>
+          <IconButton onClick={onPrevStep}>
             <ArrowBack fontSize="small" />
           </IconButton>
           <Typography

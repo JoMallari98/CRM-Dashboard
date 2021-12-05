@@ -12,23 +12,46 @@ import OnBoardingFormContainer from "src/components/common/OnBoardingFormContain
 import UserTypeButton from "src/components/common/UserTypeButton";
 import { useRouter } from "next/router";
 
+enum UserType {
+  Investor,
+  Rep,
+  Other,
+}
+
+type SelectItem = {
+  value: UserType;
+  text: string;
+};
 const UserTypeForm = () => {
   const router = useRouter();
-  const typeOfUsers = [
-    "I am an investor",
-    "I’m an investment advisor",
-    "I work with an advisor",
-    "I’m a registered broker",
-    "I work for a financial institution, but I am neither an advisor nor a broker",
+  const typeOfUsers: SelectItem[] = [
+    { text: "I am an investor", value: UserType.Investor },
+    { text: "I’m an investment advisor", value: UserType.Rep },
+    { text: "I work with an advisor", value: UserType.Rep },
+    { text: "I’m a registered broker", value: UserType.Other },
+    {
+      text: "I work for a financial institution, but I am neither an advisor nor a broker",
+      value: UserType.Other,
+    },
   ];
 
   const goToSignUp = () => {
-    // TODO: Maybe call API
     router.replace("/signup");
   };
 
-  const handleClick = () => {
-    // check user type
+  const handleClick = (userType: UserType) => {
+    switch (userType) {
+      case UserType.Investor:
+        router.push("/investor/user-data");
+        break;
+      case UserType.Rep:
+        router.push("/rep");
+        break;
+      case UserType.Other:
+      default:
+        //TODO: needs checking
+        router.replace("/signup");
+    }
   };
 
   return (
@@ -66,12 +89,12 @@ const UserTypeForm = () => {
         <Typography variant="h6" fontSize={18} mb={10}>
           Tell us more about you
         </Typography>
-        {typeOfUsers.map((text, index) => (
+        {typeOfUsers.map((item, index) => (
           <UserTypeButton
-            text={text}
+            text={item.text}
             key={index}
             sx={{ mb: 2 }}
-            onClick={handleClick}
+            onClick={() => handleClick(item.value)}
           />
         ))}
       </FormSection>
