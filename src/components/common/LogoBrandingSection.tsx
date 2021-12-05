@@ -1,6 +1,7 @@
 import { Avatar, Box, Typography } from "@mui/material";
 import React from "react";
 import OnboardingImage from "public/OnboardingImage.svg";
+import Logo from "public/Logo.svg";
 import Image from "next/image";
 
 type Props = {
@@ -11,7 +12,7 @@ const LogoBrandingSection: React.FC<Props> = ({ description }) => {
   return (
     <Box height="100%" display="flex" flexDirection="column">
       <Box display="flex" alignItems="center" mt={10}>
-        <Avatar />
+        <Image src={Logo} alt="logo-image" height={36} width={36} />
         <Typography variant="h6" ml={2} fontWeight="bold">
           LOGO
         </Typography>
@@ -27,12 +28,7 @@ const LogoBrandingSection: React.FC<Props> = ({ description }) => {
         justifyContent="center"
         flexGrow={1}
       >
-        <Image
-          src={OnboardingImage.src}
-          height={OnboardingImage.height}
-          width={OnboardingImage.width}
-          alt="placeholder"
-        />
+        <Image src={OnboardingImage} alt="onboarding-image" />
       </Box>
     </Box>
   );
