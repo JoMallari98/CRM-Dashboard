@@ -1,7 +1,11 @@
 import { Box, Paper, styled, Typography } from "@mui/material";
 import React from "react";
 
-const UserInfoCard = () => {
+type Props = {
+  name: string;
+  userTitle: string;
+};
+const UserInfoCard: React.FC<Props> = ({ name, userTitle }) => {
   return (
     <Paper
       sx={{
@@ -16,9 +20,9 @@ const UserInfoCard = () => {
       <Ellipse sx={{ backgroundColor: "background.paper" }} />
       <Box>
         <Typography variant="body2" fontWeight="bold">
-          John Roberts
+          {name}
         </Typography>
-        <Typography variant="body2">Investment Advisor</Typography>
+        <Typography variant="body2">{userTitle}</Typography>
       </Box>
     </Paper>
   );

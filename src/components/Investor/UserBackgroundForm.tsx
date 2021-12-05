@@ -46,7 +46,7 @@ const UserBackgroundForm = () => {
             <Typography variant="body2" mb={10} align="center">
               It seems you maybe a registered person
             </Typography>
-            <UserInfoCard />
+            <UserInfoCard name="John Roberts" userTitle="Investment Advisor" />
           </FormSection>
           <FormSection alignItems="stretch" maxWidth={400}>
             <ConfirmationButton
