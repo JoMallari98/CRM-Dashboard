@@ -40,9 +40,9 @@ const SixDigitVerification = () => {
       return digit;
     });
     setDigits(newDigits);
-    const ref = refs[index + 1];
+    const nextRef = refs[index + 1];
     if (value > 0) {
-      ref?.current && ref?.current.focus();
+      nextRef?.current && nextRef?.current.focus();
     }
   };
   return (
@@ -54,6 +54,9 @@ const SixDigitVerification = () => {
             key={index}
             onChange={(e) => handleChange(e, index)}
             value={digits[index]}
+            inputProps={{
+              "data-testid": `six-digit-input-${index}`,
+            }}
           />
         );
       })}

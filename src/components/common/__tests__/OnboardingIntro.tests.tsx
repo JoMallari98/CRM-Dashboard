@@ -5,7 +5,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import OnBoardingIntro from "../OnBoardingIntro";
-import userEvent from "@testing-library/user-event";
 
 describe("Onboarding Intro", () => {
   it("should render a section to welcome the user", () => {

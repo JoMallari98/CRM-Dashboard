@@ -46,9 +46,9 @@ const CustomNumberInput = React.forwardRef<HTMLInputElement, Props>(
             max: 9,
             step: 1,
             ref,
+            ...props.inputProps,
           }}
           type="number"
-          {...props}
         />
       </StyledPaper>
     );
