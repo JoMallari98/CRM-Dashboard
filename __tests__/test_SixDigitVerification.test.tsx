@@ -3,9 +3,9 @@
  */
 
 import React from "react";
-import { render, screen, waitFor, cleanup } from "@testing-library/react";
-import SixDigitVerification from "../SixDigitVerification";
+import { render, screen, cleanup } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
+import SixDigitVerification from "src/components/common/SixDigitVerification";
 
 describe("SixDigitVerification", () => {
   afterEach(() => {

@@ -3,9 +3,8 @@
  */
 
 import React from "react";
-import { render, screen, waitFor, cleanup } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
-import UserInfoCard from "../UserInfoCard";
+import { render, screen } from "@testing-library/react";
+import UserInfoCard from "src/components/Investor/common/UserInfoCard";
 
 describe("UserInfoCard", () => {
   it("should render name and usertitle correctly", () => {
