@@ -36,30 +36,24 @@ const SignUpForm = () => {
 
       <StyledBox>
         <FormControl fullWidth sx={{ my: 2 }}>
-          <TextField variant="outlined" label="E-mail" size="small" />
+          <TextField
+            variant="outlined"
+            label="E-mail"
+            size="small"
+            id="email"
+          />
         </FormControl>
         <FormControl fullWidth sx={{ my: 2 }}>
           <TextField
             variant="outlined"
             type={showPassword ? "text" : "password"}
             label="Password"
+            id="passowrd"
             size="small"
             InputProps={{
               endAdornment: PasswordButton,
             }}
           />
-          <Link href="/forgot-password" passHref>
-            <Typography
-              ml={2}
-              mt={1}
-              component="a"
-              fontWeight="bold"
-              variant="body2"
-              color="textSecondary"
-            >
-              Forgot Password?
-            </Typography>
-          </Link>
         </FormControl>
       </StyledBox>
       <Typography variant="body2" my={2}>
@@ -95,6 +89,7 @@ const SignUpForm = () => {
         color="primary"
         sx={{ px: 8, py: 1, my: 2 }}
         onClick={handleSubmit}
+        data-testid="sign-up-button"
       >
         Sign Up
       </SignInButton>

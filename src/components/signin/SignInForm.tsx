@@ -35,11 +35,20 @@ const SignInForm = () => {
 
       <StyledBox>
         <FormControl fullWidth sx={{ my: 2 }}>
-          <TextField variant="outlined" label="E-mail" size="small" />
+          <TextField
+            variant="outlined"
+            label="E-mail"
+            size="small"
+            id="email"
+            name="email"
+            type="text"
+          />
         </FormControl>
         <FormControl fullWidth sx={{ my: 2 }}>
           <TextField
             variant="outlined"
+            id="password"
+            name="password"
             type={showPassword ? "text" : "password"}
             label="Password"
             size="small"
@@ -93,6 +102,7 @@ const SignInForm = () => {
         variant="contained"
         color="primary"
         sx={{ px: 8, py: 1, my: 2 }}
+        data-testid="sign-in-button"
       >
         Sign In
       </SignInButton>
