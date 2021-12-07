@@ -2,7 +2,7 @@ import { Container, Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
 import Onboarding from "public/OnboardingImage.svg";
-import WelcomeScreen from "src/components/investor/WelcomeScreen";
+import WelcomeScreen from "src/components/Investor/WelcomeScreen";
 
 const WelcomePage = () => {
   console.log(Onboarding);

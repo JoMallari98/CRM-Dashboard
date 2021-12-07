@@ -1,6 +1,6 @@
 import { Container } from "@mui/material";
 import React from "react";
-import OnBoardingUserData from "src/components/investor/OnBoardingUserData";
+import OnBoardingUserData from "src/components/Investor/OnBoardingUserData";
 import { OnBoardingContextProvider } from "src/context/userOnBoardingContext";
 
 const UserData = () => {
