@@ -4,13 +4,6 @@ import React, { useState } from "react";
 type Props = InputBaseProps;
 const CustomNumberInput = React.forwardRef<HTMLInputElement, Props>(
   function CustomNumberInput(props, ref) {
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      const newVal = Number(e.target.value);
-      if (newVal > 9) return;
-      if (props.onChange) {
-        props.onChange(e);
-      }
-    };
     return (
       <StyledPaper
         elevation={0}
@@ -22,7 +15,7 @@ const CustomNumberInput = React.forwardRef<HTMLInputElement, Props>(
       >
         <StyledInput
           value={props.value}
-          onChange={handleChange}
+          onChange={props.onChange}
           sx={{
             flex: 1,
             height: 48,
