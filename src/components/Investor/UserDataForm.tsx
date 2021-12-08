@@ -8,8 +8,8 @@ import {
   styled,
   TextField,
   Typography,
+  Box,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 import CustomTextField from "src/components/common/CustomTextField";

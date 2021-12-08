@@ -1,6 +1,6 @@
 import { ArrowBack } from "@mui/icons-material";
-import { Button, IconButton, styled, Typography } from "@mui/material";
-import { Box } from "@mui/system";
+import { Button, IconButton, styled, Typography, Box } from "@mui/material";
+
 import React from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 import { FormSection } from "src/components/common/FormSection";

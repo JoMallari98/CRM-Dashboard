@@ -4,8 +4,8 @@ import {
   LinearProgress,
   linearProgressClasses,
   IconButton,
+  Box,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import React from "react";
 import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";

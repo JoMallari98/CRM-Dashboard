@@ -9,8 +9,8 @@ import {
   styled,
   Typography,
   Stack,
+  Box,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import { useRouter } from "next/router";
 import React from "react";
 import CustomTextField from "src/components/common/CustomTextField";

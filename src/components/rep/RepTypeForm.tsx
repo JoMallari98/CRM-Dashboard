@@ -14,8 +14,8 @@ import {
   Stack,
   RadioGroup,
   CircularProgress,
+  Box,
 } from "@mui/material";
-import { Box } from "@mui/system";
 import React, { useState } from "react";
 import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";

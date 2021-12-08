@@ -1,6 +1,5 @@
-import { Avatar, Typography } from "@mui/material";
+import { Avatar, Typography, Box } from "@mui/material";
 import styled from "@mui/styled-engine";
-import { Box } from "@mui/system";
 import React from "react";
 import {
   InvestorQuestions,
