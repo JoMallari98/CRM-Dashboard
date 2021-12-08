@@ -42,7 +42,7 @@ const IdentityConfirmationForm = () => {
         </Typography>
         <Box mt={6} width="90%">
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="CRD Number" />
+            <CustomTextField label="CRD Number" id="crd-number" />
           </FormControl>
         </Box>
       </FormSection>

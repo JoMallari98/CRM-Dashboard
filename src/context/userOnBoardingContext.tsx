@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 
-type OnBoardingContextState = {
+export type OnBoardingContextState = {
   currentStep: number;
   currentQuestion: number;
   goNextStep(): void;
@@ -22,7 +22,7 @@ const defaultState = {
   goToQuestion: (number: InvestorQuestions) => {},
 };
 
-const OnBoardingContext =
+export const OnBoardingContext =
   React.createContext<OnBoardingContextState>(defaultState);
 
 export enum OnboardingSteps {
