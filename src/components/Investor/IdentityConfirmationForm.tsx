@@ -9,7 +9,10 @@ import {
 } from "@mui/material";
 import { useRouter } from "next/router";
 import React, { useState } from "react";
-import { useOnboarding } from "src/context/userOnBoardingContext";
+import {
+  OnboardingSteps,
+  useOnboarding,
+} from "src/context/userOnBoardingContext";
 import CustomTextField from "src/components/common/CustomTextField";
 import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
@@ -18,9 +21,14 @@ const IdentityConfirmationForm = () => {
   const { goPrevStep, goToStep } = useOnboarding();
   const router = useRouter();
 
-  const continueRegistration = () => {
+  const handleSubmit = () => {
     // if incorrect. go to failed registration
-    router.push("/investor/questions");
+    const success = true; // simulate call to API.
+    if (success) {
+      router.push("/rep");
+    } else {
+      goToStep(OnboardingSteps.FailedRegistration);
+    }
   };
 
   return (
@@ -51,7 +59,7 @@ const IdentityConfirmationForm = () => {
           variant="contained"
           color="primary"
           sx={{ mb: 2 }}
-          onClick={continueRegistration}
+          onClick={handleSubmit}
         >
           Confirm
         </ConfirmationButton>

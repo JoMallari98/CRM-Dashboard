@@ -33,6 +33,6 @@ describe("investor/VerificationForm", () => {
 
   it("It should navigate to questions after confirmation", () => {
     userEvent.click(screen.getByText("Confirm"));
-    expect(router.push).toHaveBeenCalledWith("/investor/questions");
+    expect(router.push).toHaveBeenCalledWith("/rep");
   });
 });

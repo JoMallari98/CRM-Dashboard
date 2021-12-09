@@ -27,11 +27,11 @@ const UserTypeForm = () => {
   const typeOfUsers: SelectItem[] = [
     { text: "I am an investor", value: UserType.Investor },
     { text: "I’m an investment advisor", value: UserType.Rep },
-    { text: "I work with an advisor", value: UserType.Rep },
-    { text: "I’m a registered broker", value: UserType.Other },
+    { text: "I work with an advisor", value: UserType.Investor },
+    { text: "I’m a registered broker", value: UserType.Investor },
     {
       text: "I work for a financial institution, but I am neither an advisor nor a broker",
-      value: UserType.Other,
+      value: UserType.Investor,
     },
   ];
 

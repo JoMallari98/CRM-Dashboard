@@ -21,7 +21,7 @@ const VerificationForm = () => {
     goNextStep();
   };
 
-  const handleClick = () => {
+  const resendCode = () => {
     setOpen(true);
   };
   const handleClose = (
@@ -67,7 +67,7 @@ const VerificationForm = () => {
             component="a"
             variant="body2"
             fontWeight="bold"
-            onClick={handleClick}
+            onClick={resendCode}
             underline="hover"
             color="#000"
             href="#"

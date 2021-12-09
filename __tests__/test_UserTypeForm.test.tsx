@@ -36,12 +36,26 @@ describe("UserTypeForm", () => {
     expect(router.push).toHaveBeenCalledWith("/investor/user-data");
   });
 
-  it("It should redirect rep to rep onboarding", () => {
+  it("It should redirect non-rep to investor onboarding", () => {
     userEvent.click(screen.getByText("I’m an investment advisor"));
     expect(router.push).toHaveBeenCalledWith("/rep");
   });
-  it("It should redirect rep to rep onboarding", () => {
+  it("It should redirect non-rep to investor onboarding", () => {
     userEvent.click(screen.getByText("I work with an advisor"));
-    expect(router.push).toHaveBeenCalledWith("/rep");
+    expect(router.push).toHaveBeenCalledWith("/investor/user-data");
+  });
+  it("It should redirect non-rep to investor onboarding", () => {
+    userEvent.click(screen.getByText("I work with an advisor"));
+    expect(router.push).toHaveBeenCalledWith("/investor/user-data");
+  });
+  it("It should redirect non-rep to investor onboarding", () => {
+    userEvent.click(screen.getByText("I’m a registered broker"));
+    expect(router.push).toHaveBeenCalledWith("/investor/user-data");
+  });
+  it("It should redirect non-rep to investor onboarding", () => {
+    const text =
+      "I work for a financial institution, but I am neither an advisor nor a broker";
+    userEvent.click(screen.getByText(text));
+    expect(router.push).toHaveBeenCalledWith("/investor/user-data");
   });
 });
