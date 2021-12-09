@@ -31,7 +31,7 @@ const FailedRegistration = () => {
           </Typography>
           <Typography variant="body2" align="center">
             Something went wrong, we apologize and will check our information.
-            Unfortunatelly, you cannot continue the registration, please connect
+            Unfortunately, you cannot continue the registration, please connect
             our support service +1783939440.
           </Typography>
         </FormSection>
