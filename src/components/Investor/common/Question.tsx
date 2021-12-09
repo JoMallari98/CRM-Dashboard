@@ -4,6 +4,7 @@ import {
   Button,
   Hidden,
   Paper,
+  PaperProps,
   styled,
   useMediaQuery,
   useTheme,
@@ -19,8 +20,7 @@ type Props = {
   onNext?(): void;
   isEndQuestion?: boolean;
   isStartQuestion?: boolean;
-  sx?: SxProps;
-};
+} & Pick<PaperProps, "sx">;
 
 const Question: React.FC<Props> = (props) => {
   const { goNextQuestion, goPrevQuestion } = useOnboarding();

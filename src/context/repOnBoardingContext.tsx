@@ -29,7 +29,6 @@ export const RepOnBoardingProvider: React.FC = ({ children }) => {
   const goPrevStep = () => setCurrentStep(currentStep - 1);
   const goToStep = (step: number) => setCurrentStep(step);
 
-  console.log(currentStep);
   return (
     <RepOnBoardingContext.Provider
       value={{

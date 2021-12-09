@@ -65,23 +65,27 @@ const UserDataForm = () => {
 
         <Box mt={6}>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="First Name" />
+            <CustomTextField id="firstName" label="First Name" />
           </FormControl>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="Last Name" />
+            <CustomTextField id="lastName" label="Last Name" />
           </FormControl>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="RIA Name" />
+            <CustomTextField id="riaName" label="RIA Name" />
           </FormControl>
 
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="E-mail" type="email" />
+            <CustomTextField id="email" label="E-mail" type="email" />
           </FormControl>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="Cell/Office phone" type="tel" />
+            <CustomTextField
+              id="cellNumber"
+              label="Cell/Office phone"
+              type="tel"
+            />
           </FormControl>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="CRD Number" type="text" />
+            <CustomTextField id="crdNumber" label="CRD Number" type="text" />
           </FormControl>
         </Box>
       </FormSection>
