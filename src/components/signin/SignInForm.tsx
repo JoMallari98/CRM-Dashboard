@@ -17,11 +17,12 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-
+import { signIn, signOut } from "next-auth/react";
 const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
       {showPassword ? <Visibility /> : <VisibilityOff />}
@@ -86,6 +87,7 @@ const SignInForm = () => {
           variant="contained"
           color="secondary"
           startIcon={<FacebookIcon />}
+          onClick={() => signIn("facebook", { callbackUrl: "/dashboard" })}
         >
           Continue with Facebook
         </ContinueWithButton>
@@ -93,6 +95,7 @@ const SignInForm = () => {
           variant="contained"
           color="secondary"
           startIcon={<GoogleIcon />}
+          onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
         >
           Continue with Google
         </ContinueWithButton>

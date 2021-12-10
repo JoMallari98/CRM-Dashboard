@@ -15,6 +15,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import GoogleIcon from "@mui/icons-material/Google";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
 import { useRouter } from "next/router";
+import { signIn } from "next-auth/react";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -65,6 +66,7 @@ const SignUpForm = () => {
           variant="contained"
           color="secondary"
           startIcon={<LinkedInIcon />}
+          onClick={() => signIn("linkedin", { callbackUrl: "/user-type" })}
         >
           Continue with LinkedIn
         </ContinueWithButton>
@@ -72,6 +74,7 @@ const SignUpForm = () => {
           variant="contained"
           color="secondary"
           startIcon={<FacebookIcon />}
+          onClick={() => signIn("facebook", { callbackUrl: "/user-type" })}
         >
           Continue with Facebook
         </ContinueWithButton>
@@ -79,6 +82,7 @@ const SignUpForm = () => {
           variant="contained"
           color="secondary"
           startIcon={<GoogleIcon />}
+          onClick={() => signIn("google", { callbackUrl: "/user-type" })}
         >
           Continue with Google
         </ContinueWithButton>
