@@ -15,6 +15,10 @@ export default NextAuth({
       clientId: process.env.FACEBOOK_APP_ID!,
       clientSecret: process.env.FACEBOOK_APP_SECRET!,
     }),
+    LinkedInProvider({
+      clientId: process.env.LINKEDIN_APP_ID!,
+      clientSecret: process.env.LINKEDIN_APP_SECRET!,
+    }),
   ],
   jwt: {
     maxAge: 30 * 86400,

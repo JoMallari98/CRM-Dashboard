@@ -80,6 +80,7 @@ const SignInForm = () => {
           variant="contained"
           color="secondary"
           startIcon={<LinkedInIcon />}
+          onClick={() => signIn("linkedin", { callbackUrl: "/dashboard" })}
         >
           Continue with LinkedIn
         </ContinueWithButton>
