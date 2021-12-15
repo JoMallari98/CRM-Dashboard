@@ -2,7 +2,6 @@ import { Visibility, VisibilityOff } from "@mui/icons-material";
 import {
   Box,
   Typography,
-  TextField,
   FormControl,
   Button,
   IconButton,
@@ -16,6 +15,9 @@ import GoogleIcon from "@mui/icons-material/Google";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
+import { Formik, Form } from "formik";
+import { SignInValues, signInSchema } from "src/schema/signin-schema";
+import TextField from "src/components/common/formik/TextField";
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -26,86 +28,101 @@ const SignUpForm = () => {
     </IconButton>
   );
 
-  const handleSubmit = () => {
+  const handleSubmit = (values: SignInValues) => {
+    //api call for signin email and password
+    console.log("handleSubmit", values);
     router.push("/user-type");
   };
   return (
-    <OnBoardingFormContainer>
-      <Typography variant="h5" fontWeight="bold">
-        Sign Up
-      </Typography>
-
-      <StyledBox>
-        <FormControl fullWidth sx={{ my: 2 }}>
-          <TextField
-            variant="outlined"
-            label="E-mail"
-            size="small"
-            id="email"
-          />
-        </FormControl>
-        <FormControl fullWidth sx={{ my: 2 }}>
-          <TextField
-            variant="outlined"
-            type={showPassword ? "text" : "password"}
-            label="Password"
-            id="passowrd"
-            size="small"
-            InputProps={{
-              endAdornment: PasswordButton,
-            }}
-          />
-        </FormControl>
-      </StyledBox>
-      <Typography variant="body2" my={2}>
-        {" "}
-        or{" "}
-      </Typography>
-      <StyledBox display="flex" flexDirection="column" alignItems="stretch">
-        <ContinueWithButton
-          variant="contained"
-          color="secondary"
-          startIcon={<LinkedInIcon />}
-          onClick={() => signIn("linkedin", { callbackUrl: "/user-type" })}
-        >
-          Continue with LinkedIn
-        </ContinueWithButton>
-        <ContinueWithButton
-          variant="contained"
-          color="secondary"
-          startIcon={<FacebookIcon />}
-          onClick={() => signIn("facebook", { callbackUrl: "/user-type" })}
-        >
-          Continue with Facebook
-        </ContinueWithButton>
-        <ContinueWithButton
-          variant="contained"
-          color="secondary"
-          startIcon={<GoogleIcon />}
-          onClick={() => signIn("google", { callbackUrl: "/user-type" })}
-        >
-          Continue with Google
-        </ContinueWithButton>
-      </StyledBox>
-
-      <SignInButton
-        variant="contained"
-        color="primary"
-        sx={{ px: 8, py: 1, my: 2 }}
-        onClick={handleSubmit}
-        data-testid="sign-up-button"
-      >
-        Sign Up
-      </SignInButton>
-      <Typography variant="body2">
-        {`Already have an account? `}
-        <Link href="/signin" passHref>
-          <Typography fontWeight="bold" component="a">
-            Sign In
+    <Formik
+      validationSchema={signInSchema}
+      onSubmit={handleSubmit}
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+    >
+      <Form style={{ height: "100%" }}>
+        <OnBoardingFormContainer>
+          <Typography variant="h5" fontWeight="bold">
+            Sign Up
           </Typography>
-        </Link>
-      </Typography>
-    </OnBoardingFormContainer>
+
+          <StyledBox>
+            <FormControl fullWidth sx={{ my: 2 }}>
+              <TextField
+                variant="outlined"
+                label="E-mail"
+                size="small"
+                id="email"
+                name="email"
+              />
+            </FormControl>
+            <FormControl fullWidth sx={{ my: 2 }}>
+              <TextField
+                variant="outlined"
+                type={showPassword ? "text" : "password"}
+                label="Password"
+                id="password"
+                name="password"
+                size="small"
+                InputProps={{
+                  endAdornment: PasswordButton,
+                }}
+              />
+            </FormControl>
+          </StyledBox>
+          <Typography variant="body2" my={2}>
+            {" "}
+            or{" "}
+          </Typography>
+          <StyledBox display="flex" flexDirection="column" alignItems="stretch">
+            <ContinueWithButton
+              variant="contained"
+              color="secondary"
+              startIcon={<LinkedInIcon />}
+              onClick={() => signIn("linkedin", { callbackUrl: "/user-type" })}
+            >
+              Continue with LinkedIn
+            </ContinueWithButton>
+            <ContinueWithButton
+              variant="contained"
+              color="secondary"
+              startIcon={<FacebookIcon />}
+              onClick={() => signIn("facebook", { callbackUrl: "/user-type" })}
+            >
+              Continue with Facebook
+            </ContinueWithButton>
+            <ContinueWithButton
+              variant="contained"
+              color="secondary"
+              startIcon={<GoogleIcon />}
+              onClick={() => signIn("google", { callbackUrl: "/user-type" })}
+            >
+              Continue with Google
+            </ContinueWithButton>
+          </StyledBox>
+
+          <SignInButton
+            variant="contained"
+            color="primary"
+            sx={{ px: 8, py: 1, my: 2 }}
+            data-testid="sign-up-button"
+            type="submit"
+          >
+            Sign Up
+          </SignInButton>
+          <Typography variant="body2">
+            {`Already have an account? `}
+            <Link href="/signin" passHref>
+              <Typography fontWeight="bold" component="a">
+                Sign In
+              </Typography>
+            </Link>
+          </Typography>
+        </OnBoardingFormContainer>
+      </Form>
+    </Formik>
   );
 };
 
