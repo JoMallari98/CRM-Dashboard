@@ -43,18 +43,20 @@ describe("investor/VerificationSelect", () => {
   });
 
   it("From page 1, it should render Next page when clicked Next Step", () => {
-    userEvent.click(screen.getByText("Next Step"));
-    expect(screen.getByText(`As an Advisor`)).toBeInTheDocument();
-    expect(
-      screen.getByText(`As an Advisor acting as an Investor`)
-    ).toBeInTheDocument();
+    waitFor(() => {
+      userEvent.click(screen.getByText("Next Step"));
+
+      expect(screen.getByText(`As an Advisor`)).toBeInTheDocument();
+      expect(
+        screen.getByText(`As an Advisor acting as an Investor`)
+      ).toBeInTheDocument();
+    });
   });
 
   it("From page 2, it should render Next page when clicked Next Step", async () => {
-    userEvent.click(screen.getByText("Next Step"));
-    userEvent.click(screen.getByText("Next Step"));
-
     waitFor(() => {
+      userEvent.click(screen.getByText("Next Step"));
+      userEvent.click(screen.getByText("Next Step"));
       expect(
         screen.getByText(`Sorry, we didn’t find you as an advisor`)
       ).toBeInTheDocument();

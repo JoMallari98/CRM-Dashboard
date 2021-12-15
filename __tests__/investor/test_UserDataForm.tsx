@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import UserDataForm from "src/components/Investor/UserDataForm";
 import createMockInvestorContext from "src/test-utils/createMockInvestorContext";
@@ -27,7 +27,9 @@ describe("investor/UserDataForm", () => {
   });
 
   it("It should go to verification step after submitting", () => {
-    userEvent.click(screen.getByText("Continue"));
-    expect(context.goNextStep).toHaveBeenCalled();
+    waitFor(() => {
+      userEvent.click(screen.getByText("Continue"));
+      expect(context.goNextStep).toHaveBeenCalled();
+    });
   });
 });

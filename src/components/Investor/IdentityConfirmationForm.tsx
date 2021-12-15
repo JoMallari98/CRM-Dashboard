@@ -16,13 +16,18 @@ import {
 import CustomTextField from "src/components/common/CustomTextField";
 import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
+import { Formik, Form } from "formik";
+import { Asserts, object, string } from "yup";
+
+const validationSchema = object({
+  crdNumber: string().required("Please input CRD Number"),
+});
 
 const IdentityConfirmationForm = () => {
   const { goPrevStep, goToStep } = useOnboarding();
   const router = useRouter();
 
-  const handleSubmit = () => {
-    // if incorrect. go to failed registration
+  const handleSubmit = (values: Asserts<typeof validationSchema>) => {
     const success = true; // simulate call to API.
     if (success) {
       router.push("/rep");
@@ -32,39 +37,55 @@ const IdentityConfirmationForm = () => {
   };
 
   return (
-    <OnBoardingFormContainer pt={0} justifyContent="flex-start">
-      <FormSection mt={6} mb={13}>
-        <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goPrevStep}>
-            <ArrowBack fontSize="small" />
-          </IconButton>
-        </Box>
-      </FormSection>
+    <Formik
+      validationSchema={validationSchema}
+      initialValues={{
+        crdNumber: "",
+      }}
+      onSubmit={handleSubmit}
+    >
+      <OnBoardingFormContainer
+        component={Form}
+        pt={0}
+        justifyContent="flex-start"
+      >
+        <FormSection mt={6} mb={13}>
+          <Box display="flex" alignItems="center" width="100%" mb={3}>
+            <IconButton onClick={goPrevStep}>
+              <ArrowBack fontSize="small" />
+            </IconButton>
+          </Box>
+        </FormSection>
 
-      <FormSection alignItems="stretch" maxWidth={400} mb={15}>
-        <Typography variant="h5" mb={6} fontWeight="bold">
-          Confirm your identity
-        </Typography>
-        <Typography variant="body2" mb={10} align="center">
-          Please, write your CRD Number to confirm your identity
-        </Typography>
-        <Box mt={6} width="90%">
-          <FormControl fullWidth sx={{ my: 2 }}>
-            <CustomTextField label="CRD Number" id="crd-number" />
-          </FormControl>
-        </Box>
-      </FormSection>
-      <FormSection alignItems="stretch" maxWidth={400}>
-        <ConfirmationButton
-          variant="contained"
-          color="primary"
-          sx={{ mb: 2 }}
-          onClick={handleSubmit}
-        >
-          Confirm
-        </ConfirmationButton>
-      </FormSection>
-    </OnBoardingFormContainer>
+        <FormSection alignItems="stretch" maxWidth={400} mb={15}>
+          <Typography variant="h5" mb={6} fontWeight="bold">
+            Confirm your identity
+          </Typography>
+          <Typography variant="body2" mb={10} align="center">
+            Please, write your CRD Number to confirm your identity
+          </Typography>
+          <Box mt={6} width="90%">
+            <FormControl fullWidth sx={{ my: 2 }}>
+              <CustomTextField
+                label="CRD Number"
+                id="crd-number"
+                name="crdNumber"
+              />
+            </FormControl>
+          </Box>
+        </FormSection>
+        <FormSection alignItems="stretch" maxWidth={400}>
+          <ConfirmationButton
+            variant="contained"
+            color="primary"
+            sx={{ mb: 2 }}
+            type="submit"
+          >
+            Confirm
+          </ConfirmationButton>
+        </FormSection>
+      </OnBoardingFormContainer>
+    </Formik>
   );
 };
 

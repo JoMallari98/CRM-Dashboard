@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import createMockInvestorContext from "src/test-utils/createMockInvestorContext";
 import { OnBoardingContext } from "src/context/userOnBoardingContext";
@@ -31,8 +31,12 @@ describe("investor/VerificationForm", () => {
     expect(screen.getByText("Confirm")).toBeInTheDocument();
   });
 
-  it("It should navigate to questions after confirmation", () => {
-    userEvent.click(screen.getByText("Confirm"));
-    expect(router.push).toHaveBeenCalledWith("/rep");
+  it("It should navigate to questions after confirmation", async () => {
+    await waitFor(() => {
+      const input = screen.getByLabelText("CRD Number");
+      userEvent.type(input, "1234567890");
+      userEvent.click(screen.getByText("Confirm"));
+      expect(router.push).toHaveBeenCalledWith("/rep");
+    });
   });
 });
