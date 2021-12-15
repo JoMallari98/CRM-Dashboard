@@ -42,86 +42,84 @@ const SignUpForm = () => {
         password: "",
       }}
     >
-      <Form style={{ height: "100%" }}>
-        <OnBoardingFormContainer>
-          <Typography variant="h5" fontWeight="bold">
-            Sign Up
-          </Typography>
+      <OnBoardingFormContainer component={Form}>
+        <Typography variant="h5" fontWeight="bold">
+          Sign Up
+        </Typography>
 
-          <StyledBox>
-            <FormControl fullWidth sx={{ my: 2 }}>
-              <TextField
-                variant="outlined"
-                label="E-mail"
-                size="small"
-                id="email"
-                name="email"
-              />
-            </FormControl>
-            <FormControl fullWidth sx={{ my: 2 }}>
-              <TextField
-                variant="outlined"
-                type={showPassword ? "text" : "password"}
-                label="Password"
-                id="password"
-                name="password"
-                size="small"
-                InputProps={{
-                  endAdornment: PasswordButton,
-                }}
-              />
-            </FormControl>
-          </StyledBox>
-          <Typography variant="body2" my={2}>
-            {" "}
-            or{" "}
-          </Typography>
-          <StyledBox display="flex" flexDirection="column" alignItems="stretch">
-            <ContinueWithButton
-              variant="contained"
-              color="secondary"
-              startIcon={<LinkedInIcon />}
-              onClick={() => signIn("linkedin", { callbackUrl: "/user-type" })}
-            >
-              Continue with LinkedIn
-            </ContinueWithButton>
-            <ContinueWithButton
-              variant="contained"
-              color="secondary"
-              startIcon={<FacebookIcon />}
-              onClick={() => signIn("facebook", { callbackUrl: "/user-type" })}
-            >
-              Continue with Facebook
-            </ContinueWithButton>
-            <ContinueWithButton
-              variant="contained"
-              color="secondary"
-              startIcon={<GoogleIcon />}
-              onClick={() => signIn("google", { callbackUrl: "/user-type" })}
-            >
-              Continue with Google
-            </ContinueWithButton>
-          </StyledBox>
-
-          <SignInButton
+        <StyledBox>
+          <FormControl fullWidth sx={{ my: 2 }}>
+            <TextField
+              variant="outlined"
+              label="E-mail"
+              size="small"
+              id="email"
+              name="email"
+            />
+          </FormControl>
+          <FormControl fullWidth sx={{ my: 2 }}>
+            <TextField
+              variant="outlined"
+              type={showPassword ? "text" : "password"}
+              label="Password"
+              id="password"
+              name="password"
+              size="small"
+              InputProps={{
+                endAdornment: PasswordButton,
+              }}
+            />
+          </FormControl>
+        </StyledBox>
+        <Typography variant="body2" my={2}>
+          {" "}
+          or{" "}
+        </Typography>
+        <StyledBox display="flex" flexDirection="column" alignItems="stretch">
+          <ContinueWithButton
             variant="contained"
-            color="primary"
-            sx={{ px: 8, py: 1, my: 2 }}
-            data-testid="sign-up-button"
-            type="submit"
+            color="secondary"
+            startIcon={<LinkedInIcon />}
+            onClick={() => signIn("linkedin", { callbackUrl: "/user-type" })}
           >
-            Sign Up
-          </SignInButton>
-          <Typography variant="body2">
-            {`Already have an account? `}
-            <Link href="/signin" passHref>
-              <Typography fontWeight="bold" component="a">
-                Sign In
-              </Typography>
-            </Link>
-          </Typography>
-        </OnBoardingFormContainer>
-      </Form>
+            Continue with LinkedIn
+          </ContinueWithButton>
+          <ContinueWithButton
+            variant="contained"
+            color="secondary"
+            startIcon={<FacebookIcon />}
+            onClick={() => signIn("facebook", { callbackUrl: "/user-type" })}
+          >
+            Continue with Facebook
+          </ContinueWithButton>
+          <ContinueWithButton
+            variant="contained"
+            color="secondary"
+            startIcon={<GoogleIcon />}
+            onClick={() => signIn("google", { callbackUrl: "/user-type" })}
+          >
+            Continue with Google
+          </ContinueWithButton>
+        </StyledBox>
+
+        <SignInButton
+          variant="contained"
+          color="primary"
+          sx={{ px: 8, py: 1, my: 2 }}
+          data-testid="sign-up-button"
+          type="submit"
+        >
+          Sign Up
+        </SignInButton>
+        <Typography variant="body2">
+          {`Already have an account? `}
+          <Link href="/signin" passHref>
+            <Typography fontWeight="bold" component="a">
+              Sign In
+            </Typography>
+          </Link>
+        </Typography>
+      </OnBoardingFormContainer>
     </Formik>
   );
 };

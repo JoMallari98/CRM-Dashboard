@@ -1,6 +1,8 @@
-import { TextField, TextFieldProps } from "@mui/material";
+import { TextFieldProps } from "@mui/material";
+import TextField from "src/components/common/formik/TextField";
 import React from "react";
-type Props = TextFieldProps;
+type Props = TextFieldProps & { name: string };
+
 const CustomTextField: React.FC<Props> = (props) => {
   return (
     <TextField
