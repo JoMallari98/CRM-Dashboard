@@ -166,8 +166,8 @@ const Navbar = () => {
               <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
             </Grid>
             <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
-              <Grid container spacing={0}>
-                <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
+              <Grid container>
+                <Grid item alignSelf="end">
                   <Grid container justifyContent="center">
                     <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
                       <UserName>Jonathan Benson</UserName>
@@ -228,7 +228,7 @@ const Navbar = () => {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
+                <Grid item alignSelf="start">
                   <Email>example@mail.com</Email>
                 </Grid>
               </Grid>

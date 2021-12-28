@@ -229,7 +229,7 @@ const UserName = styled.span`
 `;
 const FlexCenter = styled.div`
   display: flex;
-  justifycontent: center;
-  alignitems: center;
+  justify-content: center;
+  align-items: center;
 `;
 export default ProfileCard;
