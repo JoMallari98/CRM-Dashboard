@@ -17,7 +17,7 @@ const OnBoardingIntro = () => {
           Hello, User.
         </Typography>
         <Typography variant="h5" maxWidth="70%" mb={2}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Lorem ipsum dolor sit Lorem ipsum dolor sit
         </Typography>
         <Link href="/signin" passHref>
           <Button
