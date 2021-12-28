@@ -1,6 +1,7 @@
 import React from 'react'
 import { Box, CardContent, CardActions, Button, FormGroup, Checkbox, FormControlLabel, styled as MuiStyled } from '@mui/material'
 import { CheckCircle, RadioButtonUnchecked } from '@mui/icons-material'
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
 import styled from 'styled-components'
 
 const LetCard: React.FC = () => {
@@ -11,19 +12,22 @@ const LetCard: React.FC = () => {
     return (
         <LetCardContainer>
             <CardHeader>
-                <h3>
+                <h3 style={{ fontWeight: '600' }}>
                     Let’s start
                 </h3>
-                <p>There are lots of things to do. From what to start:</p>
+                <p style={{ fontWeight: '500' }}>There are lots of things to do. From what to start:</p>
             </CardHeader>
             <CardContent>
-                <div>
+                <div style={{ position: 'relative' }}>
                     <FormGroup>
                         <FormControlLabel control={<CheckBoxComponent defaultChecked={true} />} label="Create risk profile" />
                         <FormControlLabel control={<CheckBoxComponent />} label="Complete ESG preferences" />
                         <FormControlLabel control={<CheckBoxComponent defaultChecked={true} />} label="Create risk profile" />
                         <FormControlLabel control={<CheckBoxComponent defaultChecked={true} />} label="Create risk profile" />
                     </FormGroup>
+                    <Calendar>
+                        <CalendarTodayOutlinedIcon />
+                    </Calendar>
                 </div>
             </CardContent>
             <CardActions>
@@ -33,7 +37,7 @@ const LetCard: React.FC = () => {
     )
 }
 const CardHeader = styled(Box)`
-    background: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTodLf1TXRu0pbNuRDivtN9t46MPa1AKn3pBw&usqp=CAU');
+    background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 2.98%, rgba(0, 0, 0, 0) 93.52%),url('/LetCard.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -47,5 +51,14 @@ const LetCardContainer = styled.div`
     box-shadow: 4px 4px 32px rgba(10, 81, 143, 0.17);
     border-bottom-left-radius: 16px;
     border-bottom-right-radius: 16px;
+`
+const Calendar = styled.div`
+    position: absolute;
+    top: 0px;
+    right: 10px;
+    cursor: pointer;
+    & svg{
+        fill: #009EF8;
+    }
 `
 export default LetCard

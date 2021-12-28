@@ -1,5 +1,5 @@
 import React from 'react'
-import { Box, CardActions, CardContent, Container } from '@mui/material'
+import { Box, CardContent, Container } from '@mui/material'
 import { ArrowUpward } from '@mui/icons-material'
 import PortfolioCardIcon from '../../assets/PortfolioCardIcon.svg'
 import styled from 'styled-components'
@@ -19,12 +19,14 @@ const PortfolioCard: React.FC = () => {
                     <span>2,58%</span>
                     <span><ArrowUpward style={{ height: '13px', width: '13px' }} /></span>
                 </CardBadge>
-                <PortfolioCardIcon />
-                <CardFooter>
-                    Check more
-                </CardFooter>
             </CardContent>
-        </Box>
+            <PortfolioContainer>
+                <PortfolioCardIcon />
+            </PortfolioContainer>
+            <CardFooter>
+                Check more
+            </CardFooter>
+        </Box >
     )
 }
 const CardBadge = styled.div`
@@ -55,7 +57,10 @@ const CardFooter = styled.div`
     line-height: 15px;
     color: #ffff;
     box-shadow: 4px 4px 32px rgba(10, 81, 143, 0.17);
-    background-color: #fff;
     border-radius: 16px;
+    margin-bottom: 16px;
+`
+const PortfolioContainer = styled.div`
+    margin-top: 2rem;
 `
 export default PortfolioCard

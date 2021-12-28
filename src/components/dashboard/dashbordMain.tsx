@@ -7,6 +7,7 @@ import UpcomingEventCard from './UpcomingEventCard'
 import ProfileCard from './ProfileCard'
 import PortfolioCard from './PorfolioCard'
 import TopAdvisorCard from './TopAdvisorCard'
+import styled from 'styled-components'
 const DashboardMain: React.FC = () => {
     const [age, setAge] = React.useState('');
     const handleChange = (event: SelectChangeEvent) => {
@@ -15,7 +16,7 @@ const DashboardMain: React.FC = () => {
     return (
         <Container>
             <Grid container spacing={3}>
-                <Grid item lg={3} xl={3} xs={3} sm={3} md={3} style={{ marginTop: '5rem' }}>
+                <Grid item lg={4} xl={4} xs={4} sm={4} md={4} style={{ marginTop: '5rem' }}>
                     <Grid container spacing={3}>
                         <Grid item>
                             <LetCard />
@@ -38,7 +39,7 @@ const DashboardMain: React.FC = () => {
                                             }
                                         ]}
                                         sx={{
-                                            background: "url('https://c1.wallpaperflare.com/preview/411/828/932/people-man-dark-shadow.jpg')",
+                                            background: " linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 75.5%),url('/LifeCard.png')",
                                             backgroundSize: "cover",
                                             backgrounPosition: "center center",
                                             width: '100%',
@@ -56,7 +57,7 @@ const DashboardMain: React.FC = () => {
                     </Grid>
 
                 </Grid>
-                <Grid item lg={6} xl={6} xs={6} sm={6} md={6} style={{ marginTop: '5rem' }}>
+                <Grid item lg={5} xl={5} xs={5} sm={5} md={5} style={{ marginTop: '5rem' }}>
                     <Grid container spacing={3}>
                         {/* Inputs */}
                         <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
@@ -79,11 +80,11 @@ const DashboardMain: React.FC = () => {
                                                     return selected
                                                 }}
                                             >
-                                                <MenuItem value="People">People</MenuItem>
-                                                <MenuItem value="Porfolios">Porfolios</MenuItem>
-                                                <MenuItem value="Events">Events</MenuItem>
-                                                <MenuItem value="Challenges">Challenges</MenuItem>
-                                                <MenuItem value="My Interests">My Interests</MenuItem>
+                                                <MyMenuItem value="People" style={{ background: '#fff' }}>People</MyMenuItem>
+                                                <MyMenuItem value="Porfolios">Porfolios</MyMenuItem>
+                                                <MyMenuItem value="Events">Events</MyMenuItem>
+                                                <MyMenuItem value="Challenges">Challenges</MyMenuItem>
+                                                <MyMenuItem value="My Interests">My Interests</MyMenuItem>
                                             </Select>
                                         </FormControl>
                                     </Box>
@@ -120,6 +121,7 @@ const DashboardMain: React.FC = () => {
                                                     }
 
                                                 }
+                                                challenge={true}
                                             />
                                         </Grid>
                                         <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
@@ -152,7 +154,7 @@ const DashboardMain: React.FC = () => {
                                                             }
                                                         ]}
                                                         sx={{
-                                                            background: "url('https://wallpaperaccess.com/full/3077020.jpg')",
+                                                            backgroundImage: "linear-gradient(360deg, #000000 , rgba(0, 0, 0, 0) 75.5%),url(/CareCard.png)",
                                                             height: '116px',
                                                             backgroundSize: "cover",
                                                             backgroundPosition: "center center",
@@ -193,4 +195,8 @@ const DashboardMain: React.FC = () => {
         </Container>
     )
 }
+
+const MyMenuItem = styled(MenuItem)`
+    background: #ffff;
+`
 export default DashboardMain

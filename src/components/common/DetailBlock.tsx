@@ -41,7 +41,7 @@ const DetailBlock: React.FC<DetailBlockProps> = ({
             {
                 data.map((Item, index) => {
                     return (
-                        <>
+                        <React.Fragment key={Item.label as Key}>
                             <Grid item>
                                 <RenderItem Item={Item} key={Item.label as Key} />
                             </Grid>
@@ -57,7 +57,7 @@ const DetailBlock: React.FC<DetailBlockProps> = ({
                                     />
                                 </Grid>
                             }
-                        </>
+                        </React.Fragment>
                     )
                 })
             }

@@ -1,10 +1,16 @@
-import React from 'react'
-import { Box, CardContent, Grid, Avatar, Divider, Button } from '@mui/material'
+import React, { useState } from 'react'
+import { Box, CardContent, Grid, Avatar, Divider, Button, Modal } from '@mui/material'
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import DetailBlock from 'src/components/common/DetailBlock'
 import SettingsIcon from '@mui/icons-material/Settings';
+import AddLocationModal from 'src/components/common/AddLocationModal';
+import EditIcon from '@mui/icons-material/Edit';
 import styled from 'styled-components'
 const ProfileCard: React.FC = () => {
+    const [openAddLocationModal, setOpenAddLocationModal] = useState(false)
+    const handleOpenAddLocationModal = () => {
+        setOpenAddLocationModal(true)
+    }
     const AvatarBlock: React.FC = () => {
         return (
             <Grid container spacing={1} direction="column" justifyContent="center" alignItems="center">
@@ -19,12 +25,14 @@ const ProfileCard: React.FC = () => {
                     </UserName>
                 </Grid>
                 <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
-                    <Grid container direction="row" justifyContent="center" alignItems="center">
+                    <Grid container spacing={0.5} direction="row">
                         <Grid item>
-                            <LocationOnOutlinedIcon style={{ fill: "rgba(0, 0, 0, 0.5)", width: '.8rem', height: '.8rem' }} />
+                            <LocationOnOutlinedIcon style={{ fill: '#009EF8', width: '.9rem', height: '.9rem' }} />
                         </Grid>
-                        <Grid item style={{ fontSize: ".8rem" }}>
-                            New York, US
+                        <Grid item style={{ fontSize: ".8rem", cursor: "pointer", color: '#009EF8' }}>
+                            <div onClick={handleOpenAddLocationModal}>
+                                Add Location
+                            </div>
                         </Grid>
                     </Grid>
                 </Grid>
@@ -122,6 +130,9 @@ const ProfileCard: React.FC = () => {
     }
     return (
         <CardContainer>
+            <EditIconContainer>
+                <EditIcon />
+            </EditIconContainer>
             <CardContent>
                 <Grid container spacing={3}>
                     <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
@@ -141,6 +152,7 @@ const ProfileCard: React.FC = () => {
                     </Grid>
                 </Grid>
             </CardContent>
+            <AddLocationModal open={openAddLocationModal} setOpen={setOpenAddLocationModal} />
         </CardContainer>
     )
 }
@@ -150,8 +162,17 @@ const CardContainer = styled(Box)`
     background-color: #fff;
     border-radius: 16px;
     padding: 1.5rem 0rem;
+    min-height: 80vh;
+    position: relative;
 `
-const EditIcon = styled.div`
+const EditIconContainer = styled.div`
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    cursor: pointer;
+    & svg{
+        fill: #009EF8;
+    }
 `
 const UserName = styled.span`
     font-weight: 800;
