@@ -23,7 +23,7 @@ const TopAdvisorCard: React.FC = () => {
             alignItems="center"
           >
             <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
-              <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt="Sharp" />
             </Grid>
             <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
               <Grid container spacing={0}>

@@ -73,7 +73,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               alignItems="center"
             >
               <Grid item lg={1} xl={1} xs={2} sm={1} md={1}>
-                <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
+                <Avatar alt="Sharp" />
               </Grid>
               <Grid item lg={11} xl={11} xs={10} sm={11} md={11}>
                 <Grid container spacing={0}>
@@ -111,19 +111,13 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
           </Grid>
           <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <AvatarMix>
-              <SmallAvatar
-                style={{ zIndex: "10000" }}
-                src="/static/images/avatar/1.jpg"
-                alt="Sharp"
-              />
+              <SmallAvatar style={{ zIndex: "10000" }} alt="Sharp" />
               <SmallAvatar
                 style={{ zIndex: "9000", marginLeft: "-9px" }}
-                src="/static/images/avatar/1.jpg"
                 alt="Sharp"
               />
               <SmallAvatar
                 style={{ zIndex: "8000", marginLeft: "-9px" }}
-                src="/static/images/avatar/1.jpg"
                 alt="Sharp"
               />
               <span className="text">

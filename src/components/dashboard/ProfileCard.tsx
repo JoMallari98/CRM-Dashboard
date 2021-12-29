@@ -30,7 +30,7 @@ const ProfileCard: React.FC = () => {
       >
         <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
           <FlexCenter>
-            <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
+            <Avatar alt="Sharp" />
           </FlexCenter>
         </Grid>
         <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>

@@ -43,10 +43,10 @@ const DashboardMain: React.FC = () => {
             </Grid>
             <Grid item>
               <Grid container spacing={3}>
-                <Grid item lg={7} xl={7} xs={8} sm={8} md={7}>
+                <Grid item lg={7} xl={7} xs={12} sm={8} md={7}>
                   <UpcomingEventCard />
                 </Grid>
-                <Grid item lg={5} xl={5} xs={4} sm={4} md={5}>
+                <Grid item lg={5} xl={5} xs={12} sm={4} md={5}>
                   <BackgroundCard
                     data={[
                       { label: "My Life" },
@@ -139,7 +139,7 @@ const DashboardMain: React.FC = () => {
               <Grid container spacing={3}>
                 <Grid item lg={5} xl={5} xs={12} sm={12} md={5}>
                   <Grid container spacing={3}>
-                    <Grid item lg={12} xl={12} xs={6} sm={6} md={12}>
+                    <Grid item lg={12} xl={12} xs={12} sm={6} md={12}>
                       {/* Challenges Card  */}
                       {/* <h1>Challenges Card</h1> */}
                       <BackgroundCard
@@ -155,7 +155,7 @@ const DashboardMain: React.FC = () => {
                         challenge={true}
                       />
                     </Grid>
-                    <Grid item lg={12} xl={12} xs={6} sm={6} md={12}>
+                    <Grid item lg={12} xl={12} xs={12} sm={6} md={12}>
                       {/* Portfolio Card */}
                       {/* <h1>Portfolio Card</h1> */}
                       <PortfolioCard />

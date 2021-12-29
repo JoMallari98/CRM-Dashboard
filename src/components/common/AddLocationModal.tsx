@@ -27,8 +27,6 @@ const AddLocationModal: React.FC<AddLocationModalProps> = ({
     borderRadius: "16px",
     background: "#ffff",
     outline: "none",
-    // width: "589px",
-    // maxWidth: "80vw",
   };
   return (
     <Modal
@@ -37,17 +35,17 @@ const AddLocationModal: React.FC<AddLocationModalProps> = ({
       aria-labelledby="child-modal-title"
       aria-describedby="child-modal-description"
     >
-      <Wrapper sx={{ pt: 2, px: 4, pb: 3 }}>
+      <Wrapper>
         <Grid container direction="column" spacing={3}>
           <Grid item alignSelf="center">
-            <Heading id="child-modal-title">Add Location</Heading>
+            <Heading id="child-modal-title">Add your location</Heading>
             <Close onClick={handleClose}>
               <CloseIcon />
             </Close>
           </Grid>
 
           <Grid item>
-            <Grid container direction="column" spacing={1}>
+            <Grid container direction="column" spacing={3.3}>
               <Grid item>
                 <Input
                   fullWidth={true}
@@ -83,10 +81,10 @@ const AddLocationModal: React.FC<AddLocationModalProps> = ({
     </Modal>
   );
 };
-const Close = styled.div`
+const Close = styled.span`
   cursor: pointer;
   position: absolute;
-  top: 1rem;
+  top: 1.5rem;
   right: 1rem;
 `;
 const Heading = styled.div`
@@ -99,16 +97,13 @@ const Wrapper = styled(Box)`
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 24;
-  pt: 2;
-  px: 4;
-  pb: 3;
   border-radius: 16px;
   background: #ffff;
   outline: none;
   width: 589px;
+  padding: 24px;
   @media only screen and (max-width: 425px) {
     width: 90vw;
   }
-  // maxWidth: 80vw
 `;
 export default AddLocationModal;

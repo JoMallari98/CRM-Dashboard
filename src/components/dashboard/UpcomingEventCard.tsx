@@ -19,13 +19,13 @@ interface EventItemProps {
 }
 const dataEvents: EventItemProps[] = [
   {
-    img: "/static/images/avatar/1.jpg",
+    img: "",
     title: "Best Investments 2021",
     dateRange: "11:00-12:30",
     joined: true,
   },
   {
-    img: "/static/images/avatar/1.jpg",
+    img: "",
     title: "Financial consultation",
     dateRange: "15:00-16:00",
   },

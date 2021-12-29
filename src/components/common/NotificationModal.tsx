@@ -24,25 +24,25 @@ interface NotificationItemProps {
 }
 const NotificationData: NotificationItemProps[] = [
   {
-    img: "/static/images/avatar/1.jpg",
+    img: "",
     title: "Kate Simone liked your portfolio!",
     content: "Kate Simone liked your portfolio “Environment”.",
     date: "3 min ago",
   },
   {
-    img: "/static/images/avatar/1.jpg",
+    img: "",
     title: "Kate Simone liked your portfolio!",
     content: "Kate Simone liked your portfolio “Environment”.",
     date: "3 min ago",
   },
   {
-    img: "/static/images/avatar/1.jpg",
+    img: "",
     title: "Kate Simone liked your portfolio!",
     content: "Kate Simone liked your portfolio “Environment”.",
     date: "3 min ago",
   },
   {
-    img: "/static/images/avatar/1.jpg",
+    img: "",
     title: "Kate Simone liked your portfolio!",
     content: "Kate Simone liked your portfolio “Environment”.",
     date: "3 min ago",

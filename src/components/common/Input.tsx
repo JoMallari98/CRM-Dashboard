@@ -14,6 +14,12 @@ interface InputProps {
   select?: Boolean;
   selectData?: String[];
 }
+const InputStyle = {
+  height: "48px",
+  borderColor: "rgba(10, 81, 143, 0.24)",
+  borderRadius: "8px",
+  fontSize: "14px",
+};
 const Input: React.FC<InputProps> = ({
   label,
   placeholder = "",
@@ -25,7 +31,7 @@ const Input: React.FC<InputProps> = ({
     <FormControl sx={{ width: fullWidth ? "100%" : "25ch" }}>
       <MyFormLabel>{label}</MyFormLabel>
       {select ? (
-        <Select displayEmpty id="demo-simple-select">
+        <Select displayEmpty id="demo-simple-select" style={{ ...InputStyle }}>
           {selectData?.map((item) => (
             <MenuItem value={item as any} key={item as any}>
               {item}
@@ -36,6 +42,7 @@ const Input: React.FC<InputProps> = ({
         <OutlinedInput
           placeholder={placeholder as any}
           fullWidth={fullWidth as any}
+          style={{ ...InputStyle }}
         />
       )}
     </FormControl>
@@ -45,6 +52,7 @@ const MyFormLabel = styled(FormLabel)`
   color: #000000;
   font-weight: 500;
   font-size: 14px;
-  margin-bottom: 12px;
+  margin-bottom: 6px;
 `;
+
 export default Input;

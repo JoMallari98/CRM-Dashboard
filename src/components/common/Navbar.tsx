@@ -64,7 +64,7 @@ const Navbar = () => {
       label: "My Investments",
     },
     {
-      label: "Portfolio",
+      label: "Portfolios",
     },
   ];
   const RenderLinkItem = (
@@ -93,6 +93,9 @@ const Navbar = () => {
         spacing={2}
         justifyContent="space-between"
         alignItems="center"
+        style={{
+          padding: "0 16px",
+        }}
       >
         {/* Logo */}
         <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
@@ -103,6 +106,7 @@ const Navbar = () => {
           {/* <LinkBlock> */}
           <Grid container direction="row" justifyContent="space-between">
             {LinkData?.map((item, index) => {
+              return RenderLinkItem(item, index);
               return (
                 <Grid
                   item
@@ -121,7 +125,7 @@ const Navbar = () => {
           </Grid>
           {/* </LinkBlock> */}
         </Grid>
-        <Grid item lg={1} xl={1} xs={12} sm={12} md={1} alignSelf="center">
+        <Grid item alignSelf="center" style={{ marginLeft: "-25px" }}>
           <>
             <LinkItem
               onClick={handleClickDiscover}
@@ -141,14 +145,8 @@ const Navbar = () => {
         </Grid>
         {/* Icons */}
         <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
-          <Grid
-            container
-            spacing={1}
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item lg={6} xl={6} xs={6} sm={6} md={6} alignSelf="flex-end">
+          <Grid container spacing={1} direction="row">
+            <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
               <div>
                 <Button
                   onClick={handleClickNotification}
@@ -173,19 +171,31 @@ const Navbar = () => {
         </Grid>
 
         {/* Avatar */}
-        <Grid item lg={3} xl={3} xs={10} sm={10} md={3} alignSelf="end">
-          <Grid container justifyContent="center" alignItems="center">
+        <Grid
+          item
+          // lg={3}
+          // xl={3}
+          // xs={10}
+          // sm={10}
+          // md={3}
+          // style={{ border: "1px solid black" }}
+          // alignSelf="flex-end"
+        >
+          <Grid
+            container
+            spacing={2}
+            alignItems="center"
+            justifyContent="flex-end"
+          >
             <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
-              <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
+              <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
             </Grid>
             <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
               <Grid container direction="column">
                 <Grid item alignSelf="start">
                   <Grid container justifyContent="center">
-                    <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                    <Grid item style={{ marginBottom: "-16px" }}>
                       <UserName>Jonathan Benson</UserName>
-                    </Grid>
-                    <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
                       <span>
                         <>
                           <IconButton
@@ -241,7 +251,7 @@ const Navbar = () => {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item alignSelf="start">
+                <Grid item alignSelf="flex-start">
                   <Email>example@mail.com</Email>
                 </Grid>
               </Grid>
@@ -279,6 +289,7 @@ const UserName = styled.span`
 const Email = styled.span`
     font-size: .7rem;
     color: background: rgba(0, 0, 0, 0.5);
+    margin-bottom: 2rem; 
 `;
 const MyMenuItem = styled(MenuItem)`
   background: #ffff;
