@@ -1,4 +1,4 @@
-import React, { Key } from "react";
+import React, { Key, useState } from "react";
 import {
   Grid,
   Container,
@@ -30,6 +30,7 @@ interface RenderLinkItemProps {
 const ITEM_HEIGHT = 48;
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const [activeItem, setActiveItem] = useState(0);
   const [openNotificationModal, setOpenNotificationModal] =
     React.useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
@@ -55,7 +56,6 @@ const Navbar = () => {
   const LinkData: RenderLinkItemProps[] = [
     {
       label: "Dashboard",
-      active: true,
     },
     {
       label: "Feed",
@@ -67,19 +67,22 @@ const Navbar = () => {
       label: "Portfolio",
     },
   ];
-  const RenderLinkItem = ({
-    active = false,
-    label,
-    link,
-  }: RenderLinkItemProps) => {
-    if (active) {
+  const RenderLinkItem = (
+    { active = false, label, link }: RenderLinkItemProps,
+    index: number
+  ) => {
+    if (activeItem === index) {
       return (
-        <span key={label as Key}>
+        <LinkItemContainer key={label as Key}>
           <LinkItemActive>{label}</LinkItemActive>
-        </span>
+        </LinkItemContainer>
       );
     } else {
-      return <LinkItem key={label as Key}>{label}</LinkItem>;
+      return (
+        <LinkItem key={label as Key} onClick={() => setActiveItem(index)}>
+          {label}
+        </LinkItem>
+      );
     }
   };
   return (
@@ -93,13 +96,13 @@ const Navbar = () => {
       >
         {/* Logo */}
         <Grid item lg={2} xl={2} xs={2} sm={2} md={2}>
-          <h4>Logo</h4>
+          <h4>LOGO</h4>
         </Grid>
         {/* LinkBlocks */}
         <Grid item lg={5} xl={5} xs={5} sm={5} md={5}>
           {/* <LinkBlock> */}
           <Grid container direction="row" justifyContent="space-between">
-            {LinkData?.map((item) => RenderLinkItem(item))}
+            {LinkData?.map((item, index) => RenderLinkItem(item, index))}
           </Grid>
           {/* </LinkBlock> */}
         </Grid>
@@ -255,6 +258,9 @@ const LinkItemActive = styled.div`
   margin: 0 10px;
   color: #009ef8;
   border-bottom: 4px solid #009ef8;
+`;
+const LinkItemContainer = styled.span`
+  cursor: pointer;
 `;
 const UserName = styled.span`
   font-weight: 800;

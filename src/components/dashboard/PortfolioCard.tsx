@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, CardContent, Container } from "@mui/material";
+import { Box, CardContent, Button } from "@mui/material";
 import { ArrowUpward } from "@mui/icons-material";
 import PortfolioCardIcon from "../../assets/PortfolioCardIcon.svg";
 import styled from "styled-components";
@@ -26,7 +26,9 @@ const PortfolioCard: React.FC = () => {
       <PortfolioContainer>
         <PortfolioCardIcon />
       </PortfolioContainer>
-      <CardFooter>Check more</CardFooter>
+      <CardFooter>
+        <Button>Check more</Button>
+      </CardFooter>
     </Box>
   );
 };
@@ -53,13 +55,15 @@ const CardHeader = styled.div`
   line-height: 20px;
 `;
 const CardFooter = styled.div`
-  text-align: center;
-  font-weight: 600;
-  line-height: 15px;
-  color: #ffff;
-  box-shadow: 4px 4px 32px rgba(10, 81, 143, 0.17);
   border-radius: 16px;
   margin-bottom: 16px;
+  & button {
+    width: 100%;
+    text-align: center;
+    font-weight: 600;
+    line-height: 15px;
+    color: #ffff;
+  }
 `;
 const PortfolioContainer = styled.div`
   margin-top: 2rem;

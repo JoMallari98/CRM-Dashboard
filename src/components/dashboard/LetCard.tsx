@@ -54,7 +54,9 @@ const LetCard: React.FC = () => {
             />
           </FormGroup>
           <Calendar>
-            <CalendarTodayOutlinedIcon />
+            <Button size="small">
+              <CalendarTodayOutlinedIcon />
+            </Button>
           </Calendar>
         </div>
       </CardContent>
@@ -90,7 +92,7 @@ const LetCardContainer = styled.div`
 const Calendar = styled.div`
   position: absolute;
   top: 0px;
-  right: 10px;
+  right: 0px;
   cursor: pointer;
   & svg {
     fill: #009ef8;

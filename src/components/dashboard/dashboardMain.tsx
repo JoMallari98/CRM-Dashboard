@@ -100,6 +100,7 @@ const DashboardMain: React.FC = () => {
                         value={age}
                         onChange={handleChange}
                         placeholder="Search By"
+                        style={{ background: "#ffff" }}
                         renderValue={(selected) => {
                           if (selected.length === 0) {
                             return <em>Search By</em>;
@@ -108,12 +109,7 @@ const DashboardMain: React.FC = () => {
                           return selected;
                         }}
                       >
-                        <MyMenuItem
-                          value="People"
-                          style={{ background: "#fff" }}
-                        >
-                          People
-                        </MyMenuItem>
+                        <MyMenuItem value="People">People</MyMenuItem>
                         <MyMenuItem value="Portfolios">Portfolios</MyMenuItem>
                         <MyMenuItem value="Events">Events</MyMenuItem>
                         <MyMenuItem value="Challenges">Challenges</MyMenuItem>

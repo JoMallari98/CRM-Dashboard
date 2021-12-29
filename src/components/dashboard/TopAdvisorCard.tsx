@@ -1,16 +1,18 @@
-import React from "react";
-import { Box, CardContent, Grid, Divider, Avatar } from "@mui/material";
+import React, { useState } from "react";
+import { Box, CardContent, Grid, Divider, Avatar, Button } from "@mui/material";
 import StarBorderPurple500Icon from "@mui/icons-material/StarBorderPurple500";
 import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
 import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
 import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
 import GroupAddOutlinedIcon from "@mui/icons-material/GroupAddOutlined";
+import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import styled from "styled-components";
 interface RenderItemProps {
   active?: Boolean;
 }
 const TopAdvisorCard: React.FC = () => {
   const RenderItem: React.FC<RenderItemProps> = ({ active = false }) => {
+    const [likeClick, setLikeClick] = useState(false);
     return (
       <Grid container spacing={1}>
         <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
@@ -72,18 +74,32 @@ const TopAdvisorCard: React.FC = () => {
                     <span style={{ color: "#009EF8" }}>246</span>
                   </Grid>
                   <Grid item>
-                    <ThumbUpOutlinedIcon style={{ fill: "#009EF8" }} />
+                    <IconClick
+                      onClick={() => setLikeClick((_state) => !_state)}
+                    >
+                      {likeClick ? (
+                        <ThumbUpIcon style={{ fill: "#009EF8" }} />
+                      ) : (
+                        <ThumbUpOutlinedIcon style={{ fill: "#009EF8" }} />
+                      )}
+                    </IconClick>
                   </Grid>
                 </Grid>
               </Grid>
               <Grid item>
-                <ShareOutlinedIcon style={{ fill: "#009EF8" }} />
+                <IconClick>
+                  <ShareOutlinedIcon style={{ fill: "#009EF8" }} />
+                </IconClick>
               </Grid>
               <Grid item>
-                <MailOutlinedIcon style={{ fill: "#009EF8" }} />
+                <IconClick>
+                  <MailOutlinedIcon style={{ fill: "#009EF8" }} />
+                </IconClick>
               </Grid>
               <Grid item>
-                <GroupAddOutlinedIcon style={{ fill: "#009EF8" }} />
+                <IconClick>
+                  <GroupAddOutlinedIcon style={{ fill: "#009EF8" }} />
+                </IconClick>
               </Grid>
             </Grid>
           </Box>
@@ -121,7 +137,7 @@ const TopAdvisorCard: React.FC = () => {
                   cursor: "pointer",
                 }}
               >
-                Check more
+                <Button size="small">Check more</Button>
               </Grid>
             </Grid>
           </Grid>
@@ -143,6 +159,9 @@ const CardContainer = styled(Box)`
   box-shadow: 4px 4px 32px rgba(10, 81, 143, 0.17);
   background-color: #fff;
   border-radius: 16px;
+`;
+const IconClick = styled.span`
+  cursor: pointer;
 `;
 const UserName = styled.span`
   font-weight: 800;

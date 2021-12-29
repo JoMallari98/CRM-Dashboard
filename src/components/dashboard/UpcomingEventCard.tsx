@@ -6,6 +6,7 @@ import {
   Grid,
   Avatar,
   Divider,
+  Button,
 } from "@mui/material";
 import EventDetailModal from "../common/EventDetailModal";
 import EventCardHeader from "../common/EventCardHeader";
@@ -101,7 +102,9 @@ const UpcomingEventCard: React.FC = () => {
         </Grid>
       </CardContent>
       <CardActions>
-        <CheckMore>Check more</CheckMore>
+        <CheckMore>
+          <Button size="small">Check more</Button>
+        </CheckMore>
       </CardActions>
       <EventDetailModal open={openModal} setOpen={setOpenModal} />
     </Box>

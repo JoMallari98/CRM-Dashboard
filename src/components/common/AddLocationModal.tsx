@@ -1,13 +1,5 @@
 import React from "react";
-import {
-  Modal,
-  Box,
-  Button,
-  Grid,
-  FormControl,
-  Select,
-  MenuItem,
-} from "@mui/material";
+import { Modal, Box, Button, Grid } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import Input from "src/components/common/Input";
 import styled from "styled-components";

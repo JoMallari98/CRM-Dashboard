@@ -10,7 +10,7 @@ interface RenderItemProps {
 }
 const data: RenderItemProps[] = [
   {
-    date: "29",
+    date: "28",
     month: "Nov",
     active: true,
   },
@@ -20,7 +20,7 @@ const data: RenderItemProps[] = [
     active: false,
   },
   {
-    date: "29",
+    date: "30",
     month: "Nov",
     active: false,
   },
@@ -37,7 +37,9 @@ const EventCardHeader: React.FC = () => {
   return (
     <Grid container spacing={1} justifyContent="center" alignItems="center">
       <Grid item>
-        <KeyboardArrowLeftIcon style={{ color: "#ffff" }} />
+        <IconClick>
+          <KeyboardArrowLeftIcon style={{ color: "#ffff" }} />
+        </IconClick>
       </Grid>
       {data.map((item, index) => (
         <Grid item key={`${item.date}-${item.month}-${index}`}>
@@ -49,11 +51,16 @@ const EventCardHeader: React.FC = () => {
         </Grid>
       ))}
       <Grid item>
-        <ChevronRightIcon style={{ color: "#ffff" }} />
+        <IconClick>
+          <ChevronRightIcon style={{ color: "#ffff" }} />
+        </IconClick>
       </Grid>
     </Grid>
   );
 };
+const IconClick = styled.span`
+  cursor: pointer;
+`;
 const ItemContainer = styled.div<{ act: Boolean }>`
   background: ${(props) => (props?.act ? "#ffff" : "transparent")};
   display: flex;

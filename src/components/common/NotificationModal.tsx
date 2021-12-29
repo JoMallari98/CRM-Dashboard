@@ -7,6 +7,7 @@ import {
   styled,
   Avatar,
   Divider,
+  Button,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
@@ -138,7 +139,9 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
               );
             })}
             <Grid item alignSelf="center">
-              <CardFooter>View All Notifications</CardFooter>
+              <Button>
+                <CardFooter>View All Notifications</CardFooter>
+              </Button>
             </Grid>
           </Grid>
         </CardContent>
@@ -154,5 +157,6 @@ const CardFooter = styled("div")({
   fontSize: "14px",
   lineHeight: "17px",
   color: "#009EF8",
+  cursor: "pointer",
 });
 export default NotificationModal;

@@ -131,7 +131,7 @@ const ProfileCard: React.FC = () => {
           <Grid container justifyContent="space-between">
             <Grid item>Goals</Grid>
             <Grid item>
-              <Grid container>
+              <Grid container style={{ cursor: "pointer" }}>
                 <SettingsIcon
                   style={{ fill: "#009EF8", height: "20px", width: "20px" }}
                 />
