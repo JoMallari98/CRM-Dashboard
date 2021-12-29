@@ -102,7 +102,7 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
         horizontal: "left",
       }}
     >
-      <Box
+      <Wrapper
         sx={{
           width: "512px",
           background: "#ffff",
@@ -145,7 +145,7 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
             </Grid>
           </Grid>
         </CardContent>
-      </Box>
+      </Wrapper>
     </Popover>
   );
 };
@@ -159,4 +159,13 @@ const CardFooter = styled("div")({
   color: "#009EF8",
   cursor: "pointer",
 });
+const Wrapper = styled(Box)`
+  width: 512px;
+  background: #ffff;
+  box-shadow: 4px 4px 32px rgba(10, 81, 143, 0.17);
+  border-radius: 16px;
+  @media only screen and (max-width: 425px) {
+    width: 92vw;
+  }
+`;
 export default NotificationModal;

@@ -45,7 +45,7 @@ const UpcomingEventCard: React.FC = () => {
             <Avatar alt="Sharp" src={img as any} variant="rounded" />
           </Grid>
           <Grid item lg={9} xl={9} xs={9} sm={9} md={9}>
-            <Grid container>
+            <Grid container direction="column">
               <Grid item style={{ fontWeight: "500", fontSize: "12px" }}>
                 {title}
               </Grid>

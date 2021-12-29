@@ -22,7 +22,7 @@ const TopAdvisorCard: React.FC = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Grid item lg={2} xl={2} xs={2} sm={2} md={2}>
+            <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
               <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
             </Grid>
             <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
@@ -34,12 +34,12 @@ const TopAdvisorCard: React.FC = () => {
                     </Grid>
                     <Grid item lg={4} xl={4} xs={4} sm={4} md={4}>
                       <Grid container spacing={1}>
-                        <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                        <Grid item lg={6} xl={6} xs={5} sm={2} md={6}>
                           <StarBorderPurple500Icon
                             style={{ fill: "#FFCF36" }}
                           />
                         </Grid>
-                        <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                        <Grid item lg={6} xl={6} xs={5} sm={2} md={6}>
                           5.0
                         </Grid>
                       </Grid>

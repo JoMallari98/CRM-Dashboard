@@ -91,22 +91,37 @@ const Navbar = () => {
         container
         direction="row"
         spacing={2}
-        // justifyContent="space-between"
+        justifyContent="space-between"
         alignItems="center"
       >
         {/* Logo */}
-        <Grid item lg={2} xl={2} xs={2} sm={2} md={2}>
+        <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
           <h4>LOGO</h4>
         </Grid>
         {/* LinkBlocks */}
-        <Grid item lg={5} xl={5} xs={5} sm={5} md={5}>
+        <Grid item lg={5} xl={5} xs={11} sm={11} md={5}>
           {/* <LinkBlock> */}
           <Grid container direction="row" justifyContent="space-between">
-            {LinkData?.map((item, index) => RenderLinkItem(item, index))}
+            {LinkData?.map((item, index) => {
+              return (
+                <Grid
+                  item
+                  key={index}
+                  lg={12 / LinkData.length}
+                  xl={12 / LinkData.length}
+                  md={12 / LinkData.length}
+                  sm={2}
+                  xs={12}
+                  alignSelf="center"
+                >
+                  {RenderLinkItem(item, index)}
+                </Grid>
+              );
+            })}
           </Grid>
           {/* </LinkBlock> */}
         </Grid>
-        <Grid item lg={1} xl={1} xs={1} sm={1} md={1}>
+        <Grid item lg={1} xl={1} xs={12} sm={12} md={1} alignSelf="center">
           <>
             <LinkItem
               onClick={handleClickDiscover}
@@ -125,7 +140,7 @@ const Navbar = () => {
           </>
         </Grid>
         {/* Icons */}
-        <Grid item lg={1} xl={1} xs={1} sm={1} md={1}>
+        <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
           <Grid
             container
             spacing={1}
@@ -133,7 +148,7 @@ const Navbar = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+            <Grid item lg={6} xl={6} xs={6} sm={6} md={6} alignSelf="flex-end">
               <div>
                 <Button
                   onClick={handleClickNotification}
@@ -158,19 +173,14 @@ const Navbar = () => {
         </Grid>
 
         {/* Avatar */}
-        <Grid item lg={3} xl={3} xs={3} sm={3} md={3}>
-          <Grid
-            container
-            spacing={2}
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Grid item lg={2} xl={2} xs={2} sm={2} md={2}>
+        <Grid item lg={3} xl={3} xs={10} sm={10} md={3} alignSelf="end">
+          <Grid container justifyContent="center" alignItems="center">
+            <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
               <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
             </Grid>
             <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
-              <Grid container>
-                <Grid item alignSelf="end">
+              <Grid container direction="column">
+                <Grid item alignSelf="start">
                   <Grid container justifyContent="center">
                     <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
                       <UserName>Jonathan Benson</UserName>

@@ -42,31 +42,40 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
       aria-labelledby="child-modal-title"
       aria-describedby="child-modal-description"
     >
-      <Box sx={{ ...style }}>
+      <Wrapper sx={{ pt: 2, px: 4, pb: 3 }}>
         <Grid container direction="column" spacing={2}>
-          <Grid item alignSelf="flex-end">
+          <Grid
+            item
+            alignSelf="flex-end"
+            lg={12}
+            xl={12}
+            xs={12}
+            sm={12}
+            md={12}
+          >
             <Close onClick={handleClose}>
               <CloseIcon />
             </Close>
           </Grid>
-          <Grid item>
+          <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <Image src={EventDetailImage} alt="Images" />
           </Grid>
-          <Grid item>
+          <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <Heading>Best Investments 2021</Heading>
           </Grid>
-          <Grid item>
+          <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <CreatorHeader>Creator:</CreatorHeader>
             <Grid
               container
+              direction="row"
               spacing={2}
               justifyContent="center"
               alignItems="center"
             >
-              <Grid item lg={1} xl={1} xs={1} sm={2} md={1}>
+              <Grid item lg={1} xl={1} xs={2} sm={1} md={1}>
                 <Avatar alt="Sharp" src="/static/images/avatar/1.jpg" />
               </Grid>
-              <Grid item lg={11} xl={11} xs={11} sm={11} md={11}>
+              <Grid item lg={11} xl={11} xs={10} sm={11} md={11}>
                 <Grid container spacing={0}>
                   <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
                     <UserName>Jonathan Benson</UserName>
@@ -78,8 +87,13 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               </Grid>
             </Grid>
           </Grid>
-          <Grid item>
-            <Grid container direction="row" justifyContent="space-between">
+          <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
+            <Grid
+              container
+              direction="row"
+              spacing={2}
+              justifyContent="space-between"
+            >
               <Grid item>
                 <TimeDate>
                   <AccessTimeIcon />
@@ -95,7 +109,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               </Grid>
             </Grid>
           </Grid>
-          <Grid item>
+          <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <AvatarMix>
               <SmallAvatar
                 style={{ zIndex: "10000" }}
@@ -118,7 +132,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               </span>
             </AvatarMix>
           </Grid>
-          <Grid item>
+          <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <Grid container direction="column" spacing={1}>
               <Grid item>
                 <Heading>Description</Heading>
@@ -130,7 +144,15 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               </Grid>
             </Grid>
           </Grid>
-          <Grid item alignSelf={type === "join" ? "auto" : "center"}>
+          <Grid
+            item
+            lg={12}
+            xl={12}
+            xs={12}
+            sm={12}
+            md={12}
+            alignSelf={type === "join" ? "auto" : "center"}
+          >
             {type === "register" && (
               <Button variant="contained" style={{ color: "#ffff" }}>
                 Register for events
@@ -140,19 +162,13 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               <Button variant="outlined">Deregister from Event</Button>
             )}
             {type === "join" && (
-              <Grid
-                container
-                direction="row"
-                justifyContent="space-between"
-                style={{ width: "100%" }}
-                spacing={3}
-              >
-                <Grid item lg={6} xl={6} xs={6} sm={2} md={6}>
+              <Grid container spacing={3}>
+                <Grid item lg={6} xl={6} xs={12} sm={6} md={6}>
                   <Button variant="outlined" fullWidth>
                     Deregister from Event
                   </Button>
                 </Grid>
-                <Grid item lg={6} xl={6} xs={6} sm={2} md={6}>
+                <Grid item lg={6} xl={6} xs={12} sm={6} md={6}>
                   <Button
                     variant="contained"
                     style={{ color: "#ffff" }}
@@ -165,7 +181,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
             )}
           </Grid>
         </Grid>
-      </Box>
+      </Wrapper>
     </Modal>
   );
 };
@@ -226,5 +242,20 @@ const TimeDate = styled.div`
 const SmallAvatar = styled(Avatar)`
   height: 25px;
   width: 25px;
+`;
+const Wrapper = styled(Box)`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 24;
+  border-radius: 16px;
+  background: #ffff;
+  border: 0;
+  outline: none;
+  width: 589px;
+  @media only screen and (max-width: 425px) {
+    width: 90vw;
+  }
 `;
 export default EventDetailModal;
