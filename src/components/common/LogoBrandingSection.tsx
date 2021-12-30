@@ -1,4 +1,4 @@
-import { Avatar, Box, Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import React from "react";
 import OnboardingImage from "public/OnboardingImage.svg";
 import Logo from "public/Logo.svg";

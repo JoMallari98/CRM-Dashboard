@@ -1,7 +1,6 @@
 import React, { Key, useState } from "react";
 import {
   Grid,
-  Container,
   styled as MuiStyled,
   Avatar,
   Menu,
@@ -13,7 +12,6 @@ import {
   NotificationsNone,
   MailOutline,
   KeyboardArrowDown,
-  ImportantDevices,
 } from "@mui/icons-material";
 import NotificationModal from "src/components/common/NotificationModal";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -28,7 +26,6 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { height } from "@mui/material/node_modules/@mui/system";
 
 interface RenderLinkItemProps {
   active?: Boolean;
@@ -36,7 +33,6 @@ interface RenderLinkItemProps {
   link?: String;
 }
 
-const ITEM_HEIGHT = 48;
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [activeItem, setActiveItem] = useState(0);
@@ -111,8 +107,6 @@ const Navbar = () => {
               justifyContent="space-between"
               alignItems="center"
               style={{
-                // position: "absolute",
-                // height: '100vh',
                 padding: "0 16px",
               }}
             >
@@ -125,9 +119,7 @@ const Navbar = () => {
                   }}
                 />
               </Grid>
-              {/* LinkBlocks */}
               <Grid>
-                {/* <LinkBlock> */}
                 <Grid
                   container
                   direction="column"
@@ -149,7 +141,6 @@ const Navbar = () => {
                     );
                   })}
                 </Grid>
-                {/* </LinkBlock> */}
               </Grid>
               <Grid
                 item
@@ -159,7 +150,6 @@ const Navbar = () => {
                 xs={12}
                 sm={12}
                 md={2}
-                // style={{ marginTop: "-25px" }}
               >
                 <>
                   <Accordion
@@ -176,7 +166,6 @@ const Navbar = () => {
                           minHeight: 0,
                         },
                         "& .MuiAccordionSummary-content.Mui-expanded": {
-                          // margin from https://github.com/mui-org/material-ui/blob/cc0e2ab63e8be9ec4d51a49bfde17ef28fc77b9c/packages/mui-material/src/AccordionSummary/AccordionSummary.js#L64-L64
                           margin: "12px 0",
                         },
                       }}
@@ -254,7 +243,6 @@ const Navbar = () => {
                   </Accordion>
                 </>
               </Grid>
-              {/* Icons */}
               <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
                 <Grid container spacing={1} direction="row">
                   <Grid
@@ -290,18 +278,7 @@ const Navbar = () => {
                   </Grid>
                 </Grid>
               </Grid>
-              {/* Avatar */}
-              <Grid
-                item
-                lg={3}
-                xl={3}
-                xs={12}
-                sm={12}
-                md={3}
-
-                // style={{ border: "1px solid black" }}
-                // alignSelf="flex-end"
-              >
+              <Grid item lg={3} xl={3} xs={12} sm={12} md={3}>
                 <Grid
                   container
                   spacing={6}
@@ -394,7 +371,6 @@ const Navbar = () => {
           </MobileList>
         )}
       </Response>
-
       <Containers>
         <Grid
           container
@@ -406,7 +382,6 @@ const Navbar = () => {
             padding: "0 16px",
           }}
         >
-          {/* Logo */}
           <Grid
             style={{ paddingLeft: "50px" }}
             item
@@ -418,15 +393,13 @@ const Navbar = () => {
           >
             <h4>LOGO</h4>
           </Grid>
-          {/* LinkBlocks */}
+
           <Grid item lg={5} xl={5} xs={11} sm={11} md={5}>
-            {/* <LinkBlock> */}
             <Grid container direction="row" justifyContent="space-between">
               {LinkData?.map((item, index) => {
                 return RenderLinkItem(item, index);
               })}
             </Grid>
-            {/* </LinkBlock> */}
           </Grid>
           <Grid item alignSelf="center" style={{ marginLeft: "-25px" }}>
             <>
@@ -446,7 +419,6 @@ const Navbar = () => {
               />
             </>
           </Grid>
-          {/* Icons */}
           <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
             <Grid container spacing={1} direction="row">
               <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
@@ -472,18 +444,7 @@ const Navbar = () => {
               </Grid>
             </Grid>
           </Grid>
-
-          {/* Avatar */}
-          <Grid
-            item
-            // lg={3}
-            // xl={3}
-            // xs={10}
-            // sm={10}
-            // md={3}
-            // style={{ border: "1px solid black" }}
-            // alignSelf="flex-end"
-          >
+          <Grid item>
             <Grid
               container
               spacing={2}
@@ -575,7 +536,6 @@ const AccordList = styled.div`
 `;
 const MobileList = styled.div`
   @media only screen and (max-width: 480px) {
-    // background-color: red;
     background-color: #ffff;
     z-index: 1300000;
     position: absolute;
@@ -603,7 +563,6 @@ const Response = styled.div`
     z-index: 1200000;
   }
 `;
-// const LinkBlock = styled.div``;
 const LinkItem = styled.div`
   font-size: 14px;
   font-weight: 500;

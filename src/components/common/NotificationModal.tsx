@@ -125,7 +125,6 @@ const NotificationModal: React.FC<NotificationModalProps> = ({
                 </Grid>
               </Grid>
             </Grid>
-            {/* Card Content */}
             {NotificationData.map((_item) => {
               return (
                 <React.Fragment key={_item.title as Key}>

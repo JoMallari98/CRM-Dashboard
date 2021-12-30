@@ -5,14 +5,11 @@ import {
   FormControl,
   Box,
   MenuItem,
-  InputLabel,
   Select,
   SelectChangeEvent,
-  InputAdornment,
   IconButton,
   TextField,
 } from "@mui/material";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Search as SearchIcon } from "@mui/icons-material";
 import LetCard from "./LetCard";
 import BackgroundCard from "./BackgroundCard";
@@ -38,9 +35,6 @@ const DashboardMain: React.FC = () => {
           md={4}
           style={{
             marginTop: "5rem",
-            // border: "1px solid black",
-            // position: "absolute",
-            // top: "0",
           }}
         >
           <Grid container spacing={3}>
@@ -93,13 +87,11 @@ const DashboardMain: React.FC = () => {
           style={{ marginTop: "5rem" }}
         >
           <Grid container spacing={3}>
-            {/* Inputs */}
             <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
               <Grid container spacing={3}>
                 <Grid item lg={4} xl={4} xs={12} sm={12} md={4}>
                   <Box sx={{ minWidth: 70, minHeight: 20 }}>
                     <FormControl fullWidth>
-                      {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
                       <Select
                         displayEmpty
                         id="demo-simple-select"
@@ -145,8 +137,6 @@ const DashboardMain: React.FC = () => {
                 <Grid item lg={5} xl={5} xs={12} sm={12} md={5}>
                   <Grid container spacing={3}>
                     <Grid item lg={12} xl={12} xs={12} sm={6} md={12}>
-                      {/* Challenges Card  */}
-                      {/* <h1>Challenges Card</h1> */}
                       <BackgroundCard
                         data={[{ label: "Challenges" }]}
                         sx={{
@@ -161,8 +151,6 @@ const DashboardMain: React.FC = () => {
                       />
                     </Grid>
                     <Grid item lg={12} xl={12} xs={12} sm={6} md={12}>
-                      {/* Portfolio Card */}
-                      {/* <h1>Portfolio Card</h1> */}
                       <PortfolioCard />
                     </Grid>
                   </Grid>
@@ -170,14 +158,11 @@ const DashboardMain: React.FC = () => {
                 <Grid item lg={7} xl={7} xs={12} sm={12} md={7}>
                   <Grid container spacing={3}>
                     <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
-                      {/* <h1>Top Advisor</h1> */}
                       <TopAdvisorCard />
                     </Grid>
                     <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
                       <Grid container spacing={3}>
                         <Grid item lg={6} xl={6} xs={12} sm={12} md={6}>
-                          {/* What do I care about? */}
-                          {/* <h3>What do I care about?</h3> */}
                           <BackgroundCard
                             data={[
                               {
@@ -201,7 +186,6 @@ const DashboardMain: React.FC = () => {
                           />
                         </Grid>
                         <Grid item lg={6} xl={6} xs={12} sm={12} md={6}>
-                          {/* <h3>😉Friends</h3> */}
                           <BackgroundCard
                             data={[
                               {
@@ -235,7 +219,6 @@ const DashboardMain: React.FC = () => {
           md={3}
           style={{ marginTop: ".6rem" }}
         >
-          {/* Profile Card */}
           <ProfileCard />
         </Grid>
       </Grid>
