@@ -21,6 +21,12 @@ import AccessibilityNewOutlinedIcon from "@mui/icons-material/AccessibilityNewOu
 import NestedMenu from "./NestedMenu";
 import MenuIcon from "@mui/icons-material/Menu";
 import styled from "styled-components";
+import ClearIcon from "@mui/icons-material/Clear";
+import Accordion from "@mui/material/Accordion";
+import AccordionSummary from "@mui/material/AccordionSummary";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Typography from "@mui/material/Typography";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 interface RenderLinkItemProps {
   active?: Boolean;
@@ -43,7 +49,7 @@ const Navbar = () => {
     setAnchorEl(null);
   };
   const menuOpen = () => {
-    setOpen(!isOpen);
+    setOpen(true);
   };
   const handleClickNotification = (
     event: React.MouseEvent<HTMLButtonElement>
@@ -95,182 +101,200 @@ const Navbar = () => {
       <Response>
         <MenuIcon onClick={menuOpen} />
         {isOpen && (
-          <Grid
-            container
-            direction="row"
-            spacing={2}
-            justifyContent="space-between"
-            alignItems="center"
-            style={{
-              padding: "0 16px",
-            }}
-          >
-            Logo
-            <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
-              <h4>LOGO</h4>
-            </Grid>
-            LinkBlocks
-            <Grid>
-              <LinkBlock>
+          <MobileList>
+            <Grid
+              container
+              direction="row"
+              spacing={2}
+              justifyContent="space-between"
+              alignItems="center"
+              style={{
+                // position: "absolute",
+                // height: '100vh',
+                padding: "0 16px",
+              }}
+            >
+              <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
+                <ClearIcon
+                  onClick={() => setOpen(false)}
+                  style={{
+                    marginTop: "1.5rem",
+                    marginLeft: "0.8rem",
+                  }}
+                />
+              </Grid>
+              {/* LinkBlocks */}
+              <Grid>
+                {/* <LinkBlock> */}
                 <Grid
                   container
                   direction="column"
                   justifyContent="space-between"
                 >
                   {LinkData?.map((item, index) => {
-                    return RenderLinkItem(item, index);
                     return (
                       <Grid
                         item
-                        key={index}
-                        lg={12 / LinkData.length}
-                        xl={12 / LinkData.length}
-                        md={12 / LinkData.length}
-                        sm={2}
+                        lg={2}
+                        xl={2}
                         xs={12}
-                        alignSelf="center"
+                        sm={12}
+                        md={2}
+                        key={index}
                       >
                         {RenderLinkItem(item, index)}
                       </Grid>
                     );
                   })}
                 </Grid>
-              </LinkBlock>
-            </Grid>
-            <Grid item alignSelf="center" style={{ marginLeft: "-25px" }}>
-              <>
-                <LinkItem
-                  onClick={handleClickDiscover}
-                  aria-label="more"
-                  id="long-button"
-                  aria-controls="long-menu"
-                  aria-expanded={openDiscover ? "true" : undefined}
-                  aria-haspopup="true"
-                >
-                  Discover
-                </LinkItem>
-                <NestedMenu
-                  anchorEl={anchorElDiscover}
-                  setAnchorEl={setAnchorElDiscover}
-                />
-              </>
-            </Grid>
-            Icons
-            <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
-              <Grid container spacing={1} direction="row">
-                <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
-                  <div>
-                    <Button
-                      onClick={handleClickNotification}
-                      size="small"
-                      id="Notification"
+                {/* </LinkBlock> */}
+              </Grid>
+              <Grid
+                item
+                alignSelf="center"
+                lg={2}
+                xl={2}
+                xs={12}
+                sm={12}
+                md={2}
+                // style={{ marginTop: "-25px" }}
+              >
+                <>
+                  <Accordion>
+                    <AccordionSummary
+                      expandIcon={<ExpandMoreIcon />}
+                      aria-controls="panel1a-content"
+                      id="panel1a-header"
                     >
-                      <NotificationsNone style={{ fill: "#009EF8" }} />
+                      <Typography>Accordion 1</Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                      <Typography>
+                        <div>Friends</div>
+                        <div>Friends</div>
+                        <div>Friends</div>
+                        <div>Friends</div>
+                      </Typography>
+                    </AccordionDetails>
+                  </Accordion>
+                </>
+              </Grid>
+              {/* Icons */}
+              <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
+                <Grid container spacing={1} direction="row">
+                  <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                    <div>
+                      <Button
+                        onClick={handleClickNotification}
+                        size="small"
+                        id="Notification"
+                      >
+                        <NotificationsNone style={{ fill: "#009EF8" }} />
+                      </Button>
+                      <NotificationModal
+                        open={openNotificationModal}
+                        id="Notification"
+                        setOpen={setOpenNotificationModal}
+                      />
+                    </div>
+                  </Grid>
+                  <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                    <Button size="small">
+                      <MailOutline style={{ fill: "#009EF8" }} />
                     </Button>
-                    <NotificationModal
-                      open={openNotificationModal}
-                      id="Notification"
-                      setOpen={setOpenNotificationModal}
-                    />
-                  </div>
-                </Grid>
-                <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
-                  <Button size="small">
-                    <MailOutline style={{ fill: "#009EF8" }} />
-                  </Button>
+                  </Grid>
                 </Grid>
               </Grid>
-            </Grid>
-            Avatar
-            <Grid
-              item
-              // lg={3}
-              // xl={3}
-              // xs={10}
-              // sm={10}
-              // md={3}
-              // style={{ border: "1px solid black" }}
-              // alignSelf="flex-end"
-            >
+              {/* Avatar */}
               <Grid
-                container
-                spacing={2}
-                alignItems="center"
-                justifyContent="flex-end"
+                item
+                // lg={3}
+                // xl={3}
+                // xs={10}
+                // sm={10}
+                // md={3}
+                // style={{ border: "1px solid black" }}
+                // alignSelf="flex-end"
               >
-                <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
-                  <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
-                </Grid>
-                <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
-                  <Grid container direction="column">
-                    <Grid item alignSelf="start">
-                      <Grid container justifyContent="center">
-                        <Grid item style={{ marginBottom: "-16px" }}>
-                          <UserName>Jonathan Benson</UserName>
-                          <span>
-                            <>
-                              <IconButton
-                                aria-label="more"
-                                id="long-button"
-                                aria-controls="long-menu"
-                                aria-expanded={open ? "true" : undefined}
-                                aria-haspopup="true"
-                                onClick={handleClick}
-                              >
-                                <KeyboardArrowDown />
-                              </IconButton>
-                              <Menu
-                                id="long-menu"
-                                MenuListProps={{
-                                  "aria-labelledby": "long-button",
-                                }}
-                                anchorEl={anchorEl}
-                                open={open}
-                                onClose={handleClose}
-                                PaperProps={{
-                                  style: {
-                                    background: "#fff",
-                                    borderRadius: "16px",
-                                  },
-                                }}
-                              >
-                                <MenuHeader>Profile</MenuHeader>
-                                <MyMenuItem onClick={handleClose}>
-                                  <SettingsOutlinedIcon /> Setting
-                                </MyMenuItem>
-                                <MyMenuItem onClick={handleClose}>
-                                  <>
-                                    <AccessibilityIcon>
-                                      <AccessibilityNewOutlinedIcon />
-                                    </AccessibilityIcon>
-                                    <span>Display and accessibility</span>
-                                  </>
-                                </MyMenuItem>
-                                <MyMenuItem onClick={handleClose}>
-                                  <LogoutOutlinedIcon /> Logout
-                                </MyMenuItem>
-                                <MenuHeader>Manage</MenuHeader>
-                                <MyMenuItem onClick={handleClose}>
-                                  About Us
-                                </MyMenuItem>
-                                <MyMenuItem onClick={handleClose}>
-                                  Privacy Policy
-                                </MyMenuItem>
-                              </Menu>
-                            </>
-                          </span>
+                <Grid
+                  container
+                  spacing={2}
+                  alignItems="center"
+                  justifyContent="flex-end"
+                >
+                  <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
+                    <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
+                  </Grid>
+                  <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
+                    <Grid container direction="column">
+                      <Grid item alignSelf="start">
+                        <Grid container justifyContent="center">
+                          <Grid item style={{ marginBottom: "-16px" }}>
+                            <UserName>Jonathan Benson</UserName>
+                            <span>
+                              <>
+                                <IconButton
+                                  aria-label="more"
+                                  id="long-button"
+                                  aria-controls="long-menu"
+                                  aria-expanded={open ? "true" : undefined}
+                                  aria-haspopup="true"
+                                  onClick={handleClick}
+                                >
+                                  <KeyboardArrowDown />
+                                </IconButton>
+                                <Menu
+                                  id="long-menu"
+                                  MenuListProps={{
+                                    "aria-labelledby": "long-button",
+                                  }}
+                                  anchorEl={anchorEl}
+                                  open={open}
+                                  onClose={handleClose}
+                                  PaperProps={{
+                                    style: {
+                                      background: "#fff",
+                                      borderRadius: "16px",
+                                    },
+                                  }}
+                                >
+                                  <MenuHeader>Profile</MenuHeader>
+                                  <MyMenuItem onClick={handleClose}>
+                                    <SettingsOutlinedIcon /> Setting
+                                  </MyMenuItem>
+                                  <MyMenuItem onClick={handleClose}>
+                                    <>
+                                      <AccessibilityIcon>
+                                        <AccessibilityNewOutlinedIcon />
+                                      </AccessibilityIcon>
+                                      <span>Display and accessibility</span>
+                                    </>
+                                  </MyMenuItem>
+                                  <MyMenuItem onClick={handleClose}>
+                                    <LogoutOutlinedIcon /> Logout
+                                  </MyMenuItem>
+                                  <MenuHeader>Manage</MenuHeader>
+                                  <MyMenuItem onClick={handleClose}>
+                                    About Us
+                                  </MyMenuItem>
+                                  <MyMenuItem onClick={handleClose}>
+                                    Privacy Policy
+                                  </MyMenuItem>
+                                </Menu>
+                              </>
+                            </span>
+                          </Grid>
                         </Grid>
                       </Grid>
-                    </Grid>
-                    <Grid item alignSelf="flex-start">
-                      <Email>example@mail.com</Email>
+                      <Grid item alignSelf="flex-start">
+                        <Email>example@mail.com</Email>
+                      </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
               </Grid>
-              /
             </Grid>
-          </Grid>
+          </MobileList>
         )}
       </Response>
 
@@ -295,20 +319,6 @@ const Navbar = () => {
             <Grid container direction="row" justifyContent="space-between">
               {LinkData?.map((item, index) => {
                 return RenderLinkItem(item, index);
-                return (
-                  <Grid
-                    item
-                    key={index}
-                    lg={12 / LinkData.length}
-                    xl={12 / LinkData.length}
-                    md={12 / LinkData.length}
-                    sm={2}
-                    xs={12}
-                    alignSelf="center"
-                  >
-                    {RenderLinkItem(item, index)}
-                  </Grid>
-                );
               })}
             </Grid>
             {/* </LinkBlock> */}
@@ -451,22 +461,37 @@ const Navbar = () => {
     </>
   );
 };
-const Containers = styled.div`
+const MobileList = styled.div`
   @media only screen and (max-width: 480px) {
-    visibility: hidden;
+    // background-color: red;
+    background-color: #ffff;
+    z-index: 1300000;
+    position: absolute;
+    top: 0px;
+    left:0px;
+    height:100vh;
+    width: 100%;
+    `;
+const Containers = styled.div`
+  display: block;
+  @media only screen and (max-width: 480px) {
+    display: none;
   }
 `;
 const Response = styled.div`
+  display: block;
+
   @media only screen and (min-width: 481px) {
-    opacity: 0;
-    overflow: hidden;
+    display: none;
   }
   @media only screen and (max-width: 480px) {
     opacity: 1;
+    padding-top: 1.5rem;
+    padding-left: 1.5rem;
     z-index: 1200000;
   }
 `;
-const LinkBlock = styled.div``;
+// const LinkBlock = styled.div``;
 const LinkItem = styled.div`
   font-size: 14px;
   font-weight: 500;

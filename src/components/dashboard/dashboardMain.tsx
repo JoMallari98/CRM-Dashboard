@@ -35,7 +35,12 @@ const DashboardMain: React.FC = () => {
           xs={12}
           sm={12}
           md={4}
-          style={{ marginTop: "5rem" }}
+          style={{
+            marginTop: "5rem",
+            // border: "1px solid black",
+            // position: "absolute",
+            // top: "0",
+          }}
         >
           <Grid container spacing={3}>
             <Grid item>
