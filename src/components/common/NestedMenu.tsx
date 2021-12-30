@@ -47,7 +47,7 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ setAnchorEl, anchorEl }) => {
         </PreferenceButton>
         <Menu
           style={{
-            marginLeft: "273px",
+            marginLeft: "272px",
             marginTop: "-31px",
           }}
           PaperProps={{

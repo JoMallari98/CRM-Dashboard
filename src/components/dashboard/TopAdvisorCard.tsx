@@ -14,11 +14,11 @@ const TopAdvisorCard: React.FC = () => {
   const RenderItem: React.FC<RenderItemProps> = ({ active = false }) => {
     const [likeClick, setLikeClick] = useState(false);
     return (
-      <Grid container spacing={1}>
+      <Grid container spacing={2}>
         <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
           <Grid
             container
-            spacing={1}
+            spacing={5}
             justifyContent="center"
             alignItems="center"
           >
@@ -28,26 +28,56 @@ const TopAdvisorCard: React.FC = () => {
             <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
               <Grid container spacing={0}>
                 <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
-                  <Grid container spacing={2} direction="row">
+                  <Grid container spacing={0} direction="row">
                     <Grid item lg={8} xl={8} xs={8} sm={8} md={8}>
-                      <UserName>Jonathan Benson</UserName>
+                      <UserName>Sam Peterson</UserName>
                     </Grid>
                     <Grid item lg={4} xl={4} xs={4} sm={4} md={4}>
                       <Grid container spacing={1}>
-                        <Grid item lg={6} xl={6} xs={5} sm={2} md={6}>
+                        <Grid
+                          style={{
+                            marginLeft: "4px",
+                          }}
+                          item
+                          lg={4}
+                          xl={4}
+                          xs={5}
+                          sm={2}
+                          md={4}
+                        >
                           <StarBorderPurple500Icon
                             style={{ fill: "#FFCF36" }}
                           />
                         </Grid>
-                        <Grid item lg={6} xl={6} xs={5} sm={2} md={6}>
+                        <Grid
+                          style={{
+                            marginLeft: "3px",
+                          }}
+                          item
+                          lg={4}
+                          xl={4}
+                          xs={5}
+                          sm={2}
+                          md={4}
+                        >
                           5.0
                         </Grid>
                       </Grid>
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
-                  <Email>example@mail.com</Email>
+                <Grid
+                  item
+                  lg={12}
+                  xl={12}
+                  xs={12}
+                  sm={12}
+                  md={12}
+                  style={{
+                    marginTop: "-13px",
+                  }}
+                >
+                  <Email>Investment Advisor</Email>
                 </Grid>
               </Grid>
             </Grid>
@@ -155,6 +185,7 @@ const TopAdvisorCard: React.FC = () => {
     </CardContainer>
   );
 };
+
 const CardContainer = styled(Box)`
   box-shadow: 4px 4px 32px rgba(10, 81, 143, 0.17);
   background-color: #fff;
@@ -164,7 +195,7 @@ const IconClick = styled.span`
   cursor: pointer;
 `;
 const UserName = styled.span`
-  font-weight: 800;
+  font-weight: 500;
 `;
 const Email = styled.span`
     font-size: .8rem;

@@ -13,6 +13,7 @@ import {
   NotificationsNone,
   MailOutline,
   KeyboardArrowDown,
+  ImportantDevices,
 } from "@mui/icons-material";
 import NotificationModal from "src/components/common/NotificationModal";
 import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
@@ -27,6 +28,7 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { height } from "@mui/material/node_modules/@mui/system";
 
 interface RenderLinkItemProps {
   active?: Boolean;
@@ -160,20 +162,93 @@ const Navbar = () => {
                 // style={{ marginTop: "-25px" }}
               >
                 <>
-                  <Accordion>
+                  <Accordion
+                    style={{
+                      backgroundColor: "transparent",
+                      boxShadow: "none",
+                      marginTop: "-23px",
+                      marginLeft: "-10px",
+                    }}
+                  >
                     <AccordionSummary
+                      sx={{
+                        "&.Mui-expanded": {
+                          minHeight: 0,
+                        },
+                        "& .MuiAccordionSummary-content.Mui-expanded": {
+                          // margin from https://github.com/mui-org/material-ui/blob/cc0e2ab63e8be9ec4d51a49bfde17ef28fc77b9c/packages/mui-material/src/AccordionSummary/AccordionSummary.js#L64-L64
+                          margin: "12px 0",
+                        },
+                      }}
                       expandIcon={<ExpandMoreIcon />}
                       aria-controls="panel1a-content"
                       id="panel1a-header"
                     >
-                      <Typography>Accordion 1</Typography>
+                      <Typography
+                        style={{
+                          fontSize: "14px",
+                          fontWeight: "500",
+                          fontFamily:
+                            "Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif",
+                        }}
+                      >
+                        Discover
+                      </Typography>
                     </AccordionSummary>
                     <AccordionDetails>
-                      <Typography>
-                        <div>Friends</div>
-                        <div>Friends</div>
-                        <div>Friends</div>
-                        <div>Friends</div>
+                      <Typography
+                        style={{
+                          marginTop: "-10px",
+                        }}
+                      >
+                        <AccordList>Friends</AccordList>
+                        <AccordList>MyLife</AccordList>
+                        <AccordList>Events</AccordList>
+                        <AccordList>Challanges</AccordList>
+                        <Accordion
+                          style={{
+                            backgroundColor: "transparent",
+                            boxShadow: "none",
+                            marginTop: "-13px",
+                            marginLeft: "-15px",
+                          }}
+                        >
+                          <AccordionSummary
+                            sx={{
+                              "&.Mui-expanded": {
+                                minHeight: 0,
+                              },
+                              "& .MuiAccordionSummary-content.Mui-expanded": {
+                                // margin from https://github.com/mui-org/material-ui/blob/cc0e2ab63e8be9ec4d51a49bfde17ef28fc77b9c/packages/mui-material/src/AccordionSummary/AccordionSummary.js#L64-L64
+                                margin: "12px 0",
+                              },
+                            }}
+                            expandIcon={<ExpandMoreIcon />}
+                            aria-controls="panel1a-content"
+                            id="panel1a-header"
+                          >
+                            <Typography
+                              style={{
+                                fontSize: "14px",
+                                fontWeight: "400",
+                                fontFamily:
+                                  "Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif",
+                              }}
+                            >
+                              Preferences
+                            </Typography>
+                          </AccordionSummary>
+                          <AccordionDetails>
+                            <Typography
+                              style={{
+                                marginTop: "-10px",
+                              }}
+                            >
+                              <AccordList>Preferences</AccordList>
+                              <AccordList>My Documents</AccordList>
+                            </Typography>
+                          </AccordionDetails>
+                        </Accordion>
                       </Typography>
                     </AccordionDetails>
                   </Accordion>
@@ -182,7 +257,17 @@ const Navbar = () => {
               {/* Icons */}
               <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
                 <Grid container spacing={1} direction="row">
-                  <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                  <Grid
+                    style={{
+                      marginLeft: "-9px",
+                    }}
+                    item
+                    lg={6}
+                    xl={6}
+                    xs={6}
+                    sm={6}
+                    md={6}
+                  >
                     <div>
                       <Button
                         onClick={handleClickNotification}
@@ -208,19 +293,23 @@ const Navbar = () => {
               {/* Avatar */}
               <Grid
                 item
-                // lg={3}
-                // xl={3}
-                // xs={10}
-                // sm={10}
-                // md={3}
+                lg={3}
+                xl={3}
+                xs={12}
+                sm={12}
+                md={3}
+
                 // style={{ border: "1px solid black" }}
                 // alignSelf="flex-end"
               >
                 <Grid
                   container
-                  spacing={2}
+                  spacing={6}
                   alignItems="center"
                   justifyContent="flex-end"
+                  style={{
+                    marginLeft: "-30px",
+                  }}
                 >
                   <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
                     <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
@@ -230,59 +319,67 @@ const Navbar = () => {
                       <Grid item alignSelf="start">
                         <Grid container justifyContent="center">
                           <Grid item style={{ marginBottom: "-16px" }}>
-                            <UserName>Jonathan Benson</UserName>
-                            <span>
-                              <>
-                                <IconButton
-                                  aria-label="more"
-                                  id="long-button"
-                                  aria-controls="long-menu"
-                                  aria-expanded={open ? "true" : undefined}
-                                  aria-haspopup="true"
-                                  onClick={handleClick}
-                                >
-                                  <KeyboardArrowDown />
-                                </IconButton>
-                                <Menu
-                                  id="long-menu"
-                                  MenuListProps={{
-                                    "aria-labelledby": "long-button",
-                                  }}
-                                  anchorEl={anchorEl}
-                                  open={open}
-                                  onClose={handleClose}
-                                  PaperProps={{
-                                    style: {
-                                      background: "#fff",
-                                      borderRadius: "16px",
-                                    },
-                                  }}
-                                >
-                                  <MenuHeader>Profile</MenuHeader>
-                                  <MyMenuItem onClick={handleClose}>
-                                    <SettingsOutlinedIcon /> Setting
-                                  </MyMenuItem>
-                                  <MyMenuItem onClick={handleClose}>
-                                    <>
-                                      <AccessibilityIcon>
-                                        <AccessibilityNewOutlinedIcon />
-                                      </AccessibilityIcon>
-                                      <span>Display and accessibility</span>
-                                    </>
-                                  </MyMenuItem>
-                                  <MyMenuItem onClick={handleClose}>
-                                    <LogoutOutlinedIcon /> Logout
-                                  </MyMenuItem>
-                                  <MenuHeader>Manage</MenuHeader>
-                                  <MyMenuItem onClick={handleClose}>
-                                    About Us
-                                  </MyMenuItem>
-                                  <MyMenuItem onClick={handleClose}>
-                                    Privacy Policy
-                                  </MyMenuItem>
-                                </Menu>
-                              </>
-                            </span>
+                            <Grid container>
+                              <Grid item>
+                                <UserName>Jonathan Benson</UserName>
+                              </Grid>
+                              <Grid item>
+                                <span>
+                                  <>
+                                    <IconButton
+                                      aria-label="more"
+                                      id="long-button"
+                                      aria-controls="long-menu"
+                                      aria-expanded={open ? "true" : undefined}
+                                      aria-haspopup="true"
+                                      onClick={handleClick}
+                                    >
+                                      <KeyboardArrowDown />
+                                    </IconButton>
+                                    <Menu
+                                      id="long-menu"
+                                      MenuListProps={{
+                                        "aria-labelledby": "long-button",
+                                      }}
+                                      anchorEl={anchorEl}
+                                      open={open}
+                                      onClose={handleClose}
+                                      PaperProps={{
+                                        style: {
+                                          background: "#fff",
+                                          borderRadius: "16px",
+                                          zIndex: "1220000",
+                                          display: "block",
+                                        },
+                                      }}
+                                    >
+                                      <MenuHeader>Profile</MenuHeader>
+                                      <MyMenuItem onClick={handleClose}>
+                                        <SettingsOutlinedIcon /> Setting
+                                      </MyMenuItem>
+                                      <MyMenuItem onClick={handleClose}>
+                                        <>
+                                          <AccessibilityIcon>
+                                            <AccessibilityNewOutlinedIcon />
+                                          </AccessibilityIcon>
+                                          <span>Display and accessibility</span>
+                                        </>
+                                      </MyMenuItem>
+                                      <MyMenuItem onClick={handleClose}>
+                                        <LogoutOutlinedIcon /> Logout
+                                      </MyMenuItem>
+                                      <MenuHeader>Manage</MenuHeader>
+                                      <MyMenuItem onClick={handleClose}>
+                                        About Us
+                                      </MyMenuItem>
+                                      <MyMenuItem onClick={handleClose}>
+                                        Privacy Policy
+                                      </MyMenuItem>
+                                    </Menu>
+                                  </>
+                                </span>
+                              </Grid>
+                            </Grid>
                           </Grid>
                         </Grid>
                       </Grid>
@@ -310,7 +407,15 @@ const Navbar = () => {
           }}
         >
           {/* Logo */}
-          <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
+          <Grid
+            style={{ paddingLeft: "50px" }}
+            item
+            lg={2}
+            xl={2}
+            xs={12}
+            sm={12}
+            md={2}
+          >
             <h4>LOGO</h4>
           </Grid>
           {/* LinkBlocks */}
@@ -461,6 +566,13 @@ const Navbar = () => {
     </>
   );
 };
+const AccordList = styled.div`
+  font-size: 14px;
+  font-weight: 400;
+  margin-bottom: 4px;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI,
+    Helvetica, Arial, sans-serif;
+`;
 const MobileList = styled.div`
   @media only screen and (max-width: 480px) {
     // background-color: red;
@@ -547,4 +659,5 @@ const MenuHeader = styled.span`
   padding-top: 16px;
   font-weight: 600;
 `;
+
 export default Navbar;

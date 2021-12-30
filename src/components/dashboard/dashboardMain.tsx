@@ -12,6 +12,7 @@ import {
   IconButton,
   TextField,
 } from "@mui/material";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
 import { Search as SearchIcon } from "@mui/icons-material";
 import LetCard from "./LetCard";
 import BackgroundCard from "./BackgroundCard";
@@ -105,12 +106,11 @@ const DashboardMain: React.FC = () => {
                         value={age}
                         onChange={handleChange}
                         placeholder="Search By"
-                        style={{ background: "#ffff" }}
+                        style={{ background: "transparent", fontWeight: "500" }}
                         renderValue={(selected) => {
                           if (selected.length === 0) {
-                            return <em>Search By</em>;
+                            return <div>Search by</div>;
                           }
-
                           return selected;
                         }}
                       >
@@ -134,7 +134,7 @@ const DashboardMain: React.FC = () => {
                         </IconButton>
                       ),
                     }}
-                    placeholder="search"
+                    placeholder="Search"
                     fullWidth
                   />
                 </Grid>
@@ -175,7 +175,7 @@ const DashboardMain: React.FC = () => {
                     </Grid>
                     <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
                       <Grid container spacing={3}>
-                        <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                        <Grid item lg={6} xl={6} xs={12} sm={12} md={6}>
                           {/* What do I care about? */}
                           {/* <h3>What do I care about?</h3> */}
                           <BackgroundCard
@@ -200,7 +200,7 @@ const DashboardMain: React.FC = () => {
                             }}
                           />
                         </Grid>
-                        <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                        <Grid item lg={6} xl={6} xs={12} sm={12} md={6}>
                           {/* <h3>😉Friends</h3> */}
                           <BackgroundCard
                             data={[

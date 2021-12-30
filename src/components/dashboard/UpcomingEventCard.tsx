@@ -82,7 +82,7 @@ const UpcomingEventCard: React.FC = () => {
         <EventCardHeader />
       </CardHeader>
       <CardContent>
-        <p>upcoming events</p>
+        <p>Upcoming events</p>
         <Grid container spacing={1}>
           {dataEvents.map((item) => {
             return (

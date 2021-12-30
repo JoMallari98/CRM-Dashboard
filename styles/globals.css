@@ -14,3 +14,6 @@ a {
 * {
   box-sizing: border-box;
 }
+.css-1t4tyyu-MuiPaper-root-MuiAccordion-root:before {
+  background: transparent !important;
+}
