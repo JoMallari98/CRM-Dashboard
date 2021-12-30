@@ -96,7 +96,7 @@ const DashboardMain: React.FC = () => {
             {/* Inputs */}
             <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
               <Grid container spacing={3}>
-                <Grid item lg={4} xl={4} xs={4} sm={4} md={4}>
+                <Grid item lg={4} xl={4} xs={12} sm={12} md={4}>
                   <Box sx={{ minWidth: 70, minHeight: 20 }}>
                     <FormControl fullWidth>
                       {/* <InputLabel id="demo-simple-select-label">Age</InputLabel> */}
@@ -125,7 +125,7 @@ const DashboardMain: React.FC = () => {
                     </FormControl>
                   </Box>
                 </Grid>
-                <Grid item lg={8} xl={8} xs={8} sm={8} md={8}>
+                <Grid item lg={8} xl={8} xs={12} sm={12} md={8}>
                   <TextField
                     InputProps={{
                       startAdornment: (
