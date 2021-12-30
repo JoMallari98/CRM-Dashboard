@@ -92,191 +92,189 @@ const Navbar = () => {
   };
   return (
     <>
-      {/* <Response>
+      <Response>
         <MenuIcon onClick={menuOpen} />
         {isOpen && (
-          <MobileList>
+          <Grid
+            container
+            direction="row"
+            spacing={2}
+            justifyContent="space-between"
+            alignItems="center"
+            style={{
+              padding: "0 16px",
+            }}
+          >
+            Logo
+            <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
+              <h4>LOGO</h4>
+            </Grid>
+            LinkBlocks
+            <Grid>
+              <LinkBlock>
+                <Grid
+                  container
+                  direction="column"
+                  justifyContent="space-between"
+                >
+                  {LinkData?.map((item, index) => {
+                    return RenderLinkItem(item, index);
+                    return (
+                      <Grid
+                        item
+                        key={index}
+                        lg={12 / LinkData.length}
+                        xl={12 / LinkData.length}
+                        md={12 / LinkData.length}
+                        sm={2}
+                        xs={12}
+                        alignSelf="center"
+                      >
+                        {RenderLinkItem(item, index)}
+                      </Grid>
+                    );
+                  })}
+                </Grid>
+              </LinkBlock>
+            </Grid>
+            <Grid item alignSelf="center" style={{ marginLeft: "-25px" }}>
+              <>
+                <LinkItem
+                  onClick={handleClickDiscover}
+                  aria-label="more"
+                  id="long-button"
+                  aria-controls="long-menu"
+                  aria-expanded={openDiscover ? "true" : undefined}
+                  aria-haspopup="true"
+                >
+                  Discover
+                </LinkItem>
+                <NestedMenu
+                  anchorEl={anchorElDiscover}
+                  setAnchorEl={setAnchorElDiscover}
+                />
+              </>
+            </Grid>
+            Icons
+            <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
+              <Grid container spacing={1} direction="row">
+                <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                  <div>
+                    <Button
+                      onClick={handleClickNotification}
+                      size="small"
+                      id="Notification"
+                    >
+                      <NotificationsNone style={{ fill: "#009EF8" }} />
+                    </Button>
+                    <NotificationModal
+                      open={openNotificationModal}
+                      id="Notification"
+                      setOpen={setOpenNotificationModal}
+                    />
+                  </div>
+                </Grid>
+                <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
+                  <Button size="small">
+                    <MailOutline style={{ fill: "#009EF8" }} />
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            Avatar
             <Grid
-              container
-              direction="row"
-              spacing={2}
-              justifyContent="space-between"
-              alignItems="center"
-              style={{
-                padding: "0 16px",
-              }}
+              item
+              // lg={3}
+              // xl={3}
+              // xs={10}
+              // sm={10}
+              // md={3}
+              // style={{ border: "1px solid black" }}
+              // alignSelf="flex-end"
             >
-              {/* Logo */}
-      {/* <Grid item lg={2} xl={2} xs={12} sm={12} md={2}> */}
-      {/* <h4>LOGO</h4> */}
-      {/* </Grid> */}
-      {/* LinkBlocks */}
-      {/* <Grid> */}
-      {/* <LinkBlock> */}
-      {/* <Grid */}
-      {/* container */}
-      {/* direction="column" */}
-      {/* justifyContent="space-between" */}
-      {/* > */}
-      {/* {LinkData?.map((item, index) => { */}
-      {/* return RenderLinkItem(item, index); */}
-      {/* return ( */}
-      {/* <Grid */}
-      {/* item */}
-      {/* key={index} */}
-      {/* lg={12 / LinkData.length} */}
-      {/* xl={12 / LinkData.length} */}
-      {/* md={12 / LinkData.length} */}
-      {/* sm={2} */}
-      {/* xs={12} */}
-      {/* alignSelf="center" */}
-      {/* > */}
-      {/* {RenderLinkItem(item, index)} */}
-      {/* </Grid> */}
-      {/* ); */}
-      {/* })} */}
-      {/* </Grid> */}
-      {/* </LinkBlock> */}
-      {/* </Grid> */}
-      {/* <Grid item alignSelf="center" style={{ marginLeft: "-25px" }}> */}
-      {/* <> */}
-      {/* <LinkItem */}
-      {/* onClick={handleClickDiscover} */}
-      {/* aria-label="more" */}
-      {/* id="long-button" */}
-      {/* aria-controls="long-menu" */}
-      {/* aria-expanded={openDiscover ? "true" : undefined} */}
-      {/* aria-haspopup="true" */}
-      {/* > */}
-      {/* Discover */}
-      {/* </LinkItem> */}
-      {/* <NestedMenu */}
-      {/* anchorEl={anchorElDiscover} */}
-      {/* setAnchorEl={setAnchorElDiscover} */}
-      {/* /> */}
-      {/* </> */}
-      {/* </Grid> */}
-      {/* Icons */}
-      {/* <Grid item lg={1} xl={1} xs={3} sm={2} md={1}> */}
-      {/* <Grid container spacing={1} direction="row"> */}
-      {/* <Grid item lg={6} xl={6} xs={6} sm={6} md={6}> */}
-      {/* <div> */}
-      {/* <Button */}
-      {/* onClick={handleClickNotification} */}
-      {/* size="small" */}
-      {/* id="Notification" */}
-      {/* > */}
-      {/* <NotificationsNone style={{ fill: "#009EF8" }} /> */}
-      {/* </Button> */}
-      {/* <NotificationModal */}
-      {/* open={openNotificationModal} */}
-      {/* id="Notification" */}
-      {/* setOpen={setOpenNotificationModal} */}
-      {/* /> */}
-      {/* </div> */}
-      {/* </Grid> */}
-      {/* <Grid item lg={6} xl={6} xs={6} sm={6} md={6}> */}
-      {/* <Button size="small"> */}
-      {/* <MailOutline style={{ fill: "#009EF8" }} /> */}
-      {/* </Button> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
+              <Grid
+                container
+                spacing={2}
+                alignItems="center"
+                justifyContent="flex-end"
+              >
+                <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
+                  <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
+                </Grid>
+                <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
+                  <Grid container direction="column">
+                    <Grid item alignSelf="start">
+                      <Grid container justifyContent="center">
+                        <Grid item style={{ marginBottom: "-16px" }}>
+                          <UserName>Jonathan Benson</UserName>
+                          <span>
+                            <>
+                              <IconButton
+                                aria-label="more"
+                                id="long-button"
+                                aria-controls="long-menu"
+                                aria-expanded={open ? "true" : undefined}
+                                aria-haspopup="true"
+                                onClick={handleClick}
+                              >
+                                <KeyboardArrowDown />
+                              </IconButton>
+                              <Menu
+                                id="long-menu"
+                                MenuListProps={{
+                                  "aria-labelledby": "long-button",
+                                }}
+                                anchorEl={anchorEl}
+                                open={open}
+                                onClose={handleClose}
+                                PaperProps={{
+                                  style: {
+                                    background: "#fff",
+                                    borderRadius: "16px",
+                                  },
+                                }}
+                              >
+                                <MenuHeader>Profile</MenuHeader>
+                                <MyMenuItem onClick={handleClose}>
+                                  <SettingsOutlinedIcon /> Setting
+                                </MyMenuItem>
+                                <MyMenuItem onClick={handleClose}>
+                                  <>
+                                    <AccessibilityIcon>
+                                      <AccessibilityNewOutlinedIcon />
+                                    </AccessibilityIcon>
+                                    <span>Display and accessibility</span>
+                                  </>
+                                </MyMenuItem>
+                                <MyMenuItem onClick={handleClose}>
+                                  <LogoutOutlinedIcon /> Logout
+                                </MyMenuItem>
+                                <MenuHeader>Manage</MenuHeader>
+                                <MyMenuItem onClick={handleClose}>
+                                  About Us
+                                </MyMenuItem>
+                                <MyMenuItem onClick={handleClose}>
+                                  Privacy Policy
+                                </MyMenuItem>
+                              </Menu>
+                            </>
+                          </span>
+                        </Grid>
+                      </Grid>
+                    </Grid>
+                    <Grid item alignSelf="flex-start">
+                      <Email>example@mail.com</Email>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+              /
+            </Grid>
+          </Grid>
+        )}
+      </Response>
 
-      {/* Avatar */}
-      {/* <Grid */}
-      {/* item */}
-      {/* // lg={3} */}
-      {/* // xl={3} */}
-      {/* // xs={10} */}
-      {/* // sm={10} */}
-      {/* // md={3} */}
-      {/* // style={{ border: "1px solid black" }} */}
-      {/* // alignSelf="flex-end" */}
-      {/* > */}
-      {/* <Grid */}
-      {/* container */}
-      {/* spacing={2} */}
-      {/* alignItems="center" */}
-      {/* justifyContent="flex-end" */}
-      {/* > */}
-      {/* <Grid item lg={2} xl={2} xs={2} sm={1} md={2}> */}
-      {/* <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} /> */}
-      {/* </Grid> */}
-      {/* <Grid item lg={10} xl={10} xs={10} sm={10} md={10}> */}
-      {/* <Grid container direction="column"> */}
-      {/* <Grid item alignSelf="start"> */}
-      {/* <Grid container justifyContent="center"> */}
-      {/* <Grid item style={{ marginBottom: "-16px" }}> */}
-      {/* <UserName>Jonathan Benson</UserName> */}
-      {/* <span> */}
-      {/* <> */}
-      {/* <IconButton */}
-      {/* aria-label="more" */}
-      {/* id="long-button" */}
-      {/* aria-controls="long-menu" */}
-      {/* aria-expanded={open ? "true" : undefined} */}
-      {/* aria-haspopup="true" */}
-      {/* onClick={handleClick} */}
-      {/* > */}
-      {/* <KeyboardArrowDown /> */}
-      {/* </IconButton> */}
-      {/* <Menu */}
-      {/* id="long-menu" */}
-      {/* MenuListProps={{ */}
-      {/* "aria-labelledby": "long-button", */}
-      {/* }} */}
-      {/* anchorEl={anchorEl} */}
-      {/* open={open} */}
-      {/* onClose={handleClose} */}
-      {/* PaperProps={{ */}
-      {/* style: { */}
-      {/* background: "#fff", */}
-      {/* borderRadius: "16px", */}
-      {/* }, */}
-      {/* }} */}
-      {/* > */}
-      {/* <MenuHeader>Profile</MenuHeader> */}
-      {/* <MyMenuItem onClick={handleClose}> */}
-      {/* <SettingsOutlinedIcon /> Setting */}
-      {/* </MyMenuItem> */}
-      {/* <MyMenuItem onClick={handleClose}> */}
-      {/* <> */}
-      {/* <AccessibilityIcon> */}
-      {/* <AccessibilityNewOutlinedIcon /> */}
-      {/* </AccessibilityIcon> */}
-      {/* <span>Display and accessibility</span> */}
-      {/* </> */}
-      {/* </MyMenuItem> */}
-      {/* <MyMenuItem onClick={handleClose}> */}
-      {/* <LogoutOutlinedIcon /> Logout */}
-      {/* </MyMenuItem> */}
-      {/* <MenuHeader>Manage</MenuHeader> */}
-      {/* <MyMenuItem onClick={handleClose}> */}
-      {/* About Us */}
-      {/* </MyMenuItem> */}
-      {/* <MyMenuItem onClick={handleClose}> */}
-      {/* Privacy Policy */}
-      {/* </MyMenuItem> */}
-      {/* </Menu> */}
-      {/* </> */}
-      {/* </span> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
-      {/* <Grid item alignSelf="flex-start"> */}
-      {/* <Email>example@mail.com</Email> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
-      {/* </Grid> */}
-      {/* </Grid>/ */}
-      {/* </Grid> */}
-      {/* </Grid> */}
-      {/* </MobileList> */}
-      {/* )} */}
-      {/* </Response> */}
-
-      <Container>
+      <Containers>
         <Grid
           container
           direction="row"
@@ -449,26 +447,26 @@ const Navbar = () => {
             </Grid>
           </Grid>
         </Grid>
-      </Container>
+      </Containers>
     </>
   );
 };
-// const Containers = styled.div`
-//   @media only screen and (max-width: 480px) {
-//     visibility: hidden;
-//   }
-// `;
-// const Response = styled.div`
-//   @media only screen and (min-width: 481px) {
-//     opacity: 0;
-//     overflow: hidden;
-//   }
-//   @media only screen and (max-width: 480px) {
-//     opacity: 1;
-//     z-index: 1200000;
-//   }
-// `;
-
+const Containers = styled.div`
+  @media only screen and (max-width: 480px) {
+    visibility: hidden;
+  }
+`;
+const Response = styled.div`
+  @media only screen and (min-width: 481px) {
+    opacity: 0;
+    overflow: hidden;
+  }
+  @media only screen and (max-width: 480px) {
+    opacity: 1;
+    z-index: 1200000;
+  }
+`;
+const LinkBlock = styled.div``;
 const LinkItem = styled.div`
   font-size: 14px;
   font-weight: 500;
