@@ -204,7 +204,7 @@ const Navbar = () => {
                         <AccordList>Friends</AccordList>
                         <AccordList>MyLife</AccordList>
                         <AccordList>Events</AccordList>
-                        <AccordList>Challanges</AccordList>
+                        <AccordList>Challenges</AccordList>
                         <Accordion
                           style={{
                             backgroundColor: "transparent",
