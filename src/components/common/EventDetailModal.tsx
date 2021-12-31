@@ -22,15 +22,22 @@ const style = {
   outline: "none",
   width: "589px",
 };
+
+export enum EventModalType {
+  Join = "join",
+  Register = "register",
+  Deregister = "deregister",
+}
 interface AddLocationModalProps {
   open: Boolean;
   setOpen: Function;
-  type?: "join" | "register" | "deregister";
+  type?: EventModalType;
 }
+
 const EventDetailModal: React.FC<AddLocationModalProps> = ({
   open,
   setOpen,
-  type = "join",
+  type = EventModalType.Join,
 }) => {
   const handleClose = () => {
     setOpen(false);
@@ -111,15 +118,12 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
           </Grid>
           <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <AvatarMix>
-              <SmallAvatar style={{ zIndex: "10000" }} alt="Sharp" />
+              <SmallAvatar style={{ zIndex: 10000 }} alt="Sharp" />
               <SmallAvatar
-                style={{ zIndex: "9000", marginLeft: "-9px" }}
+                style={{ zIndex: 9000, marginLeft: "-9px" }}
                 alt="Sharp"
               />
-              <SmallAvatar
-                style={{ zIndex: "8000", marginLeft: "-9px" }}
-                alt="Sharp"
-              />
+              <SmallAvatar style={{ marginLeft: "-9px" }} alt="Sharp" />
               <span className="text">
                 <b>Bridget Jones, Simone Smith</b> and <b>16 others</b> joined
                 this event
@@ -145,17 +149,17 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
             xs={12}
             sm={12}
             md={12}
-            alignSelf={type === "join" ? "auto" : "center"}
+            alignSelf={type === EventModalType.Join ? "auto" : "center"}
           >
-            {type === "register" && (
+            {type === EventModalType.Register && (
               <Button variant="contained" style={{ color: "#ffff" }}>
                 Register for events
               </Button>
             )}
-            {type === "deregister" && (
+            {type === EventModalType.Deregister && (
               <Button variant="outlined">Deregister from Event</Button>
             )}
-            {type === "join" && (
+            {type === EventModalType.Join && (
               <Grid container spacing={3}>
                 <Grid item lg={6} xl={6} xs={12} sm={6} md={6}>
                   <Button variant="outlined" fullWidth>

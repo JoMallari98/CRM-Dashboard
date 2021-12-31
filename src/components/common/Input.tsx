@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Key } from "react";
 import {
   FormControl,
   OutlinedInput,
@@ -9,10 +9,10 @@ import {
 import styled from "styled-components";
 interface InputProps {
   label?: String;
-  placeholder?: String;
-  fullWidth?: Boolean;
+  placeholder?: string;
+  fullWidth?: boolean;
   select?: Boolean;
-  selectData?: String[];
+  selectData?: string[];
 }
 const InputStyle = {
   height: "48px",
@@ -33,15 +33,15 @@ const Input: React.FC<InputProps> = ({
       {select ? (
         <Select displayEmpty id="demo-simple-select" style={{ ...InputStyle }}>
           {selectData?.map((item) => (
-            <MenuItem value={item as any} key={item as any}>
+            <MenuItem value={item} key={item as Key}>
               {item}
             </MenuItem>
           ))}
         </Select>
       ) : (
         <OutlinedInput
-          placeholder={placeholder as any}
-          fullWidth={fullWidth as any}
+          placeholder={placeholder}
+          fullWidth={fullWidth}
           style={{ ...InputStyle }}
         />
       )}

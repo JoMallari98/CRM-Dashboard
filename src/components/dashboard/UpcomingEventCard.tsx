@@ -8,7 +8,7 @@ import {
   Divider,
   Button,
 } from "@mui/material";
-import EventDetailModal from "../common/EventDetailModal";
+import EventDetailModal, { EventModalType } from "../common/EventDetailModal";
 import EventCardHeader from "../common/EventCardHeader";
 import styled from "styled-components";
 interface EventItemProps {
@@ -40,9 +40,14 @@ const UpcomingEventCard: React.FC = () => {
   }) => {
     return (
       <div onClick={() => setOpenModal(true)} style={{ cursor: "pointer" }}>
-        <Grid container>
-          <Grid item lg={3} xl={3} xs={3} sm={3} md={3}>
-            <Avatar alt="Sharp" src={img as any} variant="rounded" />
+        <Grid container spacing={1}>
+          <Grid item lg={2} xl={2} xs={3} sm={3} md={3}>
+            <Avatar
+              style={{ height: "32px", width: "32px" }}
+              alt="Sharp"
+              src={img as any}
+              variant="rounded"
+            />
           </Grid>
           <Grid item lg={9} xl={9} xs={9} sm={9} md={9}>
             <Grid container direction="column">
@@ -81,8 +86,8 @@ const UpcomingEventCard: React.FC = () => {
       <CardHeader>
         <EventCardHeader />
       </CardHeader>
-      <CardContent>
-        <p>Upcoming events</p>
+      <CardContent style={{ paddingTop: "1px", paddingBottom: "0px" }}>
+        <HeadingSize>Upcoming events</HeadingSize>
         <Grid container spacing={1}>
           {dataEvents.map((item) => {
             return (
@@ -106,10 +111,18 @@ const UpcomingEventCard: React.FC = () => {
           <Button size="small">Check more</Button>
         </CheckMore>
       </CardActions>
-      <EventDetailModal open={openModal} setOpen={setOpenModal} />
+      <EventDetailModal
+        open={openModal}
+        setOpen={setOpenModal}
+        type={EventModalType.Join}
+      />
     </Box>
   );
 };
+const HeadingSize = styled.span`
+  font-size: 10px;
+  font-weight: 500;
+`;
 const JoinedBadge = styled.span`
   background: rgba(103, 129, 255, 0.17);
   border-radius: 4px;

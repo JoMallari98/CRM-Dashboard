@@ -26,7 +26,7 @@ const data: RenderItemProps[] = [
   },
 ];
 const EventCardHeader: React.FC = () => {
-  const RenderItem: React.FC<RenderItemProps> = ({ date, month, active }) => {
+  const CalenderItem: React.FC<RenderItemProps> = ({ date, month, active }) => {
     return (
       <ItemContainer act={active}>
         <span className="date">{date}</span>
@@ -43,7 +43,7 @@ const EventCardHeader: React.FC = () => {
       </Grid>
       {data.map((item, index) => (
         <Grid item key={`${item.date}-${item.month}-${index}`}>
-          <RenderItem
+          <CalenderItem
             date={item.date}
             month={item.month}
             active={item.active}

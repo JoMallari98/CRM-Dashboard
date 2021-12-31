@@ -12,9 +12,9 @@ import {
   NotificationsNone,
   MailOutline,
   KeyboardArrowDown,
+  SettingsOutlined as SettingsOutlinedIcon,
 } from "@mui/icons-material";
 import NotificationModal from "src/components/common/NotificationModal";
-import SettingsOutlinedIcon from "@mui/icons-material/SettingsOutlined";
 import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import AccessibilityNewOutlinedIcon from "@mui/icons-material/AccessibilityNewOutlined";
 import NestedMenu from "./NestedMenu";
@@ -38,7 +38,7 @@ const Navbar = () => {
   const [activeItem, setActiveItem] = useState(0);
   const [isOpen, setOpen] = useState(false);
   const [openNotificationModal, setOpenNotificationModal] =
-    React.useState<HTMLButtonElement | null>(null);
+    useState<HTMLButtonElement | null>(null);
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -55,7 +55,7 @@ const Navbar = () => {
     setOpenNotificationModal(event.currentTarget);
   };
 
-  const [anchorElDiscover, setAnchorElDiscover] = React.useState(null);
+  const [anchorElDiscover, setAnchorElDiscover] = useState(null);
   const openDiscover = Boolean(anchorElDiscover);
 
   const handleClickDiscover = (event: any) =>
@@ -220,8 +220,6 @@ const Navbar = () => {
                               style={{
                                 fontSize: "14px",
                                 fontWeight: "400",
-                                fontFamily:
-                                  "Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif",
                               }}
                             >
                               Preferences
@@ -561,6 +559,9 @@ const Response = styled.div`
     padding-top: 1.5rem;
     padding-left: 1.5rem;
     z-index: 1200000;
+    & .css-1t4tyyu-MuiPaper-root-MuiAccordion-root:before {
+      background: transparent !important;
+    }
   }
 `;
 const LinkItem = styled.div`
