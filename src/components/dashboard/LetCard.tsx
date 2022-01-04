@@ -30,7 +30,7 @@ const LetCard: React.FC = () => {
       <CardHeader>
         <h3 style={{ fontWeight: "600" }}>Let’s start</h3>
         <p style={{ fontWeight: "500" }}>
-          There are lots of things to do. From what to start:
+          There are lots of things to do. Here's what we have to start:
         </p>
       </CardHeader>
       <CardContent>
