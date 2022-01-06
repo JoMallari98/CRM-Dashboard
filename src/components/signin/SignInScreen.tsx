@@ -6,9 +6,9 @@ import SignInForm from "./SignInForm";
 const SignInScreen = () => {
   return (
     <Wrapper>
-      <Grid container alignItems="stretch" flexGrow={1}>
+      <Grid container direction="row">
         <Grid item md={6}>
-          <LogoBrandingSection description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <LogoBrandingSection />
         </Grid>
         <Grid item md={6}>
           <SignInForm />
@@ -24,4 +24,5 @@ const Wrapper = styled("div")({
   minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
+  background: "#F8FCFF",
 });

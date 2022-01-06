@@ -36,8 +36,10 @@ export default OnBoardingFormContainer;
 const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: 16,
   flexGrow: 1,
-  margin: "16px",
   width: "100%",
+  margin: "15px 0px",
+  background: "#fff",
+  border: "1px solid #fff",
   [theme.breakpoints.down("sm")]: {
     margin: 0,
   },
