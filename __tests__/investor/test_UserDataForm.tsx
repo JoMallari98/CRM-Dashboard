@@ -5,7 +5,7 @@
 import React from "react";
 import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import UserDataForm from "src/components/Investor/UserDataForm";
+import UserDataForm from "src/components/investor/UserDataForm";
 import createMockInvestorContext from "src/test-utils/createMockInvestorContext";
 import { OnBoardingContext } from "src/context/userOnBoardingContext";
 

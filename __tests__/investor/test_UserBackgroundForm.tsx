@@ -7,7 +7,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import createMockInvestorContext from "src/test-utils/createMockInvestorContext";
 import { OnBoardingContext } from "src/context/userOnBoardingContext";
-import UserBackgroundForm from "src/components/Investor/UserBackgroundForm";
+import UserBackgroundForm from "src/components/investor/UserBackgroundForm";
 
 import { RouterContext } from "next/dist/shared/lib/router-context";
 import createMockRouter from "src/test-utils/createMockRouter";
