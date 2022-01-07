@@ -42,13 +42,14 @@ const DeclinedElectronicDelivery = () => {
               variant="contained"
               color="primary"
               onClick={onAgree}
+              style={{ color: "#fff" }}
             >
               Consent to electronic delivery
             </ConfirmationButton>
             <ConfirmationButton
               sx={{ ml: 2 }}
-              variant="contained"
-              color="secondary"
+              variant="outlined"
+              color="primary"
               onClick={onDisagree}
             >
               Decline
@@ -68,6 +69,8 @@ const QuestionContainer = styled(Paper)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  background: "#fff",
+  boxShadow: "6px 30px 51px rgba(10, 81, 143, 0.08)",
 });
 
 const ConfirmationButton = styled(Button)({

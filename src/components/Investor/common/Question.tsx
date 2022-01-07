@@ -48,7 +48,7 @@ const Question: React.FC<Props> = (props) => {
         <Hidden mdDown>
           <PrevButton
             variant={isStartQuestion ? "text" : "contained"}
-            color="secondary"
+            color="white"
             onClick={onPrev}
             startIcon={<ArrowBackIos />}
           >
@@ -64,7 +64,7 @@ const Question: React.FC<Props> = (props) => {
         <Hidden mdDown>
           <NextButton
             variant={isEndQuestion ? "text" : "contained"}
-            color="secondary"
+            color="white"
             endIcon={<ArrowForwardIos />}
             onClick={onNext}
           >
@@ -76,18 +76,24 @@ const Question: React.FC<Props> = (props) => {
         <Box display="flex" justifyContent="space-between" mt={2}>
           <Button
             variant="text"
-            color="primary"
             onClick={onPrev}
             startIcon={<ArrowBackIos />}
+            style={{ color: "#858585" }}
           >
             {prevText}
           </Button>
 
           <Button
             variant={isEndQuestion ? "text" : "contained"}
-            color="secondary"
+            color="primary"
             endIcon={<ArrowForwardIos />}
             onClick={onNext}
+            style={{
+              color: isEndQuestion ? "#009EF8" : "#ffff",
+              boxShadow: isEndQuestion
+                ? "0px 0px 0px #ffff"
+                : "6px 30px 51px rgba(10, 81, 143, 0.08)",
+            }}
           >
             {nextText}
           </Button>
@@ -105,6 +111,7 @@ const QuestionContainer = styled(Paper)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  background: "#ffff",
 });
 
 const NavigationButton = styled(Button)({
@@ -117,11 +124,13 @@ const NavigationButton = styled(Button)({
 const PrevButton = styled(NavigationButton)({
   borderTopRightRadius: 16,
   borderBottomRightRadius: 16,
-  color: "#4D4D4D",
+  color: "#858585",
+  boxShadow: "6px 30px 51px rgba(10, 81, 143, 0.08)",
 });
 
 const NextButton = styled(NavigationButton)({
   borderBottomLeftRadius: 16,
   borderTopLeftRadius: 16,
-  color: "#4D4D4D",
+  color: "#009EF8",
+  boxShadow: "6px 30px 51px rgba(10, 81, 143, 0.08)",
 });

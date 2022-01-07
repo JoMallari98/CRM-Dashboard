@@ -45,12 +45,12 @@ export enum InvestorQuestions {
 export const OnBoardingContextProvider: React.FC = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(0);
   const [currentQuestion, setCurrentQuestion] = useState(0);
-  const goNextStep = () => setCurrentStep(currentStep + 1);
-  const goPrevStep = () => setCurrentStep(currentStep - 1);
+  const goNextStep = () => setCurrentStep((current) => current + 1);
+  const goPrevStep = () => setCurrentStep((current) => current - 1);
   const goToStep = (step: number) => setCurrentStep(step);
 
-  const goNextQuestion = () => setCurrentQuestion(currentQuestion + 1);
-  const goPrevQuestion = () => setCurrentQuestion(currentQuestion - 1);
+  const goNextQuestion = () => setCurrentQuestion((current) => current + 1);
+  const goPrevQuestion = () => setCurrentQuestion((current) => current - 1);
   const goToQuestion = (question: InvestorQuestions) =>
     setCurrentQuestion(question);
   return (

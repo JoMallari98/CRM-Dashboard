@@ -13,8 +13,5 @@ const UserData = () => {
 const Wrapper = styled.div`
   background: #f8fcff;
   padding: 2rem 2rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 `;
 export default UserData;

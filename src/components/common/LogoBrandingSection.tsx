@@ -47,13 +47,16 @@ const LogoBrandingSection: React.FC<Props> = ({
   return (
     <Wrapper
       style={{
-        background: `url('${type}')`,
+        background: `url('${type}') no-repeat`,
         backgroundSize: "auto",
-        backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
       }}
     >
-      <LogoContainer display="flex" alignItems="center" mt={10}>
+      <LogoContainer
+        display="flex"
+        alignItems="center"
+        style={{ marginTop: type !== PageType.WELCOME ? "2rem" : "0px" }}
+      >
         <LogoComponent />
         <Typography
           variant="h4"
@@ -91,7 +94,6 @@ const Wrapper = styled(Box)`
 `;
 const LogoContainer = styled(Box)`
   margin-left: 3rem;
-
   svg {
     width: 72px;
     height: 72px;

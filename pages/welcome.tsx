@@ -15,9 +15,6 @@ const WelcomePage = () => {
 export default WelcomePage;
 
 const Wrapper = styled.div`
-  padding: 2rem 0rem;
-  background: "#ffff";
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 2rem 2rem;
+  background: #f8fcff;
 `;

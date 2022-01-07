@@ -21,11 +21,9 @@ const SignInScreen = () => {
 export default SignInScreen;
 
 const Wrapper = styled("div")({
-  minHeight: "100vh",
+  width: "100%",
   overflow: "hidden",
   display: "flex",
   flexDirection: "row",
   background: "#F8FCFF",
-  justifyContent: "center",
-  alignItems: "center",
 });

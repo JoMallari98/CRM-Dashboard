@@ -47,6 +47,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: 16,
   flexGrow: 1,
   width: "100%",
+  minHeight: "90vh",
   background: "#fff",
   border: "1px solid #fff",
   position: "relative",

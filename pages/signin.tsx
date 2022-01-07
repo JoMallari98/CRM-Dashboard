@@ -12,10 +12,8 @@ const SignInPage = () => {
 };
 const Wrapper = styled.div`
   background: #f8fcff;
-  padding: 2rem 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
 `;
 export default SignInPage;

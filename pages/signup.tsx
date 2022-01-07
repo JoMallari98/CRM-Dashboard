@@ -12,10 +12,6 @@ const SignUpPage = () => {
 };
 const Wrapper = styled.div`
   background: #f8fcff;
-  padding: 2rem 0rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  padding: 2rem 2rem;
 `;
 export default SignUpPage;

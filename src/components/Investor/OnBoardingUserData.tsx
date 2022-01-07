@@ -23,6 +23,7 @@ const OnBoardingUserData = () => {
   const mdDown = useMediaQuery(theme.breakpoints.down("md"));
   const getCurrentStep = useMemo(() => {
     const step = currentStep as OnboardingSteps;
+
     switch (step) {
       case OnboardingSteps.UserDataForm:
         setType(PageType.USER_DATA);
@@ -69,11 +70,7 @@ const OnBoardingUserData = () => {
 export default OnBoardingUserData;
 
 const Wrapper = styled("div")({
-  minHeight: "100vh",
-  overflow: "hidden",
   display: "flex",
   flexDirection: "row",
   background: "#F8FCFF",
-  justifyContent: "center",
-  alignItems: "center",
 });

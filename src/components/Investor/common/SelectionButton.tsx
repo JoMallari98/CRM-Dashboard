@@ -15,7 +15,7 @@ const SelectionButton: React.FC<Props> = ({
   selected,
 }) => {
   const handleClick = () => onSelect(value);
-  const backgroundColor = selected ? "primary.light" : "background.paper";
+  const backgroundColor = selected ? "primary.light" : "#ffff";
   const color = selected ? "primary.contrastText" : "textSecondary";
 
   return (
@@ -33,9 +33,7 @@ const SelectionButton: React.FC<Props> = ({
       }}
       elevation={0}
     >
-      <Ellipse sx={{ backgroundColor: "background.default", mb: 1 }}>
-        {children}
-      </Ellipse>
+      <Ellipse sx={{ mb: 1 }}>{children}</Ellipse>
       <Typography variant="body2" align="center" maxWidth={100}>
         {text}
       </Typography>
@@ -61,4 +59,5 @@ const Ellipse = styled(Box)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  backgroundColor: "#F8FCFF",
 });

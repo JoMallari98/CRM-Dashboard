@@ -16,13 +16,13 @@ import SixDigitVerification from "src/components/common/SixDigitVerification";
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();
-  const [open, setOpen] = useState(false);
+  // const [open, setOpen] = useState<boolean>(false);
   const handleSubmit = () => {
     goNextStep();
   };
 
   const resendCode = () => {
-    setOpen(true);
+    // setOpen(true);
   };
   const handleClose = (
     event: React.SyntheticEvent | React.MouseEvent,
@@ -32,7 +32,7 @@ const VerificationForm = () => {
       return;
     }
 
-    setOpen(false);
+    // setOpen(false);
   };
 
   return (
@@ -44,7 +44,7 @@ const VerificationForm = () => {
     >
       <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goPrevStep}>
+          <IconButton /*onClick={goPrevStep}*/>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>
@@ -80,13 +80,13 @@ const VerificationForm = () => {
         <ContinueButton
           variant="contained"
           color="primary"
-          onClick={handleSubmit}
+          onClick={() => handleSubmit()}
         >
           Confirm
         </ContinueButton>
       </FormSection>
-      <Snackbar
-        open={open}
+      {/* <Snackbar
+        // open={open}
         autoHideDuration={2000}
         onClose={handleClose}
         message="Another code has been sent"
@@ -101,7 +101,7 @@ const VerificationForm = () => {
             <Close fontSize="small" />
           </IconButton>
         }
-      />
+      /> */}
     </OnBoardingFormContainer>
   );
 };

@@ -23,11 +23,9 @@ const UserTypeScreen = () => {
 export default UserTypeScreen;
 
 const Wrapper = styled("div")({
-  minHeight: "100vh",
+  // minHeight: "100vh",
   overflow: "hidden",
   display: "flex",
   flexDirection: "row",
   background: "#F8FCFF",
-  justifyContent: "center",
-  alignItems: "center",
 });

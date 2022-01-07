@@ -3,7 +3,7 @@ import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Question from "../common/Question";
 import SelectionButton from "../common/SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-
+import UpAndDowIcon from "public/UpAndDown.svg";
 const InvestmentGoal = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
@@ -13,22 +13,22 @@ const InvestmentGoal = () => {
     {
       value: 1,
       text: "Generate income",
-      icon: null,
+      icon: "💰️",
     },
     {
       value: 2,
       text: "Grow my money",
-      icon: null,
+      icon: "💸",
     },
     {
       value: 3,
       text: "Protect my capital",
-      icon: null,
+      icon: "🛡",
     },
     {
       value: 4,
       text: "Minimize sudden ups and downs",
-      icon: null,
+      icon: <UpAndDowIcon />,
     },
   ];
 

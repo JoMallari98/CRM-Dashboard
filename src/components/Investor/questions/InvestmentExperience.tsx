@@ -4,6 +4,7 @@ import Question from "../common/Question";
 import SelectionButton from "../common/SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 import { useRouter } from "next/router";
+import styled from "styled-components";
 
 const possibleAnswers = [
   {
@@ -53,7 +54,7 @@ const InvestmentExperience = () => {
         <Typography variant="h5" fontWeight="bold" align="center">
           Almost done!
         </Typography>
-        <Typography variant="body2" align="center" maxWidth={400}>
+        <Typography variant="body2" align="center" maxWidth={400} mt={2}>
           We’d like to know more about you, please answer a few short questions
           to complete your profile
         </Typography>
@@ -63,7 +64,7 @@ const InvestmentExperience = () => {
         prevText={"Back to Sign Up"}
         isStartQuestion={true}
       >
-        <Box display="flex" flexDirection="column" alignItems="center">
+        <MainQuestion display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             How would you rate your investment experience?
           </Typography>
@@ -86,7 +87,7 @@ const InvestmentExperience = () => {
               );
             })}
           </Box>
-        </Box>
+        </MainQuestion>
       </Question>
 
       <Typography
@@ -102,5 +103,9 @@ const InvestmentExperience = () => {
     </Box>
   );
 };
+
+const MainQuestion = styled(Box)`
+  background-color: #ffff;
+`;
 
 export default InvestmentExperience;
