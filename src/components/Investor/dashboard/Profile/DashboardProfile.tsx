@@ -1,13 +1,13 @@
 import ProfileMe from "./ProfileMe";
 import Image from "next/image";
 import { Box, Typography, Link, styled } from "@mui/material";
-import { useTheme } from "@emotion/react";
+import { useTheme, Theme } from '@mui/material';
 import ProfileCounter from "./ProfileCounter";
 import ProfileInvestments from "./ProfileInvestment";
 import ProfileGoals from "./ProfileGoals";
 
 const DashboardProfile = () => {
-  const theme = useTheme();
+  const theme: Theme = useTheme()
   return (
     <Box
       sx={{

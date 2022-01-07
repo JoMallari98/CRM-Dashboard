@@ -2,10 +2,10 @@ import { Box, Typography } from "@mui/material";
 import { IconButton } from "@mui/material";
 import { KeyboardArrowDown } from "@mui/icons-material";
 import { Avatar } from "@mui/material";
-import { useTheme } from "@emotion/react";
+import { useTheme, Theme } from '@mui/material';
 
 export const DashboardUser = () => {
-  const theme = useTheme();
+  const theme: Theme = useTheme()
   const name: string = "Jonathan Benson";
   const email: string = "example@mail.com";
   return (
