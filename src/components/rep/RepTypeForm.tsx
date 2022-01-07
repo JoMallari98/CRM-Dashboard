@@ -40,16 +40,15 @@ const RepTypeForm = () => {
     await delay(1500); //sample call to api
     const success = Math.random() > 0.5; //random result
     if (success) {
-      console.log("success");
-      // goNextStep();
+      goNextStep();
     } else {
-      // goToStep(RepOnBoardingStep.NotFoundInDatabase);
+      goToStep(RepOnBoardingStep.NotFoundInDatabase);
     }
   };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log("handleRadioChange", event.target.value);
-    // setRepType(Number(event.target.value));
+    setRepType(Number(event.target.value));
   };
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">

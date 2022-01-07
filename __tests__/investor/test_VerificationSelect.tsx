@@ -7,7 +7,7 @@ import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import createMockInvestorContext from "src/test-utils/createMockInvestorContext";
 import { OnBoardingContext } from "src/context/userOnBoardingContext";
-import VerificationSelect from "src/components/Investor/VerificationSelect";
+import VerificationSelect from "src/components/investor/VerificationSelect";
 
 describe("investor/VerificationSelect", () => {
   let context = createMockInvestorContext();

@@ -14,7 +14,7 @@ const RepOnBoarding = () => {
   const { currentStep } = useRepOnboarding();
   const [currentPageType, setCurrentPageType] = useState(PageType.USER_DATA);
   const mdDown = useMediaQuery(theme.breakpoints.down("md"));
-  const getCurrentStep = useMemo(() => {
+  const getCurrentStep = () => {
     switch (currentStep) {
       case RepOnBoardingStep.UserData:
         return UserDataFrom;
@@ -25,7 +25,8 @@ const RepOnBoarding = () => {
       default:
         return UserDataFrom;
     }
-  }, [currentStep]);
+  };
+  const CurrentStep = getCurrentStep();
   return (
     <Wrapper>
       <Grid
@@ -38,7 +39,7 @@ const RepOnBoarding = () => {
           <LogoBrandingSection type={currentPageType} />
         </Grid>
         <Grid item md={6}>
-          {getCurrentStep()}
+          <CurrentStep />
         </Grid>
       </Grid>
     </Wrapper>

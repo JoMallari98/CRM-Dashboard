@@ -7,7 +7,7 @@ import { render, screen, waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import createMockInvestorContext from "src/test-utils/createMockInvestorContext";
 import { OnBoardingContext } from "src/context/userOnBoardingContext";
-import IdentityConfirmationForm from "src/components/Investor/IdentityConfirmationForm";
+import IdentityConfirmationForm from "src/components/investor/IdentityConfirmationForm";
 
 import { RouterContext } from "next/dist/shared/lib/router-context";
 import createMockRouter from "src/test-utils/createMockRouter";

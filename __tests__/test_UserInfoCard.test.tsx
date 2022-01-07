@@ -4,7 +4,7 @@
 
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import UserInfoCard from "src/components/Investor/common/UserInfoCard";
+import UserInfoCard from "src/components/investor/common/UserInfoCard";
 
 describe("UserInfoCard", () => {
   it("should render name and usertitle correctly", () => {

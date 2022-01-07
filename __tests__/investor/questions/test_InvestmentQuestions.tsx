@@ -5,7 +5,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { OnBoardingContextProvider } from "src/context/userOnBoardingContext";
-import InvestmentQuestions from "src/components/Investor/questions/InvestmentQuestions";
+import InvestmentQuestions from "src/components/investor/questions/InvestmentQuestions";
 import createMockRouter from "src/test-utils/createMockRouter";
 import { RouterContext } from "next/dist/shared/lib/router-context";
 import userEvent from "@testing-library/user-event";
