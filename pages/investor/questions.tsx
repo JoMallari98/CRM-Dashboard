@@ -1,7 +1,7 @@
 import { Container } from "@mui/material";
 import React from "react";
 import styled from "styled-components";
-import InvestmentQuestions from "src/components/Investor/questions/InvestmentQuestions";
+import InvestmentQuestions from "src/components/investor/questions/InvestmentQuestions";
 import { OnBoardingContextProvider } from "src/context/userOnBoardingContext";
 
 const QuestionsPage = () => {
