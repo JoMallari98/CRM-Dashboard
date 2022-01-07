@@ -49,7 +49,7 @@ const IdentityConfirmationForm = () => {
         pt={0}
         justifyContent="flex-start"
       >
-        <FormSection mt={6} mb={13}>
+        <FormSection mt={6} mb={6}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
             <IconButton onClick={goPrevStep}>
               <ArrowBack fontSize="small" />
@@ -57,11 +57,11 @@ const IdentityConfirmationForm = () => {
           </Box>
         </FormSection>
 
-        <FormSection alignItems="stretch" maxWidth={400} mb={15}>
+        <FormSection alignItems="stretch" maxWidth={400} mb={7}>
           <Typography variant="h5" mb={6} fontWeight="bold">
             Confirm your identity
           </Typography>
-          <Typography variant="body2" mb={10} align="center">
+          <Typography variant="body2" align="center">
             Please, write your CRD Number to confirm your identity
           </Typography>
           <Box mt={6} width="90%">
@@ -97,4 +97,5 @@ const ConfirmationButton = styled(Button)({
   height: 48,
   borderRadius: 8,
   textTransform: "none",
+  color: "#ffff",
 });

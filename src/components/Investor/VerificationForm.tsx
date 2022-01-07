@@ -8,7 +8,7 @@ import {
   Box,
   styled,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import { useOnboarding } from "src/context/userOnBoardingContext";
 import { FormSection } from "src/components/common/FormSection";
 import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
@@ -16,7 +16,7 @@ import SixDigitVerification from "src/components/common/SixDigitVerification";
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleSubmit = () => {
     goNextStep();
   };
@@ -42,7 +42,7 @@ const VerificationForm = () => {
       justifySelf="stretch"
       width="100%"
     >
-      <FormSection mt={6} mb={13}>
+      <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           <IconButton onClick={goPrevStep}>
             <ArrowBack fontSize="small" />
@@ -50,14 +50,14 @@ const VerificationForm = () => {
         </Box>
       </FormSection>
 
-      <FormSection alignItems="stretch" mb={16.5}>
+      <FormSection alignItems="stretch" mb={7}>
         <Typography variant="h5" mb={6} fontWeight="bold">
           Verification
         </Typography>
         <Typography variant="body2" align="center" width="100%">
           Enter your verification code
         </Typography>
-        <Box mt={18.5} mb={7} display="flex" justifyContent="center">
+        <Box mt={7} mb={7} display="flex" justifyContent="center">
           <SixDigitVerification />
         </Box>
 
@@ -69,7 +69,7 @@ const VerificationForm = () => {
             fontWeight="bold"
             onClick={resendCode}
             underline="hover"
-            color="#000"
+            color="#009EF8"
             href="#"
           >
             {`Resend code`}
@@ -114,4 +114,5 @@ const ContinueButton = styled(Button)({
   height: 48,
   borderRadius: 8,
   textTransform: "capitalize",
+  color: "#fff",
 });

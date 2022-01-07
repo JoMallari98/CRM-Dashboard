@@ -10,7 +10,7 @@ const SignInScreen = () => {
         <Grid item md={6}>
           <LogoBrandingSection />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} alignSelf="stretch">
           <SignInForm />
         </Grid>
       </Grid>
@@ -22,7 +22,10 @@ export default SignInScreen;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",
+  overflow: "hidden",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
   background: "#F8FCFF",
+  justifyContent: "center",
+  alignItems: "center",
 });

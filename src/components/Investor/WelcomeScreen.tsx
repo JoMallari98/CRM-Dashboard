@@ -1,7 +1,9 @@
 import { Grid } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import React from "react";
-import LogoBrandingSection from "src/components/common/LogoBrandingSection";
+import LogoBrandingSection, {
+  PageType,
+} from "src/components/common/LogoBrandingSection";
 import OnBoardingIntro from "src/components/common/OnBoardingIntro";
 
 const WelcomeScreen = () => {
@@ -9,7 +11,7 @@ const WelcomeScreen = () => {
     <Wrapper>
       <Grid container alignItems="stretch" flexGrow={1}>
         <Grid item md={6}>
-          <LogoBrandingSection />
+          <LogoBrandingSection type={PageType.WELCOME} />
         </Grid>
         <Grid item md={6}>
           <OnBoardingIntro />
@@ -23,6 +25,10 @@ export default WelcomeScreen;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",
+  overflow: "hidden",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
+  background: "#F8FCFF",
+  justifyContent: "center",
+  alignItems: "center",
 });

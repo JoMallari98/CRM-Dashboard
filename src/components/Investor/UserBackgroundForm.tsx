@@ -21,14 +21,14 @@ const UserBackgroundForm = () => {
 
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
-      <FormSection mt={6} mb={13}>
+      <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           <IconButton onClick={goPrevStep}>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>
       </FormSection>
-      <FormSection alignItems="stretch" maxWidth={400} mb={20}>
+      <FormSection alignItems="stretch" maxWidth={400} mb={7}>
         <Typography variant="h5" mb={6} fontWeight="bold">
           Your background
         </Typography>
@@ -43,12 +43,13 @@ const UserBackgroundForm = () => {
           color="primary"
           sx={{ mb: 2 }}
           onClick={goToRepOnBoarding}
+          style={{ color: "#ffff" }}
         >
           Yes, this is me
         </ConfirmationButton>
         <ConfirmationButton
-          variant="contained"
-          color="secondary"
+          variant="outlined"
+          color="primary"
           onClick={continueInvestorOnBoarding}
         >
           No this is not me

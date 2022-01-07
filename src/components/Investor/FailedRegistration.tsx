@@ -27,11 +27,11 @@ const FailedRegistration = () => {
       <React.Fragment>
         <FormSection alignItems="stretch" maxWidth={400} mb={8}>
           <Typography variant="h5" mb={6} fontWeight="bold">
-            Oh, we are so sorry!
+            Oh, sorry!
           </Typography>
           <Typography variant="body2" align="center">
             Something went wrong, we apologize and will check our information.
-            Unfortunately, you cannot continue the registration, please connect
+            Unfortunatelly, you cannot continue the registration, please connect
             our support service +1783939440.
           </Typography>
         </FormSection>

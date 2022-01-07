@@ -24,6 +24,8 @@ export default SignUpScreen;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",
+  overflow: "hidden",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
+  background: "#F8FCFF",
 });

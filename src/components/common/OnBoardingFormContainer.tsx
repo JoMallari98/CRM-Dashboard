@@ -1,8 +1,13 @@
 import { Box, BoxProps, Paper, styled } from "@mui/material";
+import { Close as CloseMuiIcon } from "@mui/icons-material";
+import styledComponent from "styled-components";
 import React from "react";
-
-const OnBoardingFormContainer: React.FC<BoxProps> = ({
+type OnBoardingFormContainer = {
+  CloseIcon?: boolean;
+};
+const OnBoardingFormContainer: React.FC<OnBoardingFormContainer & BoxProps> = ({
   children,
+  CloseIcon = false,
   ...props
 }) => {
   return (
@@ -24,6 +29,11 @@ const OnBoardingFormContainer: React.FC<BoxProps> = ({
           pb={6}
           {...props}
         >
+          {CloseIcon && (
+            <CloseIconContainer>
+              <CloseMuiIcon />
+            </CloseIconContainer>
+          )}
           {children}
         </Box>
       </StyledPaper>
@@ -37,10 +47,17 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: 16,
   flexGrow: 1,
   width: "100%",
-  margin: "15px 0px",
   background: "#fff",
   border: "1px solid #fff",
+  position: "relative",
+  zIndex: "10000",
   [theme.breakpoints.down("sm")]: {
     margin: 0,
   },
 }));
+const CloseIconContainer = styledComponent.span`
+  position : absolute;
+  top: 23px;
+  right: 18px;
+  cursor: pointer;
+`;

@@ -24,6 +24,10 @@ export default UserTypeScreen;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",
+  overflow: "hidden",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
+  background: "#F8FCFF",
+  justifyContent: "center",
+  alignItems: "center",
 });

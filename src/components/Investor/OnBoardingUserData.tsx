@@ -31,6 +31,7 @@ const OnBoardingUserData = () => {
         setType(PageType.VERIFICATION_Select);
         return VerificationSelect;
       case OnboardingSteps.VerificationCode:
+        setType(PageType.VERIFICATION_CODE);
         return VerificationForm;
       case OnboardingSteps.UserBackground:
         setType(PageType.BACKGROUND);
@@ -69,6 +70,10 @@ export default OnBoardingUserData;
 
 const Wrapper = styled("div")({
   minHeight: "100vh",
+  overflow: "hidden",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
+  background: "#F8FCFF",
+  justifyContent: "center",
+  alignItems: "center",
 });

@@ -18,7 +18,7 @@ const VerificationSelect = () => {
   };
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
-      <FormSection mt={6} mb={13}>
+      <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           <IconButton onClick={goPrevStep}>
             <ArrowBack fontSize="small" />
@@ -56,7 +56,7 @@ export default VerificationSelect;
 
 const SendButton = styled(Button)({
   color: "#000",
-  background: "#fff",
+  background: "#F8FCFF",
   width: "100%",
   height: 101,
   fontSize: 18,

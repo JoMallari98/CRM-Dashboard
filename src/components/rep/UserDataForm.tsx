@@ -47,7 +47,7 @@ const UserDataForm = () => {
         pt={0}
         justifyContent="flex-start"
       >
-        <FormSection mt={6} mb={13}>
+        <FormSection mt={6} mb={2}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
             <IconButton onClick={onPrevStep}>
               <ArrowBack fontSize="small" />
@@ -76,12 +76,12 @@ const UserDataForm = () => {
           </Box>
         </FormSection>
 
-        <FormSection alignItems="stretch" mb={7} maxWidth={400}>
+        <FormSection alignItems="stretch" mb={1} maxWidth={400}>
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             Fill in your user data to register a profile
           </Typography>
 
-          <Box mt={6}>
+          <Box>
             <FormControl fullWidth sx={{ my: 2 }}>
               <CustomTextField
                 id="firstName"
@@ -129,8 +129,7 @@ const UserDataForm = () => {
         <FormSection>
           <Stack direction="row" spacing={2}>
             <ContinueButton
-              variant="contained"
-              color="secondary"
+              variant="outlined"
               onClick={onPrevStep}
               startIcon={<ArrowBack />}
             >
@@ -141,6 +140,7 @@ const UserDataForm = () => {
               color="primary"
               type="submit"
               endIcon={<ArrowForward />}
+              style={{ color: "#fff" }}
             >
               Next Step
             </ContinueButton>

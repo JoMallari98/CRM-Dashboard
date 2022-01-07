@@ -1,14 +1,20 @@
-import { Container } from "@mui/material";
 import React from "react";
 import UserTypeScreen from "src/components/usertype/UserTypeScreen";
+import styled from "styled-components";
 import { OnBoardingContextProvider } from "src/context/userOnBoardingContext";
 
 const UserData = () => {
   return (
-    <Container maxWidth="lg">
+    <Wrapper>
       <UserTypeScreen />
-    </Container>
+    </Wrapper>
   );
 };
-
+const Wrapper = styled.div`
+  background: #f8fcff;
+  padding: 2rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export default UserData;

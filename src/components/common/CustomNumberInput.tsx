@@ -10,7 +10,6 @@ const CustomNumberInput = React.forwardRef<HTMLInputElement, Props>(
         sx={{
           borderRadius: 2,
           mx: 0.5,
-          backgroundColor: "background.default",
         }}
       >
         <StyledInput
@@ -52,12 +51,13 @@ export default CustomNumberInput;
 
 const StyledPaper = styled(Paper)(({ theme }) => ({
   display: "flex",
+  backgroundColor: "#F8FCFF",
   alignItems: "center",
   justifyContent: "center",
   fontWeight: "bold",
   width: 56,
   height: 64,
-
+  border: "1px solid rgba(10, 81, 143, 0.17)",
   [theme.breakpoints.down("sm")]: {
     width: 40,
     height: 48,
@@ -66,6 +66,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
 
 const StyledInput = styled(InputBase)(({ theme }) => ({
   fontSize: 40,
+  backgroundColor: "#F8FCFF",
   [theme.breakpoints.down("sm")]: {
     fontSize: 24,
   },
