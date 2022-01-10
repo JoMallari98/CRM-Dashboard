@@ -17,14 +17,19 @@ const InvestmentQuestions = () => {
     const question = currentQuestion as InvestorQuestions;
     switch (question) {
       case InvestorQuestions.InvestmentExperience:
+        console.log("first");
         return InvestmentExperience;
       case InvestorQuestions.InvestmentStyle:
+        console.log("2");
         return InvestmentStyle;
       case InvestorQuestions.InvestmentGoal:
+        console.log("3");
         return InvestmentGoal;
       case InvestorQuestions.ElectronicDeliveryConfirmation:
+        console.log("4");
         return PrivacyPolicy;
       case InvestorQuestions.DeclinedElectronicDelivery:
+        console.log("5");
         return DeclinedElectronicDelivery;
       default:
         return null;
@@ -33,7 +38,7 @@ const InvestmentQuestions = () => {
   const CurrentQuestion = getQuestionScreen();
   return (
     <Wrapper>
-      <Box display="flex" alignItems="center" mt={10}>
+      <Box display="flex" alignItems="center" mt={10} ml={5}>
         <Avatar />
         <Typography variant="h6" ml={2} fontWeight="bold">
           LOGO

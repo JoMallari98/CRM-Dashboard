@@ -6,11 +6,11 @@ import SignInForm from "./SignInForm";
 const SignInScreen = () => {
   return (
     <Wrapper>
-      <Grid container alignItems="stretch" flexGrow={1}>
+      <Grid container direction="row">
         <Grid item md={6}>
-          <LogoBrandingSection description="Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+          <LogoBrandingSection />
         </Grid>
-        <Grid item md={6}>
+        <Grid item md={6} alignSelf="stretch">
           <SignInForm />
         </Grid>
       </Grid>
@@ -21,7 +21,9 @@ const SignInScreen = () => {
 export default SignInScreen;
 
 const Wrapper = styled("div")({
-  minHeight: "100vh",
+  width: "100%",
+  overflow: "hidden",
   display: "flex",
-  flexDirection: "column",
+  flexDirection: "row",
+  background: "#F8FCFF",
 });

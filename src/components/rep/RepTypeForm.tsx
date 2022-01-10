@@ -110,8 +110,7 @@ const RepTypeForm = () => {
       <FormSection>
         <Stack direction="row" spacing={2}>
           <ContinueButton
-            variant="contained"
-            color="secondary"
+            variant="outlined"
             onClick={goPrevStep}
             startIcon={<ArrowBack />}
           >
@@ -122,6 +121,7 @@ const RepTypeForm = () => {
             color="primary"
             onClick={handleSubmit}
             endIcon={<ArrowForward />}
+            style={{ color: "#fff" }}
           >
             Next Step
           </ContinueButton>

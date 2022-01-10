@@ -1,39 +1,45 @@
 import React, { useState } from "react";
-import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
 import Question from "../common/Question";
 import SelectionButton from "../common/SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
+import { useRouter } from "next/router";
+import styled from "styled-components";
 
-const InvestmentGoal = () => {
+const possibleAnswers = [
+  {
+    value: 1,
+    text: "None",
+    icon: "☹️",
+  },
+  {
+    value: 2,
+    text: "Limited",
+    icon: "😐",
+  },
+  {
+    value: 3,
+    text: "Good",
+    icon: "😃",
+  },
+  {
+    value: 4,
+    text: "Extensive",
+    icon: "😎",
+  },
+];
+
+const InvestmentExperience = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
-  const possibleAnswers = [
-    {
-      value: 1,
-      text: "Generate income",
-      icon: null,
-    },
-    {
-      value: 2,
-      text: "Grow my money",
-      icon: null,
-    },
-    {
-      value: 3,
-      text: "Protect my capital",
-      icon: null,
-    },
-    {
-      value: 4,
-      text: "Minimize sudden ups and downs",
-      icon: null,
-    },
-  ];
-
+  const router = useRouter();
   const handleAnswer = (value: any) => {
     setCurrentAnswer(value);
+  };
+  const navigateToSignUp = () => {
+    router.replace("/signup");
   };
   return (
     <Box>
@@ -43,25 +49,29 @@ const InvestmentGoal = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
+        justifyContent="center"
       >
         <Typography variant="h5" fontWeight="bold" align="center">
           Almost done!
         </Typography>
-        <Typography variant="body2" align="center" maxWidth={400}>
+        <Typography variant="body2" align="center" maxWidth={400} mt={2}>
           We’d like to know more about you, please answer a few short questions
           to complete your profile
         </Typography>
       </Box>
-      <Question nextText="Create a profile" isEndQuestion={true}>
-        <Box display="flex" flexDirection="column">
+      <Question
+        onPrev={navigateToSignUp}
+        prevText={"Back to Sign Up"}
+        isStartQuestion={true}
+      >
+        <MainQuestion display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
-            What is most important to you when you invest?
+            How would you rate your investment experience?
           </Typography>
           <Box
             display="flex"
-            justifyContent="space-around"
             flexDirection={smDown ? "column" : "row"}
-            alignItems={smDown ? "center" : "flex-start"}
+            justifyContent="space-around"
           >
             {possibleAnswers.map((answer) => {
               return (
@@ -77,14 +87,25 @@ const InvestmentGoal = () => {
               );
             })}
           </Box>
-        </Box>
+        </MainQuestion>
       </Question>
 
-      <Typography align="center" variant="body2" color="textSecondary" mt={11}>
+      <Typography
+        align="center"
+        variant="body2"
+        color="textSecondary"
+        mt={11}
+        mb={5}
+      >
         Question {currentQuestion + 1} of 3
       </Typography>
+      {}
     </Box>
   );
 };
 
-export default InvestmentGoal;
+const MainQuestion = styled(Box)`
+  background-color: #ffff;
+`;
+
+export default InvestmentExperience;

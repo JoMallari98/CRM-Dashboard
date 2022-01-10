@@ -87,13 +87,17 @@ const PrivacyPolicy = () => {
               </Typography>
             </Container>
             <Box display="flex" justifyContent="center">
-              <ConfirmationButton variant="contained" color="primary">
+              <ConfirmationButton
+                variant="contained"
+                color="primary"
+                style={{ color: "#fff" }}
+              >
                 Yes, I Agree
               </ConfirmationButton>
               <ConfirmationButton
                 sx={{ ml: 2 }}
-                variant="contained"
-                color="secondary"
+                variant="outlined"
+                color="primary"
                 onClick={onDisagree}
               >
                 I Decline
@@ -117,6 +121,7 @@ const QuestionContainer = styled(Paper)({
   display: "flex",
   alignItems: "center",
   justifyContent: "center",
+  background: "#ffff",
 });
 
 const ConfirmationButton = styled(Button)({

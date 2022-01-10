@@ -1,44 +1,39 @@
 import React, { useState } from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
 import Question from "../common/Question";
 import SelectionButton from "../common/SelectionButton";
 import { useOnboarding } from "src/context/userOnBoardingContext";
-import { useRouter } from "next/router";
-
-const possibleAnswers = [
-  {
-    value: 1,
-    text: "None",
-    icon: "☹️",
-  },
-  {
-    value: 2,
-    text: "Limited",
-    icon: "😐",
-  },
-  {
-    value: 3,
-    text: "Good",
-    icon: "😃",
-  },
-  {
-    value: 4,
-    text: "Extensive",
-    icon: "😎",
-  },
-];
-
-const InvestmentExperience = () => {
+import UpAndDowIcon from "public/UpAndDown.svg";
+const InvestmentGoal = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down("sm"));
-  const router = useRouter();
+  const possibleAnswers = [
+    {
+      value: 1,
+      text: "Generate income",
+      icon: "💰️",
+    },
+    {
+      value: 2,
+      text: "Grow my money",
+      icon: "💸",
+    },
+    {
+      value: 3,
+      text: "Protect my capital",
+      icon: "🛡",
+    },
+    {
+      value: 4,
+      text: "Minimize sudden ups and downs",
+      icon: <UpAndDowIcon />,
+    },
+  ];
+
   const handleAnswer = (value: any) => {
     setCurrentAnswer(value);
-  };
-  const navigateToSignUp = () => {
-    router.replace("/signup");
   };
   return (
     <Box>
@@ -48,7 +43,6 @@ const InvestmentExperience = () => {
         display="flex"
         flexDirection="column"
         alignItems="center"
-        justifyContent="center"
       >
         <Typography variant="h5" fontWeight="bold" align="center">
           Almost done!
@@ -58,19 +52,16 @@ const InvestmentExperience = () => {
           to complete your profile
         </Typography>
       </Box>
-      <Question
-        onPrev={navigateToSignUp}
-        prevText={"Back to Sign Up"}
-        isStartQuestion={true}
-      >
-        <Box display="flex" flexDirection="column" alignItems="center">
+      <Question nextText="Create a profile" isEndQuestion={true}>
+        <Box display="flex" flexDirection="column">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
-            How would you rate your investment experience?
+            What is most important to you when you invest?
           </Typography>
           <Box
             display="flex"
-            flexDirection={smDown ? "column" : "row"}
             justifyContent="space-around"
+            flexDirection={smDown ? "column" : "row"}
+            alignItems={smDown ? "center" : "flex-start"}
           >
             {possibleAnswers.map((answer) => {
               return (
@@ -89,18 +80,11 @@ const InvestmentExperience = () => {
         </Box>
       </Question>
 
-      <Typography
-        align="center"
-        variant="body2"
-        color="textSecondary"
-        mt={11}
-        mb={5}
-      >
+      <Typography align="center" variant="body2" color="textSecondary" mt={11}>
         Question {currentQuestion + 1} of 3
       </Typography>
-      {}
     </Box>
   );
 };
 
-export default InvestmentExperience;
+export default InvestmentGoal;

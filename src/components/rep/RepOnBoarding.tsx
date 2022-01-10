@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useMemo, useState } from "react";
 import { Grid, useTheme, styled, useMediaQuery } from "@mui/material";
-import LogoBrandingSection from "../common/LogoBrandingSection";
+import LogoBrandingSection, { PageType } from "../common/LogoBrandingSection";
 import {
   RepOnBoardingStep,
   useRepOnboarding,
@@ -12,6 +12,7 @@ import NotFoundForm from "./NotFoundForm";
 const RepOnBoarding = () => {
   const theme = useTheme();
   const { currentStep } = useRepOnboarding();
+  const [currentPageType, setCurrentPageType] = useState(PageType.USER_DATA);
   const mdDown = useMediaQuery(theme.breakpoints.down("md"));
   const getCurrentStep = () => {
     switch (currentStep) {
@@ -35,7 +36,7 @@ const RepOnBoarding = () => {
         direction={mdDown ? "column" : "row"}
       >
         <Grid item md={6}>
-          <LogoBrandingSection />
+          <LogoBrandingSection type={currentPageType} />
         </Grid>
         <Grid item md={6}>
           <CurrentStep />

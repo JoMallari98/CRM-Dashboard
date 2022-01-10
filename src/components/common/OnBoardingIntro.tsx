@@ -22,12 +22,12 @@ const OnBoardingIntro = () => {
         <Link href="/signin" passHref>
           <Button
             variant="contained"
-            color="secondary"
             endIcon={<ArrowForwardIcon />}
             sx={{ py: 1.5, px: 4 }}
             component="a"
+            style={{ color: "#fff" }}
           >
-            OnBoard
+            {"Let's Start"}
           </Button>
         </Link>
       </Box>

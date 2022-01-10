@@ -9,12 +9,13 @@ const UserInfoCard: React.FC<Props> = ({ name, userTitle }) => {
   return (
     <Paper
       sx={{
-        backgroundColor: "background.default",
-        borderRadius: 2,
+        backgroundColor: "#ffff",
         display: "flex",
         p: 2,
         width: "90%",
         maxWidth: "300px",
+        border: "none",
+        boxShadow: "0px 0px 0px #ffff",
       }}
     >
       <Ellipse sx={{ backgroundColor: "background.paper" }} />

@@ -45,7 +45,7 @@ const SignInForm = () => {
         password: "",
       }}
     >
-      <OnBoardingFormContainer component={Form}>
+      <OnBoardingFormContainer component={Form} CloseIcon={true}>
         <Typography variant="h5" fontWeight="bold">
           Sign In
         </Typography>
@@ -81,6 +81,7 @@ const SignInForm = () => {
                 fontWeight="bold"
                 variant="body2"
                 color="textSecondary"
+                style={{ color: "#009EF8" }}
               >
                 Forgot Password?
               </Typography>
@@ -120,7 +121,6 @@ const SignInForm = () => {
 
         <SignInButton
           variant="contained"
-          color="primary"
           sx={{ px: 8, py: 1, my: 2 }}
           data-testid="sign-in-button"
           type="submit"
@@ -130,7 +130,11 @@ const SignInForm = () => {
         <Typography variant="body2">
           {`Don't have an account? `}
           <Link href="/signup" passHref>
-            <Typography fontWeight="bold" component="a">
+            <Typography
+              fontWeight="bold"
+              component="a"
+              style={{ color: "#009EF8" }}
+            >
               Sign Up
             </Typography>
           </Link>
@@ -163,6 +167,7 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
 
 const SignInButton = styled(Button)({
   textTransform: "capitalize",
+  color: "#fff",
 });
 
 const StyledBox = styled(Box)(({ theme }) => ({

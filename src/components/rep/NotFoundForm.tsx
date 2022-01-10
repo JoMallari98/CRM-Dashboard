@@ -30,6 +30,7 @@ const NotFoundForm = () => {
           variant="contained"
           color="primary"
           onClick={goBackToMainPage}
+          style={{ color: "#ffff" }}
         >
           Go Back on Main Page
         </ConfirmationButton>

@@ -1,13 +1,19 @@
 import { Container } from "@mui/material";
 import React from "react";
 import SignInScreen from "src/components/signin/SignInScreen";
+import styled from "styled-components";
 
 const SignInPage = () => {
   return (
-    <Container maxWidth="lg">
+    <Wrapper>
       <SignInScreen />
-    </Container>
+    </Wrapper>
   );
 };
-
+const Wrapper = styled.div`
+  background: #f8fcff;
+  padding-top: 2rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+`;
 export default SignInPage;

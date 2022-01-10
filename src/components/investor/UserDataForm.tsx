@@ -47,7 +47,7 @@ const UserDataForm = () => {
         pt={0}
         justifyContent="flex-start"
       >
-        <FormSection mt={6} mb={15.25}>
+        <FormSection mt={6} mb={2}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
             <IconButton onClick={onPrevStep}>
               <ArrowBack fontSize="small" />
@@ -76,13 +76,16 @@ const UserDataForm = () => {
           </Box>
         </FormSection>
 
-        <FormSection alignItems="stretch" mb={19} maxWidth={400}>
+        <FormSection alignItems="stretch" mb={2} maxWidth={400}>
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             Please complete your personal profile
           </Typography>
           <Typography variant="body2">All fields are required</Typography>
 
-          <Box mt={6}>
+          <Box mt={3}>
+            <FormControl fullWidth sx={{ my: 2 }}>
+              <CustomTextField id="userName" name="UserName" label="Username" />
+            </FormControl>
             <FormControl fullWidth sx={{ my: 2 }}>
               <CustomTextField
                 label="First Name"
@@ -117,7 +120,7 @@ const UserDataForm = () => {
           </Box>
         </FormSection>
         <FormSection>
-          <ContinueButton variant="contained" color="primary" type="submit">
+          <ContinueButton variant="contained" type="submit">
             Continue
           </ContinueButton>
         </FormSection>
@@ -134,4 +137,5 @@ const ContinueButton = styled(Button)({
   height: 48,
   borderRadius: 8,
   textTransform: "capitalize",
+  color: "#fff",
 });
