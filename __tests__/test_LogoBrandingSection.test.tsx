@@ -11,7 +11,5 @@ describe("LogoBrandingSection", () => {
     render(<LogoBrandingSection />);
 
     expect(screen.getByText("LOGO")).toBeInTheDocument();
-    expect(screen.getByAltText("logo-image")).toBeInTheDocument();
-    expect(screen.getByAltText("onboarding-image")).toBeInTheDocument();
   });
 });

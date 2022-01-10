@@ -16,12 +16,12 @@ describe("Onboarding Intro", () => {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
       )
     ).toBeInTheDocument();
-    expect(screen.getByText("OnBoard")).toBeInTheDocument();
+    expect(screen.getByText("Let's Start")).toBeInTheDocument();
   });
-  it("should have to /signin after clicking OnBoard", () => {
+  it("should have to /signin after clicking Let's Start", () => {
     render(<OnBoardingIntro />);
 
-    expect(screen.getByText("OnBoard")).toHaveProperty(
+    expect(screen.getByText("Let's Start")).toHaveProperty(
       "href",
       "http://localhost/signin"
     );
