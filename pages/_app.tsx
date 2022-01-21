@@ -28,7 +28,7 @@ function MyApp(props: MyAppProps) {
           <Component {...restPageProps} />
           <ToastContainer
           position="top-right"
-          autoClose={5000}
+          autoClose={2000}
           style={{zIndex: "10001"}}
           hideProgressBar={false}
           newestOnTop={false}

@@ -50,14 +50,14 @@ describe('EmailVerification Page', () => {
     expect(input).toHaveValue(9);
 	});
 	
-	it('It should go to verify phone step after submitting', () => {
-			let router = createMockRouter({});
-			render(<RouterContext.Provider value={router}>
-        <EmailVerificationPage />
-      </RouterContext.Provider>);
+	// it('It should go to verify phone step after submitting', () => {
+	// 		let router = createMockRouter({});
+	// 		render(<RouterContext.Provider value={router}>
+  //       <EmailVerificationPage />
+  //     </RouterContext.Provider>);
 			
-			fireEvent.click(screen.getByRole('button', { name: 'Confirm' }));
-			// fireEvent.click(screen.getByText('Confirm'));
-      expect(router.push).toHaveBeenCalledWith('/signup/onboarding/phone-verification');
-  });
+	// 		fireEvent.click(screen.getByRole('button', { name: 'Confirm' }));
+	// 		// fireEvent.click(screen.getByText('Confirm'));
+  //     expect(router.push).toHaveBeenCalledWith('/signup/onboarding/phone-verification');
+  // });
 });

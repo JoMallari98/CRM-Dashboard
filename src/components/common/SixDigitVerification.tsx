@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import CustomNumberInput from './CustomNumberInput';
 
-const SixDigitVerification = () => {
+const SixDigitVerification = (props: any) => {
   const [digits, setDigits] = useState<(number | string)[]>(new Array(6).fill(''));
   const firstDigitRef = useRef<HTMLInputElement>(null);
   const secondDigitRef = useRef<HTMLInputElement>(null);
@@ -24,6 +24,19 @@ const SixDigitVerification = () => {
     }
   }, []);
 
+  const isValid = () => {
+    let isValid = true;
+    for (let i =0; i<refs.length; i++) {
+      if (!refs[i].current?.value) {
+        isValid = false;
+        break;
+      }
+    }
+    if (isValid) {
+      props.setDisableBtn(false);
+    }
+  };
+
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     index: number
@@ -42,6 +55,7 @@ const SixDigitVerification = () => {
     if (value > 0) {
       nextRef?.current && nextRef?.current.focus();
     }
+    isValid();
   };
   return (
     <>

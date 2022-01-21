@@ -10,16 +10,17 @@ import Image from 'next/image';
 
 
 const EmailVerification = () => {
+  const [disableBtn, setDisableBtn] = useState(true);
   const router = useRouter();
   const [loader, setLoader] = useState(false)
   const resendEmail = () => {
+    toast.success("Code has been sent to you email")
     // setOpen(true);
   };
 
   const handleSubmit = () => {
     // goNextStep();
     setLoader(true)
-    toast.success("Email verifed Successfly");
     router.push('/signup/onboarding/phone-verification');
     
   };
@@ -43,7 +44,7 @@ const EmailVerification = () => {
           email and write your code
         </Typography>
         <Box mt={15} mb={3} display="flex" justifyContent="center">
-          <SixDigitVerification />
+        <SixDigitVerification setDisableBtn={setDisableBtn} />
         </Box>
 
         <Typography variant="body2" component="span">
@@ -62,7 +63,7 @@ const EmailVerification = () => {
         </Typography>
       </FormSection>
       <FormSection>
-        <ContinueButton variant="contained" color="primary" onClick={() => handleSubmit()}>
+        <ContinueButton variant="contained" color="primary" disabled={disableBtn} onClick={() => handleSubmit()}>
           Confirm
           {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </ContinueButton>
