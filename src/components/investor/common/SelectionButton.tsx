@@ -1,5 +1,5 @@
-import { Box, Paper, styled, Typography } from "@mui/material";
-import React from "react";
+import { Box, Paper, styled, Typography } from '@mui/material';
+import React from 'react';
 
 type Props = {
   value: any;
@@ -7,17 +7,11 @@ type Props = {
   onSelect(value: any): void;
   selected: boolean;
 };
-const SelectionButton: React.FC<Props> = ({
-  value,
-  text,
-  onSelect,
-  children,
-  selected,
-}) => {
+const SelectionButton: React.FC<Props> = ({ value, text, onSelect, children, selected }) => {
   const handleClick = () => onSelect(value);
-  const backgroundColor = selected ? "primary.light" : "#ffff";
-  const color = selected ? "primary.contrastText" : "textSecondary";
-
+  const backgroundColor = selected ? 'primary.light' : '#ffff';
+  const color = selected ? 'primary.contrastText' : 'textSecondary';
+  const minHeight = selected ? '150px !important' : 'inherited';
   return (
     <Wrapper
       onClick={handleClick}
@@ -26,15 +20,18 @@ const SelectionButton: React.FC<Props> = ({
         color,
         p: 1,
         m: 1,
-        ":hover": {
-          backgroundColor: "primary.light",
-          color: "primary.contrastText",
+        minWidth: 90,
+        minHeight: '160px !important',
+        ':hover': {
+          backgroundColor: 'primary.light',
+          color: 'primary.contrastText',
+          minHeight: '160px !important',
         },
       }}
       elevation={0}
     >
       <Ellipse sx={{ mb: 1 }}>{children}</Ellipse>
-      <Typography variant="body2" align="center" maxWidth={100}>
+      <Typography minHeight="36px" mt={3} variant="body2" align="center" maxWidth={100}>
         {text}
       </Typography>
     </Wrapper>
@@ -44,11 +41,11 @@ const SelectionButton: React.FC<Props> = ({
 export default SelectionButton;
 
 const Wrapper = styled(Paper)({
-  cursor: "pointer",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "center",
-  alignItems: "center",
+  cursor: 'pointer',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
 });
 
 const Ellipse = styled(Box)({
@@ -56,8 +53,8 @@ const Ellipse = styled(Box)({
   width: 48,
   minWidth: 48,
   borderRadius: 24,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  backgroundColor: "#F8FCFF",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  // backgroundColor: '#F8FCFF',
 });

@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import Question from "../common/Question";
-import SelectionButton from "../common/SelectionButton";
-import { useOnboarding } from "src/context/userOnBoardingContext";
-import { useRouter } from "next/router";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import Question from '../common/Question';
+import SelectionButton from '../common/SelectionButton';
+import { useOnboarding } from 'src/context/userOnBoardingContext';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
 
 const possibleAnswers = [
   {
     value: 1,
-    text: "None",
-    icon: "☹️",
+    text: 'None',
+    icon: '☹️',
   },
   {
     value: 2,
-    text: "Limited",
-    icon: "😐",
+    text: 'Limited',
+    icon: '😐',
   },
   {
     value: 3,
-    text: "Good",
-    icon: "😃",
+    text: 'Good',
+    icon: '😃',
   },
   {
     value: 4,
-    text: "Extensive",
-    icon: "😎",
+    text: 'Extensive',
+    icon: '😎',
   },
 ];
 
@@ -33,13 +33,13 @@ const InvestmentExperience = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
   const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const router = useRouter();
   const handleAnswer = (value: any) => {
     setCurrentAnswer(value);
   };
   const navigateToSignUp = () => {
-    router.replace("/signup");
+    router.replace('/signup');
   };
   return (
     <Box>
@@ -55,22 +55,18 @@ const InvestmentExperience = () => {
           Almost done!
         </Typography>
         <Typography variant="body2" align="center" maxWidth={400} mt={2}>
-          We’d like to know more about you, please answer a few short questions
-          to complete your profile
+          We’d like to know more about you, please answer a few short questions to complete your
+          profile
         </Typography>
       </Box>
-      <Question
-        onPrev={navigateToSignUp}
-        prevText={"Back to Sign Up"}
-        isStartQuestion={true}
-      >
+      <Question onPrev={navigateToSignUp} prevText={'Back to Sign Up'} isStartQuestion={true}>
         <MainQuestion display="flex" flexDirection="column" alignItems="center">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             How would you rate your investment experience?
           </Typography>
           <Box
             display="flex"
-            flexDirection={smDown ? "column" : "row"}
+            flexDirection={smDown ? 'column' : 'row'}
             justifyContent="space-around"
           >
             {possibleAnswers.map((answer) => {
@@ -90,13 +86,7 @@ const InvestmentExperience = () => {
         </MainQuestion>
       </Question>
 
-      <Typography
-        align="center"
-        variant="body2"
-        color="textSecondary"
-        mt={11}
-        mb={5}
-      >
+      <Typography align="center" variant="body2" color="textSecondary" mt={11} mb={5}>
         Question {currentQuestion + 1} of 3
       </Typography>
       {}

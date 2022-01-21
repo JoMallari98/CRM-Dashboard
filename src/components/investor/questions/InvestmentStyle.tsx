@@ -1,39 +1,39 @@
-import React, { useState } from "react";
-import { Box, Typography, useMediaQuery, useTheme } from "@mui/material";
-import Question from "../common/Question";
-import SelectionButton from "../common/SelectionButton";
-import { useOnboarding } from "src/context/userOnBoardingContext";
+import React, { useState } from 'react';
+import { Box, Typography, useMediaQuery, useTheme } from '@mui/material';
+import Question from '../common/Question';
+import SelectionButton from '../common/SelectionButton';
+import { useOnboarding } from 'src/context/userOnBoardingContext';
 
 const InvestmentStyle = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
   const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const possibleAnswers = [
     {
       value: 1,
-      text: "Conservative",
-      icon: null,
+      text: 'Conservative',
+      icon: '/conservative.png',
     },
     {
       value: 2,
-      text: "Moderately conservative",
-      icon: null,
+      text: 'Moderately conservative',
+      icon: '/moderately.png',
     },
     {
       value: 3,
-      text: "Moderate",
-      icon: null,
+      text: 'Moderate',
+      icon: '/moderate.png',
     },
     {
       value: 4,
-      text: "Moderately aggressive",
-      icon: null,
+      text: 'Moderately aggressive',
+      icon: '/mode_aggressive.png',
     },
     {
       value: 5,
-      text: "Aggressive",
-      icon: null,
+      text: 'Aggressive',
+      icon: '/aggressive.png',
     },
   ];
 
@@ -42,19 +42,13 @@ const InvestmentStyle = () => {
   };
   return (
     <Box>
-      <Box
-        mt={7}
-        mb={11}
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-      >
+      <Box mt={7} mb={11} display="flex" flexDirection="column" alignItems="center">
         <Typography variant="h5" fontWeight="bold" align="center">
           Almost done!
         </Typography>
         <Typography variant="body2" align="center" maxWidth={400}>
-          We’d like to know more about you, please answer a few short questions
-          to complete your profile
+          We’d like to know more about you, please answer a few short questions to complete your
+          profile
         </Typography>
       </Box>
       <Question>
@@ -64,8 +58,8 @@ const InvestmentStyle = () => {
           </Typography>
           <Box
             display="flex"
-            flexDirection={smDown ? "column" : "row"}
-            alignItems={smDown ? "center" : "flex-start"}
+            flexDirection={smDown ? 'column' : 'row'}
+            alignItems={smDown ? 'center' : 'flex-start'}
           >
             {possibleAnswers.map((answer) => {
               return (
@@ -76,7 +70,7 @@ const InvestmentStyle = () => {
                   onSelect={handleAnswer}
                   selected={currentAnswer === answer.value}
                 >
-                  {answer.icon}
+                  <img src={answer.icon} />
                 </SelectionButton>
               );
             })}

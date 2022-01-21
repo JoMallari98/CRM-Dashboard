@@ -1,32 +1,29 @@
-import React from "react";
-import { Modal, Box, Button, Grid } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import Input from "src/components/common/Input";
-import styled from "styled-components";
+import React from 'react';
+import { Modal, Box, Button, Grid } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import Input from 'src/components/common/Input';
+import styled from 'styled-components';
 
 interface AddLocationModalProps {
   open: Boolean;
   setOpen: Function;
 }
-const AddLocationModal: React.FC<AddLocationModalProps> = ({
-  open,
-  setOpen,
-}) => {
+const AddLocationModal: React.FC<AddLocationModalProps> = ({ open, setOpen }) => {
   const handleClose = () => {
     setOpen(false);
   };
   const style = {
-    position: "absolute" as "absolute",
-    top: "50%",
-    left: "50%",
-    transform: "translate(-50%, -50%)",
+    position: 'absolute' as 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
     boxShadow: 24,
     pt: 2,
     px: 4,
     pb: 3,
-    borderRadius: "16px",
-    background: "#ffff",
-    outline: "none",
+    borderRadius: '16px',
+    background: '#ffff',
+    outline: 'none',
   };
   return (
     <Modal
@@ -51,28 +48,20 @@ const AddLocationModal: React.FC<AddLocationModalProps> = ({
                   fullWidth={true}
                   label="Country"
                   select={true}
-                  selectData={["US", "London", "Germany"]}
+                  selectData={['US', 'London', 'Germany']}
                 />
               </Grid>
               <Grid item>
-                <Input
-                  placeholder="Your zip code"
-                  fullWidth={true}
-                  label="Zip Code"
-                />
+                <Input placeholder="Your zip code" fullWidth={true} label="Zip Code" />
               </Grid>
               <Grid item>
-                <Input
-                  placeholder="Enter your city"
-                  fullWidth={true}
-                  label="City"
-                />
+                <Input placeholder="Enter your city" fullWidth={true} label="City" />
               </Grid>
             </Grid>
           </Grid>
 
           <Grid item alignSelf="end">
-            <Button variant="contained" style={{ color: "#fff" }}>
+            <Button variant="contained" style={{ color: '#fff' }}>
               Confirm
             </Button>
           </Grid>

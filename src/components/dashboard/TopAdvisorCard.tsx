@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Box, CardContent, Grid, Divider, Avatar, Button } from "@mui/material";
-import StarBorderPurple500Icon from "@mui/icons-material/StarBorderPurple500";
-import ThumbUpOutlinedIcon from "@mui/icons-material/ThumbUpOutlined";
-import ShareOutlinedIcon from "@mui/icons-material/ShareOutlined";
-import MailOutlinedIcon from "@mui/icons-material/MailOutlined";
-import GroupAddOutlinedIcon from "@mui/icons-material/GroupAddOutlined";
-import ThumbUpIcon from "@mui/icons-material/ThumbUp";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { Box, CardContent, Grid, Divider, Avatar, Button } from '@mui/material';
+import StarBorderPurple500Icon from '@mui/icons-material/StarBorderPurple500';
+import ThumbUpOutlinedIcon from '@mui/icons-material/ThumbUpOutlined';
+import ShareOutlinedIcon from '@mui/icons-material/ShareOutlined';
+import MailOutlinedIcon from '@mui/icons-material/MailOutlined';
+import GroupAddOutlinedIcon from '@mui/icons-material/GroupAddOutlined';
+import ThumbUpIcon from '@mui/icons-material/ThumbUp';
+import styled from 'styled-components';
 interface RenderItemProps {
   active?: Boolean;
 }
@@ -16,12 +16,7 @@ const TopAdvisorCard: React.FC = () => {
     return (
       <Grid container spacing={2}>
         <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
-          <Grid
-            container
-            spacing={5}
-            justifyContent="center"
-            alignItems="center"
-          >
+          <Grid container spacing={5} justifyContent="center" alignItems="center">
             <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
               <Avatar alt="Sharp" />
             </Grid>
@@ -36,7 +31,7 @@ const TopAdvisorCard: React.FC = () => {
                       <Grid container spacing={1}>
                         <Grid
                           style={{
-                            marginLeft: "4px",
+                            marginLeft: '4px',
                           }}
                           item
                           lg={4}
@@ -45,13 +40,11 @@ const TopAdvisorCard: React.FC = () => {
                           sm={2}
                           md={4}
                         >
-                          <StarBorderPurple500Icon
-                            style={{ fill: "#FFCF36" }}
-                          />
+                          <StarBorderPurple500Icon style={{ fill: '#FFCF36' }} />
                         </Grid>
                         <Grid
                           style={{
-                            marginLeft: "3px",
+                            marginLeft: '3px',
                           }}
                           item
                           lg={4}
@@ -74,7 +67,7 @@ const TopAdvisorCard: React.FC = () => {
                   sm={12}
                   md={12}
                   style={{
-                    marginTop: "-13px",
+                    marginTop: '-13px',
                   }}
                 >
                   <Email>Investment Advisor</Email>
@@ -87,30 +80,23 @@ const TopAdvisorCard: React.FC = () => {
         <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
           <Box
             sx={{
-              backgroundColor: "#F2FAFF",
-              padding: "4px",
-              borderRadius: "8px",
+              backgroundColor: '#F2FAFF',
+              padding: '4px',
+              borderRadius: '8px',
             }}
           >
             <Grid container justifyContent="space-around">
               <Grid item>
-                <Grid
-                  container
-                  spacing={1}
-                  justifyContent="center"
-                  alignItems="center"
-                >
+                <Grid container spacing={1} justifyContent="center" alignItems="center">
                   <Grid item>
-                    <span style={{ color: "#009EF8" }}>246</span>
+                    <span style={{ color: '#009EF8' }}>246</span>
                   </Grid>
                   <Grid item>
-                    <IconClick
-                      onClick={() => setLikeClick((_state) => !_state)}
-                    >
+                    <IconClick onClick={() => setLikeClick((_state) => !_state)}>
                       {likeClick ? (
-                        <ThumbUpIcon style={{ fill: "#009EF8" }} />
+                        <ThumbUpIcon style={{ fill: '#009EF8' }} />
                       ) : (
-                        <ThumbUpOutlinedIcon style={{ fill: "#009EF8" }} />
+                        <ThumbUpOutlinedIcon style={{ fill: '#009EF8' }} />
                       )}
                     </IconClick>
                   </Grid>
@@ -118,17 +104,17 @@ const TopAdvisorCard: React.FC = () => {
               </Grid>
               <Grid item>
                 <IconClick>
-                  <ShareOutlinedIcon style={{ fill: "#009EF8" }} />
+                  <ShareOutlinedIcon style={{ fill: '#009EF8' }} />
                 </IconClick>
               </Grid>
               <Grid item>
                 <IconClick>
-                  <MailOutlinedIcon style={{ fill: "#009EF8" }} />
+                  <MailOutlinedIcon style={{ fill: '#009EF8' }} />
                 </IconClick>
               </Grid>
               <Grid item>
                 <IconClick>
-                  <GroupAddOutlinedIcon style={{ fill: "#009EF8" }} />
+                  <GroupAddOutlinedIcon style={{ fill: '#009EF8' }} />
                 </IconClick>
               </Grid>
             </Grid>
@@ -142,18 +128,13 @@ const TopAdvisorCard: React.FC = () => {
       <CardContent>
         <Grid container spacing={3}>
           <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
-            <Grid
-              container
-              direction="row"
-              justifyContent="space-between"
-              alignItems="center"
-            >
+            <Grid container direction="row" justifyContent="space-between" alignItems="center">
               <Grid
                 item
                 style={{
                   fontWeight: 600,
-                  fontSize: "16px",
-                  lineHeight: "20px",
+                  fontSize: '16px',
+                  lineHeight: '20px',
                 }}
               >
                 Top Advisors
@@ -161,10 +142,10 @@ const TopAdvisorCard: React.FC = () => {
               <Grid
                 item
                 style={{
-                  color: "#009EF8",
+                  color: '#009EF8',
                   fontWeight: 600,
-                  fontSize: "12px",
-                  cursor: "pointer",
+                  fontSize: '12px',
+                  cursor: 'pointer',
                 }}
               >
                 <Button size="small">Check more</Button>

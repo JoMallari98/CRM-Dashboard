@@ -1,9 +1,5 @@
-import {
-  ArrowBack,
-  RadioButtonChecked,
-  RadioButtonUnchecked,
-} from "@mui/icons-material";
-import ArrowForward from "@mui/icons-material/ArrowForward";
+import { ArrowBack, RadioButtonChecked, RadioButtonUnchecked } from '@mui/icons-material';
+import ArrowForward from '@mui/icons-material/ArrowForward';
 import {
   Button,
   IconButton,
@@ -15,16 +11,13 @@ import {
   RadioGroup,
   CircularProgress,
   Box,
-} from "@mui/material";
-import React, { useState } from "react";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import {
-  RepOnBoardingStep,
-  useRepOnboarding,
-} from "src/context/repOnBoardingContext";
-import delay from "src/utils/delay";
-import RepFormControlLabel from "./common/RepFormControlLabel";
+} from '@mui/material';
+import React, { useState } from 'react';
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import { RepOnBoardingStep, useRepOnboarding } from 'src/context/repOnBoardingContext';
+import delay from 'src/utils/delay';
+import RepFormControlLabel from './common/RepFormControlLabel';
 
 enum RepTypes {
   Advisor,
@@ -47,7 +40,7 @@ const RepTypeForm = () => {
   };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log("handleRadioChange", event.target.value);
+    console.log('handleRadioChange', event.target.value);
     setRepType(Number(event.target.value));
   };
   return (
@@ -57,12 +50,7 @@ const RepTypeForm = () => {
           <IconButton onClick={goPrevStep}>
             <ArrowBack fontSize="small" />
           </IconButton>
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            flexGrow={1}
-            textAlign="center"
-          >
+          <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>
@@ -84,20 +72,13 @@ const RepTypeForm = () => {
       {!submitting && (
         <FormSection alignItems="stretch" mb={7} maxWidth={400}>
           <Typography variant="h6" fontSize={18} mb={2} align="center">
-            We found your data in SEC Database. Do you want to continue
-            registrer as an advisor acting as an investor, or as an advisor?
+            We found your data in SEC Database. Do you want to continue registrer as an advisor
+            acting as an investor, or as an advisor?
           </Typography>
 
           <Stack mt={6} direction="column" spacing={3}>
-            <RadioGroup
-              name="rep-user-type-radio"
-              value={repType}
-              onChange={handleRadioChange}
-            >
-              <RepFormControlLabel
-                value={RepTypes.Advisor}
-                label="As an Advisor"
-              />
+            <RadioGroup name="rep-user-type-radio" value={repType} onChange={handleRadioChange}>
+              <RepFormControlLabel value={RepTypes.Advisor} label="As an Advisor" />
               <RepFormControlLabel
                 value={RepTypes.AdvisorActingInvestor}
                 label="As an Advisor acting as an Investor"
@@ -109,11 +90,7 @@ const RepTypeForm = () => {
       {submitting && <CircularProgress sx={{ my: 30 }} />}
       <FormSection>
         <Stack direction="row" spacing={2}>
-          <ContinueButton
-            variant="outlined"
-            onClick={goPrevStep}
-            startIcon={<ArrowBack />}
-          >
+          <ContinueButton variant="outlined" onClick={goPrevStep} startIcon={<ArrowBack />}>
             Previous Step
           </ContinueButton>
           <ContinueButton
@@ -121,7 +98,7 @@ const RepTypeForm = () => {
             color="primary"
             onClick={handleSubmit}
             endIcon={<ArrowForward />}
-            style={{ color: "#fff" }}
+            style={{ color: '#fff' }}
           >
             Next Step
           </ContinueButton>
@@ -134,7 +111,7 @@ const RepTypeForm = () => {
 export default RepTypeForm;
 
 const RepTypeButton = styled(Button)({
-  justifyContent: "flex-start",
+  justifyContent: 'flex-start',
   paddingTop: 16,
   paddingBottom: 16,
   paddingLeft: 16,
@@ -145,5 +122,5 @@ const ContinueButton = styled(Button)({
   paddingRight: 40,
   height: 48,
   borderRadius: 8,
-  textTransform: "capitalize",
+  textTransform: 'capitalize',
 });

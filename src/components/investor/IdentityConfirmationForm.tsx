@@ -1,38 +1,29 @@
-import { ArrowBack } from "@mui/icons-material";
-import {
-  Box,
-  Button,
-  IconButton,
-  styled,
-  Typography,
-  FormControl,
-} from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import {
-  OnboardingSteps,
-  useOnboarding,
-} from "src/context/userOnBoardingContext";
-import CustomTextField from "src/components/common/CustomTextField";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import { Formik, Form } from "formik";
-import { Asserts, object, string } from "yup";
+import { ArrowBack } from '@mui/icons-material';
+import { Box, Button, IconButton, styled, Typography, FormControl } from '@mui/material';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+import { OnboardingSteps, useOnboarding } from 'src/context/userOnBoardingContext';
+import CustomTextField from 'src/components/common/CustomTextField';
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import { Formik, Form } from 'formik';
+import { Asserts, object, string } from 'yup';
 
 const validationSchema = object({
-  crdNumber: string().required("Please input CRD Number"),
+  crdNumber: string().required('Please input CRD Number'),
 });
 
 const IdentityConfirmationForm = () => {
-  const { goPrevStep, goToStep } = useOnboarding();
+  // const { goPrevStep, goToStep } = useOnboarding();
   const router = useRouter();
 
   const handleSubmit = (values: Asserts<typeof validationSchema>) => {
     const success = true; // simulate call to API.
     if (success) {
-      router.push("/rep");
+      router.push('/rep');
     } else {
-      goToStep(OnboardingSteps.FailedRegistration);
+      // goToStep(OnboardingSteps.FailedRegistration);
+      router.replace('/signup/onboarding/invalid-data');
     }
   };
 
@@ -40,18 +31,14 @@ const IdentityConfirmationForm = () => {
     <Formik
       validationSchema={validationSchema}
       initialValues={{
-        crdNumber: "",
+        crdNumber: '',
       }}
       onSubmit={handleSubmit}
     >
-      <OnBoardingFormContainer
-        component={Form}
-        pt={0}
-        justifyContent="flex-start"
-      >
+      <OnBoardingFormContainer component={Form} pt={0} justifyContent="flex-start">
         <FormSection mt={6} mb={6}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
-            <IconButton onClick={goPrevStep}>
+            <IconButton onClick={() => router.replace('/signup/onboarding/background')}>
               <ArrowBack fontSize="small" />
             </IconButton>
           </Box>
@@ -66,21 +53,12 @@ const IdentityConfirmationForm = () => {
           </Typography>
           <Box mt={6} width="90%">
             <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField
-                label="CRD Number"
-                id="crd-number"
-                name="crdNumber"
-              />
+              <CustomTextField label="CRD Number" id="crd-number" name="crdNumber" />
             </FormControl>
           </Box>
         </FormSection>
         <FormSection alignItems="stretch" maxWidth={400}>
-          <ConfirmationButton
-            variant="contained"
-            color="primary"
-            sx={{ mb: 2 }}
-            type="submit"
-          >
+          <ConfirmationButton variant="contained" color="primary" sx={{ mb: 2 }} type="submit">
             Confirm
           </ConfirmationButton>
         </FormSection>
@@ -96,6 +74,6 @@ const ConfirmationButton = styled(Button)({
   maxWidth: 230,
   height: 48,
   borderRadius: 8,
-  textTransform: "none",
-  color: "#ffff",
+  textTransform: 'none',
+  color: '#ffff',
 });

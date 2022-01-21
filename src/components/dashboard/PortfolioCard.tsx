@@ -1,17 +1,16 @@
-import React from "react";
-import { Box, CardContent, Button } from "@mui/material";
-import { ArrowUpward } from "@mui/icons-material";
-import PortfolioCardIcon from "../../assets/PortfolioCardIcon.svg";
-import styled from "styled-components";
+import React from 'react';
+import { Box, CardContent, Button } from '@mui/material';
+import { ArrowUpward } from '@mui/icons-material';
+import PortfolioCardIcon from '../../assets/PortfolioCardIcon.svg';
+import styled from 'styled-components';
 const PortfolioCard: React.FC = () => {
   return (
     <Box
       sx={{
-        backgroundImage:
-          "linear-gradient(158.64deg, #8EE4FF -12.84%, #0085FF 105.88%)",
-        boxShadow: "4px 4px 32px rgba(10, 81, 143, 0.17)",
-        borderRadius: "16px",
-        overflow: "hidden",
+        backgroundImage: 'linear-gradient(158.64deg, #8EE4FF -12.84%, #0085FF 105.88%)',
+        boxShadow: '4px 4px 32px rgba(10, 81, 143, 0.17)',
+        borderRadius: '16px',
+        overflow: 'hidden',
       }}
     >
       <CardContent>
@@ -19,7 +18,7 @@ const PortfolioCard: React.FC = () => {
         <CardBadge>
           <span>2,58%</span>
           <span>
-            <ArrowUpward style={{ height: "13px", width: "13px" }} />
+            <ArrowUpward style={{ height: '13px', width: '13px' }} />
           </span>
         </CardBadge>
       </CardContent>

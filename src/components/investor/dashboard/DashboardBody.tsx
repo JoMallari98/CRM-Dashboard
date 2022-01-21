@@ -1,6 +1,6 @@
-import DashboardProfile from "./Profile/DashboardProfile";
-import CentralContainer from "./CentralContainer/CentralContainer";
-import { Box } from "@mui/material";
+import DashboardProfile from './Profile/DashboardProfile';
+import CentralContainer from './CentralContainer/CentralContainer';
+import { Box } from '@mui/material';
 
 const DashboardBody = () => {
   return (

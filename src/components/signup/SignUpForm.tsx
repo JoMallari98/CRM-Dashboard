@@ -1,23 +1,17 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import {
-  Box,
-  Typography,
-  FormControl,
-  Button,
-  IconButton,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import React, { useState } from "react";
-import Link from "next/link";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GoogleIcon from "@mui/icons-material/Google";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import { useRouter } from "next/router";
-import { signIn } from "next-auth/react";
-import { Formik, Form } from "formik";
-import { SignInValues, signInSchema } from "src/schema/signin-schema";
-import TextField from "src/components/common/formik/TextField";
+import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { Box, Typography, FormControl, Button, IconButton } from '@mui/material';
+import { styled } from '@mui/material/styles';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GoogleIcon from '@mui/icons-material/Google';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import { useRouter } from 'next/router';
+import { signIn } from 'next-auth/react';
+import { Formik, Form } from 'formik';
+import { SignInValues, signInSchema } from 'src/schema/signin-schema';
+import TextField from 'src/components/common/formik/TextField';
 
 const SignUpForm = () => {
   const router = useRouter();
@@ -30,16 +24,16 @@ const SignUpForm = () => {
 
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
-    console.log("handleSubmit", values);
-    router.push("/user-type");
+    console.log('handleSubmit', values);
+    router.push('/signup/user-data');
   };
   return (
     <Formik
       validationSchema={signInSchema}
       onSubmit={handleSubmit}
       initialValues={{
-        email: "",
-        password: "",
+        email: '',
+        password: '',
       }}
     >
       <OnBoardingFormContainer component={Form} CloseIcon>
@@ -49,18 +43,12 @@ const SignUpForm = () => {
 
         <StyledBox>
           <FormControl fullWidth sx={{ my: 2 }}>
-            <TextField
-              variant="outlined"
-              label="E-mail"
-              size="small"
-              id="email"
-              name="email"
-            />
+            <TextField variant="outlined" label="E-mail" size="small" id="email" name="email" />
           </FormControl>
           <FormControl fullWidth sx={{ my: 2 }}>
             <TextField
               variant="outlined"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               label="Password"
               id="password"
               name="password"
@@ -72,15 +60,15 @@ const SignUpForm = () => {
           </FormControl>
         </StyledBox>
         <Typography variant="body2" my={2}>
-          {" "}
-          or{" "}
+          {' '}
+          or{' '}
         </Typography>
         <StyledBox display="flex" flexDirection="column" alignItems="stretch">
           <ContinueWithButton
             variant="contained"
             color="secondary"
             startIcon={<LinkedInIcon />}
-            onClick={() => signIn("linkedin", { callbackUrl: "/user-type" })}
+            onClick={() => signIn('linkedin', { callbackUrl: '/signup/user-data' })}
           >
             Continue with LinkedIn
           </ContinueWithButton>
@@ -88,7 +76,7 @@ const SignUpForm = () => {
             variant="contained"
             color="secondary"
             startIcon={<FacebookIcon />}
-            onClick={() => signIn("facebook", { callbackUrl: "/user-type" })}
+            onClick={() => signIn('facebook', { callbackUrl: '/signup/user-data' })}
           >
             Continue with Facebook
           </ContinueWithButton>
@@ -96,7 +84,7 @@ const SignUpForm = () => {
             variant="contained"
             color="secondary"
             startIcon={<GoogleIcon />}
-            onClick={() => signIn("google", { callbackUrl: "/user-type" })}
+            onClick={() => signIn('google', { callbackUrl: '/signup/user-data' })}
           >
             Continue with Google
           </ContinueWithButton>
@@ -114,11 +102,7 @@ const SignUpForm = () => {
         <Typography variant="body2">
           {`Already have an account? `}
           <Link href="/signin" passHref>
-            <Typography
-              fontWeight="bold"
-              component="a"
-              style={{ color: "#009EF8" }}
-            >
+            <Typography fontWeight="bold" component="a" style={{ color: '#009EF8' }}>
               Sign In
             </Typography>
           </Link>
@@ -135,29 +119,29 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   borderRadius: 8,
   paddingTop: 8,
   paddingBottom: 8,
-  justifyContent: "flex-start",
-  [theme.breakpoints.up("xs")]: {
+  justifyContent: 'flex-start',
+  [theme.breakpoints.up('xs')]: {
     paddingLeft: 40,
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up('md')]: {
     paddingLeft: 80,
   },
 
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up('lg')]: {
     paddingLeft: 150,
   },
-  textTransform: "capitalize",
-  boxShadow: "unset",
+  textTransform: 'capitalize',
+  boxShadow: 'unset',
 }));
 
 const SignInButton = styled(Button)({
-  textTransform: "capitalize",
-  color: "#ffff",
+  textTransform: 'capitalize',
+  color: '#ffff',
 });
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  width: "90%",
-  [theme.breakpoints.up("sm")]: {
-    width: "70%",
+  width: '90%',
+  [theme.breakpoints.up('sm')]: {
+    width: '70%',
   },
 }));

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState } from 'react';
 
 export enum RepOnBoardingStep {
   NotFoundInDatabase,
@@ -20,8 +20,7 @@ const defaultState = {
   goToStep: (step: RepOnBoardingStep) => {},
 };
 
-const RepOnBoardingContext =
-  React.createContext<RepOnBoardingContextState>(defaultState);
+const RepOnBoardingContext = React.createContext<RepOnBoardingContextState>(defaultState);
 
 export const RepOnBoardingProvider: React.FC = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(RepOnBoardingStep.UserData);
@@ -46,7 +45,7 @@ export const RepOnBoardingProvider: React.FC = ({ children }) => {
 export const useRepOnboarding = () => {
   const context = useContext(RepOnBoardingContext);
   if (!context) {
-    throw new Error("Must use OnBoardingContextProvider on parent container ");
+    throw new Error('Must use OnBoardingContextProvider on parent container ');
   }
 
   return context;

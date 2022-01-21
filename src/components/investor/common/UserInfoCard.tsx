@@ -1,5 +1,5 @@
-import { Box, Paper, styled, Typography } from "@mui/material";
-import React from "react";
+import { Box, Paper, styled, Typography } from '@mui/material';
+import React from 'react';
 
 type Props = {
   name: string;
@@ -9,16 +9,16 @@ const UserInfoCard: React.FC<Props> = ({ name, userTitle }) => {
   return (
     <Paper
       sx={{
-        backgroundColor: "#ffff",
-        display: "flex",
+        backgroundColor: '#ffff',
+        display: 'flex',
         p: 2,
-        width: "90%",
-        maxWidth: "300px",
-        border: "none",
-        boxShadow: "0px 0px 0px #ffff",
+        width: '90%',
+        maxWidth: '300px',
+        border: 'none',
+        boxShadow: '0px 0px 0px #ffff',
       }}
     >
-      <Ellipse sx={{ backgroundColor: "background.paper" }} />
+      <Ellipse sx={{ backgroundColor: 'background.paper' }} />
       <Box>
         <Typography variant="body2" fontWeight="bold">
           {name}

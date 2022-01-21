@@ -1,10 +1,8 @@
-import React, { useRef, useState, useEffect } from "react";
-import CustomNumberInput from "./CustomNumberInput";
+import React, { useRef, useState, useEffect } from 'react';
+import CustomNumberInput from './CustomNumberInput';
 
 const SixDigitVerification = () => {
-  const [digits, setDigits] = useState<(number | string)[]>(
-    new Array(6).fill("")
-  );
+  const [digits, setDigits] = useState<(number | string)[]>(new Array(6).fill(''));
   const firstDigitRef = useRef<HTMLInputElement>(null);
   const secondDigitRef = useRef<HTMLInputElement>(null);
   const thirdDigitRef = useRef<HTMLInputElement>(null);
@@ -35,7 +33,7 @@ const SixDigitVerification = () => {
     if (value > 9) return;
     const newDigits = digits.map((digit, i) => {
       if (i === index) {
-        return value === 0 ? "" : value;
+        return value === 0 ? '' : value;
       }
       return digit;
     });
@@ -55,7 +53,7 @@ const SixDigitVerification = () => {
             onChange={(e) => handleChange(e, index)}
             value={digits[index]}
             inputProps={{
-              "data-testid": `six-digit-input-${index}`,
+              'data-testid': `six-digit-input-${index}`,
             }}
           />
         );

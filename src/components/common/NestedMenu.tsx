@@ -1,7 +1,7 @@
-import React from "react";
-import { Menu, MenuItem } from "@mui/material";
-import ChevronRightOutlinedIcon from "@mui/icons-material/ChevronRightOutlined";
-import styled from "styled-components";
+import React from 'react';
+import { Menu, MenuItem } from '@mui/material';
+import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
+import styled from 'styled-components';
 
 interface NestedMenuProps {
   anchorEl: any;
@@ -11,8 +11,7 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ setAnchorEl, anchorEl }) => {
   const [anchorElDiscover, setAnchorElDiscover] = React.useState(null);
   const openDiscover = Boolean(anchorElDiscover);
 
-  const handleClickDiscover = (event: any) =>
-    setAnchorElDiscover(event?.currentTarget);
+  const handleClickDiscover = (event: any) => setAnchorElDiscover(event?.currentTarget);
   const handleCloseDiscover = () => {
     setAnchorElDiscover(null);
     setAnchorEl(null);
@@ -27,13 +26,13 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ setAnchorEl, anchorEl }) => {
       id="long-menu"
       PaperProps={{
         style: {
-          background: "#fff",
-          borderRadius: "16px",
-          width: "12rem",
+          background: '#fff',
+          borderRadius: '16px',
+          width: '12rem',
         },
       }}
       MenuListProps={{
-        "aria-labelledby": "long-button",
+        'aria-labelledby': 'long-button',
       }}
     >
       <MenuItem onClick={handleClose}>Friends</MenuItem>
@@ -47,20 +46,20 @@ const NestedMenu: React.FC<NestedMenuProps> = ({ setAnchorEl, anchorEl }) => {
         </PreferenceButton>
         <Menu
           style={{
-            marginLeft: "272px",
-            marginTop: "-31px",
+            marginLeft: '272px',
+            marginTop: '-31px',
           }}
           PaperProps={{
             style: {
-              background: "#fff",
-              borderRadius: "16px",
-              width: "12rem",
+              background: '#fff',
+              borderRadius: '16px',
+              width: '12rem',
             },
           }}
           anchorEl={anchorElDiscover}
           onClose={handleCloseDiscover}
           open={openDiscover}
-          transformOrigin={{ vertical: "top", horizontal: "center" }}
+          transformOrigin={{ vertical: 'top', horizontal: 'center' }}
         >
           <MenuItem onClick={handleCloseDiscover}>Preferences</MenuItem>
           <MenuItem onClick={handleCloseDiscover}>My Documents</MenuItem>

@@ -1,13 +1,13 @@
-import { NextRouter } from "next/router";
-import * as React from "react";
+import { NextRouter } from 'next/router';
+import * as React from 'react';
 
 const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
   return {
-    basePath: "",
-    pathname: "/",
-    route: "/",
+    basePath: '',
+    pathname: '/',
+    route: '/',
     query: {},
-    asPath: "/",
+    asPath: '/',
     back: jest.fn(),
     beforePopState: jest.fn(),
     prefetch: jest.fn(),
@@ -22,7 +22,7 @@ const createMockRouter = (router: Partial<NextRouter>): NextRouter => {
     isFallback: false,
     isLocaleDomain: false,
     isReady: true,
-    defaultLocale: "en",
+    defaultLocale: 'en',
     domainLocales: [],
     isPreview: false,
     ...router,

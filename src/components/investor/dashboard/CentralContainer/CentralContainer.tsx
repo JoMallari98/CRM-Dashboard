@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
-import Search from "./Search";
-import SearchBy from "./SearchBy";
-import WhatDoICare from "./WhatDoICare";
+import { Box } from '@mui/material';
+import Search from './Search';
+import SearchBy from './SearchBy';
+import WhatDoICare from './WhatDoICare';
 
 const CentralContainer = () => {
   return (

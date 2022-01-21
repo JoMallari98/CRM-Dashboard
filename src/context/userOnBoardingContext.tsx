@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useState } from 'react';
 
 export type OnBoardingContextState = {
   currentStep: number;
@@ -22,8 +22,7 @@ const defaultState = {
   goToQuestion: (number: InvestorQuestions) => {},
 };
 
-export const OnBoardingContext =
-  React.createContext<OnBoardingContextState>(defaultState);
+export const OnBoardingContext = React.createContext<OnBoardingContextState>(defaultState);
 
 export enum OnboardingSteps {
   UserDataForm,
@@ -51,8 +50,7 @@ export const OnBoardingContextProvider: React.FC = ({ children }) => {
 
   const goNextQuestion = () => setCurrentQuestion((current) => current + 1);
   const goPrevQuestion = () => setCurrentQuestion((current) => current - 1);
-  const goToQuestion = (question: InvestorQuestions) =>
-    setCurrentQuestion(question);
+  const goToQuestion = (question: InvestorQuestions) => setCurrentQuestion(question);
   return (
     <OnBoardingContext.Provider
       value={{
@@ -73,7 +71,7 @@ export const OnBoardingContextProvider: React.FC = ({ children }) => {
 export const useOnboarding = () => {
   const context = useContext(OnBoardingContext);
   if (!context) {
-    throw new Error("Must use OnBoardingContextProvider on parent container ");
+    throw new Error('Must use OnBoardingContextProvider on parent container ');
   }
 
   return context;

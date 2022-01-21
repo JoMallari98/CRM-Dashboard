@@ -1,7 +1,7 @@
-import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
-import FacebookProvider from "next-auth/providers/facebook";
-import LinkedInProvider from "next-auth/providers/linkedin";
+import NextAuth from 'next-auth';
+import GoogleProvider from 'next-auth/providers/google';
+import FacebookProvider from 'next-auth/providers/facebook';
+import LinkedInProvider from 'next-auth/providers/linkedin';
 
 console.log(process.env.GOOGLE_CLIENT_ID, process.env.GOOGLE_CLIENT_SECRET);
 export default NextAuth({
@@ -24,6 +24,6 @@ export default NextAuth({
     maxAge: 30 * 86400,
   },
   pages: {
-    signIn: "/signin",
+    signIn: '/signin',
   },
 });

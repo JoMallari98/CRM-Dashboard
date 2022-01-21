@@ -1,7 +1,4 @@
-import {
-  InvestorQuestions,
-  OnBoardingContextState,
-} from "src/context/userOnBoardingContext";
+import { InvestorQuestions, OnBoardingContextState } from 'src/context/userOnBoardingContext';
 
 const createMockInvestorContext = () => {
   return {

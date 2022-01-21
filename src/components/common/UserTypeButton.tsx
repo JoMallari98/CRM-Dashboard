@@ -1,7 +1,7 @@
-import { ArrowForwardIos } from "@mui/icons-material";
-import { Box, Paper, PaperProps, styled, Typography } from "@mui/material";
-import React from "react";
-import styledComponent from "styled-components";
+import { ArrowForwardIos } from '@mui/icons-material';
+import { Box, Paper, PaperProps, styled, Typography } from '@mui/material';
+import React from 'react';
+import styledComponent from 'styled-components';
 type Props = {
   text: string;
   emoji?: string;
@@ -9,17 +9,9 @@ type Props = {
 
 const UserTypeButton: React.FC<Props> = ({ text, emoji, ...props }) => {
   return (
-    <Wrapper
-      {...props}
-      sx={{ backgroundColor: "background.default", ...props.sx }}
-    >
+    <Wrapper {...props} sx={{ backgroundColor: 'background.default', ...props.sx }}>
       <Ellipse className="emoji">{emoji}</Ellipse>
-      <Typography
-        flexGrow={1}
-        variant="body2"
-        fontWeight="bold"
-        textAlign="left"
-      >
+      <Typography flexGrow={1} variant="body2" fontWeight="bold" textAlign="left">
         {text}
       </Typography>
       <ArrowForwardIos fontSize="small" />

@@ -19,7 +19,7 @@ describe("SignInForm", () => {
     expect(screen.getByText("Forgot Password?")).toBeInTheDocument();
     expect(screen.getByText("Forgot Password?")).toHaveAttribute(
       "href",
-      "/forgot-password"
+      "/reset-password"
     );
   });
   it("Should render a  Sign In button", () => {

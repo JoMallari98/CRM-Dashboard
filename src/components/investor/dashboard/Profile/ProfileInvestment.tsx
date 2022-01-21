@@ -1,5 +1,5 @@
-import { Box, Typography, Button, useTheme } from "@mui/material";
-import styled from "@emotion/styled";
+import { Box, Typography, Button, useTheme } from '@mui/material';
+import styled from '@emotion/styled';
 
 const ProfileInvestments = () => {
   const theme = useTheme();
@@ -21,8 +21,7 @@ const ProfileInvestments = () => {
       </Box>
       <Box mt={1} display="flex" width="75%" alignSelf="flex-start">
         <Typography fontSize="10px">
-          Select your investment preferences, discover portfolios and make your
-          first investment.
+          Select your investment preferences, discover portfolios and make your first investment.
         </Typography>
       </Box>
       <StyledButton variant="outlined">Start investing</StyledButton>
@@ -31,8 +30,8 @@ const ProfileInvestments = () => {
 };
 
 const StyledButton = styled(Button)({
-  width: "100%",
-  margin: "24px",
+  width: '100%',
+  margin: '24px',
 });
 
 export default ProfileInvestments;

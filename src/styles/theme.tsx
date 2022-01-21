@@ -1,22 +1,22 @@
-import { createTheme } from "@mui/material/styles";
+import { createTheme } from '@mui/material/styles';
 
 // Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#009EF8",
+      main: '#009EF8',
     },
     secondary: {
-      main: "#F1FAFF",
-      contrastText: "#111111",
+      main: '#F1FAFF',
+      contrastText: '#111111',
     },
     white: {
-      main: "#FFFFFF",
-      contrastText: "#111111",
+      main: '#FFFFFF',
+      contrastText: '#111111',
     },
     background: {
-      paper: "#EAEAEA",
-      default: "#FFFFFF",
+      paper: '#EAEAEA',
+      default: '#FFFFFF',
     },
   },
   breakpoints: {
@@ -30,20 +30,20 @@ const theme = createTheme({
   },
   typography: {
     fontFamily: [
-      "Montserrat",
-      "-apple-system",
-      "BlinkMacSystemFont",
-      "Segoe UI",
-      "Helvetica",
-      "Arial",
-      "sans-serif",
-    ].join(","),
+      'Montserrat',
+      '-apple-system',
+      'BlinkMacSystemFont',
+      'Segoe UI',
+      'Helvetica',
+      'Arial',
+      'sans-serif',
+    ].join(','),
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: "none",
+          textTransform: 'none',
           borderRadius: 8,
         },
       },

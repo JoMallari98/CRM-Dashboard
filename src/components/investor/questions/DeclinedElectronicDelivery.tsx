@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 import {
   Box,
   Container,
@@ -10,18 +10,19 @@ import {
   Hidden,
   Button,
   Stack,
-} from "@mui/material";
-import { useRouter } from "next/router";
+} from '@mui/material';
+import { useRouter } from 'next/router';
 const DeclinedElectronicDelivery = () => {
   const router = useRouter();
 
   const onDisagree = () => {
-    router.push("/signup");
+    router.push('/signup');
   };
 
   const onAgree = () => {
     //create profile
-    console.log("creating profile...");
+    console.log('creating profile...');
+    router.push('/dashboard');
   };
 
   return (
@@ -33,8 +34,8 @@ const DeclinedElectronicDelivery = () => {
           </Typography>
           <Container maxWidth="sm">
             <Typography mb={2} align="center">
-              We are unable to continue your registration without your consent
-              to electronic delivery of documents.
+              We are unable to continue your registration without your consent to electronic
+              delivery of documents.
             </Typography>
           </Container>
           <Stack direction="column" alignItems="center" spacing={2} mt={4}>
@@ -42,7 +43,7 @@ const DeclinedElectronicDelivery = () => {
               variant="contained"
               color="primary"
               onClick={onAgree}
-              style={{ color: "#fff" }}
+              style={{ color: '#fff' }}
             >
               Consent to electronic delivery
             </ConfirmationButton>
@@ -66,11 +67,11 @@ export default DeclinedElectronicDelivery;
 const QuestionContainer = styled(Paper)({
   padding: 64,
   borderRadius: 16,
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-  background: "#fff",
-  boxShadow: "6px 30px 51px rgba(10, 81, 143, 0.08)",
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  background: '#fff',
+  boxShadow: '6px 30px 51px rgba(10, 81, 143, 0.08)',
 });
 
 const ConfirmationButton = styled(Button)({
@@ -78,5 +79,5 @@ const ConfirmationButton = styled(Button)({
   maxWidth: 250,
   height: 48,
   borderRadius: 8,
-  textTransform: "none",
+  textTransform: 'none',
 });

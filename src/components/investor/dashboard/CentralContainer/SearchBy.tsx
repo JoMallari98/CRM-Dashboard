@@ -1,9 +1,9 @@
-import * as React from "react";
-import Button from "@mui/material/Button";
-import Menu from "@mui/material/Menu";
-import MenuItem from "@mui/material/MenuItem";
-import { Box, styled } from "@mui/material";
-import { KeyboardArrowUp } from "@mui/icons-material";
+import * as React from 'react';
+import Button from '@mui/material/Button';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import { Box, styled } from '@mui/material';
+import { KeyboardArrowUp } from '@mui/icons-material';
 
 const SearchBy = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -20,10 +20,10 @@ const SearchBy = () => {
       <StyledButton
         aria-controls="menu"
         aria-haspopup="true"
-        aria-expanded={open ? "true" : undefined}
+        aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
         variant="outlined"
-        endIcon={<KeyboardArrowUp sx={{ ml: "15px" }} color="primary" />}
+        endIcon={<KeyboardArrowUp sx={{ ml: '15px' }} color="primary" />}
       >
         Search By
       </StyledButton>
@@ -32,7 +32,7 @@ const SearchBy = () => {
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          "aria-labelledby": "basic-button",
+          'aria-labelledby': 'basic-button',
         }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
@@ -48,6 +48,6 @@ export default SearchBy;
 
 const StyledButton = styled(Button)(({ theme }) => ({
   color: theme.palette.text.primary,
-  fontSize: "14px",
+  fontSize: '14px',
   borderColor: theme.palette.divider,
 }));

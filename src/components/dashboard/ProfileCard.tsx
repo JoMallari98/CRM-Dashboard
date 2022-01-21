@@ -1,19 +1,11 @@
-import React, { useState } from "react";
-import {
-  Box,
-  CardContent,
-  Grid,
-  Avatar,
-  Divider,
-  Button,
-  Modal,
-} from "@mui/material";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import DetailBlock from "src/components/common/DetailBlock";
-import SettingsIcon from "@mui/icons-material/Settings";
-import AddLocationModal from "src/components/common/AddLocationModal";
-import EditIcon from "@mui/icons-material/Edit";
-import styled from "styled-components";
+import React, { useState } from 'react';
+import { Box, CardContent, Grid, Avatar, Divider, Button, Modal } from '@mui/material';
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import DetailBlock from 'src/components/common/DetailBlock';
+import SettingsIcon from '@mui/icons-material/Settings';
+import AddLocationModal from 'src/components/common/AddLocationModal';
+import EditIcon from '@mui/icons-material/Edit';
+import styled from 'styled-components';
 const ProfileCard: React.FC = () => {
   const [openAddLocationModal, setOpenAddLocationModal] = useState(false);
   const handleOpenAddLocationModal = () => {
@@ -21,20 +13,14 @@ const ProfileCard: React.FC = () => {
   };
   const AvatarBlock: React.FC = () => {
     return (
-      <Grid
-        container
-        spacing={1}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Grid container spacing={1} direction="column" justifyContent="center" alignItems="center">
         <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
           <FlexCenter>
             <Avatar
               style={{
-                width: "67px",
-                height: "67px",
-                marginBottom: "6px",
+                width: '67px',
+                height: '67px',
+                marginBottom: '6px',
               }}
               alt="Sharp"
             />
@@ -47,13 +33,10 @@ const ProfileCard: React.FC = () => {
           <Grid container spacing={0.5} direction="row">
             <Grid item>
               <LocationOnOutlinedIcon
-                style={{ fill: "#009EF8", width: ".9rem", height: ".9rem" }}
+                style={{ fill: '#009EF8', width: '.9rem', height: '.9rem' }}
               />
             </Grid>
-            <Grid
-              item
-              style={{ fontSize: ".8rem", cursor: "pointer", color: "#009EF8" }}
-            >
+            <Grid item style={{ fontSize: '.8rem', cursor: 'pointer', color: '#009EF8' }}>
               <div onClick={handleOpenAddLocationModal}>Add Location</div>
             </Grid>
           </Grid>
@@ -62,23 +45,23 @@ const ProfileCard: React.FC = () => {
           <DetailBlock
             data={[
               {
-                label: "Friends",
-                value: "0",
+                label: 'Friends',
+                value: '0',
               },
               {
-                label: "My Life",
-                value: "0",
+                label: 'My Life',
+                value: '0',
               },
               {
-                label: "Events",
-                value: "0",
+                label: 'Events',
+                value: '0',
               },
             ]}
             labelStyle={{
-              fontSize: "0.9rem",
+              fontSize: '0.9rem',
             }}
             valueStyle={{
-              fontSize: "0.8rem",
+              fontSize: '0.8rem',
             }}
           />
         </Grid>
@@ -87,27 +70,12 @@ const ProfileCard: React.FC = () => {
   };
   const ContentBlock: React.FC = () => {
     return (
-      <Grid
-        container
-        spacing={2}
-        direction="row"
-        justifyContent="center"
-        alignItems="center"
-      >
+      <Grid container spacing={2} direction="row" justifyContent="center" alignItems="center">
         <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
           <UserName>Start your investment experience</UserName>
         </Grid>
-        <Grid
-          item
-          lg={12}
-          xl={12}
-          md={12}
-          xs={12}
-          sm={12}
-          style={{ fontSize: "13px" }}
-        >
-          Select your investment preferences, discover portfolios and make your
-          first investment.
+        <Grid item lg={12} xl={12} md={12} xs={12} sm={12} style={{ fontSize: '13px' }}>
+          Select your investment preferences, discover portfolios and make your first investment.
         </Grid>
         <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
           <Button variant="outlined" fullWidth>
@@ -119,32 +87,14 @@ const ProfileCard: React.FC = () => {
   };
   const GoalBlock: React.FC = () => {
     return (
-      <Grid
-        container
-        spacing={2}
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-      >
-        <Grid
-          item
-          lg={12}
-          xl={12}
-          md={12}
-          xs={12}
-          sm={12}
-          style={{ width: "100%" }}
-        >
+      <Grid container spacing={2} direction="column" justifyContent="center" alignItems="center">
+        <Grid item lg={12} xl={12} md={12} xs={12} sm={12} style={{ width: '100%' }}>
           <Grid container justifyContent="space-between">
             <Grid item>Goals</Grid>
             <Grid item>
-              <Grid container style={{ cursor: "pointer" }}>
-                <SettingsIcon
-                  style={{ fill: "#009EF8", height: "20px", width: "20px" }}
-                />
-                <span style={{ color: "#009EF8", fontSize: "0.9rem" }}>
-                  Manage
-                </span>
+              <Grid container style={{ cursor: 'pointer' }}>
+                <SettingsIcon style={{ fill: '#009EF8', height: '20px', width: '20px' }} />
+                <span style={{ color: '#009EF8', fontSize: '0.9rem' }}>Manage</span>
               </Grid>
             </Grid>
           </Grid>
@@ -153,24 +103,24 @@ const ProfileCard: React.FC = () => {
           <DetailBlock
             data={[
               {
-                label: "Total",
-                value: "0",
+                label: 'Total',
+                value: '0',
               },
               {
-                label: "On track",
-                value: "0",
+                label: 'On track',
+                value: '0',
               },
               {
-                label: "Not track",
-                value: "0",
+                label: 'Not track',
+                value: '0',
               },
             ]}
             labelStyle={{
-              fontWeight: "normal",
-              fontSize: "0.9rem",
+              fontWeight: 'normal',
+              fontSize: '0.9rem',
             }}
             valueStyle={{
-              fontSize: "0.8rem",
+              fontSize: '0.8rem',
             }}
           />
         </Grid>
@@ -194,21 +144,14 @@ const ProfileCard: React.FC = () => {
             <ContentBlock />
           </Grid>
           <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
-            <Divider
-              orientation="horizontal"
-              style={{ width: "100%", height: "100%" }}
-              flexItem
-            />
+            <Divider orientation="horizontal" style={{ width: '100%', height: '100%' }} flexItem />
           </Grid>
           <Grid item lg={12} xl={12} md={12} xs={12} sm={12}>
             <GoalBlock />
           </Grid>
         </Grid>
       </CardContent>
-      <AddLocationModal
-        open={openAddLocationModal}
-        setOpen={setOpenAddLocationModal}
-      />
+      <AddLocationModal open={openAddLocationModal} setOpen={setOpenAddLocationModal} />
     </CardContainer>
   );
 };

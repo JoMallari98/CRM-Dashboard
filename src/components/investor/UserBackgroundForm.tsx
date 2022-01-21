@@ -1,29 +1,30 @@
-import { ArrowBack } from "@mui/icons-material";
-import { Box, Button, IconButton, styled, Typography } from "@mui/material";
-import { useRouter } from "next/router";
-import React, { useState } from "react";
-import { useOnboarding } from "src/context/userOnBoardingContext";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import UserInfoCard from "./common/UserInfoCard";
+import { ArrowBack } from '@mui/icons-material';
+import { Box, Button, IconButton, styled, Typography } from '@mui/material';
+import { useRouter } from 'next/router';
+import React, { useState } from 'react';
+// import { useOnboarding } from "src/context/userOnBoardingContext";
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import UserInfoCard from './common/UserInfoCard';
 
 const UserBackgroundForm = () => {
-  const { goPrevStep, goNextStep } = useOnboarding();
+  // const { goPrevStep, goNextStep } = useOnboarding();
   const router = useRouter();
 
   const continueInvestorOnBoarding = () => {
-    router.push("/investor/questions");
+    router.push('/investor/questions');
   };
 
   const goToRepOnBoarding = () => {
-    goNextStep();
+    // goNextStep();
+    router.replace('/signup/onboarding/confirm-crd');
   };
 
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goPrevStep}>
+          <IconButton onClick={() => router.replace('/signup/onboarding/phone-verification')}>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>
@@ -43,15 +44,11 @@ const UserBackgroundForm = () => {
           color="primary"
           sx={{ mb: 2 }}
           onClick={goToRepOnBoarding}
-          style={{ color: "#ffff" }}
+          style={{ color: '#ffff' }}
         >
           Yes, this is me
         </ConfirmationButton>
-        <ConfirmationButton
-          variant="outlined"
-          color="primary"
-          onClick={continueInvestorOnBoarding}
-        >
+        <ConfirmationButton variant="outlined" color="primary" onClick={continueInvestorOnBoarding}>
           No this is not me
         </ConfirmationButton>
       </FormSection>
@@ -66,5 +63,5 @@ const ConfirmationButton = styled(Button)({
   maxWidth: 230,
   height: 48,
   borderRadius: 8,
-  textTransform: "none",
+  textTransform: 'none',
 });

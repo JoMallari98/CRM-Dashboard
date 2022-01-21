@@ -1,4 +1,4 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import {
   Box,
   Typography,
@@ -7,23 +7,25 @@ import {
   IconButton,
   useMediaQuery,
   useTheme,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import React, { useState } from "react";
-import Link from "next/link";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import FacebookIcon from "@mui/icons-material/Facebook";
-import GoogleIcon from "@mui/icons-material/Google";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import { signIn, signOut } from "next-auth/react";
-import { Formik, Form } from "formik";
-import { SignInValues, signInSchema } from "src/schema/signin-schema";
-import TextField from "src/components/common/formik/TextField";
+} from '@mui/material';
+import { styled } from '@mui/material/styles';
+import React, { useState } from 'react';
+import Link from 'next/link';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import GoogleIcon from '@mui/icons-material/Google';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import { signIn, signOut } from 'next-auth/react';
+import { Formik, Form } from 'formik';
+import { SignInValues, signInSchema } from 'src/schema/signin-schema';
+import TextField from 'src/components/common/formik/TextField';
+import { useRouter } from 'next/router';
 
 const SignInForm = () => {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme();
-  const smDown = useMediaQuery(theme.breakpoints.down("sm"));
+  const smDown = useMediaQuery(theme.breakpoints.down('sm'));
 
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
@@ -33,7 +35,8 @@ const SignInForm = () => {
 
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
-    console.log("handleSubmit", values);
+    console.log('handleSubmit', values);
+    router.push('/dashboard');
   };
 
   return (
@@ -41,8 +44,8 @@ const SignInForm = () => {
       validationSchema={signInSchema}
       onSubmit={handleSubmit}
       initialValues={{
-        email: "",
-        password: "",
+        email: '',
+        password: '',
       }}
     >
       <OnBoardingFormContainer component={Form} CloseIcon={true}>
@@ -66,14 +69,14 @@ const SignInForm = () => {
               variant="outlined"
               id="password"
               name="password"
-              type={showPassword ? "text" : "password"}
+              type={showPassword ? 'text' : 'password'}
               label="Password"
               size="small"
               InputProps={{
                 endAdornment: PasswordButton,
               }}
             />
-            <Link href="/forgot-password" passHref>
+            <Link href="/reset-password" passHref>
               <Typography
                 ml={2}
                 mt={1}
@@ -81,7 +84,7 @@ const SignInForm = () => {
                 fontWeight="bold"
                 variant="body2"
                 color="textSecondary"
-                style={{ color: "#009EF8" }}
+                style={{ color: '#009EF8' }}
               >
                 Forgot Password?
               </Typography>
@@ -89,15 +92,15 @@ const SignInForm = () => {
           </FormControl>
         </StyledBox>
         <Typography variant="body2" sx={{ my: 3 }}>
-          {" "}
-          or{" "}
+          {' '}
+          or{' '}
         </Typography>
         <StyledBox display="flex" flexDirection="column" alignItems="stretch">
           <ContinueWithButton
             variant="contained"
             color="secondary"
             startIcon={<LinkedInIcon />}
-            onClick={() => signIn("linkedin", { callbackUrl: "/dashboard" })}
+            onClick={() => signIn('linkedin', { callbackUrl: '/dashboard' })}
           >
             Continue with LinkedIn
           </ContinueWithButton>
@@ -105,7 +108,7 @@ const SignInForm = () => {
             variant="contained"
             color="secondary"
             startIcon={<FacebookIcon />}
-            onClick={() => signIn("facebook", { callbackUrl: "/dashboard" })}
+            onClick={() => signIn('facebook', { callbackUrl: '/dashboard' })}
           >
             Continue with Facebook
           </ContinueWithButton>
@@ -113,7 +116,7 @@ const SignInForm = () => {
             variant="contained"
             color="secondary"
             startIcon={<GoogleIcon />}
-            onClick={() => signIn("google", { callbackUrl: "/dashboard" })}
+            onClick={() => signIn('google', { callbackUrl: '/dashboard' })}
           >
             Continue with Google
           </ContinueWithButton>
@@ -130,11 +133,7 @@ const SignInForm = () => {
         <Typography variant="body2">
           {`Don't have an account? `}
           <Link href="/signup" passHref>
-            <Typography
-              fontWeight="bold"
-              component="a"
-              style={{ color: "#009EF8" }}
-            >
+            <Typography fontWeight="bold" component="a" style={{ color: '#009EF8' }}>
               Sign Up
             </Typography>
           </Link>
@@ -151,28 +150,28 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   borderRadius: 8,
   paddingTop: 8,
   paddingBottom: 8,
-  justifyContent: "flex-start",
-  [theme.breakpoints.up("xs")]: {
+  justifyContent: 'flex-start',
+  [theme.breakpoints.up('xs')]: {
     paddingLeft: 40,
   },
-  [theme.breakpoints.up("md")]: {
+  [theme.breakpoints.up('md')]: {
     paddingLeft: 80,
   },
-  [theme.breakpoints.up("lg")]: {
+  [theme.breakpoints.up('lg')]: {
     paddingLeft: 150,
   },
-  textTransform: "capitalize",
-  boxShadow: "unset",
+  textTransform: 'capitalize',
+  boxShadow: 'unset',
 }));
 
 const SignInButton = styled(Button)({
-  textTransform: "capitalize",
-  color: "#fff",
+  textTransform: 'capitalize',
+  color: '#fff',
 });
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  width: "90%",
-  [theme.breakpoints.up("sm")]: {
-    width: "70%",
+  width: '90%',
+  [theme.breakpoints.up('sm')]: {
+    width: '70%',
   },
 }));

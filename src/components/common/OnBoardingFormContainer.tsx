@@ -1,7 +1,7 @@
-import { Box, BoxProps, Paper, styled } from "@mui/material";
-import { Close as CloseMuiIcon } from "@mui/icons-material";
-import styledComponent from "styled-components";
-import React from "react";
+import { Box, BoxProps, Paper, styled } from '@mui/material';
+import { Close as CloseMuiIcon } from '@mui/icons-material';
+import styledComponent from 'styled-components';
+import React from 'react';
 type OnBoardingFormContainer = {
   CloseIcon?: boolean;
 };
@@ -11,13 +11,7 @@ const OnBoardingFormContainer: React.FC<OnBoardingFormContainer & BoxProps> = ({
   ...props
 }) => {
   return (
-    <Box
-      height="100%"
-      width="100%"
-      display="flex"
-      flexDirection="column"
-      alignItems="stretch"
-    >
+    <Box height="93vh" width="100%" display="flex" flexDirection="column" alignItems="stretch">
       <StyledPaper elevation={0}>
         <Box
           display="flex"
@@ -46,13 +40,12 @@ export default OnBoardingFormContainer;
 const StyledPaper = styled(Paper)(({ theme }) => ({
   borderRadius: 16,
   flexGrow: 1,
-  width: "100%",
-  minHeight: "90vh",
-  background: "#fff",
-  border: "1px solid #fff",
-  position: "relative",
-  zIndex: "10000",
-  [theme.breakpoints.down("sm")]: {
+  width: '100%',
+  background: '#fff',
+  border: '1px solid #fff',
+  position: 'relative',
+  zIndex: '10000',
+  [theme.breakpoints.down('sm')]: {
     margin: 0,
   },
 }));

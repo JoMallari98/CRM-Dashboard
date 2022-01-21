@@ -1,16 +1,8 @@
-import React, { Key, useState } from "react";
-import {
-  Box,
-  CardContent,
-  CardActions,
-  Grid,
-  Avatar,
-  Divider,
-  Button,
-} from "@mui/material";
-import EventDetailModal, { EventModalType } from "../common/EventDetailModal";
-import EventCardHeader from "../common/EventCardHeader";
-import styled from "styled-components";
+import React, { Key, useState } from 'react';
+import { Box, CardContent, CardActions, Grid, Avatar, Divider, Button } from '@mui/material';
+import EventDetailModal, { EventModalType } from '../common/EventDetailModal';
+import EventCardHeader from '../common/EventCardHeader';
+import styled from 'styled-components';
 interface EventItemProps {
   img: String;
   title: String;
@@ -19,31 +11,26 @@ interface EventItemProps {
 }
 const dataEvents: EventItemProps[] = [
   {
-    img: "",
-    title: "Best Investments 2021",
-    dateRange: "11:00-12:30",
+    img: '',
+    title: 'Best Investments 2021',
+    dateRange: '11:00-12:30',
     joined: true,
   },
   {
-    img: "",
-    title: "Financial consultation",
-    dateRange: "15:00-16:00",
+    img: '',
+    title: 'Financial consultation',
+    dateRange: '15:00-16:00',
   },
 ];
 const UpcomingEventCard: React.FC = () => {
   const [openModal, setOpenModal] = useState(false);
-  const EventItem: React.FC<EventItemProps> = ({
-    img,
-    title,
-    dateRange,
-    joined,
-  }) => {
+  const EventItem: React.FC<EventItemProps> = ({ img, title, dateRange, joined }) => {
     return (
-      <div onClick={() => setOpenModal(true)} style={{ cursor: "pointer" }}>
+      <div onClick={() => setOpenModal(true)} style={{ cursor: 'pointer' }}>
         <Grid container spacing={1}>
           <Grid item lg={2} xl={2} xs={3} sm={3} md={3}>
             <Avatar
-              style={{ height: "32px", width: "32px" }}
+              style={{ height: '32px', width: '32px' }}
               alt="Sharp"
               src={img as any}
               variant="rounded"
@@ -51,16 +38,16 @@ const UpcomingEventCard: React.FC = () => {
           </Grid>
           <Grid item lg={9} xl={9} xs={9} sm={9} md={9}>
             <Grid container direction="column">
-              <Grid item style={{ fontWeight: "500", fontSize: "12px" }}>
+              <Grid item style={{ fontWeight: '500', fontSize: '12px' }}>
                 {title}
               </Grid>
               <Grid item>
                 <Grid container>
                   <span
                     style={{
-                      fontSize: "10px",
-                      marginRight: "2px",
-                      color: "rgba(0, 0, 0, 0.5)",
+                      fontSize: '10px',
+                      marginRight: '2px',
+                      color: 'rgba(0, 0, 0, 0.5)',
                     }}
                   >
                     {dateRange}
@@ -77,16 +64,16 @@ const UpcomingEventCard: React.FC = () => {
   return (
     <Box
       sx={{
-        background: "#ffff",
-        boxShadow: "4px 4px 32px rgba(10, 81, 143, 0.17)",
-        borderRadius: "16px",
-        width: "100%",
+        background: '#ffff',
+        boxShadow: '4px 4px 32px rgba(10, 81, 143, 0.17)',
+        borderRadius: '16px',
+        width: '100%',
       }}
     >
       <CardHeader>
         <EventCardHeader />
       </CardHeader>
-      <CardContent style={{ paddingTop: "1px", paddingBottom: "0px" }}>
+      <CardContent style={{ paddingTop: '1px', paddingBottom: '0px' }}>
         <HeadingSize>Upcoming events</HeadingSize>
         <Grid container spacing={1}>
           {dataEvents.map((item) => {
@@ -96,10 +83,7 @@ const UpcomingEventCard: React.FC = () => {
                   <EventItem {...item} />
                 </Grid>
                 <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
-                  <Divider
-                    orientation="horizontal"
-                    style={{ width: "100%", height: "100%" }}
-                  />
+                  <Divider orientation="horizontal" style={{ width: '100%', height: '100%' }} />
                 </Grid>
               </React.Fragment>
             );
@@ -111,11 +95,7 @@ const UpcomingEventCard: React.FC = () => {
           <Button size="small">Check more</Button>
         </CheckMore>
       </CardActions>
-      <EventDetailModal
-        open={openModal}
-        setOpen={setOpenModal}
-        type={EventModalType.Join}
-      />
+      <EventDetailModal open={openModal} setOpen={setOpenModal} type={EventModalType.Join} />
     </Box>
   );
 };

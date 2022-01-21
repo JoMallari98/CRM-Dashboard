@@ -1,6 +1,6 @@
-import { TextFieldProps } from "@mui/material";
-import TextField from "src/components/common/formik/TextField";
-import React from "react";
+import { TextFieldProps } from '@mui/material';
+import TextField from 'src/components/common/formik/TextField';
+import React from 'react';
 type Props = TextFieldProps & { name: string };
 
 const CustomTextField: React.FC<Props> = (props) => {
@@ -8,7 +8,7 @@ const CustomTextField: React.FC<Props> = (props) => {
     <TextField
       variant="outlined"
       sx={{
-        "& .MuiInputBase-root": {
+        '& .MuiInputBase-root': {
           borderRadius: 2,
         },
       }}

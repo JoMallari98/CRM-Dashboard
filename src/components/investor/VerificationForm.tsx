@@ -1,18 +1,10 @@
-import { ArrowBack, Close } from "@mui/icons-material";
-import {
-  Button,
-  IconButton,
-  Link,
-  Snackbar,
-  Typography,
-  Box,
-  styled,
-} from "@mui/material";
-import React, { useState } from "react";
-import { useOnboarding } from "src/context/userOnBoardingContext";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import SixDigitVerification from "src/components/common/SixDigitVerification";
+import { ArrowBack, Close } from '@mui/icons-material';
+import { Button, IconButton, Link, Snackbar, Typography, Box, styled } from '@mui/material';
+import React, { useState } from 'react';
+import { useOnboarding } from 'src/context/userOnBoardingContext';
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import SixDigitVerification from 'src/components/common/SixDigitVerification';
 
 const VerificationForm = () => {
   const { goPrevStep, goNextStep } = useOnboarding();
@@ -24,11 +16,8 @@ const VerificationForm = () => {
   const resendCode = () => {
     // setOpen(true);
   };
-  const handleClose = (
-    event: React.SyntheticEvent | React.MouseEvent,
-    reason?: string
-  ) => {
-    if (reason === "clickaway") {
+  const handleClose = (event: React.SyntheticEvent | React.MouseEvent, reason?: string) => {
+    if (reason === 'clickaway') {
       return;
     }
 
@@ -36,12 +25,7 @@ const VerificationForm = () => {
   };
 
   return (
-    <OnBoardingFormContainer
-      pt={0}
-      justifyContent="flex-start"
-      justifySelf="stretch"
-      width="100%"
-    >
+    <OnBoardingFormContainer pt={0} justifyContent="flex-start" justifySelf="stretch" width="100%">
       <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           <IconButton /*onClick={goPrevStep}*/>
@@ -62,7 +46,7 @@ const VerificationForm = () => {
         </Box>
 
         <Typography variant="body2" component="span">
-          Did not receive a code?{" "}
+          Did not receive a code?{' '}
           <Link
             component="a"
             variant="body2"
@@ -77,11 +61,7 @@ const VerificationForm = () => {
         </Typography>
       </FormSection>
       <FormSection>
-        <ContinueButton
-          variant="contained"
-          color="primary"
-          onClick={() => handleSubmit()}
-        >
+        <ContinueButton variant="contained" color="primary" onClick={() => handleSubmit()}>
           Confirm
         </ContinueButton>
       </FormSection>
@@ -113,6 +93,6 @@ const ContinueButton = styled(Button)({
   paddingRight: 56,
   height: 48,
   borderRadius: 8,
-  textTransform: "capitalize",
-  color: "#fff",
+  textTransform: 'capitalize',
+  color: '#fff',
 });

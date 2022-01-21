@@ -1,5 +1,5 @@
-import { Typography, useTheme } from "@mui/material";
-import { Box } from "@mui/system";
+import { Typography, useTheme } from '@mui/material';
+import { Box } from '@mui/system';
 
 const ProfileCounter = (props: any) => {
   const theme = useTheme();
@@ -23,28 +23,28 @@ const ProfileCounter = (props: any) => {
         last
           ? {
               flex: 1,
-              maxWidth: "80%",
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              justifyContent: "center",
+              maxWidth: '80%',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
             }
           : {
               flex: 1,
-              maxWidth: "80%",
-              alignItems: "center",
-              display: "flex",
-              flexDirection: "column",
-              position: "relative",
-              justifyContent: "center",
-              "&:after": {
+              maxWidth: '80%',
+              alignItems: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              position: 'relative',
+              justifyContent: 'center',
+              '&:after': {
                 content: '""',
                 background: theme.palette.divider,
-                position: "absolute",
-                bottom: "30%",
+                position: 'absolute',
+                bottom: '30%',
                 right: 0,
-                height: "40%",
-                width: "1px",
+                height: '40%',
+                width: '1px',
               },
             }
       }

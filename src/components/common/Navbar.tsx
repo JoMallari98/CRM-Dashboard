@@ -1,4 +1,4 @@
-import React, { Key, useState } from "react";
+import React, { Key, useState } from 'react';
 import {
   Grid,
   styled as MuiStyled,
@@ -7,25 +7,25 @@ import {
   MenuItem,
   IconButton,
   Button,
-} from "@mui/material";
+} from '@mui/material';
 import {
   NotificationsNone,
   MailOutline,
   KeyboardArrowDown,
   SettingsOutlined as SettingsOutlinedIcon,
-} from "@mui/icons-material";
-import NotificationModal from "src/components/common/NotificationModal";
-import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
-import AccessibilityNewOutlinedIcon from "@mui/icons-material/AccessibilityNewOutlined";
-import NestedMenu from "./NestedMenu";
-import MenuIcon from "@mui/icons-material/Menu";
-import styled from "styled-components";
-import ClearIcon from "@mui/icons-material/Clear";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+} from '@mui/icons-material';
+import NotificationModal from 'src/components/common/NotificationModal';
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
+import AccessibilityNewOutlinedIcon from '@mui/icons-material/AccessibilityNewOutlined';
+import NestedMenu from './NestedMenu';
+import MenuIcon from '@mui/icons-material/Menu';
+import styled from 'styled-components';
+import ClearIcon from '@mui/icons-material/Clear';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 interface RenderLinkItemProps {
   active?: Boolean;
@@ -37,8 +37,9 @@ const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const [activeItem, setActiveItem] = useState(0);
   const [isOpen, setOpen] = useState(false);
-  const [openNotificationModal, setOpenNotificationModal] =
-    useState<HTMLButtonElement | null>(null);
+  const [openNotificationModal, setOpenNotificationModal] = useState<HTMLButtonElement | null>(
+    null
+  );
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorEl(event.currentTarget);
@@ -49,37 +50,31 @@ const Navbar = () => {
   const menuOpen = () => {
     setOpen(true);
   };
-  const handleClickNotification = (
-    event: React.MouseEvent<HTMLButtonElement>
-  ) => {
+  const handleClickNotification = (event: React.MouseEvent<HTMLButtonElement>) => {
     setOpenNotificationModal(event.currentTarget);
   };
 
   const [anchorElDiscover, setAnchorElDiscover] = useState(null);
   const openDiscover = Boolean(anchorElDiscover);
 
-  const handleClickDiscover = (event: any) =>
-    setAnchorElDiscover(event?.currentTarget);
+  const handleClickDiscover = (event: any) => setAnchorElDiscover(event?.currentTarget);
   const handleCloseDiscover = () => setAnchorElDiscover(null);
 
   const LinkData: RenderLinkItemProps[] = [
     {
-      label: "Dashboard",
+      label: 'Dashboard',
     },
     {
-      label: "Feed",
+      label: 'Feed',
     },
     {
-      label: "My Investments",
+      label: 'My Investments',
     },
     {
-      label: "Portfolios",
+      label: 'Portfolios',
     },
   ];
-  const RenderLinkItem = (
-    { active = false, label, link }: RenderLinkItemProps,
-    index: number
-  ) => {
+  const RenderLinkItem = ({ active = false, label, link }: RenderLinkItemProps, index: number) => {
     if (activeItem === index) {
       return (
         <LinkItemContainer key={label as Key}>
@@ -107,66 +102,46 @@ const Navbar = () => {
               justifyContent="space-between"
               alignItems="center"
               style={{
-                padding: "0 16px",
+                padding: '0 16px',
               }}
             >
               <Grid item lg={2} xl={2} xs={12} sm={12} md={2}>
                 <ClearIcon
                   onClick={() => setOpen(false)}
                   style={{
-                    marginTop: "1.5rem",
-                    marginLeft: "0.8rem",
+                    marginTop: '1.5rem',
+                    marginLeft: '0.8rem',
                   }}
                 />
               </Grid>
               <Grid>
-                <Grid
-                  container
-                  direction="column"
-                  justifyContent="space-between"
-                >
+                <Grid container direction="column" justifyContent="space-between">
                   {LinkData?.map((item, index) => {
                     return (
-                      <Grid
-                        item
-                        lg={2}
-                        xl={2}
-                        xs={12}
-                        sm={12}
-                        md={2}
-                        key={index}
-                      >
+                      <Grid item lg={2} xl={2} xs={12} sm={12} md={2} key={index}>
                         {RenderLinkItem(item, index)}
                       </Grid>
                     );
                   })}
                 </Grid>
               </Grid>
-              <Grid
-                item
-                alignSelf="center"
-                lg={2}
-                xl={2}
-                xs={12}
-                sm={12}
-                md={2}
-              >
+              <Grid item alignSelf="center" lg={2} xl={2} xs={12} sm={12} md={2}>
                 <>
                   <Accordion
                     style={{
-                      backgroundColor: "transparent",
-                      boxShadow: "none",
-                      marginTop: "-23px",
-                      marginLeft: "-10px",
+                      backgroundColor: 'transparent',
+                      boxShadow: 'none',
+                      marginTop: '-23px',
+                      marginLeft: '-10px',
                     }}
                   >
                     <AccordionSummary
                       sx={{
-                        "&.Mui-expanded": {
+                        '&.Mui-expanded': {
                           minHeight: 0,
                         },
-                        "& .MuiAccordionSummary-content.Mui-expanded": {
-                          margin: "12px 0",
+                        '& .MuiAccordionSummary-content.Mui-expanded': {
+                          margin: '12px 0',
                         },
                       }}
                       expandIcon={<ExpandMoreIcon />}
@@ -175,10 +150,10 @@ const Navbar = () => {
                     >
                       <Typography
                         style={{
-                          fontSize: "14px",
-                          fontWeight: "500",
+                          fontSize: '14px',
+                          fontWeight: '500',
                           fontFamily:
-                            "Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif",
+                            'Montserrat,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif',
                         }}
                       >
                         Discover
@@ -187,7 +162,7 @@ const Navbar = () => {
                     <AccordionDetails>
                       <Typography
                         style={{
-                          marginTop: "-10px",
+                          marginTop: '-10px',
                         }}
                       >
                         <AccordList>Friends</AccordList>
@@ -196,20 +171,20 @@ const Navbar = () => {
                         <AccordList>Challenges</AccordList>
                         <Accordion
                           style={{
-                            backgroundColor: "transparent",
-                            boxShadow: "none",
-                            marginTop: "-13px",
-                            marginLeft: "-15px",
+                            backgroundColor: 'transparent',
+                            boxShadow: 'none',
+                            marginTop: '-13px',
+                            marginLeft: '-15px',
                           }}
                         >
                           <AccordionSummary
                             sx={{
-                              "&.Mui-expanded": {
+                              '&.Mui-expanded': {
                                 minHeight: 0,
                               },
-                              "& .MuiAccordionSummary-content.Mui-expanded": {
+                              '& .MuiAccordionSummary-content.Mui-expanded': {
                                 // margin from https://github.com/mui-org/material-ui/blob/cc0e2ab63e8be9ec4d51a49bfde17ef28fc77b9c/packages/mui-material/src/AccordionSummary/AccordionSummary.js#L64-L64
-                                margin: "12px 0",
+                                margin: '12px 0',
                               },
                             }}
                             expandIcon={<ExpandMoreIcon />}
@@ -218,8 +193,8 @@ const Navbar = () => {
                           >
                             <Typography
                               style={{
-                                fontSize: "14px",
-                                fontWeight: "400",
+                                fontSize: '14px',
+                                fontWeight: '400',
                               }}
                             >
                               Preferences
@@ -228,7 +203,7 @@ const Navbar = () => {
                           <AccordionDetails>
                             <Typography
                               style={{
-                                marginTop: "-10px",
+                                marginTop: '-10px',
                               }}
                             >
                               <AccordList>Preferences</AccordList>
@@ -245,7 +220,7 @@ const Navbar = () => {
                 <Grid container spacing={1} direction="row">
                   <Grid
                     style={{
-                      marginLeft: "-9px",
+                      marginLeft: '-9px',
                     }}
                     item
                     lg={6}
@@ -255,12 +230,8 @@ const Navbar = () => {
                     md={6}
                   >
                     <div>
-                      <Button
-                        onClick={handleClickNotification}
-                        size="small"
-                        id="Notification"
-                      >
-                        <NotificationsNone style={{ fill: "#009EF8" }} />
+                      <Button onClick={handleClickNotification} size="small" id="Notification">
+                        <NotificationsNone style={{ fill: '#009EF8' }} />
                       </Button>
                       <NotificationModal
                         open={openNotificationModal}
@@ -271,7 +242,7 @@ const Navbar = () => {
                   </Grid>
                   <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
                     <Button size="small">
-                      <MailOutline style={{ fill: "#009EF8" }} />
+                      <MailOutline style={{ fill: '#009EF8' }} />
                     </Button>
                   </Grid>
                 </Grid>
@@ -283,17 +254,17 @@ const Navbar = () => {
                   alignItems="center"
                   justifyContent="flex-end"
                   style={{
-                    marginLeft: "-30px",
+                    marginLeft: '-30px',
                   }}
                 >
                   <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
-                    <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
+                    <Avatar alt="Sharp" style={{ marginLeft: '-10px' }} />
                   </Grid>
                   <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
                     <Grid container direction="column">
                       <Grid item alignSelf="start">
                         <Grid container justifyContent="center">
-                          <Grid item style={{ marginBottom: "-16px" }}>
+                          <Grid item style={{ marginBottom: '-16px' }}>
                             <Grid container>
                               <Grid item>
                                 <UserName>Jonathan Benson</UserName>
@@ -305,7 +276,7 @@ const Navbar = () => {
                                       aria-label="more"
                                       id="long-button"
                                       aria-controls="long-menu"
-                                      aria-expanded={open ? "true" : undefined}
+                                      aria-expanded={open ? 'true' : undefined}
                                       aria-haspopup="true"
                                       onClick={handleClick}
                                     >
@@ -314,17 +285,17 @@ const Navbar = () => {
                                     <Menu
                                       id="long-menu"
                                       MenuListProps={{
-                                        "aria-labelledby": "long-button",
+                                        'aria-labelledby': 'long-button',
                                       }}
                                       anchorEl={anchorEl}
                                       open={open}
                                       onClose={handleClose}
                                       PaperProps={{
                                         style: {
-                                          background: "#fff",
-                                          borderRadius: "16px",
-                                          zIndex: "1220000",
-                                          display: "block",
+                                          background: '#fff',
+                                          borderRadius: '16px',
+                                          zIndex: '1220000',
+                                          display: 'block',
                                         },
                                       }}
                                     >
@@ -344,12 +315,8 @@ const Navbar = () => {
                                         <LogoutOutlinedIcon /> Logout
                                       </MyMenuItem>
                                       <MenuHeader>Manage</MenuHeader>
-                                      <MyMenuItem onClick={handleClose}>
-                                        About Us
-                                      </MyMenuItem>
-                                      <MyMenuItem onClick={handleClose}>
-                                        Privacy Policy
-                                      </MyMenuItem>
+                                      <MyMenuItem onClick={handleClose}>About Us</MyMenuItem>
+                                      <MyMenuItem onClick={handleClose}>Privacy Policy</MyMenuItem>
                                     </Menu>
                                   </>
                                 </span>
@@ -377,18 +344,10 @@ const Navbar = () => {
           justifyContent="space-between"
           alignItems="center"
           style={{
-            padding: "0 16px",
+            padding: '0 16px',
           }}
         >
-          <Grid
-            style={{ paddingLeft: "50px" }}
-            item
-            lg={2}
-            xl={2}
-            xs={12}
-            sm={12}
-            md={2}
-          >
+          <Grid style={{ paddingLeft: '50px' }} item lg={2} xl={2} xs={12} sm={12} md={2}>
             <h4>LOGO</h4>
           </Grid>
 
@@ -399,34 +358,27 @@ const Navbar = () => {
               })}
             </Grid>
           </Grid>
-          <Grid item alignSelf="center" style={{ marginLeft: "-25px" }}>
+          <Grid item alignSelf="center" style={{ marginLeft: '-25px' }}>
             <>
               <LinkItem
                 onClick={handleClickDiscover}
                 aria-label="more"
                 id="long-button"
                 aria-controls="long-menu"
-                aria-expanded={openDiscover ? "true" : undefined}
+                aria-expanded={openDiscover ? 'true' : undefined}
                 aria-haspopup="true"
               >
                 Discover
               </LinkItem>
-              <NestedMenu
-                anchorEl={anchorElDiscover}
-                setAnchorEl={setAnchorElDiscover}
-              />
+              <NestedMenu anchorEl={anchorElDiscover} setAnchorEl={setAnchorElDiscover} />
             </>
           </Grid>
           <Grid item lg={1} xl={1} xs={3} sm={2} md={1}>
             <Grid container spacing={1} direction="row">
               <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
                 <div>
-                  <Button
-                    onClick={handleClickNotification}
-                    size="small"
-                    id="Notification"
-                  >
-                    <NotificationsNone style={{ fill: "#009EF8" }} />
+                  <Button onClick={handleClickNotification} size="small" id="Notification">
+                    <NotificationsNone style={{ fill: '#009EF8' }} />
                   </Button>
                   <NotificationModal
                     open={openNotificationModal}
@@ -437,26 +389,21 @@ const Navbar = () => {
               </Grid>
               <Grid item lg={6} xl={6} xs={6} sm={6} md={6}>
                 <Button size="small">
-                  <MailOutline style={{ fill: "#009EF8" }} />
+                  <MailOutline style={{ fill: '#009EF8' }} />
                 </Button>
               </Grid>
             </Grid>
           </Grid>
           <Grid item>
-            <Grid
-              container
-              spacing={2}
-              alignItems="center"
-              justifyContent="flex-end"
-            >
+            <Grid container spacing={2} alignItems="center" justifyContent="flex-end">
               <Grid item lg={2} xl={2} xs={2} sm={1} md={2}>
-                <Avatar alt="Sharp" style={{ marginLeft: "-10px" }} />
+                <Avatar alt="Sharp" style={{ marginLeft: '-10px' }} />
               </Grid>
               <Grid item lg={10} xl={10} xs={10} sm={10} md={10}>
                 <Grid container direction="column">
                   <Grid item alignSelf="start">
                     <Grid container justifyContent="center">
-                      <Grid item style={{ marginBottom: "-16px" }}>
+                      <Grid item style={{ marginBottom: '-16px' }}>
                         <UserName>Jonathan Benson</UserName>
                         <span>
                           <>
@@ -464,7 +411,7 @@ const Navbar = () => {
                               aria-label="more"
                               id="long-button"
                               aria-controls="long-menu"
-                              aria-expanded={open ? "true" : undefined}
+                              aria-expanded={open ? 'true' : undefined}
                               aria-haspopup="true"
                               onClick={handleClick}
                             >
@@ -473,15 +420,15 @@ const Navbar = () => {
                             <Menu
                               id="long-menu"
                               MenuListProps={{
-                                "aria-labelledby": "long-button",
+                                'aria-labelledby': 'long-button',
                               }}
                               anchorEl={anchorEl}
                               open={open}
                               onClose={handleClose}
                               PaperProps={{
                                 style: {
-                                  background: "#fff",
-                                  borderRadius: "16px",
+                                  background: '#fff',
+                                  borderRadius: '16px',
                                 },
                               }}
                             >
@@ -501,12 +448,8 @@ const Navbar = () => {
                                 <LogoutOutlinedIcon /> Logout
                               </MyMenuItem>
                               <MenuHeader>Manage</MenuHeader>
-                              <MyMenuItem onClick={handleClose}>
-                                About Us
-                              </MyMenuItem>
-                              <MyMenuItem onClick={handleClose}>
-                                Privacy Policy
-                              </MyMenuItem>
+                              <MyMenuItem onClick={handleClose}>About Us</MyMenuItem>
+                              <MyMenuItem onClick={handleClose}>Privacy Policy</MyMenuItem>
                             </Menu>
                           </>
                         </span>
@@ -529,8 +472,7 @@ const AccordList = styled.div`
   font-size: 14px;
   font-weight: 400;
   margin-bottom: 4px;
-  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI,
-    Helvetica, Arial, sans-serif;
+  font-family: Montserrat, -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, sans-serif;
 `;
 const MobileList = styled.div`
   @media only screen and (max-width: 480px) {

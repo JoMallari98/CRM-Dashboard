@@ -1,19 +1,19 @@
-import { Box, Typography } from "@mui/material";
-import { IconButton } from "@mui/material";
-import { KeyboardArrowDown } from "@mui/icons-material";
-import { Avatar } from "@mui/material";
+import { Box, Typography } from '@mui/material';
+import { IconButton } from '@mui/material';
+import { KeyboardArrowDown } from '@mui/icons-material';
+import { Avatar } from '@mui/material';
 import { useTheme, Theme } from '@mui/material';
 
 export const DashboardUser = () => {
-  const theme: Theme = useTheme()
-  const name: string = "Jonathan Benson";
-  const email: string = "example@mail.com";
+  const theme: Theme = useTheme();
+  const name: string = 'Jonathan Benson';
+  const email: string = 'example@mail.com';
   return (
     <Box display="flex" flexDirection="row">
       <Avatar
         src="profileimage"
         alt="Profile"
-        sx={{ height: "48px", width: "48px", marginRight: "15px" }}
+        sx={{ height: '48px', width: '48px', marginRight: '15px' }}
       />
       <Box display="flex" flexDirection="column" justifyContent="center">
         <Box>

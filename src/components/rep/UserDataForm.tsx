@@ -1,5 +1,5 @@
-import { ArrowBack } from "@mui/icons-material";
-import ArrowForward from "@mui/icons-material/ArrowForward";
+import { ArrowBack } from '@mui/icons-material';
+import ArrowForward from '@mui/icons-material/ArrowForward';
 import {
   Button,
   FormControl,
@@ -10,21 +10,21 @@ import {
   Typography,
   Stack,
   Box,
-} from "@mui/material";
-import { useRouter } from "next/router";
-import React from "react";
-import CustomTextField from "src/components/common/CustomTextField";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import { useRepOnboarding } from "src/context/repOnBoardingContext";
-import { Formik, Form } from "formik";
-import { repDataSchema, RepDataValues } from "src/schema/repdata-schema";
+} from '@mui/material';
+import { useRouter } from 'next/router';
+import React from 'react';
+import CustomTextField from 'src/components/common/CustomTextField';
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import { useRepOnboarding } from 'src/context/repOnBoardingContext';
+import { Formik, Form } from 'formik';
+import { repDataSchema, RepDataValues } from 'src/schema/repdata-schema';
 const UserDataForm = () => {
   const { goPrevStep, goNextStep } = useRepOnboarding();
   const router = useRouter();
 
   const handleSubmit = (values: RepDataValues) => {
-    console.log("handleSubmit", values);
+    console.log('handleSubmit', values);
     goNextStep();
   };
 
@@ -33,31 +33,22 @@ const UserDataForm = () => {
     <Formik
       validationSchema={repDataSchema}
       initialValues={{
-        firstName: "",
-        lastName: "",
-        email: "",
-        riaName: "",
-        mobileNumber: "",
-        crdNumber: "",
+        firstName: '',
+        lastName: '',
+        email: '',
+        riaName: '',
+        mobileNumber: '',
+        crdNumber: '',
       }}
       onSubmit={handleSubmit}
     >
-      <OnBoardingFormContainer
-        component={Form}
-        pt={0}
-        justifyContent="flex-start"
-      >
+      <OnBoardingFormContainer component={Form} pt={0} justifyContent="flex-start">
         <FormSection mt={6} mb={2}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
             <IconButton onClick={onPrevStep}>
               <ArrowBack fontSize="small" />
             </IconButton>
-            <Typography
-              variant="body2"
-              fontWeight="bold"
-              flexGrow={1}
-              textAlign="center"
-            >
+            <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
               Create your ideal profile
             </Typography>
           </Box>
@@ -83,30 +74,17 @@ const UserDataForm = () => {
 
           <Box>
             <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField
-                id="firstName"
-                name="firstName"
-                label="First Name"
-              />
+              <CustomTextField id="firstName" name="firstName" label="First Name" />
             </FormControl>
             <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField
-                id="lastName"
-                name="lastName"
-                label="Last Name"
-              />
+              <CustomTextField id="lastName" name="lastName" label="Last Name" />
             </FormControl>
             <FormControl fullWidth sx={{ my: 2 }}>
               <CustomTextField id="riaName" name="riaName" label="RIA Name" />
             </FormControl>
 
             <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField
-                id="email"
-                name="email"
-                label="E-mail"
-                type="email"
-              />
+              <CustomTextField id="email" name="email" label="E-mail" type="email" />
             </FormControl>
             <FormControl fullWidth sx={{ my: 2 }}>
               <CustomTextField
@@ -117,22 +95,13 @@ const UserDataForm = () => {
               />
             </FormControl>
             <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField
-                id="crdNumber"
-                name="crdNumber"
-                label="CRD Number"
-                type="text"
-              />
+              <CustomTextField id="crdNumber" name="crdNumber" label="CRD Number" type="text" />
             </FormControl>
           </Box>
         </FormSection>
         <FormSection>
           <Stack direction="row" spacing={2}>
-            <ContinueButton
-              variant="outlined"
-              onClick={onPrevStep}
-              startIcon={<ArrowBack />}
-            >
+            <ContinueButton variant="outlined" onClick={onPrevStep} startIcon={<ArrowBack />}>
               Previous Step
             </ContinueButton>
             <ContinueButton
@@ -140,7 +109,7 @@ const UserDataForm = () => {
               color="primary"
               type="submit"
               endIcon={<ArrowForward />}
-              style={{ color: "#fff" }}
+              style={{ color: '#fff' }}
             >
               Next Step
             </ContinueButton>
@@ -158,5 +127,5 @@ const ContinueButton = styled(Button)({
   paddingRight: 40,
   height: 48,
   borderRadius: 8,
-  textTransform: "capitalize",
+  textTransform: 'capitalize',
 });

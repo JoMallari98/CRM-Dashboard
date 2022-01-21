@@ -1,19 +1,13 @@
-import { Container } from "@mui/material";
-import React from "react";
-import SignInScreen from "src/components/signin/SignInScreen";
-import styled from "styled-components";
-
+import React from 'react';
+import OnboardingLayout from 'src/hoc/OnboardingLayout';
+import { PageType } from 'src/components/common/LogoBrandingSection';
+import SignInForm from 'src/components/signin/SignInForm';
 const SignInPage = () => {
   return (
-    <Wrapper>
-      <SignInScreen />
-    </Wrapper>
+    <OnboardingLayout type={PageType.SIGN_IN}>
+      <SignInForm />
+    </OnboardingLayout>
   );
 };
-const Wrapper = styled.div`
-  background: #f8fcff;
-  padding-top: 2rem;
-  padding-left: 2rem;
-  padding-right: 2rem;
-`;
+
 export default SignInPage;

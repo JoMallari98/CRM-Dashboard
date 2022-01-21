@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import {
   Box,
   CardContent,
@@ -8,42 +8,39 @@ import {
   Checkbox,
   FormControlLabel,
   styled as MuiStyled,
-} from "@mui/material";
-import { CheckCircle, RadioButtonUnchecked } from "@mui/icons-material";
-import CalendarTodayOutlinedIcon from "@mui/icons-material/CalendarTodayOutlined";
-import styled from "styled-components";
+} from '@mui/material';
+import { CheckCircle, RadioButtonUnchecked } from '@mui/icons-material';
+import CalendarTodayOutlinedIcon from '@mui/icons-material/CalendarTodayOutlined';
+import styled from 'styled-components';
 
 const LetCard: React.FC = () => {
   const CheckBoxComponent = (props: any) => (
     <Checkbox
       {...props}
-      style={{ borderRadius: "50%" }}
+      style={{ borderRadius: '50%' }}
       icon={<RadioButtonUnchecked />}
-      checkedIcon={<CheckCircle style={{ fill: "#2CA45C" }} />}
+      checkedIcon={<CheckCircle style={{ fill: '#2CA45C' }} />}
     />
   );
   const MyButton = MuiStyled(Button)({
-    color: "white",
+    color: 'white',
   });
   return (
     <LetCardContainer>
       <CardHeader>
-        <h3 style={{ fontWeight: "600" }}>Let&apos;s start</h3>
-        <p style={{ fontWeight: "500" }}>
+        <h3 style={{ fontWeight: '600' }}>Let&apos;s start</h3>
+        <p style={{ fontWeight: '500' }}>
           There are lots of things to do. Here&apos;s what we have to start:
         </p>
       </CardHeader>
       <CardContent>
-        <div style={{ position: "relative" }}>
+        <div style={{ position: 'relative' }}>
           <FormGroup>
             <FormControlLabel
               control={<CheckBoxComponent defaultChecked={true} />}
               label="Create risk profile"
             />
-            <FormControlLabel
-              control={<CheckBoxComponent />}
-              label="Complete ESG preferences"
-            />
+            <FormControlLabel control={<CheckBoxComponent />} label="Complete ESG preferences" />
             <FormControlLabel
               control={<CheckBoxComponent defaultChecked={true} />}
               label="Create risk profile"
@@ -69,12 +66,8 @@ const LetCard: React.FC = () => {
   );
 };
 const CardHeader = styled(Box)`
-  background: linear-gradient(
-      90deg,
-      rgba(0, 0, 0, 0.5) 2.98%,
-      rgba(0, 0, 0, 0) 93.52%
-    ),
-    url("/LetCard.png");
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 2.98%, rgba(0, 0, 0, 0) 93.52%),
+    url('/LetCard.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

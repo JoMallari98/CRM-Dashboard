@@ -1,7 +1,7 @@
-import { Box } from "@mui/material";
-import DashboardLogo from "../common/DashboardLogo";
-import DashboardNavigation from "./DashboardNavigation";
-import DashboardNavProfile from "./DashboardNavProfile";
+import { Box } from '@mui/material';
+import DashboardLogo from '../common/DashboardLogo';
+import DashboardNavigation from './DashboardNavigation';
+import DashboardNavProfile from './DashboardNavProfile';
 
 const DashboardHeader = () => {
   return (

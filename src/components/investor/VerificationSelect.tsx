@@ -1,10 +1,10 @@
-import { ArrowBack } from "@mui/icons-material";
-import { Button, IconButton, styled, Typography, Box } from "@mui/material";
+import { ArrowBack } from '@mui/icons-material';
+import { Button, IconButton, styled, Typography, Box } from '@mui/material';
 
-import React from "react";
-import { useOnboarding } from "src/context/userOnBoardingContext";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
+import React from 'react';
+import { useOnboarding } from 'src/context/userOnBoardingContext';
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 
 const VerificationSelect = () => {
   const { goPrevStep, goNextStep } = useOnboarding();
@@ -55,13 +55,13 @@ const VerificationSelect = () => {
 export default VerificationSelect;
 
 const SendButton = styled(Button)({
-  color: "#000",
-  background: "#F8FCFF",
-  width: "100%",
+  color: '#000',
+  background: '#F8FCFF',
+  width: '100%',
   height: 101,
   fontSize: 18,
   paddingLeft: 64,
   paddingRight: 64,
-  textTransform: "none",
+  textTransform: 'none',
   borderRadius: 8,
 });

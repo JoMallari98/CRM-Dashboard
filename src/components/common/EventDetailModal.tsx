@@ -1,32 +1,32 @@
-import React from "react";
-import { Modal, Box, Grid, Avatar, Button } from "@mui/material";
-import CloseIcon from "@mui/icons-material/Close";
-import EventDetailImage from "src/assets/EventDetailImage.png";
-import AccessTimeIcon from "@mui/icons-material/AccessTime";
-import TodayIcon from "@mui/icons-material/Today";
-import SmallBadge from "./SmallBadge";
-import Image from "next/image";
-import styled from "styled-components";
+import React from 'react';
+import { Modal, Box, Grid, Avatar, Button } from '@mui/material';
+import CloseIcon from '@mui/icons-material/Close';
+import EventDetailImage from 'src/assets/EventDetailImage.png';
+import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import TodayIcon from '@mui/icons-material/Today';
+import SmallBadge from './SmallBadge';
+import Image from 'next/image';
+import styled from 'styled-components';
 const style = {
-  position: "absolute" as "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
+  position: 'absolute' as 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
   boxShadow: 24,
   pt: 2,
   px: 4,
   pb: 3,
-  borderRadius: "16px",
-  background: "#ffff",
-  border: "0",
-  outline: "none",
-  width: "589px",
+  borderRadius: '16px',
+  background: '#ffff',
+  border: '0',
+  outline: 'none',
+  width: '589px',
 };
 
 export enum EventModalType {
-  Join = "join",
-  Register = "register",
-  Deregister = "deregister",
+  Join = 'join',
+  Register = 'register',
+  Deregister = 'deregister',
 }
 interface AddLocationModalProps {
   open: Boolean;
@@ -51,15 +51,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
     >
       <Wrapper sx={{ pt: 2, px: 4, pb: 3 }}>
         <Grid container direction="column" spacing={2}>
-          <Grid
-            item
-            alignSelf="flex-end"
-            lg={12}
-            xl={12}
-            xs={12}
-            sm={12}
-            md={12}
-          >
+          <Grid item alignSelf="flex-end" lg={12} xl={12} xs={12} sm={12} md={12}>
             <Close onClick={handleClose}>
               <CloseIcon />
             </Close>
@@ -72,13 +64,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
           </Grid>
           <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <CreatorHeader>Creator:</CreatorHeader>
-            <Grid
-              container
-              direction="row"
-              spacing={2}
-              justifyContent="center"
-              alignItems="center"
-            >
+            <Grid container direction="row" spacing={2} justifyContent="center" alignItems="center">
               <Grid item lg={1} xl={1} xs={2} sm={1} md={1}>
                 <Avatar alt="Sharp" />
               </Grid>
@@ -95,12 +81,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
             </Grid>
           </Grid>
           <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
-            <Grid
-              container
-              direction="row"
-              spacing={2}
-              justifyContent="space-between"
-            >
+            <Grid container direction="row" spacing={2} justifyContent="space-between">
               <Grid item>
                 <TimeDate>
                   <AccessTimeIcon />
@@ -119,14 +100,10 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
           <Grid item lg={12} xl={12} xs={12} sm={12} md={12}>
             <AvatarMix>
               <SmallAvatar style={{ zIndex: 10000 }} alt="Sharp" />
-              <SmallAvatar
-                style={{ zIndex: 9000, marginLeft: "-9px" }}
-                alt="Sharp"
-              />
-              <SmallAvatar style={{ marginLeft: "-9px" }} alt="Sharp" />
+              <SmallAvatar style={{ zIndex: 9000, marginLeft: '-9px' }} alt="Sharp" />
+              <SmallAvatar style={{ marginLeft: '-9px' }} alt="Sharp" />
               <span className="text">
-                <b>Bridget Jones, Simone Smith</b> and <b>16 others</b> joined
-                this event
+                <b>Bridget Jones, Simone Smith</b> and <b>16 others</b> joined this event
               </span>
             </AvatarMix>
           </Grid>
@@ -135,10 +112,9 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
               <Grid item>
                 <Heading>Description</Heading>
               </Grid>
-              <Grid item style={{ fontSize: "14px" }}>
-                Lorem ipsum dolor sit amen, consenter advising elite, sed do
-                elusion Lorem ipsum dolor sit amen, consenter advising elite,
-                sed do elusion
+              <Grid item style={{ fontSize: '14px' }}>
+                Lorem ipsum dolor sit amen, consenter advising elite, sed do elusion Lorem ipsum
+                dolor sit amen, consenter advising elite, sed do elusion
               </Grid>
             </Grid>
           </Grid>
@@ -149,10 +125,10 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
             xs={12}
             sm={12}
             md={12}
-            alignSelf={type === EventModalType.Join ? "auto" : "center"}
+            alignSelf={type === EventModalType.Join ? 'auto' : 'center'}
           >
             {type === EventModalType.Register && (
-              <Button variant="contained" style={{ color: "#ffff" }}>
+              <Button variant="contained" style={{ color: '#ffff' }}>
                 Register for events
               </Button>
             )}
@@ -167,11 +143,7 @@ const EventDetailModal: React.FC<AddLocationModalProps> = ({
                   </Button>
                 </Grid>
                 <Grid item lg={6} xl={6} xs={12} sm={6} md={6}>
-                  <Button
-                    variant="contained"
-                    style={{ color: "#ffff" }}
-                    fullWidth
-                  >
+                  <Button variant="contained" style={{ color: '#ffff' }} fullWidth>
                     Join the Event
                   </Button>
                 </Grid>

@@ -1,6 +1,6 @@
-import { Box } from "@mui/material";
+import { Box } from '@mui/material';
 
-import NavItem from "../common/DashboardNavItem";
+import NavItem from '../common/DashboardNavItem';
 
 const DashboardNavigation = () => {
   return (
@@ -12,11 +12,11 @@ const DashboardNavigation = () => {
       display="flex"
       flexDirection="row"
     >
-      <NavItem name={"Dashboard"} />
-      <NavItem name={"Feed"} />
-      <NavItem name={"My Investments"} />
-      <NavItem name={"Portfolios"} />
-      <NavItem name={"Discover"} />
+      <NavItem name={'Dashboard'} />
+      <NavItem name={'Feed'} />
+      <NavItem name={'My Investments'} />
+      <NavItem name={'Portfolios'} />
+      <NavItem name={'Discover'} />
     </Box>
   );
 };

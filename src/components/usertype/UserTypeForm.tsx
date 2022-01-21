@@ -1,17 +1,11 @@
-import { ArrowBack } from "@mui/icons-material";
-import {
-  Typography,
-  LinearProgress,
-  linearProgressClasses,
-  IconButton,
-  Box,
-} from "@mui/material";
-import React from "react";
-import { FormSection } from "src/components/common/FormSection";
-import OnBoardingFormContainer from "src/components/common/OnBoardingFormContainer";
-import UserTypeButton from "src/components/common/UserTypeButton";
-import { useRouter } from "next/router";
-import styled from "styled-components";
+import { ArrowBack } from '@mui/icons-material';
+import { Typography, LinearProgress, linearProgressClasses, IconButton, Box } from '@mui/material';
+import React from 'react';
+import { FormSection } from 'src/components/common/FormSection';
+import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
+import UserTypeButton from 'src/components/common/UserTypeButton';
+import { useRouter } from 'next/router';
+import styled from 'styled-components';
 enum UserType {
   Investor,
   Rep,
@@ -26,33 +20,34 @@ type SelectItem = {
 const UserTypeForm = () => {
   const router = useRouter();
   const typeOfUsers: SelectItem[] = [
-    { text: "I am an investor", value: UserType.Investor, emoji: "🤓" },
-    { text: "I’m an investment advisor", value: UserType.Rep, emoji: "💼" },
-    { text: "I work with an advisor", value: UserType.Investor, emoji: "💸" },
-    { text: "I’m a registered broker", value: UserType.Investor, emoji: "🎓" },
+    { text: 'I am an investor', value: UserType.Investor, emoji: '🤓' },
+    { text: 'I’m an investment advisor', value: UserType.Rep, emoji: '💼' },
+    { text: 'I work with an advisor', value: UserType.Investor, emoji: '💸' },
+    { text: 'I’m a registered broker', value: UserType.Investor, emoji: '🎓' },
     {
-      text: "I work for a financial institution, but I am neither an advisor nor a broker",
+      text: 'I work for a financial institution, but I am neither an advisor nor a broker',
       value: UserType.Investor,
-      emoji: "🏢",
+      emoji: '🏢',
     },
   ];
 
   const goToSignUp = () => {
-    router.replace("/signup");
+    router.replace('/signup');
   };
 
   const handleClick = (userType: UserType) => {
     switch (userType) {
       case UserType.Investor:
-        router.push("/investor/user-data");
+        router.push('/signup/questions');
         break;
       case UserType.Rep:
-        router.push("/rep");
+        // router.push("/rep");
+        router.push('/signup/questions');
         break;
       case UserType.Other:
       default:
         //TODO: needs checking
-        router.replace("/signup");
+        router.replace('/signup');
     }
   };
 
@@ -60,16 +55,11 @@ const UserTypeForm = () => {
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={3}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={goToSignUp}>
+          <IconButton onClick={() => router.replace('/signup/user-institution')}>
             <ArrowBack fontSize="small" />
           </IconButton>
 
-          <Typography
-            variant="body2"
-            fontWeight="bold"
-            flexGrow={1}
-            textAlign="center"
-          >
+          <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>

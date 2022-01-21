@@ -1,12 +1,12 @@
-import "../styles/globals.css";
-import type { AppProps } from "next/app";
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import { CacheProvider, EmotionCache } from "@emotion/react";
-import createEmotionCache from "src/styles/createEmotionCache";
-import theme from "src/styles/theme";
-import { SessionProvider } from "next-auth/react";
-import { Session } from "next-auth";
+import '../styles/globals.css';
+import type { AppProps } from 'next/app';
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { CacheProvider, EmotionCache } from '@emotion/react';
+import createEmotionCache from 'src/styles/createEmotionCache';
+import theme from 'src/styles/theme';
+import { SessionProvider } from 'next-auth/react';
+import { Session } from 'next-auth';
 
 const clientSideEmotionCache = createEmotionCache();
 
