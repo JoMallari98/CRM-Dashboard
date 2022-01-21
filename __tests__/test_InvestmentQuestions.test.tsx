@@ -39,7 +39,7 @@ describe("investor/VerificationSelect", () => {
 
   it("Should go to sign up when Clicking back to sign up", () => {
     userEvent.click(screen.getByText("Back to Sign Up"));
-    expect(router.replace).toHaveBeenCalledWith("/signup");
+    expect(router.push).toHaveBeenCalledWith("/signup");
   });
 
   it("Should go to next question when clicking next question", () => {

@@ -33,7 +33,7 @@ const OnboardingLayout: React.FC<Props> = ({ children, ...props }) => {
 const Wrapper = styled('div')`
   background: #f8fcff;
   padding-top: 2rem;
-  padding-left: 2rem;
+  padding-left: 4rem;
   padding-right: 2rem;
   width: 100%;
   height: 100vh !important;

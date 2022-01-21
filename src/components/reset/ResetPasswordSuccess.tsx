@@ -19,12 +19,12 @@ const ResetPasswordSuccess = () => {
   const theme = useTheme();
   const mdUp = useMediaQuery(theme.breakpoints.up('sm'));
   const goToForgotPassword = () => {
-    router.replace('/reset-password');
+    router.push('/reset-password');
   };
 
   const handleResetEmail = () => {
     // trugger email again from here....
-    router.replace('/reset-password');
+    router.push('/reset-password');
   };
 
   return (

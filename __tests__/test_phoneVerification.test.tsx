@@ -59,8 +59,8 @@ describe('PhoneVerification Page', () => {
       </RouterContext.Provider>
     );
 
-    fireEvent.click(screen.getByRole('button', { name: 'Confirm' }));
+    fireEvent.click(screen.getByRole('button', { name: 'Submit' }));
     // fireEvent.click(screen.getByText('Confirm'));
-    expect(router.replace).toHaveBeenCalledWith('/signup/user-type');
+    expect(router.push).toHaveBeenCalledWith('/signup/user-type');
   });
 });

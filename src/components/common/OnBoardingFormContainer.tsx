@@ -11,7 +11,7 @@ const OnBoardingFormContainer: React.FC<OnBoardingFormContainer & BoxProps> = ({
   ...props
 }) => {
   return (
-    <Box height="93vh" width="100%" display="flex" flexDirection="column" alignItems="stretch">
+    <Box height="93vh"  width="100%" ml="-20px" display="flex" flexDirection="column" alignItems="stretch">
       <StyledPaper elevation={0}>
         <Box
           display="flex"

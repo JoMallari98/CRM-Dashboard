@@ -87,10 +87,11 @@ const LogoBrandingSection: React.FC<Props> = ({ description, type }) => {
 const Wrapper = styled(Box)`
   height: 93vh;
   display: flex;
+  width: "120%";
   flex-direction: column;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;
-  background-size: auto 110vh !important;
+  background-size: 800px 102vh !important;
   background-position: center center !important;
   @media screen and (max-width: 900px) {
     background-size: 1100px !important;

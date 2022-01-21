@@ -32,7 +32,7 @@ const UserTypeForm = () => {
   ];
 
   const goToSignUp = () => {
-    router.replace('/signup');
+    router.push('/signup');
   };
 
   const handleClick = (userType: UserType) => {
@@ -47,33 +47,35 @@ const UserTypeForm = () => {
       case UserType.Other:
       default:
         //TODO: needs checking
-        router.replace('/signup');
+        router.push('/signup');
     }
   };
 
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
-      <FormSection mt={6} mb={3}>
+      <FormSection mt={5} mb={2}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.replace('/signup/user-institution')}>
+          <IconButton onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
 
-          <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
+          <Typography variant="body2" fontWeight="500" flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>
         <Box width="100%">
           <LinearProgress
             variant="determinate"
-            value={10}
+            value={60}
             sx={{
               height: 8,
               borderRadius: 5,
               [`& .${linearProgressClasses.bar}`]: {
                 borderRadius: 5,
+                backgroundColor: "#60C130",
               },
             }}
+            style={{ background: "#dbffc9" }}
           />
         </Box>
       </FormSection>
@@ -98,6 +100,6 @@ const UserTypeForm = () => {
 const MeText = styled.span`
   font-weight: bold;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 export default UserTypeForm;

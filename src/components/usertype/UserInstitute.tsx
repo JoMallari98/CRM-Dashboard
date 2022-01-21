@@ -24,43 +24,43 @@ const UserInstitute = () => {
       <FormSection mt={6} mb={2}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           {/* Apply Previous Step Here*/}
-          <IconButton onClick={() => router.replace('/signup/user-type')}>
+          <IconButton onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
-          <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
+          <Typography variant="body2" fontWeight="500" fontSize={16} flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>
         <Box width="100%">
           <LinearProgress
             variant="determinate"
-            value={20}
+            value={45}
             sx={{
               height: 8,
               borderRadius: 5,
               [`& .${linearProgressClasses.bar}`]: {
                 borderRadius: 5,
+                backgroundColor: "#60C130",
               },
             }}
+            style={{ background: "#dbffc9" }}
           />
         </Box>
-        <Box width="100%" mt={10}>
+        <Box width="100%" mt={10} mb={7}>
           <Typography
             variant="body2"
             flexGrow={1}
             textAlign="center"
-            style={{
-              fontSize: '18px',
-              fontWeight: '500',
-            }}
+            fontWeight="500" 
+            fontSize={18}
           >
-            By the way would you like register as an investor or a financial professional?
-          </Typography>
+              Do you work for financial institution?
+        </Typography>
         </Box>
 
         <Wrapper
           sx={{ backgroundColor: 'background.default' }}
-          onClick={() => router.replace('/signup/ideal-profile')}
+          onClick={() => router.push('/signup/ideal-profile')}
           data-testid="Yes-i-do-button"
         >
           <Typography flexGrow={1} variant="body2" fontWeight="bold" textAlign="center">
@@ -70,7 +70,7 @@ const UserInstitute = () => {
 
         <Wrapper
           sx={{ backgroundColor: 'background.default' }}
-          onClick={() => router.replace('/signup/ideal-profile')}
+          onClick={() => router.push('/signup/questions')}
           data-testid="No-i-cannot-button"
         >
           <Typography flexGrow={1} variant="body2" fontWeight="bold" textAlign="center">
@@ -92,7 +92,7 @@ const Wrapper = styledComponent(Paper)`
   width: 100%;
   padding: 12px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 16px;
   border: 1px solid rgba(10, 81, 143, 0.17);
   outline: none;
   box-shadow: 0px 0px 0px #ffff;

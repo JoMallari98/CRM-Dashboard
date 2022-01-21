@@ -12,6 +12,7 @@ import { styled } from '@mui/material/styles';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import Image from 'next/image';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import GoogleIcon from '@mui/icons-material/Google';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
@@ -26,6 +27,8 @@ const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const [loader, setLoader] = useState(false)
+
 
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
@@ -35,6 +38,7 @@ const SignInForm = () => {
 
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
+    setLoader(true)
     console.log('handleSubmit', values);
     router.push('/dashboard');
   };
@@ -129,6 +133,7 @@ const SignInForm = () => {
           type="submit"
         >
           Sign In
+          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </SignInButton>
         <Typography variant="body2">
           {`Don't have an account? `}

@@ -25,9 +25,10 @@ const Wrapper = styledComponent(Paper)`
   display: flex;
   align-items: center;
   width: 100%;
+  height: 72px;
   padding: 12px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 16px;
   border: 1px solid rgba(10, 81, 143, 0.17);
   outline: none;
   box-shadow: 0px 0px 0px #ffff;

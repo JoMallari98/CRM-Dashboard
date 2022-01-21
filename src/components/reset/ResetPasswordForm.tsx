@@ -24,14 +24,14 @@ const ResetPasswordFormScreen = () => {
   const mdUp = useMediaQuery(theme.breakpoints.up('sm'));
 
   const goToSignIn = () => {
-    router.replace('/signin');
+    router.push('/signin');
   };
 
   const handleSubmit = (values: ResetPasswordValues) => {
     //api call for reset password
     console.log('handleSubmit', values);
     // after API response redirect to this page...
-    router.replace('/reset-password/success');
+    router.push('/reset-password/success');
   };
 
   return (

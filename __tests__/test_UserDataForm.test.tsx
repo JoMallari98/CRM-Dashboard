@@ -30,7 +30,7 @@ describe('SignUp/UserData Page', () => {
   it('It should go to verification email step after submitting', () => {
     waitFor(() => {
 			fireEvent.click(screen.getByText('Continue'));
-      expect(router.replace).toHaveBeenCalledWith('/signup/onboarding/email-verification');
+      expect(router.push).toHaveBeenCalledWith('/signup/onboarding/email-verification');
     });
   });
 });

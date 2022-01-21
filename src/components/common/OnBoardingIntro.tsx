@@ -1,5 +1,6 @@
 import { Box, Button, Typography } from '@mui/material';
-import React from 'react';
+import Image from 'next/image';
+import React,{useState} from 'react';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Link from 'next/link';
 import { useTheme, useMediaQuery } from '@mui/material';
@@ -7,6 +8,7 @@ import { useTheme, useMediaQuery } from '@mui/material';
 const OnBoardingIntro = () => {
   const theme = useTheme();
   const mdDown = useMediaQuery(theme.breakpoints.down('sm'));
+  const [loader, setLoader] = useState(false)
 
   return (
     <Box
@@ -26,7 +28,8 @@ const OnBoardingIntro = () => {
         <Link href="/signin" passHref>
           <Button
             variant="contained"
-            endIcon={<ArrowForwardIcon />}
+            onClick={() => setLoader(true)}
+            endIcon={<><ArrowForwardIcon /> {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}</>}
             sx={{ py: 1.5, px: 4 }}
             component="a"
             style={{ color: '#fff' }}

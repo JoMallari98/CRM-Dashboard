@@ -39,7 +39,7 @@ const InvestmentExperience = () => {
     setCurrentAnswer(value);
   };
   const navigateToSignUp = () => {
-    router.replace('/signup');
+    router.push('/signup');
   };
   return (
     <Box>

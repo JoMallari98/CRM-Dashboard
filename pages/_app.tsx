@@ -7,6 +7,9 @@ import createEmotionCache from 'src/styles/createEmotionCache';
 import theme from 'src/styles/theme';
 import { SessionProvider } from 'next-auth/react';
 import { Session } from 'next-auth';
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from 'react-toastify';
+
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -23,6 +26,14 @@ function MyApp(props: MyAppProps) {
         <CacheProvider value={emotionCache}>
           <CssBaseline />
           <Component {...restPageProps} />
+          <ToastContainer
+          position="top-right"
+          autoClose={5000}
+          style={{zIndex: "10001"}}
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+        />
         </CacheProvider>
       </ThemeProvider>
     </SessionProvider>

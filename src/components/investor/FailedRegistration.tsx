@@ -11,14 +11,14 @@ const FailedRegistration = () => {
   const router = useRouter();
 
   const goBackToMainPage = () => {
-    router.replace('/signup');
+    router.push('/signup');
   };
 
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={13}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.replace('/signup/onboarding/confirm-crd')}>
+          <IconButton onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>

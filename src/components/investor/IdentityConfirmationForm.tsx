@@ -23,7 +23,7 @@ const IdentityConfirmationForm = () => {
       router.push('/rep');
     } else {
       // goToStep(OnboardingSteps.FailedRegistration);
-      router.replace('/signup/onboarding/invalid-data');
+      router.push('/signup/onboarding/invalid-data');
     }
   };
 
@@ -38,7 +38,7 @@ const IdentityConfirmationForm = () => {
       <OnBoardingFormContainer component={Form} pt={0} justifyContent="flex-start">
         <FormSection mt={6} mb={6}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
-            <IconButton onClick={() => router.replace('/signup/onboarding/background')}>
+            <IconButton onClick={() => router.back()}>
               <ArrowBack fontSize="small" />
             </IconButton>
           </Box>

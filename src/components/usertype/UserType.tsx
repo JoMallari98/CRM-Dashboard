@@ -25,10 +25,10 @@ const UserType = () => {
       <FormSection mt={6} mb={2}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           {/* Apply Previous Step Here*/}
-          <IconButton onClick={() => router.replace('/signup/onboarding/phone-verification')}>
+          <IconButton onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
-          <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
+          <Typography variant="body2" fontWeight="500" flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>
@@ -41,8 +41,10 @@ const UserType = () => {
               borderRadius: 5,
               [`& .${linearProgressClasses.bar}`]: {
                 borderRadius: 5,
+                backgroundColor: "#60C130",
               },
             }}
+            style={{ background: "#dbffc9" }}
           />
         </Box>
         <Box width="100%" mt={10}>
@@ -62,7 +64,7 @@ const UserType = () => {
         <Wrapper
           sx={{ backgroundColor: 'background.default' }}
           data-testid="investor-button"
-          onClick={() => router.replace('/signup/user-institution')}
+          onClick={() => router.push('/signup/user-institution')}
         >
           <Ellipse className="emoji">
             <img src="/investor.png" />
@@ -76,12 +78,12 @@ const UserType = () => {
         <Wrapper
           sx={{ backgroundColor: 'background.default' }}
           data-testid="financial-button"
-          onClick={() => router.replace('/signup/user-institution')}
+          onClick={() => router.push('/signup/ideal-profile')}
         >
           <Ellipse className="emoji">
             <img src="/financial.png" />
           </Ellipse>
-          <Typography flexGrow={1} variant="body2" fontWeight="bold" textAlign="left">
+          <Typography flexGrow={1} variant="body2" fontWeight="600" textAlign="left">
             Financial professional
           </Typography>
           <ArrowForwardIos fontSize="small" />
@@ -101,7 +103,7 @@ const Wrapper = styledComponent(Paper)`
   width: 100%;
   padding: 12px;
   cursor: pointer;
-  border-radius: 8px;
+  border-radius: 16px;
   border: 1px solid rgba(10, 81, 143, 0.17);
   outline: none;
   box-shadow: 0px 0px 0px #ffff;

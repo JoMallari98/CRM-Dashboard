@@ -12,10 +12,12 @@ import { signIn } from 'next-auth/react';
 import { Formik, Form } from 'formik';
 import { SignInValues, signInSchema } from 'src/schema/signin-schema';
 import TextField from 'src/components/common/formik/TextField';
+import Image from 'next/image';
 
 const SignUpForm = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
+  const [loader, setLoader] = useState(false)
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
       {showPassword ? <Visibility /> : <VisibilityOff />}
@@ -24,6 +26,7 @@ const SignUpForm = () => {
 
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
+    setLoader(true)
     console.log('handleSubmit', values);
     router.push('/signup/user-data');
   };
@@ -98,6 +101,7 @@ const SignUpForm = () => {
           type="submit"
         >
           Sign Up
+          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </SignInButton>
         <Typography variant="body2">
           {`Already have an account? `}

@@ -19,7 +19,7 @@ describe('UserType Page', () => {
       );
 
       fireEvent.click(screen.getByTestId('investor-button'));
-      expect(router.replace).toHaveBeenCalledWith('/signup/user-institution');
+      expect(router.push).toHaveBeenCalledWith('/signup/user-institution');
     });
 
     it('Finacial User Event', () => {
@@ -31,6 +31,6 @@ describe('UserType Page', () => {
       );
 
       fireEvent.click(screen.getByTestId('financial-button'));
-      expect(router.replace).toHaveBeenCalledWith('/signup/user-institution');
+      expect(router.push).toHaveBeenCalledWith('/signup/ideal-profile');
     });
   });

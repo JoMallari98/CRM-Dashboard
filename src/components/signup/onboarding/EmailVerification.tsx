@@ -1,27 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 import { FormSection } from 'src/components/common/FormSection';
 import { ArrowBack } from '@mui/icons-material';
 import { Link, Button, IconButton, styled, Typography, Box } from '@mui/material';
 import SixDigitVerification from 'src/components/common/SixDigitVerification';
 import { useRouter } from 'next/router';
+import { toast } from 'react-toastify';
+import Image from 'next/image';
+
 
 const EmailVerification = () => {
   const router = useRouter();
+  const [loader, setLoader] = useState(false)
   const resendEmail = () => {
     // setOpen(true);
   };
 
   const handleSubmit = () => {
     // goNextStep();
-    router.replace('/signup/onboarding/phone-verification');
+    setLoader(true)
+    toast.success("Email verifed Successfly");
+    router.push('/signup/onboarding/phone-verification');
+    
   };
 
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
-      <FormSection mt={6} mb={4}>
+      <FormSection mt={6} mb={0}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.replace('/signup/user-data')}>
+          <IconButton onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>
@@ -35,7 +42,7 @@ const EmailVerification = () => {
           We sent an email with verification code to example@email.com To continue please check your
           email and write your code
         </Typography>
-        <Box mt={7} mb={7} display="flex" justifyContent="center">
+        <Box mt={15} mb={3} display="flex" justifyContent="center">
           <SixDigitVerification />
         </Box>
 
@@ -57,6 +64,7 @@ const EmailVerification = () => {
       <FormSection>
         <ContinueButton variant="contained" color="primary" onClick={() => handleSubmit()}>
           Confirm
+          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </ContinueButton>
       </FormSection>
 
@@ -90,6 +98,7 @@ const ContinueButton = styled(Button)({
   paddingLeft: 56,
   paddingRight: 56,
   height: 48,
+  marginTop: 40,
   borderRadius: 8,
   textTransform: 'capitalize',
   color: '#fff',

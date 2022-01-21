@@ -17,14 +17,14 @@ const UserBackgroundForm = () => {
 
   const goToRepOnBoarding = () => {
     // goNextStep();
-    router.replace('/signup/onboarding/confirm-crd');
+    router.push('/signup/onboarding/confirm-crd');
   };
 
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={6}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.replace('/signup/onboarding/phone-verification')}>
+          <IconButton onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>

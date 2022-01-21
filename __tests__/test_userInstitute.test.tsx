@@ -18,7 +18,7 @@ describe('UserInstitute Page', () => {
     );
 
     fireEvent.click(screen.getByTestId('Yes-i-do-button'));
-    expect(router.replace).toHaveBeenCalledWith('/signup/ideal-profile');
+    expect(router.push).toHaveBeenCalledWith('/signup/ideal-profile');
   });
 
   it("No, I don't Event", () => {
@@ -30,6 +30,6 @@ describe('UserInstitute Page', () => {
     );
 
     fireEvent.click(screen.getByTestId('No-i-cannot-button'));
-    expect(router.replace).toHaveBeenCalledWith('/signup/ideal-profile');
+    expect(router.push).toHaveBeenCalledWith('/signup/questions');
   });
 });

@@ -20,7 +20,7 @@ const CustomTextField: React.FC<Props> = (props) => {
       }}
       InputLabelProps={{
         style: {
-          marginTop: -4,
+          marginTop: 0,
           paddingBottom: 0,
         },
       }}

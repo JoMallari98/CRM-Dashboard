@@ -58,6 +58,6 @@ describe('EmailVerification Page', () => {
 			
 			fireEvent.click(screen.getByRole('button', { name: 'Confirm' }));
 			// fireEvent.click(screen.getByText('Confirm'));
-      expect(router.replace).toHaveBeenCalledWith('/signup/onboarding/phone-verification');
+      expect(router.push).toHaveBeenCalledWith('/signup/onboarding/phone-verification');
   });
 });

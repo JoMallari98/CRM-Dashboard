@@ -9,7 +9,8 @@ import {
   Typography,
   Box,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
+import Image from 'next/image';
 import { useOnboarding } from 'src/context/userOnBoardingContext';
 import CustomTextField from 'src/components/common/CustomTextField';
 import { FormSection } from 'src/components/common/FormSection';
@@ -22,13 +23,15 @@ import { userDataSchema, UserDataValues } from 'src/schema/userdata-schema';
 const UserDataForm = () => {
   // const { goNextStep } = useOnboarding();
   const router = useRouter();
+  const [loader, setLoader] = useState(false)
 
   const onPrevStep = () => router.back();
 
   const handleSubmit = (values: UserDataValues) => {
     //api call for signin email and password
+    setLoader(true)
     console.log('handleSubmit', values);
-    router.replace('/signup/onboarding/email-verification');
+    router.push('/signup/onboarding/email-verification');
     // goNextStep();
   };
 
@@ -56,14 +59,16 @@ const UserDataForm = () => {
           <Box width="100%">
             <LinearProgress
               variant="determinate"
-              value={40}
+              value={80}
               sx={{
                 height: 8,
                 borderRadius: 5,
                 [`& .${linearProgressClasses.bar}`]: {
                   borderRadius: 5,
+                  backgroundColor: "#60C130",
                 },
               }}
+              style={{ background: "#dbffc9" }}
             />
           </Box>
         </FormSection>
@@ -75,20 +80,20 @@ const UserDataForm = () => {
           <Typography variant="body2">All fields are required</Typography>
 
           <Box mt={3}>
-            <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField id="userName" name="UserName" label="Username" />
+            <FormControl fullWidth sx={{ my: 1 }}>
+              <CustomTextField id="userName" name="UserName" label="Username"/>
             </FormControl>
-            <FormControl fullWidth sx={{ my: 2 }}>
+            <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField label="First Name" id="firstName" name="firstName" />
             </FormControl>
-            <FormControl fullWidth sx={{ my: 2 }}>
+            <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField label="Last Name" id="lastName" name="lastName" />
             </FormControl>
 
-            <FormControl fullWidth sx={{ my: 2 }}>
+            <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField label="E-mail" type="email" id="email" name="email" />
             </FormControl>
-            <FormControl fullWidth sx={{ my: 2 }}>
+            <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField
                 label="Mobile Number"
                 type="tel"
@@ -101,6 +106,7 @@ const UserDataForm = () => {
         <FormSection>
           <ContinueButton variant="contained" type="submit">
             Continue
+            {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
           </ContinueButton>
         </FormSection>
       </OnBoardingFormContainer>
