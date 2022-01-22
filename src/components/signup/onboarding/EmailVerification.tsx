@@ -43,8 +43,8 @@ const EmailVerification = () => {
           We sent an email with verification code to example@email.com To continue please check your
           email and write your code
         </Typography>
-        <Box mt={15} mb={3} display="flex" justifyContent="center">
-        <SixDigitVerification setDisableBtn={setDisableBtn} />
+        <Box mt={15} mb={3} display="flex" flexDirection="column" justifyContent="center">
+          <SixDigitVerification setDisableBtn={setDisableBtn} />
         </Box>
 
         <Typography variant="body2" component="span">
@@ -63,7 +63,12 @@ const EmailVerification = () => {
         </Typography>
       </FormSection>
       <FormSection>
-        <ContinueButton variant="contained" color="primary" disabled={disableBtn} onClick={() => handleSubmit()}>
+        <ContinueButton
+          variant="contained"
+          color="primary"
+          disabled={disableBtn}
+          onClick={() => handleSubmit()}
+        >
           Confirm
           {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </ContinueButton>

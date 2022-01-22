@@ -49,85 +49,95 @@ const PhoneVerification = () => {
         </Box>
       </FormSection>
 
-      {!changePhone && 
-      <FormSection alignItems="stretch" mb={7}>
-        <Typography variant="h5" mb={6} fontWeight="bold">
-          Verify Phone Number
-        </Typography>
-        <Typography variant="body2" align="center" width="85%">
-          Please enter your verification code we sent to +1XXX-XXX-XXXX
-        </Typography>
-        <Box mt={7} mb={7} display="flex" justifyContent="center">
-        <SixDigitVerification setDisableBtn={setDisableBtn} />
-        </Box>
+      {!changePhone && (
+        <FormSection alignItems="stretch" mb={7}>
+          <Typography variant="h5" mb={6} fontWeight="bold">
+            Verify Phone Number
+          </Typography>
+          <Typography variant="body2" align="center" width="85%">
+            Please enter your verification code we sent to +1XXX-XXX-XXXX
+          </Typography>
+          <Box mt={7} mb={7} display="flex" flexDirection="column" justifyContent="center">
+            <SixDigitVerification setDisableBtn={setDisableBtn} />
+          </Box>
 
-        <Typography variant="body2" component="span">
-          Did not receive a code?{' '}
-          <Link
-            component="a"
-            variant="body2"
-            fontWeight="bold"
-            onClick={resendCode}
-            underline="hover"
-            color="#009EF8"
-            href="#"
+          <Typography variant="body2" component="span">
+            Did not receive a code?{' '}
+            <Link
+              component="a"
+              variant="body2"
+              fontWeight="bold"
+              onClick={resendCode}
+              underline="hover"
+              color="#009EF8"
+              href="#"
+            >
+              {`Resend code`}
+            </Link>
+            &nbsp; or &nbsp;
+            <Link
+              component="a"
+              variant="body2"
+              fontWeight="bold"
+              onClick={changePhoneNumber}
+              underline="hover"
+              color="#009EF8"
+              href="#"
+            >
+              {`Change phone number`}
+            </Link>
+          </Typography>
+          <ContinueButton
+            variant="contained"
+            disabled={disableBtn}
+            color="primary"
+            onClick={() => handleSubmit()}
           >
-            {`Resend code`}
-          </Link>
-          &nbsp; or &nbsp;
-          <Link
-            component="a"
-            variant="body2"
-            fontWeight="bold"
-            onClick={changePhoneNumber}
-            underline="hover"
-            color="#009EF8"
-            href="#"
-          >
-            {`Change phone number`}
-          </Link>
-        </Typography>
-        <ContinueButton variant="contained" disabled={disableBtn} color="primary" onClick={() => handleSubmit()}>
-          Submit
-          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
-        </ContinueButton>
-      </FormSection>
-      }
+            Submit
+            {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+          </ContinueButton>
+        </FormSection>
+      )}
 
-      {changePhone && 
-      <FormSection alignItems="stretch" mb={7}>
-      <Typography variant="h5" mb={6} fontWeight="bold">
-        Change Phone Number
-      </Typography>
-      <Typography variant="body2" align="center" width="85%">
-        Please enter the new phone number below
-      </Typography>
-      <Box mt={7} mb={7} display="flex" justifyContent="center">
-      <Formik
-      validationSchema={PhoneDataSchema}
-      initialValues={{
-        mobileNumber: '',
-      }}
-      onSubmit={changePhoneHandle}
-    >
-      <Box component={Form}>
-      <FormControl fullWidth sx={{ my: 2 }}>
-        <CustomTextField
-                id="cellNumber"
-                label="Cell/Office phone"
-                type="tel"
-                name="mobileNumber"
-          />
-        </FormControl>
-      </Box>
-      </Formik>
-      </Box>
-        <ContinueButton variant="contained" color="primary" type="submit" onClick={() => changePhoneHandle()}>
-              Change Number
-          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
-        </ContinueButton>
-    </FormSection>
-      }
+      {changePhone && (
+        <FormSection alignItems="stretch" mb={7}>
+          <Typography variant="h5" mb={6} fontWeight="bold">
+            Change Phone Number
+          </Typography>
+          <Typography variant="body2" align="center" width="85%">
+            Please enter the new phone number below
+          </Typography>
+          <Box mt={7} mb={7} display="flex" justifyContent="center">
+            <Formik
+              validationSchema={PhoneDataSchema}
+              initialValues={{
+                mobileNumber: '',
+              }}
+              onSubmit={changePhoneHandle}
+            >
+              <Box component={Form}>
+                <FormControl fullWidth sx={{ my: 2 }}>
+                  <CustomTextField
+                    id="cellNumber"
+                    label="Cell/Office phone"
+                    type="tel"
+                    name="mobileNumber"
+                  />
+                </FormControl>
+              </Box>
+            </Formik>
+          </Box>
+          <ContinueButton
+            variant="contained"
+            color="primary"
+            type="submit"
+            onClick={() => changePhoneHandle()}
+          >
+            Change Number
+            {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+          </ContinueButton>
+        </FormSection>
+      )}
     </OnBoardingFormContainer>
   );
 };
