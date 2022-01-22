@@ -32,9 +32,10 @@ const PhoneVerification = () => {
     router.push('/signup/user-type');
   };
 
-  const changePhoneHandle = () => {
-      setChangePhone(!changePhone)
-  }
+  const changePhoneHandle = (values: PhoneDataValues) => {
+    debugger;
+    setChangePhone(!changePhone);
+  };
 
   const changePhoneNumber = () => {
       setChangePhone(!changePhone)
@@ -100,42 +101,45 @@ const PhoneVerification = () => {
       )}
 
       {changePhone && (
-        <FormSection alignItems="stretch" mb={7}>
+        <FormSection alignItems="stretch" mb={7} maxWidth={400}>
           <Typography variant="h5" mb={6} fontWeight="bold">
             Change Phone Number
           </Typography>
           <Typography variant="body2" align="center" width="85%">
             Please enter the new phone number below
           </Typography>
-          <Box mt={7} mb={7} display="flex" justifyContent="center">
-            <Formik
-              validationSchema={PhoneDataSchema}
-              initialValues={{
-                mobileNumber: '',
-              }}
-              onSubmit={changePhoneHandle}
-            >
-              <Box component={Form}>
-                <FormControl fullWidth sx={{ my: 2 }}>
-                  <CustomTextField
-                    id="cellNumber"
-                    label="Cell/Office phone"
-                    type="tel"
-                    name="mobileNumber"
-                  />
-                </FormControl>
-              </Box>
-            </Formik>
-          </Box>
-          <ContinueButton
-            variant="contained"
-            color="primary"
-            type="submit"
-            onClick={() => changePhoneHandle()}
+          <Formik
+            validationSchema={PhoneDataSchema}
+            initialValues={{
+              mobileNumber: '',
+            }}
+            onSubmit={changePhoneHandle}
           >
-            Change Number
-            {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
-          </ContinueButton>
+            <Box
+              component={Form}
+              display="flex"
+              justifyContent="center"
+              flexDirection="column"
+              alignItems="center"
+            >
+              <Box mt={7} mb={7}>
+                <Box width={400}>
+                  <FormControl fullWidth sx={{ my: 2 }}>
+                    <CustomTextField
+                      id="cellNumber"
+                      label="Mobile Number"
+                      type="tel"
+                      name="mobileNumber"
+                    />
+                  </FormControl>
+                </Box>
+              </Box>
+              <ContinueButton variant="contained" color="primary" type="submit">
+                Change Number
+                {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+              </ContinueButton>
+            </Box>
+          </Formik>
         </FormSection>
       )}
     </OnBoardingFormContainer>
@@ -150,6 +154,7 @@ const ContinueButton = styled(Button)({
   borderRadius: 8,
   textTransform: 'capitalize',
   color: '#fff',
+  maxWidth: '235px'
 });
 
 export default PhoneVerification;
