@@ -12,14 +12,12 @@ import CustomTextField from 'src/components/common/CustomTextField';
 import { PhoneDataSchema, PhoneDataValues } from 'src/schema/phoneChange-schema';
 import Image from 'next/image';
 
-
 const PhoneVerification = () => {
   const router = useRouter();
   const [loader, setLoader] = useState(false)
   const [changePhone, setChangePhone] = useState(false)
   const [disableBtn, setDisableBtn] = useState(true);
-
-
+  const [code, setCode] = useState([]);
 
   const resendCode = () => {
     toast.success("Code has been sent to your phone number.")
@@ -27,13 +25,33 @@ const PhoneVerification = () => {
   };
 
   const handleSubmit = () => {
-    // goNextStep();
-    setLoader(true)
-    router.push('/signup/user-type');
+    setLoader(true);
+    let isValid = true;
+
+    setTimeout(() => {
+      for (let i = 0; i < code.length; i++) {
+        if (code[i].current?.value !== (i + 1).toString()) {
+          isValid = false;
+          break;
+        }
+      }
+      if (isValid) {
+        router.push('/signup/user-type');
+      } else {
+        toast.error('Invalid code! Please try with valid code.');
+        setDisableBtn(true);
+        for (let i = 0; i < code.length; i++) {
+          if (i === 0) {
+            code[i].current.focus();
+          }
+          code[i].current.value = null;
+        }
+      }
+      setLoader(false);
+    }, 5000);
   };
 
   const changePhoneHandle = (values: PhoneDataValues) => {
-    debugger;
     setChangePhone(!changePhone);
   };
 
@@ -59,7 +77,7 @@ const PhoneVerification = () => {
             Please enter your verification code we sent to +1XXX-XXX-XXXX
           </Typography>
           <Box mt={7} mb={7} display="flex" flexDirection="column" justifyContent="center">
-            <SixDigitVerification setDisableBtn={setDisableBtn} />
+            <SixDigitVerification setDisableBtn={setDisableBtn} loader={loader} setCode={setCode} />
           </Box>
 
           <Typography variant="body2" component="span">

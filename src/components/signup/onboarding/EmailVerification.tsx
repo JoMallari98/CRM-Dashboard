@@ -12,17 +12,36 @@ import Image from 'next/image';
 const EmailVerification = () => {
   const [disableBtn, setDisableBtn] = useState(true);
   const router = useRouter();
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
+  const [code, setCode] = useState([]);
   const resendEmail = () => {
-    toast.success("Code has been sent to you email")
-    // setOpen(true);
+    toast.success("Code has been sent to you email");
   };
 
   const handleSubmit = () => {
     // goNextStep();
-    setLoader(true)
-    router.push('/signup/onboarding/phone-verification');
-    
+    setLoader(true);
+    let isValid = true;
+
+    setTimeout(() => {
+      for (let i = 0; i < code.length; i++) {
+        if (code[i].current?.value !== (i + 1).toString()) {
+          isValid = false;
+          break;
+        }
+      }
+      if (isValid) {
+        router.push('/signup/onboarding/phone-verification');
+      } else {
+        toast.error('Invalid code! Please try with valid code.');
+        setDisableBtn(true);
+        for (let i = 0; i < code.length; i++) {
+          if (i===0) {code[i].current.focus();} 
+          code[i].current.value = null;
+        }
+      }
+      setLoader(false);
+    }, 5000);
   };
 
   return (
@@ -44,7 +63,7 @@ const EmailVerification = () => {
           email and write your code
         </Typography>
         <Box mt={15} mb={3} display="flex" flexDirection="column" justifyContent="center">
-          <SixDigitVerification setDisableBtn={setDisableBtn} />
+          <SixDigitVerification setDisableBtn={setDisableBtn} loader={loader} setCode={setCode} />
         </Box>
 
         <Typography variant="body2" component="span">

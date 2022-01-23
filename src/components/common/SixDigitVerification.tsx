@@ -2,7 +2,6 @@ import React, { useRef, useState, useEffect } from 'react';
 import CustomNumberInput from './CustomNumberInput';
 import { Typography, Box } from '@mui/material';
 const SixDigitVerification = (props: any) => {
-  const [valid, setValid] = useState<boolean>(true);
   const [digits, setDigits] = useState<(number | string)[]>(new Array(6).fill(''));
   const firstDigitRef = useRef<HTMLInputElement>(null);
   const secondDigitRef = useRef<HTMLInputElement>(null);
@@ -18,25 +17,37 @@ const SixDigitVerification = (props: any) => {
     fifthDigitRef,
     sixthDigitRef,
   ];
-
+  
   useEffect(() => {
     if (firstDigitRef.current) {
       firstDigitRef.current.focus();
     }
   }, []);
 
+  useEffect(() => {
+    if (props.loader === false) {
+      const newDigits = digits.map((digit, i) => {
+        return '';
+      });
+      setDigits(newDigits);
+      for (let i = 0; i < refs.length; i++) {
+        refs[i].current.value = '';
+      }
+    }
+  }, [props.loader]);
+
   const isValid = () => {
     let isValid = true;
     for (let i =0; i<refs.length; i++) {
-      if (refs[i].current?.value !== (i + 1).toString()) {
-        isValid = false;
-        setValid(false);
-        break;
-      }
+        if (!refs[i].current?.value) {
+          isValid = false;
+          break;
+        }
     }
     if (isValid) {
       props.setDisableBtn(false);
-      setValid(true);
+    } else {
+      props.setCode(refs);
     }
   };
 
@@ -77,7 +88,7 @@ const SixDigitVerification = (props: any) => {
           );
         })}
       </Box>
-      {!valid && (
+      {/* {!valid && (
         <Typography
           sx={{
             color: 'red',
@@ -95,7 +106,7 @@ const SixDigitVerification = (props: any) => {
         >
           Code is not valid
         </Typography>
-      )}
+      )} */}
     </>
   );
 };
