@@ -14,6 +14,7 @@ export enum PageType {
   USER_TYPE = '/User_type_img.png',
   USER_DATA = '/type_of_user_form.png',
   VERIFICATION_Select = '/verification_img.png',
+  WRONG_CODE = '/WrongCode.png',
   INVALID_DATA = '/InvalidData_img.png',
   CONFIRM_CRD = '/ConfirmCRD_img.png',
   BACKGROUND = '/bg_img.png',
@@ -52,6 +53,7 @@ const LogoBrandingSection: React.FC<Props> = ({ description, type }) => {
 
   return (
     <Wrapper
+      data-testid="background"
       style={{
         background: `url('${type}') no-repeat`,
       }}
@@ -87,7 +89,7 @@ const LogoBrandingSection: React.FC<Props> = ({ description, type }) => {
 const Wrapper = styled(Box)`
   height: 93vh;
   display: flex;
-  width: "120%";
+  width: '120%';
   flex-direction: column;
   border-top-left-radius: 16px;
   border-bottom-left-radius: 16px;

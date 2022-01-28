@@ -24,7 +24,6 @@ const UserDataForm = () => {
   const router = useRouter();
 
   const handleSubmit = (values: RepDataValues) => {
-    console.log('handleSubmit', values);
     goNextStep();
   };
 

@@ -12,18 +12,20 @@ import {
   Stack,
 } from '@mui/material';
 import { useRouter } from 'next/router';
+import { InvestorQuestions, useOnboarding } from 'src/context/userOnBoardingContext';
+
 const DeclinedElectronicDelivery = () => {
   const router = useRouter();
+  const { goToQuestion } = useOnboarding();
 
   const onDisagree = () => {
     router.push('/signup');
   };
 
   const onAgree = () => {
-    //create profile
-    console.log('creating profile...');
-    router.push('/dashboard');
+    goToQuestion(InvestorQuestions.WelcomePage);
   };
+
 
   return (
     <Box display="flex" justifyContent="center" alignItems="center" mt={10}>
@@ -33,7 +35,7 @@ const DeclinedElectronicDelivery = () => {
             You have declined electronic delivery
           </Typography>
           <Container maxWidth="sm">
-            <Typography mb={2} align="center">
+            <Typography mb={2} ml="10%" fontWeight={400} fontSize={14} width="80%" align="center">
               We are unable to continue your registration without your consent to electronic
               delivery of documents.
             </Typography>

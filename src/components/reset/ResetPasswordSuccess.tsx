@@ -8,14 +8,15 @@ import {
   useMediaQuery,
   Box,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { useRouter } from 'next/router';
+import Image from 'next/image'
 import { FormSection } from 'src/components/common/FormSection';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 
 const ResetPasswordSuccess = () => {
   const router = useRouter();
-
+  const [loader, setLoader] = useState(false);
   const theme = useTheme();
   const mdUp = useMediaQuery(theme.breakpoints.up('sm'));
   const goToForgotPassword = () => {
@@ -27,6 +28,12 @@ const ResetPasswordSuccess = () => {
     router.push('/reset-password');
   };
 
+  const handleGoToSignIn = () => {
+    setLoader(true)
+    setTimeout(() => {
+      router.push('/signin');      
+    }, 3000);
+  }
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <Box display="flex" alignItems="center" width="100%" pt={5} pl={5}>
@@ -34,14 +41,14 @@ const ResetPasswordSuccess = () => {
           <ArrowBack fontSize="small" />
         </IconButton>
       </Box>
-      <FormSection maxWidth={mdUp ? '56%' : '80%'}>
+      <FormSection maxWidth={mdUp ? '60%' : '80%'}>
         <Box display="flex" flexDirection="column" alignItems="center" width="100%" mt={20}>
-          <Typography variant="h5" fontWeight="bold" flexGrow={1} textAlign="center">
-            We’ve sent you a letter with reset password link
+          <Typography variant="h4" fontWeight="600" fontSize="24px" flexGrow={1} textAlign="center">
+            Please use the link we emailed you to reset your password
           </Typography>
 
-          <Typography mt={3} variant="body2" fontWeight="normal" flexGrow={1} textAlign="center">
-            If you don’t recieve anything, check your email’s spam, or{' '}
+          <Typography mt={3} width="90%" variant="body2" fontWeight="normal" flexGrow={1} textAlign="center">
+            If you don’t receive anything, check your email’s spam, or{' '}
             <Box
               onClick={handleResetEmail}
               component="span"
@@ -53,17 +60,19 @@ const ResetPasswordSuccess = () => {
             >
               click here
             </Box>{' '}
-            to recieve a new letter.
+            to receive a new letter.
           </Typography>
         </Box>
         <Box>
           <ConfirmationButton
             variant="contained"
             color="primary"
-            sx={{ px: 2, py: 1, my: 2, mt: 10 }}
+            sx={{ px: 2, py: 1, my: 2, mt: 10, fontWeight: 600 }}
             type="submit"
+            onClick={handleGoToSignIn}
           >
-            Go back to Sign In
+            Go back to Sign In{'  '}
+            {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
           </ConfirmationButton>
         </Box>
       </FormSection>

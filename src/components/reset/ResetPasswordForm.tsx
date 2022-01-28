@@ -9,17 +9,18 @@ import {
   useMediaQuery,
   Box,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import { FormSection } from 'src/components/common/FormSection';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 import { useRouter } from 'next/router';
 import { Formik, Form } from 'formik';
 import { resetPasswordSchema, ResetPasswordValues } from 'src/schema/reset-schema';
 import TextField from 'src/components/common/formik/TextField';
+import Image from 'next/image'
 
 const ResetPasswordFormScreen = () => {
   const router = useRouter();
-
+  const [loader, setLoader] = useState(false);
   const theme = useTheme();
   const mdUp = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -29,9 +30,11 @@ const ResetPasswordFormScreen = () => {
 
   const handleSubmit = (values: ResetPasswordValues) => {
     //api call for reset password
-    console.log('handleSubmit', values);
+    setLoader(true)
     // after API response redirect to this page...
-    router.push('/reset-password/success');
+    setTimeout(() => {
+      router.push('/reset-password/success');      
+    }, 3000);
   };
 
   return (
@@ -42,14 +45,14 @@ const ResetPasswordFormScreen = () => {
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>
-        <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <Typography variant="h5" fontWeight="bold" flexGrow={1} textAlign="center">
+        <Box display="flex" alignItems="center" width="100%" mt={5} mb={3}>
+          <Typography variant="h4" fontWeight={600} fontSize={24} flexGrow={1} textAlign="center">
             Forgot your password?
           </Typography>
         </Box>
         <Box width={mdUp ? '70%' : '100%'}>
           <Typography mt={3} variant="body2" fontWeight="normal" flexGrow={1} textAlign="center">
-            Enter your email to get the instructions how to reset your password
+            Enter your email to get the instructions about how to reset your password
           </Typography>
 
           <Formik
@@ -69,21 +72,27 @@ const ResetPasswordFormScreen = () => {
               <FormControl fullWidth>
                 <TextField
                   variant="outlined"
-                  label="E-mail"
+                  label="Write your email"
                   size="small"
                   id="email"
                   name="email"
                   type="text"
+                  sx={{
+                    '& .MuiInputBase-root': {
+                      borderRadius: 2,
+                    },
+                  }}
                 />
               </FormControl>
 
               <ConfirmationButton
                 variant="contained"
                 color="primary"
-                sx={{ px: 2, py: 1, my: 2, mt: 10 }}
+                sx={{ px: 2, py: 1, my: 2, mt: 20 }}
                 type="submit"
               >
-                Reset password
+                Reset password {'  '}
+                {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
               </ConfirmationButton>
             </StyledBox>
           </Formik>

@@ -12,7 +12,7 @@ import {
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useOnboarding } from 'src/context/userOnBoardingContext';
-import CustomTextField from 'src/components/common/CustomTextField';
+import CustomTextField from 'src/components/common/CustomTextFieldForSignUpForm';
 import { FormSection } from 'src/components/common/FormSection';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 import { useRouter } from 'next/router';
@@ -23,16 +23,19 @@ import { userDataSchema, UserDataValues } from 'src/schema/userdata-schema';
 const UserDataForm = () => {
   // const { goNextStep } = useOnboarding();
   const router = useRouter();
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
+  const [username, setUsername] = useState('');
 
   const onPrevStep = () => router.back();
 
   const handleSubmit = (values: UserDataValues) => {
     //api call for signin email and password
-    setLoader(true)
-    console.log('handleSubmit', values);
-    router.push('/signup/onboarding/email-verification');
-    // goNextStep();
+    setLoader(true);
+    localStorage.setItem("email", values.email);
+    localStorage.setItem("mobile-number", values.mobileNumber)
+    setTimeout(() => {
+      router.push('/signup/onboarding/email-verification');      
+    }, 2000);
   };
 
   return (
@@ -50,25 +53,26 @@ const UserDataForm = () => {
         <FormSection mt={6} mb={2}>
           <Box display="flex" alignItems="center" width="100%" mb={3}>
             <IconButton onClick={onPrevStep}>
-              <ArrowBack fontSize="small" />
+              <ArrowBack data-testid="back-btn" fontSize="small" />
             </IconButton>
-            <Typography variant="body2" fontWeight="bold" flexGrow={1} textAlign="center">
+            <Typography variant="body2" fontWeight={500} fontSize="16px" lineHeight="24px" flexGrow={1} textAlign="center">
               Create your ideal profile
             </Typography>
           </Box>
           <Box width="100%">
             <LinearProgress
               variant="determinate"
+              data-testid="progress-bar"
               value={80}
               sx={{
                 height: 8,
                 borderRadius: 5,
                 [`& .${linearProgressClasses.bar}`]: {
                   borderRadius: 5,
-                  backgroundColor: "#60C130",
+                  backgroundColor: '#60C130',
                 },
               }}
-              style={{ background: "#dbffc9" }}
+              style={{ background: '#dbffc9' }}
             />
           </Box>
         </FormSection>
@@ -79,19 +83,38 @@ const UserDataForm = () => {
           </Typography>
           <Typography variant="body2">All fields are required</Typography>
 
-          <Box mt={3}>
+          <Box mt={3} width="380px" >
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField id="userName" name="UserName" label="Username"/>
+              <CustomTextField
+                id="userName"
+                name="UserName"
+                label="Username"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+              />
             </FormControl>
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField label="First Name" id="firstName" name="firstName" />
+              <CustomTextField
+                label="First Name"
+                id="firstName"
+                name="firstName"
+              />
             </FormControl>
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField label="Last Name" id="lastName" name="lastName" />
+              <CustomTextField
+                label="Last Name"
+                id="lastName"
+                name="lastName"
+              />
             </FormControl>
 
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField label="E-mail" type="email" id="email" name="email" />
+              <CustomTextField
+                label="E-mail"
+                type="email"
+                id="email"
+                name="email"
+              />
             </FormControl>
             <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField
@@ -106,7 +129,7 @@ const UserDataForm = () => {
         <FormSection>
           <ContinueButton variant="contained" type="submit">
             Continue
-            {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+            {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
           </ContinueButton>
         </FormSection>
       </OnBoardingFormContainer>

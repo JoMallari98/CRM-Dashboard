@@ -27,7 +27,7 @@ const InvestmentGoal = () => {
     },
     {
       value: 4,
-      text: 'Minimize sudden ups and downs',
+      text: 'Minimize ups and downs',
       icon: <UpAndDowIcon />,
     },
   ];

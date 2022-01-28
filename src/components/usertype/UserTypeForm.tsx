@@ -20,12 +20,12 @@ type SelectItem = {
 const UserTypeForm = () => {
   const router = useRouter();
   const typeOfUsers: SelectItem[] = [
-    { text: 'I am an investor', value: UserType.Investor, emoji: '🤓' },
-    { text: 'I’m an investment advisor', value: UserType.Rep, emoji: '💼' },
-    { text: 'I work with an advisor', value: UserType.Investor, emoji: '💸' },
-    { text: 'I’m a registered broker', value: UserType.Investor, emoji: '🎓' },
+    { text: 'An investment advisor', value: UserType.Investor, emoji: '🤓' },
+    { text: 'Employed at an advisory firm', value: UserType.Rep, emoji: '💼' },
+    { text: 'A registered broker', value: UserType.Investor, emoji: '💸' },
+    { text: 'Employed at a brokerage firm', value: UserType.Investor, emoji: '🎓' },
     {
-      text: 'I work for a financial institution, but I am neither an advisor nor a broker',
+      text: 'Employed by a financial institution',
       value: UserType.Investor,
       emoji: '🏢',
     },
@@ -55,11 +55,11 @@ const UserTypeForm = () => {
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={5} mb={2}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.back()}>
+          <IconButton data-testid="back-btn" onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
 
-          <Typography variant="body2" fontWeight="500" flexGrow={1} textAlign="center">
+          <Typography variant="body2" fontSize={16} fontWeight="500" flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>
@@ -67,15 +67,16 @@ const UserTypeForm = () => {
           <LinearProgress
             variant="determinate"
             value={60}
+            data-testid="progress-bar"
             sx={{
               height: 8,
               borderRadius: 5,
               [`& .${linearProgressClasses.bar}`]: {
                 borderRadius: 5,
-                backgroundColor: "#60C130",
+                backgroundColor: '#60C130',
               },
             }}
-            style={{ background: "#dbffc9" }}
+            style={{ background: '#dbffc9' }}
           />
         </Box>
       </FormSection>

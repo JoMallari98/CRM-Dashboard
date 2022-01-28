@@ -8,6 +8,7 @@ import InvestmentGoal from './InvestmentGoal';
 import InvestmentStyle from './InvestmentStyle';
 import PrivacyPolicy from './PrivacyPolicy';
 import Logo from 'public/Logo.svg';
+import WelcomePage from './WelcomePage';
 
 const InvestmentQuestions = () => {
   const { currentQuestion } = useOnboarding();
@@ -24,6 +25,8 @@ const InvestmentQuestions = () => {
         return PrivacyPolicy;
       case InvestorQuestions.DeclinedElectronicDelivery:
         return DeclinedElectronicDelivery;
+      case InvestorQuestions.WelcomePage:
+        return WelcomePage;
       default:
         return null;
     }

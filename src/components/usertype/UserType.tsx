@@ -25,26 +25,27 @@ const UserType = () => {
       <FormSection mt={6} mb={2}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           {/* Apply Previous Step Here*/}
-          <IconButton onClick={() => router.back()}>
-            <ArrowBack fontSize="small" />
+          <IconButton data-testid="back-btn" onClick={() => router.back()}>
+            <ArrowBack  fontSize="small" />
           </IconButton>
-          <Typography variant="body2" fontWeight="500" flexGrow={1} textAlign="center">
+          <Typography variant="body2" fontSize={16} fontWeight="500" flexGrow={1} textAlign="center">
             Create your ideal profile
           </Typography>
         </Box>
         <Box width="100%">
           <LinearProgress
             variant="determinate"
+            data-testid="progress-bar"
             value={20}
             sx={{
               height: 8,
               borderRadius: 5,
               [`& .${linearProgressClasses.bar}`]: {
                 borderRadius: 5,
-                backgroundColor: "#60C130",
+                backgroundColor: '#60C130',
               },
             }}
-            style={{ background: "#dbffc9" }}
+            style={{ background: '#dbffc9' }}
           />
         </Box>
         <Box width="100%" mt={10}>
@@ -57,7 +58,7 @@ const UserType = () => {
               fontWeight: '500',
             }}
           >
-            By the way would you like register as an investor or a financial professional?
+            By the way would you like to register as an investor or a financial professional?
           </Typography>
         </Box>
 
@@ -100,7 +101,7 @@ const Wrapper = styledComponent(Paper)`
   margin-top: 40px;
   height: 110px;
   align-items: center;
-  width: 100%;
+  width: 95%;
   padding: 12px;
   cursor: pointer;
   border-radius: 16px;

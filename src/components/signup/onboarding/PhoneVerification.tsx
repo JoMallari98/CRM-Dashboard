@@ -1,27 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 import { FormSection } from 'src/components/common/FormSection';
 import { ArrowBack, PhoneDisabled } from '@mui/icons-material';
-import { Link, FormControl, Button, IconButton, styled, Typography, Box, TextField } from '@mui/material';
+import {
+  Link,
+  Button,
+  IconButton,
+  styled,
+  Typography,
+  Box,
+} from '@mui/material';
 import SixDigitVerification from 'src/components/common/SixDigitVerification';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
-import { Formik, Form } from 'formik';
-import { InputBase, InputBaseProps, Paper } from '@mui/material';
-import CustomTextField from 'src/components/common/CustomTextField';
-import { PhoneDataSchema, PhoneDataValues } from 'src/schema/phoneChange-schema';
+import { InputBase } from '@mui/material';
+import Popup from 'src/components/common/Popup';  
 import Image from 'next/image';
 
 const PhoneVerification = () => {
   const router = useRouter();
-  const [loader, setLoader] = useState(false)
-  const [changePhone, setChangePhone] = useState(false)
+  const [loader, setLoader] = useState(false);
   const [disableBtn, setDisableBtn] = useState(true);
-  const [code, setCode] = useState([]);
+  const [code, setCode] = useState<any>([]);
+  const [popUp, setPopUp] = useState(false);
+  const [resendCode, setResendCode] = useState(false);
 
-  const resendCode = () => {
-    toast.success("Code has been sent to your phone number.")
-    // setOpen(true);
+  const resendCodehandle = () => {
+    setResendCode(true)
+    setPopUp(true)
   };
 
   const handleSubmit = () => {
@@ -30,7 +36,7 @@ const PhoneVerification = () => {
 
     setTimeout(() => {
       for (let i = 0; i < code.length; i++) {
-        if (code[i].current?.value !== (i + 1).toString()) {
+        if (code[i].current.value !== (i + 1).toString()) {
           isValid = false;
           break;
         }
@@ -51,24 +57,22 @@ const PhoneVerification = () => {
     }, 5000);
   };
 
-  const changePhoneHandle = (values: PhoneDataValues) => {
-    setChangePhone(!changePhone);
-  };
-
   const changePhoneNumber = () => {
-      setChangePhone(!changePhone)
-  }
+    setResendCode(false)
+    setPopUp(true)
+  };
   return (
+    <Fragment>
+    {!resendCode ? <Popup popUp={popUp} resendCode={resendCode} Mobile={true} setPopUp={setPopUp} title="Change phone number" description="Please enter another phone number to confirm your identity" buttonText="Confirm"/> : <Popup Mobile={true} resendCode={resendCode} popUp={popUp} setPopUp={setPopUp} title="Resend a code to my mobile phone" description="Please confirm your mobile phone number and request a new code" buttonText="Send code"/>}
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={4}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.back()}>
-            <ArrowBack fontSize="small" />
+          <IconButton data-testid="back-btn" onClick={() => router.back()}>
+            <ArrowBack  fontSize="small" />
           </IconButton>
         </Box>
       </FormSection>
 
-      {!changePhone && (
         <FormSection alignItems="stretch" mb={7}>
           <Typography variant="h5" mb={6} fontWeight="bold">
             Verify Phone Number
@@ -80,13 +84,14 @@ const PhoneVerification = () => {
             <SixDigitVerification setDisableBtn={setDisableBtn} loader={loader} setCode={setCode} />
           </Box>
 
-          <Typography variant="body2" component="span">
-            Did not receive a code?{' '}
+          <Typography variant="body2" data-testis="receive-code" component="span">
+            Didn't receive a code?{' '}
             <Link
               component="a"
               variant="body2"
+              data-testid="resend-code-btn"
               fontWeight="bold"
-              onClick={resendCode}
+              onClick={resendCodehandle}
               underline="hover"
               color="#009EF8"
               href="#"
@@ -100,6 +105,7 @@ const PhoneVerification = () => {
               fontWeight="bold"
               onClick={changePhoneNumber}
               underline="hover"
+              data-testid="change-phone-btn"
               color="#009EF8"
               href="#"
             >
@@ -113,12 +119,11 @@ const PhoneVerification = () => {
             onClick={() => handleSubmit()}
           >
             Submit
-            {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+            {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
           </ContinueButton>
         </FormSection>
-      )}
 
-      {changePhone && (
+      {/* {changePhone && (
         <FormSection alignItems="stretch" mb={7} maxWidth={400}>
           <Typography variant="h5" mb={6} fontWeight="bold">
             Change Phone Number
@@ -152,15 +157,21 @@ const PhoneVerification = () => {
                   </FormControl>
                 </Box>
               </Box>
-              <ContinueButton variant="contained" color="primary" type="submit">
+              <ContinueButton
+                variant="contained"
+                data-testid="change-number"
+                color="primary"
+                type="submit"
+              >
                 Change Number
-                {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+                {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
               </ContinueButton>
             </Box>
           </Formik>
         </FormSection>
-      )}
+      )} */}
     </OnBoardingFormContainer>
+    </Fragment>
   );
 };
 
@@ -172,7 +183,7 @@ const ContinueButton = styled(Button)({
   borderRadius: 8,
   textTransform: 'capitalize',
   color: '#fff',
-  maxWidth: '235px'
+  maxWidth: '235px',
 });
 
 export default PhoneVerification;

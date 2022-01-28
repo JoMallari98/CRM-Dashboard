@@ -40,7 +40,6 @@ const RepTypeForm = () => {
   };
 
   const handleRadioChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log('handleRadioChange', event.target.value);
     setRepType(Number(event.target.value));
   };
   return (

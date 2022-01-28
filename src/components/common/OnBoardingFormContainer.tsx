@@ -1,4 +1,4 @@
-import { Box, BoxProps, Paper, styled } from '@mui/material';
+import { Box, BoxProps, Paper, styled, useMediaQuery, useTheme } from '@mui/material';
 import { Close as CloseMuiIcon } from '@mui/icons-material';
 import styledComponent from 'styled-components';
 import React from 'react';
@@ -10,8 +10,18 @@ const OnBoardingFormContainer: React.FC<OnBoardingFormContainer & BoxProps> = ({
   CloseIcon = false,
   ...props
 }) => {
+  const theme = useTheme();
+  const mdDown = useMediaQuery(theme.breakpoints.down('md'));
+
   return (
-    <Box height="93vh"  width="100%" ml="-20px" display="flex" flexDirection="column" alignItems="stretch">
+    <Box
+      height="93vh"
+      width="100%"
+      ml={mdDown ? "0px" : "-20px"}
+      display="flex"
+      flexDirection="column"
+      alignItems="stretch"
+    >
       <StyledPaper elevation={0}>
         <Box
           display="flex"

@@ -39,6 +39,7 @@ export enum InvestorQuestions {
   InvestmentGoal,
   ElectronicDeliveryConfirmation,
   DeclinedElectronicDelivery,
+  WelcomePage,
 }
 
 export const OnBoardingContextProvider: React.FC = ({ children }) => {

@@ -1,4 +1,4 @@
-import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { VisibilityOutlined } from '@mui/icons-material';
 import {
   Box,
   Typography,
@@ -7,6 +7,7 @@ import {
   IconButton,
   useMediaQuery,
   useTheme,
+  Avatar,
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React, { useState } from 'react';
@@ -27,19 +28,17 @@ const SignInForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const [loader, setLoader] = useState(false)
-
+  const [loader, setLoader] = useState(false);
 
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
-      {showPassword ? <Visibility /> : <VisibilityOff />}
+      {showPassword ? <VisibilityOutlined /> : <Avatar src="/VisibilityOff.png" data-testid="visibility-off" sx={{ height: "21px", width: "21px", objectFit: "cover", }}></Avatar>}
     </IconButton>
   );
 
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
-    setLoader(true)
-    console.log('handleSubmit', values);
+    setLoader(true);
     router.push('/dashboard');
   };
 
@@ -53,7 +52,7 @@ const SignInForm = () => {
       }}
     >
       <OnBoardingFormContainer component={Form} CloseIcon={true}>
-        <Typography variant="h5" fontWeight="bold">
+        <Typography variant="h4" fontWeight={600} fontSize="24px" lineHeight="29.26px">
           Sign In
         </Typography>
 
@@ -85,17 +84,20 @@ const SignInForm = () => {
                 ml={2}
                 mt={1}
                 component="a"
-                fontWeight="bold"
+                fontWeight="600"
+                fontSize="14px"
+                fontStyle="normal"
+                lineHeight="21px"
                 variant="body2"
                 color="textSecondary"
                 style={{ color: '#009EF8' }}
               >
-                Forgot Password?
+                Forgot password?
               </Typography>
             </Link>
           </FormControl>
         </StyledBox>
-        <Typography variant="body2" sx={{ my: 3 }}>
+        <Typography variant="body2" sx={{ mt: 1, mb: 3 }} fontWeight={500}>
           {' '}
           or{' '}
         </Typography>
@@ -128,17 +130,17 @@ const SignInForm = () => {
 
         <SignInButton
           variant="contained"
-          sx={{ px: 8, py: 1, my: 2 }}
+          sx={{ my: 2 }}
           data-testid="sign-in-button"
           type="submit"
         >
           Sign In
-          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+          {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </SignInButton>
-        <Typography variant="body2">
+        <Typography variant="body2" fontWeight={500}>
           {`Don't have an account? `}
           <Link href="/signup" passHref>
-            <Typography fontWeight="bold" component="a" style={{ color: '#009EF8' }}>
+            <Typography fontWeight="bold" fontSize="14px" component="a" style={{ color: '#009EF8' }}>
               Sign Up
             </Typography>
           </Link>
@@ -157,13 +159,7 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   paddingBottom: 8,
   justifyContent: 'flex-start',
   [theme.breakpoints.up('xs')]: {
-    paddingLeft: 40,
-  },
-  [theme.breakpoints.up('md')]: {
-    paddingLeft: 80,
-  },
-  [theme.breakpoints.up('lg')]: {
-    paddingLeft: 150,
+    paddingLeft: 90,
   },
   textTransform: 'capitalize',
   boxShadow: 'unset',
@@ -171,11 +167,15 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
 
 const SignInButton = styled(Button)({
   textTransform: 'capitalize',
-  color: '#fff',
+  width: "153px",
+  height: "48px",
+  padding: "14px, 48px, 13px, 48px",
+  fontSize: "14px",
+  color: '#ffff',
 });
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  width: '90%',
+  width: '380px !important',
   [theme.breakpoints.up('sm')]: {
     width: '70%',
   },

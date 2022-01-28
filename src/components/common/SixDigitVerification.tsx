@@ -17,7 +17,7 @@ const SixDigitVerification = (props: any) => {
     fifthDigitRef,
     sixthDigitRef,
   ];
-  
+
   useEffect(() => {
     if (firstDigitRef.current) {
       firstDigitRef.current.focus();
@@ -31,18 +31,18 @@ const SixDigitVerification = (props: any) => {
       });
       setDigits(newDigits);
       for (let i = 0; i < refs.length; i++) {
-        refs[i].current.value = '';
+        refs[i].current!.value = '';
       }
     }
   }, [props.loader]);
 
   const isValid = () => {
     let isValid = true;
-    for (let i =0; i<refs.length; i++) {
-        if (!refs[i].current?.value) {
-          isValid = false;
-          break;
-        }
+    for (let i = 0; i < refs.length; i++) {
+      if (!refs[i].current?.value) {
+        isValid = false;
+        break;
+      }
     }
     if (isValid) {
       props.setDisableBtn(false);

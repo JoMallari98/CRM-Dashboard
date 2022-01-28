@@ -1,5 +1,5 @@
-import { Visibility, VisibilityOff } from '@mui/icons-material';
-import { Box, Typography, FormControl, Button, IconButton } from '@mui/material';
+import { VisibilityOutlined } from '@mui/icons-material';
+import { Box, Typography, FormControl, Button, IconButton, Avatar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import React, { useState } from 'react';
 import Link from 'next/link';
@@ -17,17 +17,16 @@ import Image from 'next/image';
 const SignUpForm = () => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [loader, setLoader] = useState(false)
+  const [loader, setLoader] = useState(false);
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
-      {showPassword ? <Visibility /> : <VisibilityOff />}
+      {showPassword ? <VisibilityOutlined /> : <Avatar src="/VisibilityOff.png" data-testid="visibility-off" sx={{ height: "21px", width: "21px", objectFit: "cover", }}></Avatar>}
     </IconButton>
   );
 
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
-    setLoader(true)
-    console.log('handleSubmit', values);
+    setLoader(true);
     router.push('/signup/user-data');
   };
   return (
@@ -40,7 +39,7 @@ const SignUpForm = () => {
       }}
     >
       <OnBoardingFormContainer component={Form} CloseIcon>
-        <Typography variant="h5" fontWeight="bold">
+        <Typography variant="h4" fontSize="24px" fontWeight={600} lineHeight="29.26px">
           Sign Up
         </Typography>
 
@@ -51,6 +50,7 @@ const SignUpForm = () => {
           <FormControl fullWidth sx={{ my: 2 }}>
             <TextField
               variant="outlined"
+              data-testid="Password"
               type={showPassword ? 'text' : 'password'}
               label="Password"
               id="password"
@@ -62,7 +62,7 @@ const SignUpForm = () => {
             />
           </FormControl>
         </StyledBox>
-        <Typography variant="body2" my={2}>
+        <Typography variant="body2" my={2} fontWeight={500}>
           {' '}
           or{' '}
         </Typography>
@@ -96,17 +96,17 @@ const SignUpForm = () => {
         <SignInButton
           variant="contained"
           color="primary"
-          sx={{ px: 8, py: 1, my: 2 }}
+          sx={{ my: 2 }}
           data-testid="sign-up-button"
           type="submit"
         >
           Sign Up
-          {loader && <Image src="/loader.gif" width="20px" height="20px" alt="loader" />}
+          {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
         </SignInButton>
-        <Typography variant="body2">
+        <Typography variant="body2" fontWeight={500}>
           {`Already have an account? `}
           <Link href="/signin" passHref>
-            <Typography fontWeight="bold" component="a" style={{ color: '#009EF8' }}>
+            <Typography fontWeight="bold" fontSize="14px" component="a" style={{ color: '#009EF8' }}>
               Sign In
             </Typography>
           </Link>
@@ -125,14 +125,7 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   paddingBottom: 8,
   justifyContent: 'flex-start',
   [theme.breakpoints.up('xs')]: {
-    paddingLeft: 40,
-  },
-  [theme.breakpoints.up('md')]: {
     paddingLeft: 80,
-  },
-
-  [theme.breakpoints.up('lg')]: {
-    paddingLeft: 150,
   },
   textTransform: 'capitalize',
   boxShadow: 'unset',
@@ -140,11 +133,15 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
 
 const SignInButton = styled(Button)({
   textTransform: 'capitalize',
+  width: "153px",
+  height: "48px",
+  padding: "14px, 48px, 13px, 48px",
+  fontSize: "14px",
   color: '#ffff',
 });
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  width: '90%',
+  width: '380px !important',
   [theme.breakpoints.up('sm')]: {
     width: '70%',
   },

@@ -46,7 +46,7 @@ const VerificationForm = () => {
         </Box>
 
         <Typography variant="body2" component="span">
-          Did not receive a code?{' '}
+          Didn't receive a code?{' '}
           <Link
             component="a"
             variant="body2"

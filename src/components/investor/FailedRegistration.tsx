@@ -18,7 +18,7 @@ const FailedRegistration = () => {
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <FormSection mt={6} mb={13}>
         <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton onClick={() => router.back()}>
+          <IconButton data-testid="back-btn" onClick={() => router.back()}>
             <ArrowBack fontSize="small" />
           </IconButton>
         </Box>

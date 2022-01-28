@@ -6,7 +6,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "test": "jest",
+    "test": "jest --coverage",
     "format": "prettier --write \"src/**/*.+(js|jsx|ts|tsx|json|css|md)\"  \"pages/**/*.{ts,tsx}\""
   },
   "dependencies": {
@@ -19,6 +19,7 @@
     "@mui/system": "^5.2.3",
     "@svgr/webpack": "^6.1.2",
     "formik": "^2.2.9",
+    "jest-dom": "^4.0.0",
     "next": "12.0.4",
     "next-auth": "^4.0.5",
     "react": "17.0.2",

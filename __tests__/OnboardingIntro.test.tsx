@@ -7,6 +7,7 @@ import { render, screen } from "@testing-library/react";
 import OnBoardingIntro from "src/components/common/OnBoardingIntro";
 
 describe("Onboarding Intro", () => {
+  // Test for Welcome User
   it("should render a section to welcome the user", () => {
     render(<OnBoardingIntro />);
 
@@ -18,6 +19,7 @@ describe("Onboarding Intro", () => {
     ).toBeInTheDocument();
     expect(screen.getByText("Let's Start")).toBeInTheDocument();
   });
+  // Test For route to sign in
   it("should have to /signin after clicking Let's Start", () => {
     render(<OnBoardingIntro />);
 

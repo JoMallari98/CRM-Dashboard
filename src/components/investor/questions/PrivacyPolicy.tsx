@@ -19,7 +19,7 @@ const PrivacyPolicy = () => {
   const router = useRouter();
   const mdDown = useMediaQuery(theme.breakpoints.down('md'));
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
-  const xsDown = useMediaQuery(theme.breakpoints.down('xs'));  
+  const xsDown = useMediaQuery(theme.breakpoints.down('xs'));
   const xsUp = useMediaQuery(theme.breakpoints.up('xs'));
   const smUp = useMediaQuery(theme.breakpoints.up('sm'));
   const { goToQuestion } = useOnboarding();
@@ -29,6 +29,7 @@ const PrivacyPolicy = () => {
 
   const onAgree = () => {
     //create profile
+    goToQuestion(InvestorQuestions.WelcomePage);
   };
 
   const handleGoBackSignup = () => {
@@ -47,7 +48,15 @@ const PrivacyPolicy = () => {
             Go back to Sign Up
           </PrevButton>
         </Hidden>
-        <QuestionContainer   style={mdDown && smUp ? {width: '80%', marginLeft: "10%"} : smDown && xsUp ? {width: "95%", marginLeft: "2.5%", padding: "30px"} : {width: '55%'}}>
+        <QuestionContainer
+          style={
+            mdDown && smUp
+              ? { width: '80%', marginLeft: '10%' }
+              : smDown && xsUp
+              ? { width: '95%', marginLeft: '2.5%', padding: '30px' }
+              : { width: '55%' }
+          }
+        >
           <Box display="flex" flexDirection="column" width="100%">
             <Typography variant="h6" fontSize={22} mb={2} align="center">
               Electronic Delivery Agreement
@@ -76,24 +85,24 @@ const PrivacyPolicy = () => {
                 Should you decline electronic delivery, we will decline to open an account for you, and will close any
                 account that may have been opened by you previously.
               </Typography> */}
-            <Box display="flex" justifyContent="center">
-              <ConfirmationButton
-                variant="contained"
-                color="primary"
-                onClick={() => router.push('/dashboard')}
-                style={{ color: '#fff' }}
-              >
-                Yes, I Agree
-              </ConfirmationButton>
-              <ConfirmationButton
-                sx={{ ml: 2 }}
-                variant="outlined"
-                color="primary"
-                onClick={onDisagree}
-              >
-                I Decline
-              </ConfirmationButton>
-            </Box>
+              <Box display="flex" justifyContent="center">
+                <ConfirmationButton
+                  variant="contained"
+                  color="primary"
+                  onClick={onAgree}
+                  style={{ color: '#fff' }}
+                >
+                  Yes, I Agree
+                </ConfirmationButton>
+                <ConfirmationButton
+                  sx={{ ml: 2 }}
+                  variant="outlined"
+                  color="primary"
+                  onClick={onDisagree}
+                >
+                  I Decline
+                </ConfirmationButton>
+              </Box>
             </Container>
           </Box>
         </QuestionContainer>
