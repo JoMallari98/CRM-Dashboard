@@ -26,9 +26,15 @@ const UserType = () => {
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           {/* Apply Previous Step Here*/}
           <IconButton data-testid="back-btn" onClick={() => router.back()}>
-            <ArrowBack  fontSize="small" />
+            <ArrowBack fontSize="small" />
           </IconButton>
-          <Typography variant="body2" fontSize={16} fontWeight="500" flexGrow={1} textAlign="center">
+          <Typography
+            variant="body2"
+            fontSize={16}
+            fontWeight="500"
+            flexGrow={1}
+            textAlign="center"
+          >
             Create your ideal profile
           </Typography>
         </Box>

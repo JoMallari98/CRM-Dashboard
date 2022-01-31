@@ -46,7 +46,7 @@ const InvestmentGoal = () => {
           profile
         </Typography>
       </Box>
-      <Question nextText="Create a profile" isEndQuestion={true}>
+      <Question nextText="Let's Start" isEndQuestion={true}>
         <Box display="flex" flexDirection="column">
           <Typography variant="h6" fontSize={18} mb={2} align="center">
             What is most important to you when you invest?

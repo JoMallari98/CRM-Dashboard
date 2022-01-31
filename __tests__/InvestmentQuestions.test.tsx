@@ -70,7 +70,7 @@ describe("investor/VerificationSelect", () => {
     userEvent.click(screen.getByText("Next question"));
 
     await expect(screen.getByText("Question 3 of 3")).toBeInTheDocument();
-    expect(screen.getByText("Create a profile")).toBeInTheDocument();
+    expect(screen.getByText("Let's Start")).toBeInTheDocument();
     expect(screen.getByText("Generate income")).toBeInTheDocument();
     expect(screen.getByText("Grow my money")).toBeInTheDocument();
     expect(screen.getByText("Protect my capital")).toBeInTheDocument();
@@ -82,7 +82,7 @@ describe("investor/VerificationSelect", () => {
   it("Should go to electronic delivery after question 3", async () => {
     userEvent.click(screen.getByText("Next question"));
     userEvent.click(screen.getByText("Next question"));
-    userEvent.click(screen.getByText("Create a profile"));
+    userEvent.click(screen.getByText("Let's Start"));
 
     expect(
       screen.getByText("Electronic Delivery Agreement")
@@ -92,7 +92,7 @@ describe("investor/VerificationSelect", () => {
   it("Should go to decline screen when electronic delivery is declined", async () => {
     userEvent.click(screen.getByText("Next question"));
     userEvent.click(screen.getByText("Next question"));
-    userEvent.click(screen.getByText("Create a profile"));
+    userEvent.click(screen.getByText("Let's Start"));
 
     userEvent.click(screen.getByText("I Decline"));
     expect(

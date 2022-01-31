@@ -2,19 +2,12 @@ import React, { useState, Fragment } from 'react';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 import { FormSection } from 'src/components/common/FormSection';
 import { ArrowBack, PhoneDisabled } from '@mui/icons-material';
-import {
-  Link,
-  Button,
-  IconButton,
-  styled,
-  Typography,
-  Box,
-} from '@mui/material';
+import { Link, Button, IconButton, styled, Typography, Box } from '@mui/material';
 import SixDigitVerification from 'src/components/common/SixDigitVerification';
 import { useRouter } from 'next/router';
 import { toast } from 'react-toastify';
 import { InputBase } from '@mui/material';
-import Popup from 'src/components/common/Popup';  
+import Popup from 'src/components/common/Popup';
 import Image from 'next/image';
 
 const PhoneVerification = () => {
@@ -26,8 +19,8 @@ const PhoneVerification = () => {
   const [resendCode, setResendCode] = useState(false);
 
   const resendCodehandle = () => {
-    setResendCode(true)
-    setPopUp(true)
+    setResendCode(true);
+    setPopUp(true);
   };
 
   const handleSubmit = () => {
@@ -58,34 +51,54 @@ const PhoneVerification = () => {
   };
 
   const changePhoneNumber = () => {
-    setResendCode(false)
-    setPopUp(true)
+    setResendCode(false);
+    setPopUp(true);
   };
   return (
     <Fragment>
-    {!resendCode ? <Popup popUp={popUp} resendCode={resendCode} Mobile={true} setPopUp={setPopUp} title="Change phone number" description="Please enter another phone number to confirm your identity" buttonText="Confirm"/> : <Popup Mobile={true} resendCode={resendCode} popUp={popUp} setPopUp={setPopUp} title="Resend a code to my mobile phone" description="Please confirm your mobile phone number and request a new code" buttonText="Send code"/>}
-    <OnBoardingFormContainer pt={0} justifyContent="flex-start">
-      <FormSection mt={6} mb={4}>
-        <Box display="flex" alignItems="center" width="100%" mb={3}>
-          <IconButton data-testid="back-btn" onClick={() => router.back()}>
-            <ArrowBack  fontSize="small" />
-          </IconButton>
-        </Box>
-      </FormSection>
+      {!resendCode ? (
+        <Popup
+          popUp={popUp}
+          resendCode={resendCode}
+          Mobile={true}
+          setPopUp={setPopUp}
+          title="Change phone number"
+          description="Please enter another phone number to confirm your identity"
+          buttonText="Confirm"
+        />
+      ) : (
+        <Popup
+          Mobile={true}
+          resendCode={resendCode}
+          popUp={popUp}
+          setPopUp={setPopUp}
+          title="Resend a code to my mobile phone"
+          description="Please confirm your mobile phone number and request a new code"
+          buttonText="Send code"
+        />
+      )}
+      <OnBoardingFormContainer pt={0} justifyContent="flex-start">
+        <FormSection mt={6} mb={4}>
+          <Box display="flex" alignItems="center" width="100%" mb={3}>
+            <IconButton data-testid="back-btn" onClick={() => router.back()}>
+              <ArrowBack fontSize="small" />
+            </IconButton>
+          </Box>
+        </FormSection>
 
         <FormSection alignItems="stretch" mb={7}>
           <Typography variant="h5" mb={6} fontWeight="bold">
             Verify Phone Number
           </Typography>
           <Typography variant="body2" align="center" width="85%">
-            Please enter your verification code we sent to +1XXX-XXX-XXXX
+            Please enter the verification code we sent to +1XXX-XXX-XXXX
           </Typography>
           <Box mt={7} mb={7} display="flex" flexDirection="column" justifyContent="center">
             <SixDigitVerification setDisableBtn={setDisableBtn} loader={loader} setCode={setCode} />
           </Box>
 
           <Typography variant="body2" data-testis="receive-code" component="span">
-            Didn't receive a code?{' '}
+            Didn't receive the code?{' '}
             <Link
               component="a"
               variant="body2"
@@ -119,11 +132,19 @@ const PhoneVerification = () => {
             onClick={() => handleSubmit()}
           >
             Submit
-            {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+            {loader && (
+              <Image
+                data-testid="loader"
+                src="/loader.gif"
+                width="20px"
+                height="20px"
+                alt="loader"
+              />
+            )}
           </ContinueButton>
         </FormSection>
 
-      {/* {changePhone && (
+        {/* {changePhone && (
         <FormSection alignItems="stretch" mb={7} maxWidth={400}>
           <Typography variant="h5" mb={6} fontWeight="bold">
             Change Phone Number
@@ -170,7 +191,7 @@ const PhoneVerification = () => {
           </Formik>
         </FormSection>
       )} */}
-    </OnBoardingFormContainer>
+      </OnBoardingFormContainer>
     </Fragment>
   );
 };

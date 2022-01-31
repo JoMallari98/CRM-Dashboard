@@ -16,7 +16,7 @@ import { useRouter } from 'next/router';
 import { Formik, Form } from 'formik';
 import { resetPasswordSchema, ResetPasswordValues } from 'src/schema/reset-schema';
 import TextField from 'src/components/common/formik/TextField';
-import Image from 'next/image'
+import Image from 'next/image';
 
 const ResetPasswordFormScreen = () => {
   const router = useRouter();
@@ -30,10 +30,10 @@ const ResetPasswordFormScreen = () => {
 
   const handleSubmit = (values: ResetPasswordValues) => {
     //api call for reset password
-    setLoader(true)
+    setLoader(true);
     // after API response redirect to this page...
     setTimeout(() => {
-      router.push('/reset-password/success');      
+      router.push('/reset-password/success');
     }, 3000);
   };
 
@@ -92,7 +92,15 @@ const ResetPasswordFormScreen = () => {
                 type="submit"
               >
                 Reset password {'  '}
-                {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+                {loader && (
+                  <Image
+                    data-testid="loader"
+                    src="/loader.gif"
+                    width="20px"
+                    height="20px"
+                    alt="loader"
+                  />
+                )}
               </ConfirmationButton>
             </StyledBox>
           </Formik>

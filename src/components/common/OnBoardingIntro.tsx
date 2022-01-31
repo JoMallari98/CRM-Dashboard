@@ -32,7 +32,15 @@ const OnBoardingIntro = () => {
             endIcon={
               <>
                 <ArrowForwardIcon />{' '}
-                {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+                {loader && (
+                  <Image
+                    data-testid="loader"
+                    src="/loader.gif"
+                    width="20px"
+                    height="20px"
+                    alt="loader"
+                  />
+                )}
               </>
             }
             sx={{ py: 1.5, px: 4 }}

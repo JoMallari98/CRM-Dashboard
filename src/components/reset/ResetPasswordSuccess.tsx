@@ -10,7 +10,7 @@ import {
 } from '@mui/material';
 import React, { useState } from 'react';
 import { useRouter } from 'next/router';
-import Image from 'next/image'
+import Image from 'next/image';
 import { FormSection } from 'src/components/common/FormSection';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
 
@@ -29,11 +29,11 @@ const ResetPasswordSuccess = () => {
   };
 
   const handleGoToSignIn = () => {
-    setLoader(true)
+    setLoader(true);
     setTimeout(() => {
-      router.push('/signin');      
+      router.push('/signin');
     }, 3000);
-  }
+  };
   return (
     <OnBoardingFormContainer pt={0} justifyContent="flex-start">
       <Box display="flex" alignItems="center" width="100%" pt={5} pl={5}>
@@ -47,7 +47,14 @@ const ResetPasswordSuccess = () => {
             Please use the link we emailed you to reset your password
           </Typography>
 
-          <Typography mt={3} width="90%" variant="body2" fontWeight="normal" flexGrow={1} textAlign="center">
+          <Typography
+            mt={3}
+            width="90%"
+            variant="body2"
+            fontWeight="normal"
+            flexGrow={1}
+            textAlign="center"
+          >
             If you don’t receive anything, check your email’s spam, or{' '}
             <Box
               onClick={handleResetEmail}
@@ -72,7 +79,15 @@ const ResetPasswordSuccess = () => {
             onClick={handleGoToSignIn}
           >
             Go back to Sign In{'  '}
-            {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+            {loader && (
+              <Image
+                data-testid="loader"
+                src="/loader.gif"
+                width="20px"
+                height="20px"
+                alt="loader"
+              />
+            )}
           </ConfirmationButton>
         </Box>
       </FormSection>

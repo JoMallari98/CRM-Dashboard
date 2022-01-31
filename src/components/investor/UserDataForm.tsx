@@ -31,10 +31,10 @@ const UserDataForm = () => {
   const handleSubmit = (values: UserDataValues) => {
     //api call for signin email and password
     setLoader(true);
-    localStorage.setItem("email", values.email);
-    localStorage.setItem("mobile-number", values.mobileNumber)
+    localStorage.setItem('email', values.email);
+    localStorage.setItem('mobile-number', values.mobileNumber);
     setTimeout(() => {
-      router.push('/signup/onboarding/email-verification');      
+      router.push('/signup/onboarding/email-verification');
     }, 2000);
   };
 
@@ -55,7 +55,14 @@ const UserDataForm = () => {
             <IconButton onClick={onPrevStep}>
               <ArrowBack data-testid="back-btn" fontSize="small" />
             </IconButton>
-            <Typography variant="body2" fontWeight={500} fontSize="16px" lineHeight="24px" flexGrow={1} textAlign="center">
+            <Typography
+              variant="body2"
+              fontWeight={500}
+              fontSize="16px"
+              lineHeight="24px"
+              flexGrow={1}
+              textAlign="center"
+            >
               Create your ideal profile
             </Typography>
           </Box>
@@ -83,7 +90,7 @@ const UserDataForm = () => {
           </Typography>
           <Typography variant="body2">All fields are required</Typography>
 
-          <Box mt={3} width="380px" >
+          <Box mt={3} width="380px">
             <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField
                 id="userName"
@@ -94,27 +101,14 @@ const UserDataForm = () => {
               />
             </FormControl>
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField
-                label="First Name"
-                id="firstName"
-                name="firstName"
-              />
+              <CustomTextField label="First Name" id="firstName" name="firstName" />
             </FormControl>
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField
-                label="Last Name"
-                id="lastName"
-                name="lastName"
-              />
+              <CustomTextField label="Last Name" id="lastName" name="lastName" />
             </FormControl>
 
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField
-                label="E-mail"
-                type="email"
-                id="email"
-                name="email"
-              />
+              <CustomTextField label="E-mail" type="email" id="email" name="email" />
             </FormControl>
             <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField
@@ -129,7 +123,15 @@ const UserDataForm = () => {
         <FormSection>
           <ContinueButton variant="contained" type="submit">
             Continue
-            {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+            {loader && (
+              <Image
+                data-testid="loader"
+                src="/loader.gif"
+                width="20px"
+                height="20px"
+                alt="loader"
+              />
+            )}
           </ContinueButton>
         </FormSection>
       </OnBoardingFormContainer>

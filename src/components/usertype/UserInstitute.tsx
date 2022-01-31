@@ -25,7 +25,7 @@ const UserInstitute = () => {
         <Box display="flex" alignItems="center" width="100%" mb={3}>
           {/* Apply Previous Step Here*/}
           <IconButton data-testid="back-btn" onClick={() => router.back()}>
-            <ArrowBack  fontSize="small" />
+            <ArrowBack fontSize="small" />
           </IconButton>
           <Typography
             variant="body2"

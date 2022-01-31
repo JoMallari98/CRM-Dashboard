@@ -1,25 +1,40 @@
 import React from 'react';
-import { Box, Typography, useTheme, useMediaQuery, Stack, styled, Paper, Button } from '@mui/material';
-import Image from 'next/image'
-import {useRouter} from 'next/router';
+import {
+  Box,
+  Typography,
+  useTheme,
+  useMediaQuery,
+  Stack,
+  styled,
+  Paper,
+  Button,
+} from '@mui/material';
+import Image from 'next/image';
+import { useRouter } from 'next/router';
 
 const WelcomePage = () => {
-    const router = useRouter();
+  const router = useRouter();
 
-    return (
-      <Box display="flex" justifyContent="center" alignItems="center" mt={10}>
+  return (
+    <Box display="flex" justifyContent="center" alignItems="center" mt={10}>
       <QuestionContainer>
         <Box display="flex" flexDirection="column">
           <Typography variant="h6" fontWeight={600} fontSize={24} mb={2} align="center">
-              All set, let’s have some fun! 😉
+            All set, let’s have some fun! 😉
           </Typography>
-          <Image data-testid="welcome-image" src="/Welcome-Discover.png" width="250px" height="250px" alt="Welcome-Image"></Image>
+          <Image
+            data-testid="welcome-image"
+            src="/Welcome-Discover.png"
+            width="250px"
+            height="250px"
+            alt="Welcome-Image"
+          ></Image>
           <Stack direction="column" alignItems="center" spacing={2} mt={4}>
             <ConfirmationButton
               variant="contained"
               color="primary"
               data-testid="discovering-btn"
-              onClick={() => router.push("/dashboard")}
+              onClick={() => router.push('/dashboard')}
               style={{ color: '#fff' }}
             >
               Start discovering
@@ -28,7 +43,7 @@ const WelcomePage = () => {
         </Box>
       </QuestionContainer>
     </Box>
-    );
+  );
 };
 
 export default WelcomePage;

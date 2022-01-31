@@ -32,7 +32,15 @@ const SignInForm = () => {
 
   const PasswordButton = (
     <IconButton onClick={() => setShowPassword(!showPassword)}>
-      {showPassword ? <VisibilityOutlined /> : <Avatar src="/VisibilityOff.png" data-testid="visibility-off" sx={{ height: "21px", width: "21px", objectFit: "cover", }}></Avatar>}
+      {showPassword ? (
+        <VisibilityOutlined />
+      ) : (
+        <Avatar
+          src="/VisibilityOff.png"
+          data-testid="visibility-off"
+          sx={{ height: '21px', width: '21px', objectFit: 'cover' }}
+        ></Avatar>
+      )}
     </IconButton>
   );
 
@@ -60,7 +68,7 @@ const SignInForm = () => {
           <FormControl fullWidth sx={{ my: 2 }}>
             <TextField
               variant="outlined"
-              label="E-mail"
+              label="Enter your email"
               size="small"
               id="email"
               name="email"
@@ -73,7 +81,7 @@ const SignInForm = () => {
               id="password"
               name="password"
               type={showPassword ? 'text' : 'password'}
-              label="Password"
+              label="Enter your password"
               size="small"
               InputProps={{
                 endAdornment: PasswordButton,
@@ -128,19 +136,21 @@ const SignInForm = () => {
           </ContinueWithButton>
         </StyledBox>
 
-        <SignInButton
-          variant="contained"
-          sx={{ my: 2 }}
-          data-testid="sign-in-button"
-          type="submit"
-        >
+        <SignInButton variant="contained" sx={{ my: 2 }} data-testid="sign-in-button" type="submit">
           Sign In
-          {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+          {loader && (
+            <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />
+          )}
         </SignInButton>
-        <Typography variant="body2" fontWeight={500}>
+        <Typography variant="body2" fontWeight={800}>
           {`Don't have an account? `}
           <Link href="/signup" passHref>
-            <Typography fontWeight="bold" fontSize="14px" component="a" style={{ color: '#009EF8' }}>
+            <Typography
+              fontWeight="bold"
+              fontSize="14px"
+              component="a"
+              style={{ color: '#009EF8' }}
+            >
               Sign Up
             </Typography>
           </Link>
@@ -163,14 +173,15 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   },
   textTransform: 'capitalize',
   boxShadow: 'unset',
+  fontWeight: 'bold',
 }));
 
 const SignInButton = styled(Button)({
   textTransform: 'capitalize',
-  width: "153px",
-  height: "48px",
-  padding: "14px, 48px, 13px, 48px",
-  fontSize: "14px",
+  width: '153px',
+  height: '48px',
+  padding: '14px, 48px, 13px, 48px',
+  fontSize: '14px',
   color: '#ffff',
 });
 

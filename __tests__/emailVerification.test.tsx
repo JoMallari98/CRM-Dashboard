@@ -29,7 +29,7 @@ describe('EmailVerification Page', () => {
   it('Should render verify email and other mandatory texts', () => {
     expect(screen.getByText('Verify Email')).toBeInTheDocument();
     expect(screen.getByTestId("email-description")).toBeInTheDocument();
-    expect(screen.getByText(`Didn't receive a email?`)).toBeInTheDocument();
+    expect(screen.getByText(`Didn't receive the email?`)).toBeInTheDocument();
   });
   // Test for disable button
   it('Button Should be disabled on render', () => {

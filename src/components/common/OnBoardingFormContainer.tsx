@@ -17,7 +17,7 @@ const OnBoardingFormContainer: React.FC<OnBoardingFormContainer & BoxProps> = ({
     <Box
       height="93vh"
       width="100%"
-      ml={mdDown ? "0px" : "-20px"}
+      ml={mdDown ? '0px' : '-20px'}
       display="flex"
       flexDirection="column"
       alignItems="stretch"

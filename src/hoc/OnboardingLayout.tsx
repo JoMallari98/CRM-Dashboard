@@ -37,9 +37,9 @@ const Wrapper = styled('div')`
   padding-right: 2rem;
   width: 100%;
   height: 100vh !important;
-  @media screen and (max-width: 600px){
-  padding-left: 5px;
-  padding-right: 5px;
+  @media screen and (max-width: 600px) {
+    padding-left: 5px;
+    padding-right: 5px;
   }
 `;
 

@@ -26,7 +26,6 @@ const DeclinedElectronicDelivery = () => {
     goToQuestion(InvestorQuestions.WelcomePage);
   };
 
-
   return (
     <Box display="flex" justifyContent="center" alignItems="center" mt={10}>
       <QuestionContainer>
@@ -36,7 +35,7 @@ const DeclinedElectronicDelivery = () => {
           </Typography>
           <Container maxWidth="sm">
             <Typography mb={2} ml="10%" fontWeight={400} fontSize={14} width="80%" align="center">
-              We are unable to continue your registration without your consent to electronic
+              We are unable to continue your registration without your consent to the electronic
               delivery of documents.
             </Typography>
           </Container>

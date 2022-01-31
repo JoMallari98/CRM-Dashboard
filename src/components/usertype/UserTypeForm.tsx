@@ -59,7 +59,13 @@ const UserTypeForm = () => {
             <ArrowBack fontSize="small" />
           </IconButton>
 
-          <Typography variant="body2" fontSize={16} fontWeight="500" flexGrow={1} textAlign="center">
+          <Typography
+            variant="body2"
+            fontSize={16}
+            fontWeight="500"
+            flexGrow={1}
+            textAlign="center"
+          >
             Create your ideal profile
           </Typography>
         </Box>

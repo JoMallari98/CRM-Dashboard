@@ -41,8 +41,8 @@ describe("SignUpForm", () => {
   });
   // Test for labels 
   it("Should render Email and password labels", () => {
-    expect(screen.getByLabelText("E-mail")).toBeInTheDocument();
-    expect(screen.getByLabelText("Password")).toBeInTheDocument();
+    expect(screen.getByLabelText("Enter your email")).toBeInTheDocument();
+    expect(screen.getByLabelText("Enter your password")).toBeInTheDocument();
   });
   //Test for Social Buttons
   it("Should render social login buttons", () => {
@@ -60,10 +60,10 @@ describe("SignUpForm", () => {
   });
   // Test for Input fields
   it('Input fields should be filled with proper values', () => {
-    userEvent.type(screen.getByLabelText("E-mail"), 'john.dee@gmail.com')
-    userEvent.type(screen.getByLabelText("Password"), 'Test@123')
-    expect(screen.getByLabelText("E-mail")).toHaveValue('john.dee@gmail.com'),
-    expect(screen.getByLabelText("Password")).toHaveValue('Test@123')
+    userEvent.type(screen.getByLabelText("Enter your email"), 'john.dee@gmail.com')
+    userEvent.type(screen.getByLabelText("Enter your password"), 'Test@123')
+    expect(screen.getByLabelText("Enter your email")).toHaveValue('john.dee@gmail.com'),
+    expect(screen.getByLabelText("Enter your password")).toHaveValue('Test@123')
   });
   //Test for Loader Image
   it('Should have a loader on Confirm', () => {
