@@ -14,7 +14,7 @@ import { SignInValues, signInSchema } from 'src/schema/signin-schema';
 import TextField from 'src/components/common/formik/TextField';
 import Image from 'next/image';
 
-const SignUpForm = () => {
+const SignUpForm = ({onSubmit}: any) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [loader, setLoader] = useState(false);
@@ -24,7 +24,7 @@ const SignUpForm = () => {
         <VisibilityOutlined />
       ) : (
         <Avatar
-          src="/VisibilityOff.png"
+          src="/assets/images/VisibilityOff.png"
           data-testid="visibility-off"
           sx={{ height: '21px', width: '21px', objectFit: 'cover' }}
         ></Avatar>
@@ -35,7 +35,8 @@ const SignUpForm = () => {
   const handleSubmit = (values: SignInValues) => {
     //api call for signin email and password
     setLoader(true);
-    router.push('/signup/user-data');
+    onSubmit(values)
+    // router.push('/signup/user-data');
   };
   return (
     <Formik
@@ -107,13 +108,15 @@ const SignUpForm = () => {
           sx={{ my: 2 }}
           data-testid="sign-up-button"
           type="submit"
+          role="button"
+          onClick={() => router.push("/signup/user-data")}
         >
           Sign Up
           {loader && (
-            <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />
+            <Image data-testid="loader" src="/assets/gifs/loader.gif" width="20px" height="20px" alt="loader" />
           )}
         </SignInButton>
-        <Typography variant="body2" fontWeight={800}>
+        <Typography variant="body2" fontWeight={500}>
           {`Already have an account? `}
           <Link href="/signin" passHref>
             <Typography
@@ -144,7 +147,7 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   },
   textTransform: 'capitalize',
   boxShadow: 'unset',
-  fontWeight: 'bold',
+  fontWeight: 500,
 }));
 
 const SignInButton = styled(Button)({

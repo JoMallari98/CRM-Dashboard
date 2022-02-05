@@ -35,7 +35,7 @@ const OnBoardingIntro = () => {
                 {loader && (
                   <Image
                     data-testid="loader"
-                    src="/loader.gif"
+                    src="/assets/gifs/loader.gif"
                     width="20px"
                     height="20px"
                     alt="loader"

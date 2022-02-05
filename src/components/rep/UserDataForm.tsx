@@ -10,9 +10,13 @@ import {
   Typography,
   Stack,
   Box,
+  TextField,
+  MenuItem
 } from '@mui/material';
 import { useRouter } from 'next/router';
-import React from 'react';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/material.css'
+import React, { useState } from 'react';
 import CustomTextField from 'src/components/common/CustomTextField';
 import { FormSection } from 'src/components/common/FormSection';
 import OnBoardingFormContainer from 'src/components/common/OnBoardingFormContainer';
@@ -22,11 +26,29 @@ import { repDataSchema, RepDataValues } from 'src/schema/repdata-schema';
 const UserDataForm = () => {
   const { goPrevStep, goNextStep } = useRepOnboarding();
   const router = useRouter();
+  const [emailType, setEmailType] = useState('')
 
   const handleSubmit = (values: RepDataValues) => {
     goNextStep();
   };
 
+  const emailLabels = [
+  {
+    value: "Home",
+    label: "Home",
+  },
+  {
+    value: "Work",
+    label: "Work",
+  },
+  {
+    value: "Preferred",
+    label: "Preferred",
+  },
+  {
+    value: "Other",
+    label: "Other",
+  }]
   const onPrevStep = () => router.back();
   return (
     <Formik
@@ -82,16 +104,67 @@ const UserDataForm = () => {
               <CustomTextField id="riaName" name="riaName" label="RIA Name" />
             </FormControl>
 
-            <FormControl fullWidth sx={{ my: 2 }}>
+            {/* <FormControl fullWidth sx={{ my: 2 }}>
               <CustomTextField id="email" name="email" label="E-mail" type="email" />
-            </FormControl>
+            </FormControl> */}
+            <Box display="flex" flexDirection="row">
+             <TextField id="outlined-select-email" value={emailType} onChange={(e) => setEmailType(e.target.value)} select sx={{width: "40%", height: "40px", '& .MuiOutlinedInput-notchedOutline': {
+                border: "1px solid #002E77 !important",
+                borderRight: "0px !important",
+                borderTopRightRadius: "0px !important",
+                borderBottomRightRadius: "0px !important",
+                borderRadius: "8px",
+                height: "53px"},
+                '& .MuiSelect-select' : {
+                  fontSize: "14px !important"
+                },
+                '& .MuiPopover-paper': {
+                  zIndex: "10001 !important"
+                }
+              }}>
+              {/* {emailLabels.map((option, index) => ( */}
+                  <MenuItem value={emailLabels[0].value}>
+                    {emailLabels[0].label}
+                  </MenuItem>
+                  <MenuItem value={emailLabels[1].value}>
+                    {emailLabels[1].label}
+                  </MenuItem>
+                  <MenuItem value={emailLabels[2].value}>
+                    {emailLabels[2].label}
+                  </MenuItem>
+              {/* ))} */}
+              </TextField> 
+             <CustomTextField
+                label="E-mail"
+                type="email"
+                id="email"
+                name="email"
+                sx={{width: "60%", height: "40px", marginBottom: "9px", '& .MuiOutlinedInput-notchedOutline': {
+                  border: "1px solid #002E77 !important",
+                  borderTopLeftRadius: "0px !important",
+                  borderBottomLeftRadius: "0px !important",
+                  borderRadius: "8px",
+                  height: "53px"},
+                }}/> 
+            </Box>
+
             <FormControl fullWidth sx={{ my: 2 }}>
-              <CustomTextField
+              {/* <CustomTextField
                 id="cellNumber"
                 label="Cell/Office phone"
                 type="tel"
                 name="mobileNumber"
-              />
+              /> */}
+              <PhoneInput 
+                country={"us"}
+                inputStyle={{width: "100%", borderRadius: '8px'}}
+                inputProps={{
+                id: "mobileNumber",
+                name: "mobileNumber",
+                required: true,
+                }}
+                specialLabel='Mobile phone number'
+                />
             </FormControl>
             <FormControl fullWidth sx={{ my: 2 }}>
               <CustomTextField id="crdNumber" name="crdNumber" label="CRD Number" type="text" />

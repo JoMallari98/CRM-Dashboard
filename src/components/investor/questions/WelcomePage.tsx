@@ -24,7 +24,7 @@ const WelcomePage = () => {
           </Typography>
           <Image
             data-testid="welcome-image"
-            src="/Welcome-Discover.png"
+            src="/assets/images/Welcome-Discover.png"
             width="250px"
             height="250px"
             alt="Welcome-Image"

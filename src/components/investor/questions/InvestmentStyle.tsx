@@ -13,27 +13,27 @@ const InvestmentStyle = () => {
     {
       value: 1,
       text: 'Conservative',
-      icon: '/conservative.png',
+      icon: '/assets/images/conservative.png',
     },
     {
       value: 2,
       text: 'Moderately conservative',
-      icon: '/moderately.png',
+      icon: '/assets/images/moderately.png',
     },
     {
       value: 3,
       text: 'Moderate',
-      icon: '/moderate.png',
+      icon: '/assets/images/moderate.png',
     },
     {
       value: 4,
       text: 'Moderately aggressive',
-      icon: '/mode_aggressive.png',
+      icon: '/assets/images/mode_aggressive.png',
     },
     {
       value: 5,
       text: 'Aggressive',
-      icon: '/aggressive.png',
+      icon: '/assets/images/aggressive.png',
     },
   ];
 
@@ -69,6 +69,7 @@ const InvestmentStyle = () => {
                   value={answer.value}
                   onSelect={handleAnswer}
                   selected={currentAnswer === answer.value}
+                  iconSrc=""
                 >
                   <img src={answer.icon} />
                 </SelectionButton>

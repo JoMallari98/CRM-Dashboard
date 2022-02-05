@@ -14,23 +14,17 @@ describe('UserType Page', () => {
   })
   //Test for Left sided Background Image 
   it("Should render background image", () => {
-    waitFor(() => {
-      expect(screen.getByTestId("background")).toHaveStyle("background: url('/User_type_img.png no-repeat')");
-    });
+    expect(screen.getByTestId("background")).toHaveStyle(`background: url('/assets/images/user_type1.png') no-repeat`);
   });
   //Test For Text Present on the Screen
   it('Should render ideal profile and other mandatory texts', () => {
-    waitFor(() => {
       expect(screen.getByText('Create your ideal profile')).toBeInTheDocument()
-      expect(screen.getByText('By the way would you like register as an investor or a financial professional?')).toBeInTheDocument();
-    });
+      expect(screen.getByText('By the way would you like to register as an investor or a financial professional?')).toBeInTheDocument();
   });
   //Test for Progress Bar
   it('Should have 20% Progress Bar', () => {
-    waitFor(() => {
       expect(screen.getByTestId('progress-bar')).toBeInTheDocument();
-      expect(screen.getByTestId('progress-bar')).toHaveValue(20);
-    });
+      expect(screen.getByTestId('progress-bar')).toHaveAttribute("aria-valuenow", "20");
   });
 
   afterEach(() => {
@@ -51,23 +45,17 @@ describe('UserType Page', () => {
   //Test for route to /signup/user-institution
     it("Investor User Event", () => {
       fireEvent.click(screen.getByTestId('investor-button'));
-      waitFor(() => {
-        expect(router.push).toHaveBeenCalledWith('/signup/user-institution');
-      });
+      expect(router.push).toHaveBeenCalledWith('/signup/user-institution');
     });
   //Test for route to /signup/ideal-profile
     it("Financial User Event", () => {
       fireEvent.click(screen.getByTestId('financial-button'));
-      waitFor(() => {
       expect(router.push).toHaveBeenCalledWith('/signup/ideal-profile');
-      });
     });
   //Test for go back to previous Screen
     it("It should go back to previous page", () => {
       fireEvent.click(screen.getByTestId('back-btn'));
-      waitFor(() => {
         expect(router.back).toHaveBeenCalled();
-      });
     });
   
     afterEach(() => {

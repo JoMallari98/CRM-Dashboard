@@ -42,6 +42,14 @@ const Question: React.FC<Props> = (props) => {
     <>
       <Box display="flex" justifyContent={mdDown ? 'stretch' : 'space-between'} alignItems="center">
         <Hidden mdDown>
+          {isStartQuestion ? <PrevButtonStart
+            variant={isStartQuestion ? 'text' : 'contained'}
+            color="white"
+            onClick={onPrev}
+            startIcon={<ArrowBackIos />}
+          >
+            {prevText}
+          </PrevButtonStart> : 
           <PrevButton
             variant={isStartQuestion ? 'text' : 'contained'}
             color="white"
@@ -50,6 +58,7 @@ const Question: React.FC<Props> = (props) => {
           >
             {prevText}
           </PrevButton>
+          }
         </Hidden>
         <QuestionContainer elevation={0} sx={{ width: mdDown ? '100%' : null, ...sx }}>
           {children}
@@ -119,6 +128,12 @@ const PrevButton = styled(NavigationButton)({
   borderBottomRightRadius: 16,
   color: '#858585',
   boxShadow: '6px 30px 51px rgba(10, 81, 143, 0.08)',
+});
+
+const PrevButtonStart = styled(NavigationButton)({
+  borderTopRightRadius: 16,
+  borderBottomRightRadius: 16,
+  color: '#858585',
 });
 
 const NextButton = styled(NavigationButton)({

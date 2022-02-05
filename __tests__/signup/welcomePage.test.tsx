@@ -4,7 +4,7 @@
 
  import React from "react";
  import { render, screen, waitFor, cleanup, fireEvent } from '@testing-library/react';
- import WelcomePage from "../src/components/investor/questions/WelcomePage";
+ import WelcomePage from "../../src/components/investor/questions/WelcomePage";
  import createMockRouter from 'src/test-utils/createMockRouter';
  import { RouterContext } from 'next/dist/shared/lib/router-context';
 import userEvent from "@testing-library/user-event";

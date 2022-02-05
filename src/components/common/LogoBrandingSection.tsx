@@ -1,29 +1,29 @@
 import { Box, Typography } from '@mui/material';
 import React, { useMemo } from 'react';
 // import OnboardingImage from "public/OnboardingImage.svg";
-import Logo from 'public/Logo.svg';
-import LogoWhite from 'public/WhiteLogo.svg';
-import WelcomeIcon from 'public/welcome.svg';
+import Logo from 'public/assets/svgs/Logo.svg';
+import LogoWhite from 'public/assets/svgs/WhiteLogo.svg';
+import WelcomeIcon from 'public/assets/svgs/welcome.svg';
 import styled from 'styled-components';
 import Image from 'next/image';
-import SiginImg from 'public/sign_in_img.png';
+import SiginImg from 'public/assets/images/sign_in_img.png';
 
 export enum PageType {
-  SIGN_IN = '/sign_in_img.png',
-  SIGN_UP = '/sign_up_img.png',
-  USER_TYPE = '/User_type_img.png',
-  USER_DATA = '/type_of_user_form.png',
-  VERIFICATION_Select = '/verification_img.png',
-  WRONG_CODE = '/WrongCode.png',
-  INVALID_DATA = '/InvalidData_img.png',
-  CONFIRM_CRD = '/ConfirmCRD_img.png',
-  BACKGROUND = '/bg_img.png',
+  SIGN_IN = '/assets/images/sign_in_img.png',
+  SIGN_UP = '/assets/images/sign_up_img.png',
+  USER_TYPE = '/assets/images/User_type_img.png',
+  USER_DATA = '/assets/images/type_of_user_form.png',
+  VERIFICATION_Select = '/assets/images/verification_img.png',
+  WRONG_CODE = '/assets/images/WrongCode.png',
+  INVALID_DATA = '/assets/images/InvalidData_img.png',
+  CONFIRM_CRD = '/assets/images/ConfirmCRD_img.png',
+  BACKGROUND = '/assets/images/bg_img.png',
   WELCOME = '',
-  VERIFICATION_CODE = '/Verification_code.png',
-  FORGOT_PASSWORD = '/forgot_password.png',
-  PASSWORD_RESET_REQUEST = '/password_reset_request.png',
-  SELECT_USER_TYPE = '/user_type1.png',
-  SELECT_USER_INSTITUTE = '/institute.png',
+  VERIFICATION_CODE = '/assets/images/Verification_code.png',
+  FORGOT_PASSWORD = '/assets/images/forgot_password.png',
+  PASSWORD_RESET_REQUEST = '/assets/images/password_reset_request.png',
+  SELECT_USER_TYPE = '/assets/images/user_type1.png',
+  SELECT_USER_INSTITUTE = '/assets/images/institute.png',
 }
 
 type Props = {

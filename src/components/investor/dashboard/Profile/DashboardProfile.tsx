@@ -30,7 +30,7 @@ const DashboardProfile = () => {
           flexDirection: 'row',
         }}
       >
-        <Image src={'/location.svg'} width="16px" height="19px" />
+        <Image src={'/assets/svgs/location.svg'} width="16px" height="19px" />
         <Link underline="hover">
           <Typography variant="body2" color={theme.palette.primary.light} p={1}>
             Add Location

@@ -67,7 +67,7 @@ const LetCard: React.FC = () => {
 };
 const CardHeader = styled(Box)`
   background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 2.98%, rgba(0, 0, 0, 0) 93.52%),
-    url('/LetCard.png');
+    url('/assets/images/LetCard.png');
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

@@ -60,7 +60,7 @@ const DashboardMain: React.FC = () => {
                     ]}
                     sx={{
                       background:
-                        " linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 75.5%),url('/LifeCard.png')",
+                        " linear-gradient(0deg, #000000 0%, rgba(0, 0, 0, 0) 75.5%),url('/assets/images/LifeCard.png')",
                       backgroundSize: 'cover',
                       backgroundPosition: 'center center',
                       width: '100%',
@@ -165,7 +165,7 @@ const DashboardMain: React.FC = () => {
                             ]}
                             sx={{
                               backgroundImage:
-                                'linear-gradient(360deg, #000000 , rgba(0, 0, 0, 0) 75.5%),url(/CareCard.png)',
+                                'linear-gradient(360deg, #000000 , rgba(0, 0, 0, 0) 75.5%),url(/assets/images/CareCard.png)',
                               height: '116px',
                               backgroundSize: 'cover',
                               backgroundPosition: 'center center',

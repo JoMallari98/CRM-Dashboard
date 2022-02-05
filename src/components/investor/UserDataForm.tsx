@@ -1,4 +1,4 @@
-import { ArrowBack } from '@mui/icons-material';
+import { ArrowBack, SettingsPhone } from '@mui/icons-material';
 import {
   Button,
   FormControl,
@@ -8,7 +8,11 @@ import {
   styled,
   Typography,
   Box,
+  TextField,
+  MenuItem
 } from '@mui/material';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/material.css'
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { useOnboarding } from 'src/context/userOnBoardingContext';
@@ -25,6 +29,8 @@ const UserDataForm = () => {
   const router = useRouter();
   const [loader, setLoader] = useState(false);
   const [username, setUsername] = useState('');
+  const [phone, setPhone] = useState('');
+  const [emailType, setEmailType] = useState('')
 
   const onPrevStep = () => router.back();
 
@@ -32,11 +38,29 @@ const UserDataForm = () => {
     //api call for signin email and password
     setLoader(true);
     localStorage.setItem('email', values.email);
-    localStorage.setItem('mobile-number', values.mobileNumber);
+    localStorage.setItem('mobile-number', phone);
     setTimeout(() => {
       router.push('/signup/onboarding/email-verification');
     }, 2000);
   };
+
+  const emailLabels = [
+    {
+      value: "Home",
+      label: "Home",
+    },
+    {
+      value: "Work",
+      label: "Work",
+    },
+    {
+      value: "Preferred",
+      label: "Preferred",
+    },
+    {
+      value: "Other",
+      label: "Other",
+    }]
 
   return (
     <Formik
@@ -106,27 +130,66 @@ const UserDataForm = () => {
             <FormControl fullWidth sx={{ my: 1 }}>
               <CustomTextField label="Last Name" id="lastName" name="lastName" />
             </FormControl>
-
+             <Box display="flex" flexDirection="row">
+             <TextField data-testid="dropDown" id="outlined-select-email" label="Type of email" value={emailType} onChange={(e) => setEmailType(e.target.value)} select 
+             sx={{width: "40%", '& .MuiOutlinedInput-notchedOutline': { border: "1px solid #002E77 !important", borderRight: "0px !important", borderTopRightRadius: "0px !important", borderBottomRightRadius: "0px !important", borderRadius: "8px", height: "53px"},
+                '& .MuiSelect-select' : {
+                  fontSize: "14px !important"
+                },
+                '& .MuiPopover-paper': {
+                  zIndex: "10001 !important"
+                }
+              }}
+              InputLabelProps={{
+                style: {
+                  fontSize: "12px",
+                  color: "#000",
+                  marginTop: 0,
+                  paddingBottom: 0,
+                },
+              }}
+              >
+              {emailLabels.map((option, index) => (
+                <MenuItem key={index} value={option.value}>
+                  {option.label}
+                </MenuItem>
+               ))}
+              </TextField> 
+             <CustomTextField
+                label="E-mail"
+                type="email"
+                id="email"
+                name="email"
+                sx={{width: "60%", marginBottom: "9px", '& .MuiOutlinedInput-notchedOutline': {
+                  border: "1px solid #002E77 !important",
+                  borderTopLeftRadius: "0px !important",
+                  borderBottomLeftRadius: "0px !important",
+                  borderRadius: "8px",
+                  height: "53px"},
+                }}/> 
+            </Box>
             <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField label="E-mail" type="email" id="email" name="email" />
-            </FormControl>
-            <FormControl fullWidth sx={{ my: 1 }}>
-              <CustomTextField
-                label="Mobile Number"
-                type="tel"
-                id="mobileNumber"
-                name="mobileNumber"
-              />
+              <PhoneInput 
+                country={"us"}
+                inputStyle={{width: "100%", borderRadius: '8px'}}
+                value={phone}
+                onChange={(e) => setPhone(e)}
+                inputProps={{
+                id: "mobileNumber",
+                name: "mobileNumber"
+                }}
+                specialLabel='Mobile phone number'
+                />
             </FormControl>
           </Box>
         </FormSection>
         <FormSection>
-          <ContinueButton variant="contained" type="submit">
+          <ContinueButton variant="contained" data-testid="continue-btn" type="submit">
             Continue
             {loader && (
               <Image
                 data-testid="loader"
-                src="/loader.gif"
+                src="/assets/gifs/loader.gif"
                 width="20px"
                 height="20px"
                 alt="loader"

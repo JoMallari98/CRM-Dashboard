@@ -3,7 +3,7 @@
  */
 
 import React from 'react';
-import { render, screen, fireEvent, waitFor, cleanup } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup } from '@testing-library/react';
 import HomePage from 'pages/index';
 import createMockRouter from 'src/test-utils/createMockRouter';
 import { RouterContext } from 'next/dist/shared/lib/router-context';
@@ -46,11 +46,8 @@ describe('HomePage', () => {
         <HomePage />
       </RouterContext.Provider>
     );
-    expect(screen.getByText("Let's Start")).toHaveAttribute('href', '/signin');
     fireEvent.click(screen.getByTestId('start-btn'));
-    waitFor(() => {  
-      expect(router.push).toHaveBeenCalledWith('/signin');
-    });
+    expect(screen.getByText("Let's Start")).toHaveAttribute('href', '/signin');
   });
 
   afterEach(() => {

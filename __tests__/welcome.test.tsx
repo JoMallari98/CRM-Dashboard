@@ -46,11 +46,8 @@ describe("WelcomePage", () => {
         <WelcomePage />
       </RouterContext.Provider>
     );
-    expect(screen.getByText("Let's Start")).toHaveAttribute('href', '/signin');
     fireEvent.click(screen.getByTestId('start-btn'));
-    waitFor(() => {
-      expect(router.push).toHaveBeenCalledWith('/signin');
-    });
+    expect(screen.getByText("Let's Start")).toHaveAttribute('href', '/signin');
   });
 
   afterEach(() => {

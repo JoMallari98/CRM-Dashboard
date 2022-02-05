@@ -11,7 +11,7 @@ export const DashboardUser = () => {
   return (
     <Box display="flex" flexDirection="row">
       <Avatar
-        src="profileimage"
+        src="/images/assets/profileimage"
         alt="Profile"
         sx={{ height: '48px', width: '48px', marginRight: '15px' }}
       />

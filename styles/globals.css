@@ -19,3 +19,12 @@ a {
   margin: 0 auto;
   max-width: 1440px;
 }
+.react-tel-input .form-control{
+  border: 1px solid #002E77 !important
+}
+.special-label{
+  left: 10px !important;
+}
+.country-list {
+  height: 140px !important;
+}

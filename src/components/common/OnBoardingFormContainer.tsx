@@ -54,7 +54,7 @@ const StyledPaper = styled(Paper)(({ theme }) => ({
   background: '#fff',
   border: '1px solid #fff',
   position: 'relative',
-  zIndex: '10000',
+  // zIndex: '10000',
   [theme.breakpoints.down('sm')]: {
     margin: 0,
   },

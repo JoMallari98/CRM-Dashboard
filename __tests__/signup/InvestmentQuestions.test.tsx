@@ -71,11 +71,11 @@ describe("investor/VerificationSelect", () => {
 
     await expect(screen.getByText("Question 3 of 3")).toBeInTheDocument();
     expect(screen.getByText("Let's Start")).toBeInTheDocument();
-    expect(screen.getByText("Generate income")).toBeInTheDocument();
-    expect(screen.getByText("Grow my money")).toBeInTheDocument();
-    expect(screen.getByText("Protect my capital")).toBeInTheDocument();
+    expect(screen.getByText("Generating income")).toBeInTheDocument();
+    expect(screen.getByText("Growing my money")).toBeInTheDocument();
+    expect(screen.getByText("Protecting my capital")).toBeInTheDocument();
     expect(
-      screen.getByText("Minimize ups and downs")
+      screen.getByText("Minimizing ups and downs")
     ).toBeInTheDocument();
   });
   // Test for electronic delivery next click event

@@ -1,13 +1,14 @@
-import { Box, Paper, styled, Typography } from '@mui/material';
+import { Avatar, Box, Paper, styled, Typography } from '@mui/material';
 import React from 'react';
 
 type Props = {
   value: any;
   text: string;
+  iconSrc: string;
   onSelect(value: any): void;
   selected: boolean;
 };
-const SelectionButton: React.FC<Props> = ({ value, text, onSelect, children, selected }) => {
+const SelectionButton: React.FC<Props> = ({iconSrc, value, text, onSelect, children, selected }) => {
   const handleClick = () => onSelect(value);
   const backgroundColor = selected ? 'primary.light' : '#ffff';
   const color = selected ? 'primary.contrastText' : 'textSecondary';
@@ -30,8 +31,12 @@ const SelectionButton: React.FC<Props> = ({ value, text, onSelect, children, sel
       }}
       elevation={0}
     >
-      <Ellipse sx={{ mb: 1 }}>{children}</Ellipse>
-      <Typography minHeight="36px" mt={3} variant="body2" align="center" maxWidth={100}>
+      <Box height={51} width={52} borderRadius="50%" padding="2px" sx={{background: "#e3f3ff"}}>
+      <Ellipse sx={{ mb: 1 }}>
+        {iconSrc == "" ? children : <Avatar src={iconSrc} sx={{height:"70%", width:"70%"}}/>}
+      </Ellipse>
+      </Box>
+      <Typography minHeight="36px" fontWeight={500} fontSize="14px" mt={3} variant="body2" align="center" maxWidth={100}>
         {text}
       </Typography>
     </Wrapper>
@@ -51,6 +56,7 @@ const Wrapper = styled(Paper)({
 const Ellipse = styled(Box)({
   height: 48,
   width: 48,
+  fontSize: '32px',
   minWidth: 48,
   borderRadius: 24,
   display: 'flex',

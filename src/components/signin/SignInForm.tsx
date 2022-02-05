@@ -23,7 +23,7 @@ import { SignInValues, signInSchema } from 'src/schema/signin-schema';
 import TextField from 'src/components/common/formik/TextField';
 import { useRouter } from 'next/router';
 
-const SignInForm = () => {
+const SignInForm = ({onSubmit}: any) => {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const theme = useTheme();
@@ -36,7 +36,7 @@ const SignInForm = () => {
         <VisibilityOutlined />
       ) : (
         <Avatar
-          src="/VisibilityOff.png"
+          src="/assets/images/VisibilityOff.png"
           data-testid="visibility-off"
           sx={{ height: '21px', width: '21px', objectFit: 'cover' }}
         ></Avatar>
@@ -44,10 +44,11 @@ const SignInForm = () => {
     </IconButton>
   );
 
-  const handleSubmit = (values: SignInValues) => {
+  const handleSubmit = async (values: SignInValues) => {
     //api call for signin email and password
     setLoader(true);
-    router.push('/dashboard');
+    onSubmit(values);
+    // router.push('/dashboard');
   };
 
   return (
@@ -136,13 +137,13 @@ const SignInForm = () => {
           </ContinueWithButton>
         </StyledBox>
 
-        <SignInButton variant="contained" sx={{ my: 2 }} data-testid="sign-in-button" type="submit">
+        <SignInButton variant="contained" sx={{ my: 2 }} data-testid="sign-in-button" onClick={() => router.push('/dashboard')} type="submit">
           Sign In
           {loader && (
-            <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />
+            <Image data-testid="loader" src="/assets/gifs/loader.gif" width="20px" height="20px" alt="loader" />
           )}
         </SignInButton>
-        <Typography variant="body2" fontWeight={800}>
+        <Typography variant="body2" fontWeight={500}>
           {`Don't have an account? `}
           <Link href="/signup" passHref>
             <Typography
@@ -173,7 +174,7 @@ const ContinueWithButton = styled(Button)(({ theme }) => ({
   },
   textTransform: 'capitalize',
   boxShadow: 'unset',
-  fontWeight: 'bold',
+  fontWeight: 500,
 }));
 
 const SignInButton = styled(Button)({

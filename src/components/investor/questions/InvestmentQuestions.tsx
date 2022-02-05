@@ -7,7 +7,7 @@ import InvestmentExperience from './InvestmentExperience';
 import InvestmentGoal from './InvestmentGoal';
 import InvestmentStyle from './InvestmentStyle';
 import PrivacyPolicy from './PrivacyPolicy';
-import Logo from 'public/Logo.svg';
+import Logo from 'public/assets/svgs/Logo.svg';
 import WelcomePage from './WelcomePage';
 
 const InvestmentQuestions = () => {

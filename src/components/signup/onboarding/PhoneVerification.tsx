@@ -27,7 +27,7 @@ const PhoneVerification = () => {
     setLoader(true);
     let isValid = true;
 
-    setTimeout(() => {
+    // setTimeout(() => {
       for (let i = 0; i < code.length; i++) {
         if (code[i].current.value !== (i + 1).toString()) {
           isValid = false;
@@ -46,8 +46,8 @@ const PhoneVerification = () => {
           code[i].current.value = null;
         }
       }
-      setLoader(false);
-    }, 5000);
+      // setLoader(false);
+    // }, 3000);
   };
 
   const changePhoneNumber = () => {
@@ -135,7 +135,7 @@ const PhoneVerification = () => {
             {loader && (
               <Image
                 data-testid="loader"
-                src="/loader.gif"
+                src="/assets/gifs/loader.gif"
                 width="20px"
                 height="20px"
                 alt="loader"
@@ -185,7 +185,7 @@ const PhoneVerification = () => {
                 type="submit"
               >
                 Change Number
-                {loader && <Image data-testid="loader" src="/loader.gif" width="20px" height="20px" alt="loader" />}
+                {loader && <Image data-testid="loader" src="/images/assets/loader.gif" width="20px" height="20px" alt="loader" />}
               </ContinueButton>
             </Box>
           </Formik>

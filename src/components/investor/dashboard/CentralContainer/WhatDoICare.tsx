@@ -28,7 +28,7 @@ const WhatDoICare = () => {
         What do I care about?
       </Typography>
       <Box sx={{ zIndex: 1 }}>
-        <Image src={'/whatdoicare.png'} width="212px" height="116px" />
+        <Image src={'/assets/images/whatdoicare.png'} width="212px" height="116px" />
       </Box>
     </Box>
   );

@@ -10,7 +10,7 @@ const ProfileGoals = () => {
         </Typography>
       </Box>
       <Box display="flex" flexDirection="row">
-        <Image src={'/gear.svg'} height="13px" width="13px" />
+        <Image src={'/assets/svgs/gear.svg'} height="13px" width="13px" />
         <Link underline="hover" ml="2px">
           <Typography variant="caption" color="primary">
             Manage

@@ -10,22 +10,22 @@ const possibleAnswers = [
   {
     value: 1,
     text: 'None',
-    icon: '☹️',
+    icon: '/assets/images/☹️.png',
   },
   {
     value: 2,
     text: 'Limited',
-    icon: '😐',
+    icon: '/assets/images/😐.png',
   },
   {
     value: 3,
     text: 'Good',
-    icon: '😃',
+    icon: '/assets/images/😃.png',
   },
   {
     value: 4,
     text: 'Extensive',
-    icon: '😎',
+    icon: '/assets/images/😎.png',
   },
 ];
 
@@ -54,14 +54,14 @@ const InvestmentExperience = () => {
         <Typography variant="h5" fontWeight="bold" align="center">
           Almost done!
         </Typography>
-        <Typography variant="body2" align="center" maxWidth={400} mt={2}>
+        <Typography variant="body2" align="center" fontSize="14px" fontWeight={400} maxWidth={400} mt={2}>
           We’d like to know more about you, please answer a few short questions to complete your
           profile
         </Typography>
       </Box>
       <Question onPrev={navigateToSignUp} prevText={'Back to Sign Up'} isStartQuestion={true}>
         <MainQuestion display="flex" flexDirection="column" alignItems="center">
-          <Typography variant="h6" fontSize={18} mb={2} align="center">
+          <Typography variant="h6" fontSize={18} fontWeight={500} mb={2} align="center">
             How would you rate your investment experience?
           </Typography>
           <Box
@@ -77,8 +77,8 @@ const InvestmentExperience = () => {
                   value={answer.value}
                   onSelect={handleAnswer}
                   selected={currentAnswer === answer.value}
+                  iconSrc={answer.icon}
                 >
-                  {answer.icon}
                 </SelectionButton>
               );
             })}

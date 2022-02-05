@@ -38,7 +38,7 @@ const EmailVerification = (props: Props) => {
     setLoader(true);
     let isValid = true;
 
-    setTimeout(() => {
+    // setTimeout(() => {
       for (let i = 0; i < code.length; i++) {
         if (code[i].current.value !== (i + 1).toString()) {
           isValid = false;
@@ -60,8 +60,8 @@ const EmailVerification = (props: Props) => {
         }
         props.setWrongCode(true);
       }
-      setLoader(false);
-    }, 5000);
+      // setLoader(false);
+    // }, 1000);
   };
 
   return (
@@ -80,8 +80,8 @@ const EmailVerification = (props: Props) => {
         <OnBoardingFormContainer pt={0} justifyContent="flex-start">
           <FormSection mt={6} mb={0}>
             <Box display="flex" alignItems="center" width="100%" mb={3}>
-              <IconButton data-testid="back-btn" onClick={() => router.back()}>
-                <ArrowBack data-testid="back-icon" fontSize="small" />
+              <IconButton aria-label="back" data-testid="back-btn" onClick={() => router.back()}>
+                <ArrowBack fontSize="small" />
               </IconButton>
             </Box>
           </FormSection>
@@ -148,7 +148,7 @@ const EmailVerification = (props: Props) => {
               {loader && (
                 <Image
                   data-testid="loader"
-                  src="/loader.gif"
+                  src="/assets/gifs/loader.gif"
                   width="20px"
                   height="20px"
                   alt="loader"
@@ -161,8 +161,8 @@ const EmailVerification = (props: Props) => {
         <OnBoardingFormContainer pt={0} justifyContent="flex-start">
           <FormSection mt={6} mb={0}>
             <Box display="flex" alignItems="center" width="100%" mb={3}>
-              <IconButton data-testid="back-btn" onClick={() => router.back()}>
-                <ArrowBack data-testid="back-icon" fontSize="small" />
+              <IconButton aria-label="back" data-testid="back-btn" onClick={() => router.back()}>
+                <ArrowBack fontSize="small" />
               </IconButton>
             </Box>
           </FormSection>

@@ -12,6 +12,7 @@ const customJestConfig = {
   moduleNameMapper: {
     "\\.svg": "svgr/webpack",
   },
+  testTimeout: 20000,
 };
 
 module.exports = createJestConfig(customJestConfig);

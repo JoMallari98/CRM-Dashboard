@@ -10,6 +10,8 @@ import {
   styled,
   Avatar,
 } from '@mui/material';
+import PhoneInput from 'react-phone-input-2'
+import 'react-phone-input-2/lib/material.css'
 import styledComponent from 'styled-components';
 import { Close as CloseMuiIcon } from '@mui/icons-material';
 import CustomTextField from 'src/components/common/CustomTextField';
@@ -19,9 +21,22 @@ import { toast } from 'react-toastify';
 import { EmailDataSchema, EmailDataValues } from 'src/schema/emailChange-schema';
 
 const Popup = (props: any) => {
+  let phoneNumber;
   const theme = useTheme();
   const smDown = useMediaQuery(theme.breakpoints.down('sm'));
   const [loader, setLoader] = useState(false);
+  const [phone, setPhone] = useState("");
+
+  useEffect(() => {
+    if(typeof window !== "undefined" && props.resendCode )
+    {
+      phoneNumber = localStorage.getItem('mobile-number');
+       // @ts-ignore
+      setPhone(phoneNumber)
+    }else{
+      setPhone("")
+    }
+  }, [props.resendCode])
 
   const HandleSubmit = (values: PhoneDataValues) => {
     setLoader(true);
@@ -95,13 +110,26 @@ const Popup = (props: any) => {
                     fullWidth
                     sx={smDown ? { width: '70%', my: 2, ml: '15%' } : { my: 2 }}
                   >
-                    <CustomTextField
+                    {props.Mobile && 
+                    <PhoneInput 
+                        country={"us"}
+                        inputStyle={{width: "100%", borderRadius: '8px'}}
+                        value={phone}
+                        onChange={(e) => setPhone(e)}
+                        inputProps={{
+                        id: "mobileNumber",
+                        name: "mobileNumber",
+                        }}
+                        specialLabel='Mobile phone number'
+                      />}
+                    {!props.Mobile && 
+                      <CustomTextField
                       data-testid="input-test"
-                      id={props.Mobile ? 'cellNumber' : 'email'}
-                      label={props.Mobile ? 'Mobile Number' : 'E-mail'}
-                      type={props.Mobile ? 'tel' : 'email'}
-                      name={props.Mobile ? 'mobileNumber' : 'email'}
-                    />
+                      id={'email'}
+                      label={'E-mail'}
+                      type={'email'}
+                      name={'email'}
+                  />}
                   </FormControl>
                 </Box>
               </Box>
@@ -116,7 +144,7 @@ const Popup = (props: any) => {
                 {loader && (
                   <Avatar
                     data-testid="loader"
-                    src="/loader.gif"
+                    src="/assets/gifs/loader.gif"
                     style={{ width: '20px', height: '20px', marginLeft: '10px' }}
                     alt="loader"
                   />

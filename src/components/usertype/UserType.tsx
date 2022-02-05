@@ -74,7 +74,7 @@ const UserType = () => {
           onClick={() => router.push('/signup/user-institution')}
         >
           <Ellipse className="emoji">
-            <img src="/investor.png" />
+            <img src="/assets/images/investor.png" />
           </Ellipse>
           <Typography flexGrow={1} variant="body2" fontWeight="bold" textAlign="left">
             Investor
@@ -88,7 +88,7 @@ const UserType = () => {
           onClick={() => router.push('/signup/ideal-profile')}
         >
           <Ellipse className="emoji">
-            <img src="/financial.png" />
+            <img src="/assets/images/financial.png" />
           </Ellipse>
           <Typography flexGrow={1} variant="body2" fontWeight="600" textAlign="left">
             Financial professional

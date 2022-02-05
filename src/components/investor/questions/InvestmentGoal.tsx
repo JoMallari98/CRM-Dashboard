@@ -3,7 +3,7 @@ import { Box, Typography, useTheme, useMediaQuery } from '@mui/material';
 import Question from '../common/Question';
 import SelectionButton from '../common/SelectionButton';
 import { useOnboarding } from 'src/context/userOnBoardingContext';
-import UpAndDowIcon from 'public/UpAndDown.svg';
+import UpAndDowIcon from 'public/assets/svgs/UpAndDown.svg';
 const InvestmentGoal = () => {
   const [currentAnswer, setCurrentAnswer] = useState(0);
   const { currentQuestion } = useOnboarding();
@@ -12,22 +12,22 @@ const InvestmentGoal = () => {
   const possibleAnswers = [
     {
       value: 1,
-      text: 'Generate income',
+      text: 'Generating income',
       icon: '💰️',
     },
     {
       value: 2,
-      text: 'Grow my money',
+      text: 'Growing my money',
       icon: '💸',
     },
     {
       value: 3,
-      text: 'Protect my capital',
+      text: 'Protecting my capital',
       icon: '🛡',
     },
     {
       value: 4,
-      text: 'Minimize ups and downs',
+      text: 'Minimizing ups and downs',
       icon: <UpAndDowIcon />,
     },
   ];
@@ -65,6 +65,7 @@ const InvestmentGoal = () => {
                   value={answer.value}
                   onSelect={handleAnswer}
                   selected={currentAnswer === answer.value}
+                  iconSrc=""
                 >
                   {answer.icon}
                 </SelectionButton>

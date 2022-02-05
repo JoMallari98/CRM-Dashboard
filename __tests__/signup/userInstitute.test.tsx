@@ -14,25 +14,17 @@ describe('UserInstitute Page', () => {
   });
   //Test for Left sided Background Image 
   it('Should render background image', () => {
-    waitFor(() => {
-      expect(screen.getByTestId('background')).toHaveStyle(
-        "background: url('/institute.png no-repeat')"
-      );
-    });
+      expect(screen.getByTestId('background')).toHaveStyle("background: url('/assets/images/institute.png') no-repeat");
   });
   //Test For Text Present on the Screen
   it('Should render mandatory texts', () => {
-    waitFor(() => {
       expect(screen.getByText('Create your ideal profile')).toBeInTheDocument();
       expect(screen.getByText('Do you work for a financial institution?')).toBeInTheDocument();
-    });
   });
   //Test for Progress Bar
   it('Should have 45% Progress Bar', () => {
-    waitFor(() => {
       expect(screen.getByTestId('progress-bar')).toBeInTheDocument();
-      expect(screen.getByTestId('progress-bar')).toHaveValue(45);
-    });
+      expect(screen.getByTestId('progress-bar')).toHaveAttribute("aria-valuenow", "45");
   });
 
   afterEach(() => {
@@ -52,23 +44,17 @@ describe('User Institute Page Routing', () => {
   //Test for route to /signup/ideal-profile
   it('Should Go to signup/ideal-profile', () => {
     fireEvent.click(screen.getByTestId('Yes-i-do-button'));
-    waitFor(() => {
       expect(router.push).toHaveBeenCalledWith('/signup/ideal-profile');
-    });
   });
   //Test for route to /signup/questions
   it('Should Go to signup/questions', () => {
     fireEvent.click(screen.getByTestId('No-i-cannot-button'));
-    waitFor(() => {
       expect(router.push).toHaveBeenCalledWith('/signup/questions');
-    });
   });
   //Test for go back to previous Screen
   it('It should go back to previous page', () => {
     fireEvent.click(screen.getByTestId('back-btn'));
-    waitFor(() => {
       expect(router.back).toHaveBeenCalled();
-    });
   });
 
   afterEach(() => {

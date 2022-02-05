@@ -11,7 +11,7 @@ const Search = () => {
         id="input-with-icon-adornment"
         startAdornment={
           <InputAdornment position="start">
-            <Image src={'/search.svg'} height="20px" width="20px" />
+            <Image src={'/assets/svgs/search.svg'} height="20px" width="20px" />
           </InputAdornment>
         }
       />
